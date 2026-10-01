@@ -97,6 +97,27 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .srch-input{flex:1 1 auto;min-width:0;min-height:64px;border:0;border-bottom:2px solid #1B1F22;background:transparent;font:inherit;font-size:30px;letter-spacing:-.02em;padding:0 2px;outline:none;color:#1B1F22;border-radius:0}
 .srch-input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
 .sr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px;margin-bottom:28px}
+.ideas-grid{columns:3 260px;column-gap:14px}
+.idea{display:block;position:relative;width:100%;margin:0 0 14px;padding:0;border:0;border-radius:18px;overflow:hidden;background:#DCE1E2;cursor:zoom-in;break-inside:avoid;-webkit-column-break-inside:avoid}
+.idea img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.idea:hover img{transform:scale(1.04)}
+.idea-cap{position:absolute;left:10px;bottom:10px;padding:5px 10px;border-radius:999px;background:rgba(242,243,241,.92);color:#1B1F22;font-size:12px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.idea:hover .idea-cap,.idea:focus-visible .idea-cap{opacity:1;transform:none}
+.ichips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 20px;padding-bottom:2px}
+.ichips::-webkit-scrollbar{display:none}
+.ichip{flex-shrink:0;min-height:40px;padding:0 15px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap}
+.lb{position:fixed;inset:0;z-index:95;display:grid;grid-template-columns:minmax(0,1fr) 360px;background:#121517;color:#F2F3F1;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .3s,visibility 0s 0s}
+.lb-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:24px;touch-action:pan-y}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:14px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lb-nav{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;border:0;background:rgba(242,243,241,.14);color:#F2F3F1;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.lb-nav:hover{background:rgba(242,243,241,.26)}
+.lb-panel{display:flex;flex-direction:column;gap:14px;padding:28px 26px;background:#1B1F22;overflow-y:auto}
+.lb-x{width:46px;height:46px;border-radius:50%;border:0;background:rgba(242,243,241,.1);color:#F2F3F1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lb .fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(242,243,241,.18);background:rgba(242,243,241,.06);font:inherit;font-size:16px;color:#F2F3F1;outline:none}
+.lb .fld::placeholder{color:#8D969D}
+.lb .fld:focus{border-color:#F3C431}
+@media (max-width:860px){.lb{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}.lb-stage{padding:64px 10px 10px}.lb-panel{padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-radius:22px 22px 0 0;max-height:52vh}.lb-nav{width:44px;height:44px;margin-top:-22px;font-size:22px}.ideas-grid{columns:2 150px;column-gap:10px}.idea{margin-bottom:10px;border-radius:14px}.idea-cap{opacity:1;transform:none;font-size:11px;padding:4px 8px;left:8px;bottom:8px}}
 .toast{position:fixed;left:50%;bottom:22px;z-index:93;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);box-sizing:border-box;padding:10px 10px 10px 18px;border-radius:999px;background:#1B1F22;color:#F2F3F1;font-size:14px;box-shadow:0 18px 40px -16px rgba(27,31,34,.6);transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s}
 .toast.open{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 .toast span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -269,6 +290,31 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </a>
 </div>
 </div>
+<section id="ideas" style="margin-top: 72px; scroll-margin-top: 90px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 18px">
+<div style="max-width: 720px">
+<div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #F3C431; color: #1B1F22; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Идеи · {{ideasCount}} фото</div>
+<h2 style="margin: 14px 0 0; font-size: 34px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 500">{{ideasTitle}} <i class="s" style="font-size: 1.1em">{{ideasTitleI}}</i></h2>
+<p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; color: #4E575E">Это примеры дизайна из интернета. Понравилось — нажмите на фото и «Хочу такой»: сделаем похожую мебель по вашим размерам и в любом цвете из наших материалов. Замер бесплатный.</p>
+</div>
+</div>
+<sc-if value="{{ideasHasChips}}">
+<div role="group" aria-label="Категории идей" class="ichips">
+<sc-for list="{{ideasChips}}" as="c" hint-placeholder-count="6">
+<button type="button" class="ichip" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}">{{c.name}}</button>
+</sc-for>
+</div>
+</sc-if>
+<div class="ideas-grid">
+<sc-for list="{{ideas}}" as="it" hint-placeholder-count="9">
+<button type="button" class="idea" onClick="{{it.open}}" aria-label="{{it.label}}" style="aspect-ratio: {{it.ar}}"><img src="{{it.src}}" srcset="{{it.srcset}}" sizes="(max-width: 860px) 50vw, 33vw" alt="{{it.alt}}" loading="lazy" decoding="async"><span class="idea-cap">{{it.cat}}</span></button>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 10px">
+<sc-if value="{{ideasMore}}"><button type="button" class="btn2" onClick="{{ideasShowMore}}" style="min-height: 50px">Показать ещё · {{ideasLeft}}</button></sc-if>
+<span style="font-size: 12px; color: #8D969D">Фото: Pexels — примеры дизайна, не наши работы</span>
+</div>
+</section>
 </main>
 <div class="sh-shade {{cartCls}}" onClick="{{closeCart}}" aria-hidden="true"></div>
 <aside class="drawer {{cartCls}}" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="{{cartHidden}}" data-overlay="1">
@@ -367,6 +413,38 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 
 <div class="toast {{toastCls}}" role="status" aria-live="polite"><span>{{toastText}}</span><button type="button" onClick="{{openCart}}">Корзина</button></div>
+<div class="lb {{lbCls}}" role="dialog" aria-modal="true" aria-label="Пример дизайна" aria-hidden="{{lbHidden}}" data-overlay="1">
+<div class="lb-stage">
+<sc-if value="{{lbOpen}}"><img src="{{lbSrc}}" srcset="{{lbSrcset}}" sizes="(max-width: 860px) 100vw, 70vw" alt="{{lbAlt}}"></sc-if>
+<button type="button" class="lb-nav" onClick="{{lbPrev}}" aria-label="Предыдущее фото" style="left: 14px">‹</button>
+<button type="button" class="lb-nav" onClick="{{lbNext}}" aria-label="Следующее фото" style="right: 14px">›</button>
+<button type="button" class="lb-x lb-xm" onClick="{{lbClose}}" aria-label="Закрыть" style="position: absolute; top: 12px; right: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<span style="position: absolute; top: 24px; left: 20px; font-size: 13px; color: #AEB6BC">{{lbCount}}</span>
+</div>
+<div class="lb-panel">
+<div>
+<div style="font-size: 13px; color: #AEB6BC">Пример дизайна · {{lbCat}}</div>
+<div style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-top: 6px; line-height: 1.2">Сделаем похожую — <i class="s" style="font-size: 1.1em; color: #F3C431">по вашим размерам</i></div>
+<div style="font-size: 14px; color: #AEB6BC; line-height: 1.55; margin-top: 8px">Цвет и материал подберём вместе: ЛДСП, МДФ, акрил, эмаль, шпон. Приедем на бесплатный замер и посчитаем точную цену.</div>
+</div>
+<sc-if value="{{lbAsk}}">
+<button type="button" class="btn" onClick="{{lbWant}}" style="background: #F3C431; color: #1B1F22; justify-content: space-between">Хочу такой же<span class="dot" style="background: #1B1F22; color: #F3C431"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+<sc-if value="{{lbHasWa}}"><a class="btn2" href="{{lbWa}}" target="_blank" rel="noopener" style="color: #F2F3F1; border-color: rgba(242,243,241,0.28); justify-content: center">Спросить в WhatsApp</a></sc-if>
+</sc-if>
+<sc-if value="{{lbForm}}">
+<form onSubmit="{{lbSubmit}}" novalidate style="display: flex; flex-direction: column; gap: 10px">
+<label for="lb-name" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Имя</label><input id="lb-name" class="fld" type="text" autocomplete="name" value="{{meName}}" placeholder="Ваше имя">
+<label for="lb-phone" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Телефон</label><input id="lb-phone" class="fld" type="tel" inputmode="tel" autocomplete="tel" value="{{mePhone}}" placeholder="+7 7__ ___ __ __">
+<sc-if value="{{lbErr}}"><div role="alert" style="color: #F3A58F; font-size: 14px">{{lbErrText}}</div></sc-if>
+<button type="submit" class="btn" disabled="{{lbBusy}}" style="background: #F3C431; color: #1B1F22; justify-content: center">{{lbBtn}}</button>
+<div style="font-size: 12px; color: #8D969D; line-height: 1.5">Перезвоним, уточним размеры и договоримся о замере. Фото придёт мастеру вместе с заявкой.</div>
+</form>
+</sc-if>
+<sc-if value="{{lbSent}}">
+<div role="status" style="padding: 14px 16px; border-radius: 16px; background: rgba(243,196,49,0.12); color: #F3C431; font-weight: 600; line-height: 1.5">Заявка №{{lbId}} принята! Скоро перезвоним.</div>
+</sc-if>
+</div>
+</div>
 </div>
 </template>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
@@ -471,7 +549,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=8ec6f783"></script>
+<script src="nem.js?v=f26e41ae"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -537,6 +615,8 @@ class Component extends DCLogic {
       })
     };
     Object.assign(out, this.shopVals(s));
+    const inCat = N.CATS.indexOf(cat) >= 0;
+    Object.assign(out, this.ideasVals(s, { cats: inCat ? [cat] : null, chips: !inCat, title: inCat ? cat : 'Идеи', titleI: inCat ? '— идеи и примеры' : 'для вашего дома', step: 12 }));
     return out;
   }
   slugCat(h) {
@@ -550,14 +630,16 @@ class Component extends DCLogic {
     const N = window.NEM;
     const slug = n === 'Избранное' ? 'fav' : N.CAT_SLUG[n];
     try { history.replaceState(null, '', slug ? '#' + slug : location.pathname + location.search); } catch (e) {}
-    this.setState({ cat: n });
+    this.setState({ cat: n, ideaLim: undefined });
   }
   componentDidMount() {
     this.startFx();
     this.shopMount();
+    window.NEM.loadDesigns();
     this.onHash = () => {
+      if (location.hash === '#ideas') { this.setState({ cat: 'Все' }); setTimeout(() => { const el = document.getElementById('ideas'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 400); return; }
       if (location.hash === '#search') { this.setState({ cat: 'Все' }); setTimeout(() => { const v = this.shopVals(this.state || {}); v.openSearch(); }, 50); return; }
-      this.setState({ cat: this.slugCat(location.hash) });
+      this.setState({ cat: this.slugCat(location.hash), ideaLim: undefined });
     };
     if (location.hash) this.onHash();
     window.addEventListener('hashchange', this.onHash);
@@ -704,7 +786,67 @@ class Component extends DCLogic {
       srchHint: words.length ? (res.length ? 'Нашли: ' + res.length : 'По запросу «' + q.trim() + '» ничего нет') : 'Популярное сейчас',
       toastCls: s.toastOn ? 'open' : '', toastText: s.toastText || '',
       favCount: N.fav.list().length
+    , ...this.lbVals(s) };
+  }
+  // ---- идеи (фото-примеры) и просмотр на весь экран ----
+  ideasVals(s, o) {
+    const N = window.NEM;
+    const all = N.state.designs || [];
+    const cats = ['Кухни'].concat(N.CATS);
+    const chipCat = o.chips ? (s.ideaCat || 'Все') : null;
+    const want = o.cats || (chipCat && chipCat !== 'Все' ? [chipCat] : null);
+    let list = want ? all.filter((d) => want.indexOf(d.category) >= 0) : all;
+    if (!want) { // вперемешку по категориям, чтобы было разнообразно
+      const by = {}; list.forEach((d) => { (by[d.category] = by[d.category] || []).push(d); });
+      const out = []; let more = true;
+      for (let i = 0; more; i++) { more = false; cats.forEach((c) => { const x = (by[c] || [])[i]; if (x) { out.push(x); more = true; } }); }
+      list = out;
+    }
+    const lim = s.ideaLim || o.step || 12;
+    const shown = list.slice(0, lim);
+    const on = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: 'transparent', fg: '#1B1F22', bd: 'rgba(27,31,34,0.18)' });
+    return {
+      ideasCount: list.length, ideasTitle: o.title || 'Идеи', ideasTitleI: o.titleI || 'для вашего дома',
+      ideasHasChips: !!o.chips,
+      ideasChips: o.chips ? ['Все'].concat(cats).filter((c) => c === 'Все' || all.some((d) => d.category === c)).map((c) => ({ name: c, pressed: c === chipCat ? 'true' : 'false', ...on(c === chipCat), pick: () => this.setState({ ideaCat: c, ideaLim: o.step || 12 }) })) : [],
+      ideas: shown.map((d, i) => ({
+        src: N.designSrc(d, 500), srcset: N.designSrc(d, 500) + ' 500w, ' + N.designSrc(d, 900) + ' 900w',
+        ar: '1 / ' + (Number(d.ratio) || 0.667), cat: d.category, alt: 'Пример дизайна: ' + d.category.toLowerCase(),
+        label: 'Открыть фото: ' + d.category.toLowerCase(), open: () => this.openIdea(list, i)
+      })),
+      ideasMore: list.length > lim, ideasLeft: list.length - lim,
+      ideasShowMore: () => this.setState({ ideaLim: lim + (o.step || 12) })
     };
+  }
+  openIdea(list, i) { this.setState({ lbList: list, lbI: i, lbOpen: true, lbStep: 'ask', lbErr: '', cartOpen: false, searchOpen: false }); }
+  lbVals(s) {
+    const N = window.NEM;
+    const L = s.lbList || [], n = L.length, i = n ? ((s.lbI || 0) % n + n) % n : 0, d = L[i];
+    const st = N.settings(), step = s.lbStep || 'ask';
+    const go = (k) => this.setState({ lbI: i + k, lbStep: step === 'sent' ? 'ask' : step, lbErr: '' });
+    return {
+      lbOpen: !!(s.lbOpen && d), lbCls: s.lbOpen && d ? 'open' : '', lbHidden: s.lbOpen && d ? 'false' : 'true',
+      lbSrc: d ? N.designSrc(d, 1200) : '', lbSrcset: d ? N.designSrc(d, 900) + ' 900w, ' + N.designSrc(d, 1600) + ' 1600w' : '',
+      lbAlt: d ? 'Пример дизайна: ' + d.category.toLowerCase() : '', lbCat: d ? d.category : '', lbCount: n ? (i + 1) + ' из ' + n : '',
+      lbPrev: () => go(-1), lbNext: () => go(1), lbClose: () => this.setState({ lbOpen: false }),
+      lbAsk: step === 'ask', lbForm: step === 'form', lbSent: step === 'sent', lbId: s.lbId || '',
+      lbWant: () => { this.setState({ lbStep: 'form' }); setTimeout(() => { const el = document.getElementById('lb-name'); if (el && !el.value) el.focus(); }, 60); },
+      lbHasWa: !!N.normPhone(st.whatsapp), lbWa: d ? N.waLink(st.whatsapp, 'Здравствуйте! Хочу такую мебель (' + d.category.toLowerCase() + '): ' + N.designSrc(d, 1200)) : '',
+      lbErr: !!s.lbErr, lbErrText: s.lbErr || '', lbBusy: !!s.lbBusy, lbBtn: s.lbBusy ? 'Отправляем…' : 'Жду звонка',
+      lbSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.lbSubmit(d); }
+    };
+  }
+  lbSubmit(d) {
+    const N = window.NEM, s = this.state || {};
+    if (s.lbBusy || !d) return;
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+    const name = v('lb-name'), phone = v('lb-phone');
+    if (name.trim().length < 2) return this.setState({ lbErr: 'Напишите ваше имя' });
+    if (!N.normPhone(phone)) return this.setState({ lbErr: 'Проверьте номер: нужно 10 цифр после +7' });
+    this.setState({ lbBusy: true, lbErr: '' });
+    N.bookMeasure({ kind: N.designKind(d.category), name, phone, address: '', date: null, time: '', calc: { design: { id: d.id || null, url: N.designSrc(d, 1200), category: d.category } }, comment: 'Хочу как на фото: ' + d.category.toLowerCase() })
+      .then((r) => this.setState({ lbBusy: false, lbStep: 'sent', lbId: r.id }))
+      .catch((e) => this.setState({ lbBusy: false, lbErr: e.message || 'Не получилось отправить' }));
   }
   coSubmit() {
     const N = window.NEM;
@@ -732,19 +874,33 @@ class Component extends DCLogic {
   shopMount() {
     this.nemOff = window.NEM.on(() => this.setState({ nemT: Date.now() }));
     window.NEM.load();
-    this.onEsc = (e) => { if (e.key === 'Escape') this.setState({ cartOpen: false, searchOpen: false, fOpen: false }); };
+    this.onEsc = (e) => {
+      const st = this.state || {};
+      if (st.lbOpen && (e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !/INPUT|TEXTAREA/.test((e.target || {}).tagName || '')) { this.setState({ lbI: (st.lbI || 0) + (e.key === 'ArrowLeft' ? -1 : 1), lbStep: st.lbStep === 'sent' ? 'ask' : st.lbStep }); return; }
+      if (e.key === 'Escape') this.setState({ cartOpen: false, searchOpen: false, fOpen: false, lbOpen: false });
+    };
     window.addEventListener('keydown', this.onEsc);
+    this.onTs = (e) => { if (e.target.closest && e.target.closest('.lb-stage') && e.touches.length === 1) this.tx = [e.touches[0].clientX, e.touches[0].clientY]; else this.tx = null; };
+    this.onTe = (e) => {
+      if (!this.tx || !(this.state || {}).lbOpen) return;
+      const t = e.changedTouches[0], dx = t.clientX - this.tx[0], dy = t.clientY - this.tx[1]; this.tx = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) this.setState({ lbI: ((this.state || {}).lbI || 0) + (dx < 0 ? 1 : -1) });
+      else if (dy > 90 && Math.abs(dy) > Math.abs(dx) * 1.5) this.setState({ lbOpen: false });
+    };
+    window.addEventListener('touchstart', this.onTs, { passive: true });
+    window.addEventListener('touchend', this.onTe, { passive: true });
     if (/[?&]cart=1/.test(location.search)) this.setState({ cartOpen: true });
   }
   shopUnmount() {
     if (this.nemOff) this.nemOff();
     window.removeEventListener('keydown', this.onEsc);
+    window.removeEventListener('touchstart', this.onTs); window.removeEventListener('touchend', this.onTe);
     clearTimeout(this.toastT);
     document.body.style.overflow = ''; document.body.classList.remove('nem-lock');
   }
   shopSync() {
     const s = this.state || {};
-    const lock = !!(s.cartOpen || s.searchOpen || s.fOpen);
+    const lock = !!(s.cartOpen || s.searchOpen || s.fOpen || s.lbOpen);
     document.body.style.overflow = lock ? 'hidden' : '';
     document.body.classList.toggle('nem-lock', lock);
   }

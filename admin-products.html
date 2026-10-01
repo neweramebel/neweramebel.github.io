@@ -53,6 +53,12 @@ textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
 .ph.main{outline:3px solid #1B1F22;outline-offset:-3px}
 .upl{position:relative;width:72px;height:90px;border-radius:12px;border:1px dashed rgba(27,31,34,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#4E575E;font-size:11px;cursor:pointer;flex-shrink:0;text-align:center}
 .upl input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.dsg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.dsg-i{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;background:#E4E8E7}
+.dsg-i img{width:100%;height:100%;object-fit:cover;display:block}
+.dsg-i.off img{opacity:.28;filter:grayscale(1)}
+.dsg-b{position:absolute;bottom:6px;min-width:34px;height:34px;padding:0 8px;border-radius:999px;border:0;background:rgba(242,243,241,.94);color:#1B1F22;font:inherit;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
+.dsg .upl{width:auto;height:auto;aspect-ratio:1}
 .pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;margin-right:4px}
 .err{padding:12px 14px;border-radius:12px;background:#F6E6D4;color:#7A3F14;font-size:14px;line-height:1.45}
 .bar{position:absolute;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:5;display:flex;flex-direction:column;gap:8px}
@@ -185,7 +191,7 @@ textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
 </sc-for>
 
 <div class="row" style="border: 1px solid rgba(27,31,34,0.08); padding: 14px; display: flex; flex-direction: column; gap: 10px">
-<div><div style="font-weight: 600">Кухни на заказ — цены</div><div style="font-size: 13px; color: #59626A; margin-top: 2px">По этим цифрам калькулятор на сайте считает примерную цену</div></div>
+<div><div style="font-weight: 600">Цены: кухни, материалы, зеркала</div><div style="font-size: 13px; color: #59626A; margin-top: 2px">По этим цифрам сайт считает цены. Наценка за материал фасадов — в процентах к цене товара (ЛДСП — базовая).</div></div>
 <sc-for list="{{kitchen}}" as="k" hint-placeholder-count="7">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
 <label for="{{k.fid}}" style="font-size: 15px; line-height: 1.3">{{k.label}}</label>
@@ -193,6 +199,23 @@ textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
 </div>
 </sc-for>
 <button type="button" class="b1 press" onClick="{{saveKitchen}}" disabled="{{kitOff}}">{{kitLabel}}</button>
+</div>
+
+<div class="row" style="border: 1px solid rgba(27,31,34,0.08); padding: 14px; display: flex; flex-direction: column; gap: 12px">
+<div><div style="font-weight: 600">Идеи на сайте — фото-примеры</div><div style="font-size: 13px; color: #59626A; margin-top: 2px; line-height: 1.45">Фото из интернета в разделе «Идеи». Нажмите «Скрыть», если фото не нравится. Можно добавить фото своих работ — они появятся первыми.</div></div>
+<div style="display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none">
+<sc-for list="{{dChips}}" as="c" hint-placeholder-count="9">
+<button type="button" class="chip" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{dLoading}}"><div style="font-size: 14px; color: #59626A">Загружаем фото…</div></sc-if>
+<div class="dsg">
+<label class="upl"><input type="file" accept="image/*" multiple onChange="{{dUpload}}" aria-label="Добавить своё фото в идеи"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"></rect><circle cx="12" cy="13" r="3.5"></circle><path d="M8 6l1.5-2h5L16 6"></path></svg>{{dUplText}}</label>
+<sc-for list="{{dItems}}" as="d" hint-placeholder-count="6">
+<div class="dsg-i {{d.cls}}"><img src="{{d.src}}" alt="" loading="lazy"><button type="button" class="dsg-b" onClick="{{d.toggle}}" style="left: 6px">{{d.tLabel}}</button><sc-if value="{{d.own}}"><button type="button" class="dsg-b" onClick="{{d.del}}" aria-label="Удалить фото" style="right: 6px; color: #8A4A1C">✕</button></sc-if></div>
+</sc-for>
+</div>
+<div style="font-size: 12px; color: #59626A">{{dStat}}</div>
 </div>
 </div>
 
@@ -304,7 +327,7 @@ textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
   };
 })();
 </script>
-<script src="nem.js?v=8ec6f783"></script>
+<script src="nem.js?v=f26e41ae"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -326,8 +349,9 @@ class Component extends DCLogic {
       busyAdd: !!s.busyAdd, addProduct: () => this.addProduct(chip),
       rows: list.map((p) => this.rowVals(p, s, tog)),
       kitchen: kd.rows.map((r) => ({ ...r, fid: 'kd-' + r.key, change: (e) => this.setState({ kd: { ...(s.kd || {}), [r.key]: e.target.value }, kitDirty: true }) })),
-      kitOff: !s.kitDirty || !!s.kitBusy, kitLabel: s.kitBusy ? 'Сохраняем…' : s.kitDirty ? 'Сохранить цены кухни' : 'Цены кухни сохранены',
+      kitOff: !s.kitDirty || !!s.kitBusy, kitLabel: s.kitBusy ? 'Сохраняем…' : s.kitDirty ? 'Сохранить цены' : 'Цены сохранены',
       saveKitchen: () => this.saveKitchen(),
+      ...this.designVals(s),
       hasToast: !!s.toast, toast: s.toast || '',
       anyDirty: dirtyIds.length > 1 || (dirtyIds.length === 1 && s.open !== dirtyIds[0]),
       saveAllLabel: 'Сохранить все изменения · ' + dirtyIds.length,
@@ -494,13 +518,15 @@ class Component extends DCLogic {
     const st = N.settings(), k = st.kitchen || {}, m = st.mirror || {};
     const f = k.facade || {}, t = k.top || {}, x = k.extra || {};
     const z0 = (v) => (v === null || v === undefined ? '' : v);
-    const cur = { f_ldsp: z0(f.ldsp), f_film: z0(f.film), f_enamel: z0(f.enamel), t_ldsp: z0(t.ldsp), t_stone: z0(t.stone), x_tall: z0(x.tall_pct), x_led: z0(x.led), m_two: z0(m.two), m_none: m.none === undefined ? '' : Math.abs(Number(m.none) || 0) };
+    const mt = st.materials || {};
+    const cur = { f_ldsp: z0(f.ldsp), f_film: z0(f.film), f_akril: z0(f.akril), f_enamel: z0(f.enamel), f_shpon: z0(f.shpon), t_ldsp: z0(t.ldsp), t_kompakt: z0(t.kompakt), t_stone: z0(t.stone), t_kvarc: z0(t.kvarc), t_wood: z0(t.wood), x_tall: z0(x.tall_pct), x_led: z0(x.led), m_two: z0(m.two), m_none: m.none === undefined ? '' : Math.abs(Number(m.none) || 0), p_mdf: z0(mt.mdf), p_akril: z0(mt.akril), p_emal: z0(mt.emal), p_shpon: z0(mt.shpon) };
     const d = { ...cur, ...(s.kd || {}) };
     const rows = [
-      ['f_ldsp', 'Фасады ЛДСП, за метр', '₸', 5000, 0], ['f_film', 'МДФ плёнка, за метр', '₸', 5000, 0], ['f_enamel', 'МДФ эмаль, за метр', '₸', 5000, 0],
-      ['t_ldsp', 'Столешница ЛДСП, доплата за метр', '₸', 1000, 0], ['t_stone', 'Камень, доплата за метр', '₸', 1000, 0],
+      ['f_ldsp', 'Кухня, фасады ЛДСП, за метр', '₸', 5000, 0], ['f_film', 'Кухня, МДФ плёнка, за метр', '₸', 5000, 0], ['f_akril', 'Кухня, акрил, за метр', '₸', 5000, 0], ['f_enamel', 'Кухня, эмаль, за метр', '₸', 5000, 0], ['f_shpon', 'Кухня, шпон, за метр', '₸', 5000, 0],
+      ['t_ldsp', 'Столешница ЛДСП, доплата за метр', '₸', 1000, 0], ['t_kompakt', 'Компакт-плита, доплата за метр', '₸', 1000, 0], ['t_stone', 'Искусственный камень, доплата за метр', '₸', 1000, 0], ['t_kvarc', 'Кварц, доплата за метр', '₸', 1000, 0], ['t_wood', 'Массив, доплата за метр', '₸', 1000, 0],
       ['x_tall', 'Верх до потолка, наценка', '%', 1, 0], ['x_led', 'LED-подсветка, за кухню', '₸', 1000, 0],
-      ['m_two', 'Шкаф-купе: 2 зеркала, доплата', '₸', 1000, 0], ['m_none', 'Шкаф-купе: без зеркал, скидка', '₸', 1000, -1000000]
+      ['m_two', 'Шкаф-купе: 2 зеркала, доплата', '₸', 1000, 0], ['m_none', 'Шкаф-купе: без зеркал, скидка', '₸', 1000, -1000000],
+      ['p_mdf', 'Мебель: фасады МДФ, наценка', '%', 1, 0], ['p_akril', 'Мебель: фасады акрил, наценка', '%', 1, 0], ['p_emal', 'Мебель: фасады эмаль, наценка', '%', 1, 0], ['p_shpon', 'Мебель: фасады шпон, наценка', '%', 1, 0]
     ].map(([key, label, unit, step, min]) => ({ key, label, unit, step, min: 0, value: d[key] }));
     return { rows, d };
   }
@@ -509,12 +535,56 @@ class Component extends DCLogic {
     const { d } = this.kitchenDraft();
     const n = (v) => Math.max(0, Math.round(Number(v) || 0));
     const patch = {
-      kitchen: { facade: { ldsp: n(d.f_ldsp), film: n(d.f_film), enamel: n(d.f_enamel) }, top: { ldsp: n(d.t_ldsp), stone: n(d.t_stone) }, extra: { tall_pct: Math.min(100, n(d.x_tall)), led: n(d.x_led) } },
-      mirror: { one: 0, two: n(d.m_two), none: -n(d.m_none) }
+      kitchen: { facade: { ldsp: n(d.f_ldsp), film: n(d.f_film), akril: n(d.f_akril), enamel: n(d.f_enamel), shpon: n(d.f_shpon) }, top: { ldsp: n(d.t_ldsp), kompakt: n(d.t_kompakt), stone: n(d.t_stone), kvarc: n(d.t_kvarc), wood: n(d.t_wood) }, extra: { tall_pct: Math.min(100, n(d.x_tall)), led: n(d.x_led) } },
+      mirror: { one: 0, two: n(d.m_two), none: -n(d.m_none) },
+      materials: { ldsp: 0, mdf: Math.min(300, n(d.p_mdf)), akril: Math.min(300, n(d.p_akril)), emal: Math.min(300, n(d.p_emal)), shpon: Math.min(300, n(d.p_shpon)) }
     };
     this.setState({ kitBusy: true });
-    N.admin.saveSettings(patch).then(() => { this.setState({ kitBusy: false, kitDirty: false, kd: {} }); this.say('Цены кухни сохранены'); })
+    N.admin.saveSettings(patch).then(() => { this.setState({ kitBusy: false, kitDirty: false, kd: {} }); this.say('Цены сохранены'); })
       .catch((e) => { this.setState({ kitBusy: false }); this.say(e.message); });
+  }
+  designVals(s) {
+    const N = window.NEM, all = s.designs, cat = s.dCat || 'Кухни';
+    const cats = ['Кухни'].concat(N.CATS);
+    const list = (all || []).filter((d) => d.category === cat);
+    const own = (d) => d.url.indexOf(N.URL) === 0;
+    const on = list.filter((d) => d.active).length;
+    return {
+      dLoading: !all,
+      dChips: cats.map((c) => { const n = (all || []).filter((d) => d.category === c && d.active).length; return { label: c + (all ? ' · ' + n : ''), pressed: c === cat ? 'true' : 'false', bg: c === cat ? '#1B1F22' : '#FFFFFF', fg: c === cat ? '#F2F3F1' : '#1B1F22', bd: c === cat ? '#1B1F22' : 'rgba(27,31,34,0.14)', pick: () => this.setState({ dCat: c }) }; }),
+      dItems: list.map((d) => ({
+        src: N.designSrc(d, 300), cls: d.active ? '' : 'off', own: own(d), tLabel: d.active ? 'Скрыть' : 'Показать',
+        toggle: () => this.patchDesign(d, { active: !d.active }),
+        del: () => this.delDesign(d)
+      })),
+      dStat: all ? 'На сайте: ' + on + ' из ' + list.length + ' в разделе «' + cat + '»' : '',
+      dUplText: s.dUp ? 'Загрузка…' : 'Своё фото',
+      dUpload: (ev) => this.uploadDesign(cat, ev.target.files, ev.target)
+    };
+  }
+  patchDesign(d, patch) {
+    const N = window.NEM;
+    const upd = (x) => this.setState({ designs: ((this.state || {}).designs || []).map((y) => (y.id === d.id ? { ...y, ...x } : y)) });
+    upd(patch);
+    N.admin.update('designs', d.id, patch).then(() => this.say(patch.active ? 'Фото снова на сайте' : 'Фото скрыто с сайта')).catch((e) => { upd(d); this.say(e.message); });
+  }
+  delDesign(d) {
+    const N = window.NEM;
+    N.admin.remove('designs', d.id).then(() => { this.setState({ designs: ((this.state || {}).designs || []).filter((y) => y.id !== d.id) }); N.admin.removeFile(d.url); this.say('Фото удалено'); }).catch((e) => this.say(e.message));
+  }
+  uploadDesign(cat, files, input) {
+    const N = window.NEM;
+    const fl = Array.prototype.slice.call(files || []).slice(0, 10);
+    if (!fl.length) return;
+    this.setState({ dUp: true });
+    const one = (f) => N.resizeImage(f, 1600).then((blob) => {
+      const ext = blob.type === 'image/webp' ? 'webp' : 'jpg';
+      return Promise.all([N.admin.upload(blob, 'designs/' + Date.now() + '-' + Math.random().toString(36).slice(2, 7) + '.' + ext), window.createImageBitmap ? window.createImageBitmap(blob).then((b) => b.height / b.width).catch(() => 0.75) : Promise.resolve(0.75)]);
+    }).then(([url, ratio]) => N.admin.insert('designs', { category: cat, url, ratio: Math.max(0.3, Math.min(3, ratio || 0.75)), sort: -1 }));
+    fl.reduce((p, f) => p.then((acc) => one(f).then((row) => acc.concat([row]))), Promise.resolve([]))
+      .then((rows) => { this.setState({ dUp: false, designs: rows.concat((this.state || {}).designs || []) }); this.say('Фото добавлено: ' + rows.length); })
+      .catch((e) => { this.setState({ dUp: false }); this.say(e.message); })
+      .then(() => { if (input) input.value = ''; });
   }
   componentDidMount() {
     const N = window.NEM;
@@ -523,6 +593,7 @@ class Component extends DCLogic {
     if (!N.auth.signedIn()) { this.setState({ auth: 'login' }); return; }
     N.admin.me().then((me) => {
       if (!me) return this.setState({ auth: 'login', err: 'Этот аккаунт не имеет доступа к кабинету' });
+      N.admin.list('designs', 'select=*&order=sort.asc,id.asc').then((rows) => this.setState({ designs: rows || [] })).catch(() => this.setState({ designs: [] }));
       return N.admin.list('products', 'select=*&order=sort.asc,name.asc').then((rows) => this.setState({ products: rows, auth: 'app' }));
     }).catch((e) => this.setState({ err: e.message, auth: e.status === 401 ? 'login' : 'app' }));
     this.onLeave = (e) => { if (Object.keys((this.state || {}).edits || {}).length) { e.preventDefault(); e.returnValue = ''; } };

@@ -209,6 +209,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 </div>
 </sc-if>
 <sc-if value="{{item.hasComment}}"><div style="padding: 10px 12px; border-radius: 12px; background: #E4E8E7; font-size: 14px; line-height: 1.45"><b>Комментарий клиента:</b> {{item.comment}}</div></sc-if>
+<sc-if value="{{item.hasDesign}}"><a href="{{item.designUrl}}" target="_blank" rel="noopener" style="display: block; border-radius: 14px; overflow: hidden; position: relative; text-decoration: none"><img src="{{item.designUrl}}" alt="Фото, которое выбрал клиент" loading="lazy" style="display: block; width: 100%; max-height: 260px; object-fit: cover"><span style="position: absolute; left: 10px; bottom: 10px; padding: 5px 10px; border-radius: 999px; background: rgba(242,243,241,0.92); color: #1B1F22; font-size: 12px; font-weight: 600">Клиент хочет такую · открыть фото</span></a></sc-if>
 <div>
 <label class="lbl" for="{{item.dateId}}">{{item.dateLabel}}</label>
 <div style="display: flex; gap: 8px"><input id="{{item.dateId}}" class="in" type="date" value="{{item.dateVal}}"><sc-if value="{{item.isMeas}}"><input id="{{item.timeId}}" class="in" type="time" value="{{item.timeVal}}" style="max-width: 120px" aria-label="Время замера"></sc-if><button type="button" class="b3" onClick="{{item.saveDate}}">Сохранить</button></div>
@@ -440,7 +441,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
   };
 })();
 </script>
-<script src="nem.js?v=8ec6f783"></script>
+<script src="nem.js?v=f26e41ae"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -526,18 +527,21 @@ class Component extends DCLogic {
     const N = window.NEM, it = (o.items || [])[0] || {};
     const parts = [];
     if (it.size) parts.push(it.size);
-    if (it.color && N.SW[it.color]) parts.push(N.SW[it.color].name.toLowerCase());
+    if (it.decor) parts.push((it.mat_name ? it.mat_name + ', ' : '') + String(it.decor).toLowerCase());
+    else if (it.color && N.SW[it.color]) parts.push(N.SW[it.color].name.toLowerCase());
     parts.push(N.fmt(o.total));
     if (o.payment) parts.push(o.payment === 'kaspi' ? 'Kaspi' : 'наличные');
     return parts.join(' · ');
   }
   measTitle(m) {
     const k = { kitchen: 'Замер кухни', wardrobe: 'Замер · шкаф / гардеробная', other: 'Замер мебели' }[m.kind] || 'Замер';
+    if (m.calc && m.calc.design) return 'Хочет как на фото · ' + String(m.calc.design.category || '').toLowerCase();
     return k + (m.calc && m.calc.shape ? ' · ' + String(m.calc.shape).toLowerCase() : '');
   }
   measSub(m) {
     const c = m.calc || {};
     if (c.range) return 'Расчёт с сайта: ' + c.range;
+    if (c.design) return 'Фото-пример с сайта — откройте карточку';
     return m.want_date ? 'Хочет: ' + new Date(m.want_date + 'T12:00:00').toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + (m.want_time ? ', ' + m.want_time : '') : 'Без расчёта';
   }
 
@@ -613,9 +617,10 @@ class Component extends DCLogic {
         numLabel: (isO ? 'Заказ №' : 'Заявка №') + x.id, created: new Date(x.created_at).toLocaleString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }),
         name: x.name || '—', phone: N.prettyPhone(x.phone), address: x.address || '—', extra,
         hasItems: isO && (x.items || []).length > 0,
-        lines: isO ? (x.items || []).map((it) => ({ image: it.image || 'img/nova_walnut.webp', name: it.name, meta: [it.size, it.color && N.SW[it.color] ? N.SW[it.color].name.toLowerCase() : '', it.mirror ? ({ one: '1 зеркало', two: '2 зеркала', none: 'без зеркал' })[it.mirror] : '', (it.qty || 1) + ' шт. × ' + N.fmt(it.price)].filter(Boolean).join(' · '), sum: N.fmt((it.price || 0) * (it.qty || 1)) })) : [],
+        lines: isO ? (x.items || []).map((it) => ({ image: it.image || 'img/nova_walnut.webp', name: it.name, meta: [it.size, it.decor ? (it.mat_name ? it.mat_name + ', ' : '') + String(it.decor).toLowerCase() : it.color && N.SW[it.color] ? N.SW[it.color].name.toLowerCase() : '', it.mirror ? ({ one: '1 зеркало', two: '2 зеркала', none: 'без зеркал' })[it.mirror] : '', (it.qty || 1) + ' шт. × ' + N.fmt(it.price)].filter(Boolean).join(' · '), sum: N.fmt((it.price || 0) * (it.qty || 1)) })) : [],
         totalText: N.fmt(x.total || 0),
         hasComment: !!x.comment, comment: x.comment || '',
+        hasDesign: !isO && !!(c.design && /^https:\/\//.test(c.design.url || '')), designUrl: c.design && /^https:\/\//.test(c.design.url || '') ? c.design.url : '',
         isMeas: !isO, dateId: 'dt-' + key, timeId: 'tm-' + key, statusId: 'ss-' + key, noteId: 'nt-' + key,
         dateLabel: isO ? 'День доставки и сборки' : 'Дата и время замера',
         dateVal: isO ? (x.delivery_date || '') : (sched ? this.ymd(sched) : (x.want_date || '')),

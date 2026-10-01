@@ -97,6 +97,27 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .srch-input{flex:1 1 auto;min-width:0;min-height:64px;border:0;border-bottom:2px solid #1B1F22;background:transparent;font:inherit;font-size:30px;letter-spacing:-.02em;padding:0 2px;outline:none;color:#1B1F22;border-radius:0}
 .srch-input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
 .sr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px;margin-bottom:28px}
+.ideas-grid{columns:3 260px;column-gap:14px}
+.idea{display:block;position:relative;width:100%;margin:0 0 14px;padding:0;border:0;border-radius:18px;overflow:hidden;background:#DCE1E2;cursor:zoom-in;break-inside:avoid;-webkit-column-break-inside:avoid}
+.idea img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.idea:hover img{transform:scale(1.04)}
+.idea-cap{position:absolute;left:10px;bottom:10px;padding:5px 10px;border-radius:999px;background:rgba(242,243,241,.92);color:#1B1F22;font-size:12px;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.idea:hover .idea-cap,.idea:focus-visible .idea-cap{opacity:1;transform:none}
+.ichips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 20px;padding-bottom:2px}
+.ichips::-webkit-scrollbar{display:none}
+.ichip{flex-shrink:0;min-height:40px;padding:0 15px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap}
+.lb{position:fixed;inset:0;z-index:95;display:grid;grid-template-columns:minmax(0,1fr) 360px;background:#121517;color:#F2F3F1;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .3s,visibility 0s 0s}
+.lb-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:24px;touch-action:pan-y}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:14px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lb-nav{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;border:0;background:rgba(242,243,241,.14);color:#F2F3F1;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.lb-nav:hover{background:rgba(242,243,241,.26)}
+.lb-panel{display:flex;flex-direction:column;gap:14px;padding:28px 26px;background:#1B1F22;overflow-y:auto}
+.lb-x{width:46px;height:46px;border-radius:50%;border:0;background:rgba(242,243,241,.1);color:#F2F3F1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lb .fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(242,243,241,.18);background:rgba(242,243,241,.06);font:inherit;font-size:16px;color:#F2F3F1;outline:none}
+.lb .fld::placeholder{color:#8D969D}
+.lb .fld:focus{border-color:#F3C431}
+@media (max-width:860px){.lb{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}.lb-stage{padding:64px 10px 10px}.lb-panel{padding:18px 18px calc(18px + env(safe-area-inset-bottom));border-radius:22px 22px 0 0;max-height:52vh}.lb-nav{width:44px;height:44px;margin-top:-22px;font-size:22px}.ideas-grid{columns:2 150px;column-gap:10px}.idea{margin-bottom:10px;border-radius:14px}.idea-cap{opacity:1;transform:none;font-size:11px;padding:4px 8px;left:8px;bottom:8px}}
 .toast{position:fixed;left:50%;bottom:22px;z-index:93;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);box-sizing:border-box;padding:10px 10px 10px 18px;border-radius:999px;background:#1B1F22;color:#F2F3F1;font-size:14px;box-shadow:0 18px 40px -16px rgba(27,31,34,.6);transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s}
 .toast.open{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 .toast span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -120,6 +141,20 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(27,31,34,.2);background:#FFFFFF;font:inherit;font-size:16px;color:#1B1F22;outline:none}
 .fld:focus{border-color:#1B1F22}
+.mchips{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.mchips::-webkit-scrollbar{display:none}
+.mchip{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px;min-height:54px;padding:6px 15px;border-radius:14px;border:1px solid;font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.mchip small{font-size:12px;font-weight:500;opacity:.72}
+.dgrp{font-size:12px;color:#59626A;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin:16px 0 8px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:6px}
+.dsw{aspect-ratio:1;border-radius:50%;border:2px solid transparent;padding:3px;background:transparent;cursor:pointer;transition:border-color .2s,transform .2s}
+.dsw:hover{transform:scale(1.06)}
+.dsw span{display:block;width:100%;height:100%;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(27,31,34,.18)}
+.pvw{position:absolute;inset:0;width:100%;height:100%;display:block}
+.mpv{display:none}
+@media (max-width:980px){.mpv{display:flex;align-items:center;gap:12px;position:sticky;top:74px;z-index:4;margin:0 -6px 10px;padding:8px 14px 8px 8px;border-radius:18px;background:rgba(242,243,241,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 12px 30px -18px rgba(27,31,34,.55);border:1px solid rgba(27,31,34,.06)}.mpv-i{width:52px;height:65px;border-radius:10px;overflow:hidden;flex-shrink:0;background:var(--studio)}.mpv-i img{width:100%;height:100%;object-fit:cover;display:block}}
+@keyframes pvin{from{opacity:.35}to{opacity:1}}
+.pvw.on{animation:pvin .35s ease}
 @media (max-width:980px){.pp{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:620px){.gal{flex-direction:column-reverse}.gal-t{flex-direction:row!important;overflow-x:auto}.thumb{width:64px;height:80px;flex-shrink:0}}
 </style>
@@ -169,6 +204,8 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 <div style="position: relative; flex-grow: 1; border-radius: 26px; overflow: hidden; background: var(--studio); aspect-ratio: 4 / 5">
 <img src="{{mainImg}}" alt="{{mainAlt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<canvas ref="{{cvRef}}" class="{{cvClass}}" role="img" aria-label="{{mainAlt}}" style="display: {{cvDisp}}"></canvas>
+<sc-if value="{{cvMode}}"><div style="position: absolute; left: 18px; bottom: 18px; right: 18px; display: flex; justify-content: flex-start"><span style="padding: 7px 12px; border-radius: 999px; background: rgba(242,243,241,0.92); font-size: 12px; font-weight: 600; color: #1B1F22; display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 50%; background: {{decorBg}}; box-shadow: inset 0 0 0 1px rgba(27,31,34,0.2)"></span>{{pvLabel}}</span></div></sc-if>
 <div style="position: absolute; top: 18px; left: 18px; display: flex; gap: 6px"><sc-if value="{{hasBadge}}" hint-placeholder-val="{{true}}"><span style="padding: 6px 12px; border-radius: 999px; background: #1B1F22; color: #F2F3F1; font-size: 12px; font-weight: 500">{{badge}}</span></sc-if><span style="padding: 6px 12px; border-radius: 999px; background: rgba(242,243,241,0.9); color: {{stockFg}}; font-size: 12px; font-weight: 500">{{stockText}}</span></div>
 <button type="button" onClick="{{toggleFav}}" aria-pressed="{{favP}}" aria-label="В избранное" style="position: absolute; top: 14px; right: 14px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(242,243,241,0.9); color: {{favColor}}; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{favFill}}" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
 </div>
@@ -194,6 +231,28 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </sc-if>
 </div>
 
+<sc-if value="{{hasCfg}}" hint-placeholder-val="{{true}}">
+<div style="margin-top: 24px">
+<div class="mpv" aria-hidden="true"><span class="mpv-i"><img src="{{mpvSrc}}" alt=""></span><span style="min-width: 0; line-height: 1.3"><span style="display: block; font-weight: 600; font-size: 15px">{{colorName}}</span><span style="display: block; font-size: 13px; color: #59626A">{{mpvSub}}</span></span><span style="margin-left: auto; font-weight: 600; white-space: nowrap">{{priceText}}</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px"><span style="font-weight: 600">Материал фасадов</span><span style="color: #59626A">{{matNote}}</span></div>
+<div role="group" aria-label="Материал фасадов" class="mchips">
+<sc-for list="{{mats}}" as="item" hint-placeholder-count="5">
+<button type="button" class="mchip" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border-color: {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}">{{item.name}}<small>{{item.add}}</small></button>
+</sc-for>
+</div>
+<div style="font-size: 14px; margin-top: 18px"><span style="font-weight: 600">Цвет:</span> <span style="color: #4E575E">{{colorName}}</span></div>
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="2">
+<div class="dgrp">{{g.name}}</div>
+<div role="group" aria-label="{{g.name}}" class="dgrid">
+<sc-for list="{{g.decors}}" as="d" hint-placeholder-count="8">
+<button type="button" class="dsw" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" aria-label="{{d.name}}" title="{{d.name}}" style="border-color: {{d.ring}}"><span style="background: {{d.bg}}"></span></button>
+</sc-for>
+</div>
+</sc-for>
+<div style="margin-top: 12px; font-size: 13px; color: #59626A; line-height: 1.5">Цвет на экране примерный. Живые образцы покажем перед изготовлением — можно выбрать и другой декор.</div>
+</div>
+</sc-if>
+<sc-if value="{{noCfg}}" hint-placeholder-val="{{false}}">
 <div style="margin-top: 22px">
 <div style="font-size: 14px"><span style="font-weight: 600">Цвет:</span> <span style="color: #4E575E">{{colorName}}</span></div>
 <div role="group" aria-label="Цвет" style="display: flex; gap: 10px; margin-top: 10px">
@@ -202,6 +261,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </sc-for>
 </div>
 </div>
+</sc-if>
 
 <sc-if value="{{hasMirror}}" hint-placeholder-val="{{true}}">
 <div style="margin-top: 22px">
@@ -383,6 +443,38 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 
 <div class="toast {{toastCls}}" role="status" aria-live="polite"><span>{{toastText}}</span><button type="button" onClick="{{openCart}}">Корзина</button></div>
+<div class="lb {{lbCls}}" role="dialog" aria-modal="true" aria-label="Пример дизайна" aria-hidden="{{lbHidden}}" data-overlay="1">
+<div class="lb-stage">
+<sc-if value="{{lbOpen}}"><img src="{{lbSrc}}" srcset="{{lbSrcset}}" sizes="(max-width: 860px) 100vw, 70vw" alt="{{lbAlt}}"></sc-if>
+<button type="button" class="lb-nav" onClick="{{lbPrev}}" aria-label="Предыдущее фото" style="left: 14px">‹</button>
+<button type="button" class="lb-nav" onClick="{{lbNext}}" aria-label="Следующее фото" style="right: 14px">›</button>
+<button type="button" class="lb-x lb-xm" onClick="{{lbClose}}" aria-label="Закрыть" style="position: absolute; top: 12px; right: 12px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<span style="position: absolute; top: 24px; left: 20px; font-size: 13px; color: #AEB6BC">{{lbCount}}</span>
+</div>
+<div class="lb-panel">
+<div>
+<div style="font-size: 13px; color: #AEB6BC">Пример дизайна · {{lbCat}}</div>
+<div style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-top: 6px; line-height: 1.2">Сделаем похожую — <i class="s" style="font-size: 1.1em; color: #F3C431">по вашим размерам</i></div>
+<div style="font-size: 14px; color: #AEB6BC; line-height: 1.55; margin-top: 8px">Цвет и материал подберём вместе: ЛДСП, МДФ, акрил, эмаль, шпон. Приедем на бесплатный замер и посчитаем точную цену.</div>
+</div>
+<sc-if value="{{lbAsk}}">
+<button type="button" class="btn" onClick="{{lbWant}}" style="background: #F3C431; color: #1B1F22; justify-content: space-between">Хочу такой же<span class="dot" style="background: #1B1F22; color: #F3C431"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+<sc-if value="{{lbHasWa}}"><a class="btn2" href="{{lbWa}}" target="_blank" rel="noopener" style="color: #F2F3F1; border-color: rgba(242,243,241,0.28); justify-content: center">Спросить в WhatsApp</a></sc-if>
+</sc-if>
+<sc-if value="{{lbForm}}">
+<form onSubmit="{{lbSubmit}}" novalidate style="display: flex; flex-direction: column; gap: 10px">
+<label for="lb-name" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Имя</label><input id="lb-name" class="fld" type="text" autocomplete="name" value="{{meName}}" placeholder="Ваше имя">
+<label for="lb-phone" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Телефон</label><input id="lb-phone" class="fld" type="tel" inputmode="tel" autocomplete="tel" value="{{mePhone}}" placeholder="+7 7__ ___ __ __">
+<sc-if value="{{lbErr}}"><div role="alert" style="color: #F3A58F; font-size: 14px">{{lbErrText}}</div></sc-if>
+<button type="submit" class="btn" disabled="{{lbBusy}}" style="background: #F3C431; color: #1B1F22; justify-content: center">{{lbBtn}}</button>
+<div style="font-size: 12px; color: #8D969D; line-height: 1.5">Перезвоним, уточним размеры и договоримся о замере. Фото придёт мастеру вместе с заявкой.</div>
+</form>
+</sc-if>
+<sc-if value="{{lbSent}}">
+<div role="status" style="padding: 14px 16px; border-radius: 16px; background: rgba(243,196,49,0.12); color: #F3C431; font-weight: 600; line-height: 1.5">Заявка №{{lbId}} принята! Скоро перезвоним.</div>
+</sc-if>
+</div>
+</div>
 </div>
 </template>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
@@ -487,18 +579,20 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=8ec6f783"></script>
+<script src="nem.js?v=f26e41ae"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
     if (!this.curRef) this.curRef = { current: null };
+    if (!this.cvRef) this.cvRef = { current: null };
     const s = this.state || {};
     const N = window.NEM;
     const all = N.state.products;
     const st = N.settings();
     const pid = s.pid || 'nova';
     const p = all ? N.product(pid) : null;
-    const out = { curRef: this.curRef, loading: !all, missing: !!all && !p, ready: !!p };
+    const out = { curRef: this.curRef, cvRef: this.cvRef, loading: !all, missing: !!all && !p, ready: !!p, cvDisp: 'none', cvClass: 'pvw', cvMode: false };
+    this.want = null;
     Object.assign(out, this.shopVals(s));
     if (!p) return out;
     const on = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: 'transparent', fg: '#1B1F22', bd: 'rgba(27,31,34,0.2)' });
@@ -506,11 +600,29 @@ class Component extends DCLogic {
     const multi = sizes.length > 1;
     const size = s.size && sizes.some((z) => z.label === s.size) ? s.size : N.defSize(p);
     const colors = (p.colors || []).filter((k) => N.SW[k]);
-    const color = s.color && colors.indexOf(s.color) >= 0 ? s.color : (colors[0] || null);
+    let color = s.color && colors.indexOf(s.color) >= 0 ? s.color : (colors[0] || null);
+    // Конструктор: материал фасадов + декор; перекраска на холсте, если нет готового фото в этом цвете
+    const cfg = N.hasCfg(p.id) && N.MAT.mats.length > 0;
+    let matId = null, mt = null, d = null, cvMode = false;
+    if (cfg) {
+      mt = N.matById(s.mat) || N.MAT.mats[0]; matId = mt.id;
+      const list = N.matDecors(mt);
+      d = (s.decor && list.filter((x) => x.id === s.decor)[0]) || (matId === 'ldsp' && color && list.filter((x) => x.id === N.SW_DECOR[color])[0]) || list[0];
+      const photo = matId === 'ldsp' && d.sw && colors.indexOf(d.sw) >= 0 ? d.sw : null;
+      if (photo) color = photo;
+      cvMode = !photo;
+    }
     const mirror = s.mirror || 'one';
-    const unit = N.unitPrice(p, size, mirror);
+    const unit = N.unitPrice(p, size, mirror, matId);
     const qty = s.qty || 1, img = s.img || 0, tab = s.tab || 0;
-    const imgs = N.imagesFor(p, color);
+    const photos = N.imagesFor(p, color);
+    const imgs = cvMode ? [null].concat(photos) : photos;
+    const cur = Math.min(img, imgs.length - 1);
+    const showCv = cvMode && cur === 0;
+    const pkey = d ? p.id + '|' + d.id : '';
+    if (showCv) this.want = { p, d, key: pkey };
+    const painted = showCv && s.painted === pkey;
+    const myThumb = s.cvThumbKey === pkey ? s.cvThumb : null;
     const nm = N.splitName(p.name);
     const fv = N.fav.has(p.id);
     const inCart = N.cart.has(p.id);
@@ -518,15 +630,22 @@ class Component extends DCLogic {
     const related = prods.filter((x) => x.id !== p.id && x.category === p.category).concat(prods.filter((x) => x.id !== p.id && x.category !== p.category)).slice(0, 4);
     const mAdd = st.mirror || {};
     const mLabel = (m) => { const d = Number(mAdd[m.id]) || 0; return m.label + (d > 0 ? ' · +' + N.fmt(d) : d < 0 ? ' · −' + N.fmt(-d) : ''); };
-    const colorName = color ? N.SW[color].name : '—';
+    const colorName = d ? d.name : color ? N.SW[color].name : '—';
+    const on2 = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: '#FFFFFF', fg: '#1B1F22', bd: 'rgba(27,31,34,0.14)' });
     const md = N.MIRRORS.filter((m) => m.id === mirror)[0] || N.MIRRORS[0];
     const orderDays = st.order_days ? 'Под заказ, ' + st.order_days : 'Под заказ';
     Object.assign(out, {
       catName: p.category, catSlug: N.CAT_SLUG[p.category] || '', titleMain: nm[0], quote: nm[1],
       lead: p.lead || '', text: p.description || p.lead || '', dims: p.dims || p.size_text,
       hasBadge: !!p.badge, badge: p.badge, stockText: p.in_stock ? 'В наличии' : orderDays, stockFg: p.in_stock ? '#2F6B3A' : '#8A4A1C',
-      mainImg: imgs[Math.min(img, imgs.length - 1)], mainAlt: p.name + (color ? ', цвет ' + colorName.toLowerCase() : ''),
-      thumbs: imgs.length > 1 ? imgs.map((src, i) => ({ src, label: 'Фото ' + (i + 1), pressed: i === img ? 'true' : 'false', ring: i === img ? '#1B1F22' : 'transparent', pick: () => this.setState({ img: i }) })) : [],
+      mainImg: showCv ? 'cfg/' + p.id + '.webp' : imgs[cur], mainAlt: p.name + (colorName !== '—' ? ', цвет ' + colorName.toLowerCase() : ''),
+      cvDisp: painted ? 'block' : 'none', cvClass: 'pvw' + (painted ? ' on' : ''), cvMode: showCv,
+      pvLabel: painted ? 'Предпросмотр: ' + colorName.toLowerCase() : 'Перекрашиваем…', decorBg: N.swatchBg(d),
+      thumbs: imgs.length > 1 ? imgs.map((src, i) => ({ src: src === null ? (myThumb || 'cfg/' + p.id + '.webp') : src, label: src === null ? 'Ваш цвет' : 'Фото ' + (i + 1), pressed: i === cur ? 'true' : 'false', ring: i === cur ? '#1B1F22' : 'transparent', pick: () => this.setState({ img: i }) })) : [],
+      hasCfg: cfg, noCfg: !cfg, matNote: mt ? mt.note : '',
+      mpvSrc: cvMode ? (myThumb || 'cfg/' + p.id + '.webp') : photos[0], mpvSub: mt ? mt.name + (size ? ' · ' + size : '') : '',
+      mats: cfg ? N.MAT.mats.map((m) => { const pc = N.matPct(m.id); return { name: m.name, add: pc ? '+' + pc + '%' : 'в цене', pressed: m.id === matId ? 'true' : 'false', ...on2(m.id === matId), pick: () => this.setState({ mat: m.id, decor: null, img: 0 }) }; }) : [],
+      groups: cfg ? mt.groups.map((g) => ({ name: g.name, decors: g.decors.map((x) => ({ name: x.name, bg: N.swatchBg(x), pressed: x.id === d.id ? 'true' : 'false', ring: x.id === d.id ? '#1B1F22' : 'transparent', pick: () => this.setState({ decor: x.id, img: 0 }) })) })) : [],
       priceText: N.fmt(unit * qty),
       sizeLabel: p.size_label || (multi ? 'Ширина' : 'Размер'), multiSize: multi,
       widths: sizes.map((z) => ({ label: z.label, pressed: z.label === size ? 'true' : 'false', ...on(z.label === size), pick: () => this.setState({ size: z.label }) })),
@@ -536,20 +655,20 @@ class Component extends DCLogic {
       mirrors: N.MIRRORS.map((x) => ({ label: mLabel(x), pressed: x.id === mirror ? 'true' : 'false', ...on(x.id === mirror), pick: () => this.setState({ mirror: x.id }) })),
       qty, qtyUp: () => this.setState({ qty: Math.min(9, qty + 1) }), qtyDown: () => this.setState({ qty: Math.max(1, qty - 1) }),
       cartBtn: 'Добавить в корзину' + (inCart ? ' ещё' : ''),
-      addCart: () => { N.cart.add({ id: p.id, size, color, mirror: p.has_mirror ? mirror : null, qty }); this.setState({ cartOpen: true, coStep: 'cart', qty: 1 }); },
+      addCart: () => { N.cart.add({ id: p.id, size, color, mirror: p.has_mirror ? mirror : null, mat: matId, decor: d ? d.id : null, thumb: cvMode ? myThumb : null, qty }); this.setState({ cartOpen: true, coStep: 'cart', qty: 1 }); },
       favP: fv ? 'true' : 'false', favFill: fv ? '#F3C431' : 'none', favColor: '#1B1F22', toggleFav: () => N.fav.toggle(p.id),
       quick: !!s.quick, openQuick: () => this.setState({ quick: !s.quick, quickErr: '' }),
       sent: !!s.quickId, notSent: !s.quickId, quickId: s.quickId || '',
       quickBusy: !!s.quickBusy, quickBtn: s.quickBusy ? 'Отправляем…' : 'Жду звонка',
       quickErr: !!s.quickErr, quickErrText: s.quickErr || '',
-      quickNote: 'Заказ: ' + p.name + (size ? ', ' + size : '') + (color ? ', ' + colorName.toLowerCase() : '') + ' — ' + N.fmt(unit * qty),
-      sendQuick: () => this.sendQuick(p, { size, color, mirror: p.has_mirror ? mirror : null, qty }),
+      quickNote: 'Заказ: ' + p.name + (size ? ', ' + size : '') + (mt ? ', ' + mt.name : '') + (colorName !== '—' ? ', ' + colorName.toLowerCase() : '') + ' — ' + N.fmt(unit * qty),
+      sendQuick: () => this.sendQuick(p, { size, color, mirror: p.has_mirror ? mirror : null, mat: matId, decor: d ? d.id : null, qty }),
       hasWarranty: !!st.warranty, warrantyText: st.warranty,
       tabs: ['Описание', 'Характеристики', 'Доставка и сборка'].map((l, i) => ({ label: l, sel: i === tab ? 'true' : 'false', line: i === tab ? '#1B1F22' : 'transparent', fg: i === tab ? '#1B1F22' : '#59626A', pick: () => this.setState({ tab: i }) })),
       tab0: tab === 0, tab1: tab === 1, tab2: tab === 2,
       specs: [
         { k: p.size_label || 'Размер', v: size || p.size_text }, { k: 'Габариты', v: p.dims || p.size_text },
-        { k: 'Корпус', v: 'ЛДСП 16 мм, кромка ПВХ' }, { k: 'Цвет', v: colorName },
+        { k: 'Корпус', v: 'ЛДСП 16 мм, кромка ПВХ' }, { k: mt ? 'Фасады' : 'Цвет', v: mt ? mt.name + ' — ' + colorName.toLowerCase() : colorName },
         { k: 'Сборка', v: 'Включена в цену' }, { k: 'Наличие', v: p.in_stock ? 'В наличии' : orderDays }
       ].concat(p.has_mirror ? [{ k: 'Двери', v: md.label + ', профиль алюминий' }] : []).concat(st.warranty ? [{ k: 'Гарантия', v: st.warranty }] : []),
       related: related.map((x, i) => ({ id: x.id, name: x.name, img: N.imagesFor(x)[0], delay: i * 0.08, priceText: N.priceFrom(x) }))
@@ -563,20 +682,27 @@ class Component extends DCLogic {
     const phone = el ? el.value : '';
     if (!N.normPhone(phone)) return this.setState({ quickErr: 'Проверьте номер: нужно 10 цифр после +7' });
     this.setState({ quickBusy: true, quickErr: '' });
-    N.placeOrder({ kind: 'one_click', phone, items: [{ id: p.id, size: cfg.size, color: cfg.color, mirror: cfg.mirror, qty: cfg.qty }] })
+    N.placeOrder({ kind: 'one_click', phone, items: [{ id: p.id, size: cfg.size, color: cfg.color, mirror: cfg.mirror, mat: cfg.mat, decor: cfg.decor, qty: cfg.qty }] })
       .then((r) => this.setState({ quickBusy: false, quickId: r.id }))
       .catch((e) => this.setState({ quickBusy: false, quickErr: e.message }));
   }
   componentDidMount() {
     this.startFx();
     this.shopMount();
-    const read = (first) => { const h = decodeURIComponent((location.hash || '').slice(1)); if (h) this.setState({ pid: h, size: undefined, color: undefined, img: 0, mirror: undefined, qty: 1, quickId: 0, quick: false, quickErr: '', tab: 0 }); if (!first) window.scrollTo(0, 0); };
+    const read = (first) => { const h = decodeURIComponent((location.hash || '').slice(1)); if (h) this.setState({ pid: h, size: undefined, color: undefined, mat: undefined, decor: undefined, img: 0, mirror: undefined, qty: 1, quickId: 0, quick: false, quickErr: '', tab: 0 }); if (!first) window.scrollTo(0, 0); };
     read(true);
     this.onHash = () => read(false);
     window.addEventListener('hashchange', this.onHash);
   }
   componentDidUpdate() {
     this.shopSync();
+    const w = this.want, cv = this.cvRef && this.cvRef.current;
+    if (w && cv && this.paintKey !== w.key) {
+      const key = w.key; this.paintKey = key;
+      window.NEM.productPaint(cv, w.p, w.d, () => this.paintKey === key)
+        .then((r) => { if (r && this.paintKey === key) this.setState({ painted: key, cvThumb: window.NEM.thumbOf(cv, 168), cvThumbKey: key }); })
+        .catch(() => { if (this.paintKey === key) this.paintKey = null; });
+    }
     const s = this.state || {}, p = window.NEM.product(s.pid || 'nova');
     if (p && document.title.indexOf(p.name) < 0) document.title = p.name + ' — New Era Mebel, Туркестан';
   }
@@ -721,7 +847,67 @@ class Component extends DCLogic {
       srchHint: words.length ? (res.length ? 'Нашли: ' + res.length : 'По запросу «' + q.trim() + '» ничего нет') : 'Популярное сейчас',
       toastCls: s.toastOn ? 'open' : '', toastText: s.toastText || '',
       favCount: N.fav.list().length
+    , ...this.lbVals(s) };
+  }
+  // ---- идеи (фото-примеры) и просмотр на весь экран ----
+  ideasVals(s, o) {
+    const N = window.NEM;
+    const all = N.state.designs || [];
+    const cats = ['Кухни'].concat(N.CATS);
+    const chipCat = o.chips ? (s.ideaCat || 'Все') : null;
+    const want = o.cats || (chipCat && chipCat !== 'Все' ? [chipCat] : null);
+    let list = want ? all.filter((d) => want.indexOf(d.category) >= 0) : all;
+    if (!want) { // вперемешку по категориям, чтобы было разнообразно
+      const by = {}; list.forEach((d) => { (by[d.category] = by[d.category] || []).push(d); });
+      const out = []; let more = true;
+      for (let i = 0; more; i++) { more = false; cats.forEach((c) => { const x = (by[c] || [])[i]; if (x) { out.push(x); more = true; } }); }
+      list = out;
+    }
+    const lim = s.ideaLim || o.step || 12;
+    const shown = list.slice(0, lim);
+    const on = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: 'transparent', fg: '#1B1F22', bd: 'rgba(27,31,34,0.18)' });
+    return {
+      ideasCount: list.length, ideasTitle: o.title || 'Идеи', ideasTitleI: o.titleI || 'для вашего дома',
+      ideasHasChips: !!o.chips,
+      ideasChips: o.chips ? ['Все'].concat(cats).filter((c) => c === 'Все' || all.some((d) => d.category === c)).map((c) => ({ name: c, pressed: c === chipCat ? 'true' : 'false', ...on(c === chipCat), pick: () => this.setState({ ideaCat: c, ideaLim: o.step || 12 }) })) : [],
+      ideas: shown.map((d, i) => ({
+        src: N.designSrc(d, 500), srcset: N.designSrc(d, 500) + ' 500w, ' + N.designSrc(d, 900) + ' 900w',
+        ar: '1 / ' + (Number(d.ratio) || 0.667), cat: d.category, alt: 'Пример дизайна: ' + d.category.toLowerCase(),
+        label: 'Открыть фото: ' + d.category.toLowerCase(), open: () => this.openIdea(list, i)
+      })),
+      ideasMore: list.length > lim, ideasLeft: list.length - lim,
+      ideasShowMore: () => this.setState({ ideaLim: lim + (o.step || 12) })
     };
+  }
+  openIdea(list, i) { this.setState({ lbList: list, lbI: i, lbOpen: true, lbStep: 'ask', lbErr: '', cartOpen: false, searchOpen: false }); }
+  lbVals(s) {
+    const N = window.NEM;
+    const L = s.lbList || [], n = L.length, i = n ? ((s.lbI || 0) % n + n) % n : 0, d = L[i];
+    const st = N.settings(), step = s.lbStep || 'ask';
+    const go = (k) => this.setState({ lbI: i + k, lbStep: step === 'sent' ? 'ask' : step, lbErr: '' });
+    return {
+      lbOpen: !!(s.lbOpen && d), lbCls: s.lbOpen && d ? 'open' : '', lbHidden: s.lbOpen && d ? 'false' : 'true',
+      lbSrc: d ? N.designSrc(d, 1200) : '', lbSrcset: d ? N.designSrc(d, 900) + ' 900w, ' + N.designSrc(d, 1600) + ' 1600w' : '',
+      lbAlt: d ? 'Пример дизайна: ' + d.category.toLowerCase() : '', lbCat: d ? d.category : '', lbCount: n ? (i + 1) + ' из ' + n : '',
+      lbPrev: () => go(-1), lbNext: () => go(1), lbClose: () => this.setState({ lbOpen: false }),
+      lbAsk: step === 'ask', lbForm: step === 'form', lbSent: step === 'sent', lbId: s.lbId || '',
+      lbWant: () => { this.setState({ lbStep: 'form' }); setTimeout(() => { const el = document.getElementById('lb-name'); if (el && !el.value) el.focus(); }, 60); },
+      lbHasWa: !!N.normPhone(st.whatsapp), lbWa: d ? N.waLink(st.whatsapp, 'Здравствуйте! Хочу такую мебель (' + d.category.toLowerCase() + '): ' + N.designSrc(d, 1200)) : '',
+      lbErr: !!s.lbErr, lbErrText: s.lbErr || '', lbBusy: !!s.lbBusy, lbBtn: s.lbBusy ? 'Отправляем…' : 'Жду звонка',
+      lbSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.lbSubmit(d); }
+    };
+  }
+  lbSubmit(d) {
+    const N = window.NEM, s = this.state || {};
+    if (s.lbBusy || !d) return;
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+    const name = v('lb-name'), phone = v('lb-phone');
+    if (name.trim().length < 2) return this.setState({ lbErr: 'Напишите ваше имя' });
+    if (!N.normPhone(phone)) return this.setState({ lbErr: 'Проверьте номер: нужно 10 цифр после +7' });
+    this.setState({ lbBusy: true, lbErr: '' });
+    N.bookMeasure({ kind: N.designKind(d.category), name, phone, address: '', date: null, time: '', calc: { design: { id: d.id || null, url: N.designSrc(d, 1200), category: d.category } }, comment: 'Хочу как на фото: ' + d.category.toLowerCase() })
+      .then((r) => this.setState({ lbBusy: false, lbStep: 'sent', lbId: r.id }))
+      .catch((e) => this.setState({ lbBusy: false, lbErr: e.message || 'Не получилось отправить' }));
   }
   coSubmit() {
     const N = window.NEM;
@@ -749,19 +935,33 @@ class Component extends DCLogic {
   shopMount() {
     this.nemOff = window.NEM.on(() => this.setState({ nemT: Date.now() }));
     window.NEM.load();
-    this.onEsc = (e) => { if (e.key === 'Escape') this.setState({ cartOpen: false, searchOpen: false, fOpen: false }); };
+    this.onEsc = (e) => {
+      const st = this.state || {};
+      if (st.lbOpen && (e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !/INPUT|TEXTAREA/.test((e.target || {}).tagName || '')) { this.setState({ lbI: (st.lbI || 0) + (e.key === 'ArrowLeft' ? -1 : 1), lbStep: st.lbStep === 'sent' ? 'ask' : st.lbStep }); return; }
+      if (e.key === 'Escape') this.setState({ cartOpen: false, searchOpen: false, fOpen: false, lbOpen: false });
+    };
     window.addEventListener('keydown', this.onEsc);
+    this.onTs = (e) => { if (e.target.closest && e.target.closest('.lb-stage') && e.touches.length === 1) this.tx = [e.touches[0].clientX, e.touches[0].clientY]; else this.tx = null; };
+    this.onTe = (e) => {
+      if (!this.tx || !(this.state || {}).lbOpen) return;
+      const t = e.changedTouches[0], dx = t.clientX - this.tx[0], dy = t.clientY - this.tx[1]; this.tx = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) this.setState({ lbI: ((this.state || {}).lbI || 0) + (dx < 0 ? 1 : -1) });
+      else if (dy > 90 && Math.abs(dy) > Math.abs(dx) * 1.5) this.setState({ lbOpen: false });
+    };
+    window.addEventListener('touchstart', this.onTs, { passive: true });
+    window.addEventListener('touchend', this.onTe, { passive: true });
     if (/[?&]cart=1/.test(location.search)) this.setState({ cartOpen: true });
   }
   shopUnmount() {
     if (this.nemOff) this.nemOff();
     window.removeEventListener('keydown', this.onEsc);
+    window.removeEventListener('touchstart', this.onTs); window.removeEventListener('touchend', this.onTe);
     clearTimeout(this.toastT);
     document.body.style.overflow = ''; document.body.classList.remove('nem-lock');
   }
   shopSync() {
     const s = this.state || {};
-    const lock = !!(s.cartOpen || s.searchOpen || s.fOpen);
+    const lock = !!(s.cartOpen || s.searchOpen || s.fOpen || s.lbOpen);
     document.body.style.overflow = lock ? 'hidden' : '';
     document.body.classList.toggle('nem-lock', lock);
   }
