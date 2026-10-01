@@ -3,36 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAFBF4">
 <title>Каталог мебели — New Era Mebel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth}
-body{margin:0;background:#F6F4EF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#171512}a:hover{color:#A6521F}
+body{margin:0;background:#FAFBF4;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#171512}a:hover{color:#566B0E}
 i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:0}
 .wrap{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;width:100%}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .hero-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
-.glass{background:rgba(246,244,239,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
-.nl{color:#3B3630;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
+.glass{background:rgba(250,251,244,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.nl{color:#34382B;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
 .nl:hover{background:rgba(23,21,18,.06);color:#171512}
 .ib{width:44px;height:44px;border-radius:999px;border:0;display:inline-flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;transition:background .25s}
 .ib:hover{background:rgba(23,21,18,.08)}
-.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#F6F4EF;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#FAFBF4;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .btn:hover{color:#FFFFFF;transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(23,21,18,.8)}
-.btn .dot{width:36px;height:36px;border-radius:50%;background:#F6F4EF;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn .dot{width:36px;height:36px;border-radius:50%;background:#FAFBF4;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .btn:hover .dot{transform:rotate(-45deg)}
 .btn2{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;border:1px solid rgba(23,21,18,.22);color:#171512;text-decoration:none;font-weight:500;font-size:15px;background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
 .btn2:hover{background:rgba(23,21,18,.05);border-color:rgba(23,21,18,.5);color:#171512}
 .tile{display:block;text-decoration:none;color:#171512}
-.tile .ph{overflow:hidden;border-radius:20px;background:#EEEBE4}
+.tile .ph{overflow:hidden;border-radius:20px;background:#F1FEC8}
 .tile img{display:block;width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .tile:hover img{transform:scale(1.045)}
 .tile:hover{color:#171512}
-.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#F6F4EF;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#FAFBF4;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .tall:hover{transform:translateY(-6px);color:#FFFFFF}
 .tall img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .tall:hover img{transform:scale(1.06)}
@@ -49,65 +50,102 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .cursor{position:fixed;left:0;top:0;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(23,21,18,.5);pointer-events:none;z-index:100;transform:translate3d(-100px,-100px,0);display:none;mix-blend-mode:multiply}
 @media (pointer:fine){.cursor{display:block}}
 .par{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
-.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6E1D9}
+.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6EDCF}
+.pc-name{margin-top:10px;font-size:16px;font-weight:500;text-decoration:none;line-height:1.3}
+.pc-size{font-size:13px;color:#5E6452;margin-top:4px}
+.pc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.pc-price{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.pc-btn{min-height:44px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .25s,color .25s}
+.pc-tag{position:absolute;top:14px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
+@media (max-width:980px){.g4{gap:24px 12px}.pc-name{font-size:14px;margin-top:8px}.pc-size{font-size:12px}.pc-foot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}.pc-price{font-size:17px}.pc-btn{min-height:40px;font-size:13px;padding:0 10px}.pc-tag{top:8px;padding:4px 8px;font-size:11px}.tile .ph{border-radius:16px}}
 @media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:40px!important}.h2{font-size:34px!important}.giant{font-size:26vw!important}}
+@media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}}
 @media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
 </style>
 <style>
 .cat-layout{display:grid;grid-template-columns:272px minmax(0,1fr);gap:44px;align-items:start}
-.chk{display:flex;align-items:center;gap:12px;min-height:40px;padding:0 4px;border-radius:10px;cursor:pointer;font-size:15px;color:#2B2722}
+.chk{display:flex;align-items:center;gap:12px;min-height:40px;padding:0 4px;border-radius:10px;cursor:pointer;font-size:15px;color:#272A20}
 .chk input{width:18px;height:18px;accent-color:#171512;margin:0}
 .rng{width:100%;accent-color:#171512}
-.sel{min-height:44px;padding:0 40px 0 16px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:#F6F4EF;font:inherit;font-size:14px;color:#171512;cursor:pointer}
-@media (max-width:980px){.cat-layout{grid-template-columns:minmax(0,1fr)}}
+.sel{min-height:44px;padding:0 40px 0 16px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:#FAFBF4;font:inherit;font-size:14px;color:#171512;cursor:pointer}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
+.chip{flex-shrink:0;min-height:44px;padding:0 18px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.filters{position:sticky;top:100px;display:flex;flex-direction:column;gap:28px;padding:24px;border-radius:22px;background:#F1FEC8}
+.f-head,.f-foot,.f-btn,.f-shade{display:none}
+.pills{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:#525846}
+.pills span{padding:8px 12px;border-radius:999px;background:#F1FEC8;white-space:nowrap}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
+@media (max-width:1180px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:980px){
+.cat-layout{grid-template-columns:minmax(0,1fr);gap:0}
+.chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px 20px;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{min-height:40px;padding:0 15px}
+.filters{position:fixed;top:auto;left:0;right:0;bottom:0;z-index:80;max-height:86vh;max-height:86dvh;overflow-y:auto;overscroll-behavior:contain;border-radius:26px 26px 0 0;padding:0 20px 0;gap:24px;background:#FAFBF4;box-shadow:0 -24px 60px -20px rgba(23,21,18,.35);transform:translateY(105%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
+.filters.open{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s 0s}
+.f-head{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:2;margin:0 -20px;padding:18px 20px 12px;background:#FAFBF4}
+.f-foot{display:flex;gap:10px;position:sticky;bottom:0;margin:0 -20px;padding:12px 20px calc(14px + env(safe-area-inset-bottom));background:#FAFBF4;border-top:1px solid rgba(23,21,18,.08)}
+.f-shade{display:block;position:fixed;inset:0;z-index:79;background:rgba(23,21,18,.42);opacity:0;pointer-events:none;transition:opacity .35s}
+.f-shade.open{opacity:1;pointer-events:auto}
+.f-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(23,21,18,.22);background:transparent;font:inherit;font-size:14px;font-weight:500;color:#171512;cursor:pointer}
+.f-reset-d{display:none!important}
+.pills{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px 16px;padding:0 20px;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.bar{flex-wrap:nowrap;margin-bottom:18px}
+.sel-t{display:none}
+.pgrid{gap:26px 12px}
+}
 </style>
 
 </head>
 <body>
 <div id="root"></div>
 <template id="tpl">
-<div style="position: relative; width: 100%; min-height: 100vh; background: #F6F4EF; overflow-x: clip">
+<div style="position: relative; width: 100%; min-height: 100vh; background: #FAFBF4; overflow-x: clip">
 <div ref="{{curRef}}" class="cursor" aria-hidden="true"></div>
-<header style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
-<a href="index.html" class="glass" style="display: flex; align-items: baseline; gap: 6px; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
+<header class="hdr" style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<a href="index.html" class="glass logo" style="display: flex; align-items: baseline; gap: 6px; white-space: nowrap; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
 <span style="font-weight: 700; font-size: 16px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 19px">mebel</i>
 </a>
 <nav class="navc glass" aria-label="Главное меню" style="display: flex; gap: 2px; padding: 5px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
 <a class="nl" href="catalog.html">Каталог</a>
 <a class="nl" href="kitchen.html">Кухни на заказ</a>
-<a class="nl" href="catalog.html">Шкафы-купе</a>
+<a class="nl" href="catalog.html#kupe">Шкафы-купе</a>
 <a class="nl" href="index.html">Доставка и оплата</a>
 <a class="nl" href="index.html">Контакты</a>
 </nav>
 <div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
-<button type="button" class="ib" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
-<button type="button" class="ib" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+<button type="button" class="ib hide-s" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+<button type="button" class="ib hide-s" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
 <button type="button" class="ib" aria-label="Корзина" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
-<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #A6521F; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #566B0E; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
 </button>
-<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px">Замер бесплатно<span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px; white-space: nowrap"><span>Замер<span class="hide-s"> бесплатно</span></span><span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
 </header>
 <main class="wrap" style="padding-top: 110px; padding-bottom: 100px">
-<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #6B645A"><a href="index.html" style="color: #6B645A; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #171512">Каталог</span></nav>
+<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #5E6452"><a href="index.html" style="color: #5E6452; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #171512">Каталог</span></nav>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin: 18px 0 28px">
 <h1 class="h1" style="margin: 0; font-size: 52px; letter-spacing: -0.035em; font-weight: 500; line-height: 1">Каталог <i class="s" style="font-size: 1.1em">мебели</i></h1>
-<div style="font-size: 15px; color: #6B645A">Найдено: <span style="color: #171512; font-weight: 600">{{found}}</span></div>
+<div style="font-size: 15px; color: #5E6452">Найдено: <span style="color: #171512; font-weight: 600">{{found}}</span></div>
 </div>
 
-<div role="group" aria-label="Категории" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px">
+<div role="group" aria-label="Категории" class="chips">
 <sc-for list="{{cats}}" as="item" hint-placeholder-count="9">
-<button type="button" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .25s, color .25s">{{item.name}}</button>
+<button type="button" class="chip" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}">{{item.name}}</button>
 </sc-for>
 </div>
 
 <div class="cat-layout">
-<aside aria-label="Фильтры" style="position: sticky; top: 100px; display: flex; flex-direction: column; gap: 28px; padding: 24px; border-radius: 22px; background: #EEEBE4">
+<div class="f-shade {{fCls}}" onClick="{{closeF}}" aria-hidden="true"></div>
+<aside id="filters" aria-label="Фильтры" class="filters {{fCls}}">
+<div class="f-head"><span style="font-size: 20px; font-weight: 600">Фильтры</span><button type="button" class="ib" onClick="{{closeF}}" aria-label="Закрыть фильтры" style="background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
 <div>
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 600">Цена до</span><span style="font-size: 15px">{{maxText}}</span></div>
 <label for="pmax" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Максимальная цена</label>
 <input id="pmax" class="rng" type="range" min="20000" max="300000" step="5000" value="{{pmax}}" onChange="{{setMax}}" style="margin-top: 14px">
-<div style="display: flex; justify-content: space-between; font-size: 12px; color: #6B645A; margin-top: 4px"><span>20 000 ₸</span><span>300 000 ₸</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5E6452; margin-top: 4px"><span>20 000 ₸</span><span>300 000 ₸</span></div>
 </div>
 <div>
 <div style="font-weight: 600; margin-bottom: 8px">Ширина</div>
@@ -119,59 +157,57 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <div style="font-weight: 600; margin-bottom: 12px">Цвет</div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{colors}}" as="item" hint-placeholder-count="6">
-<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.name}}" title="{{item.name}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid {{item.ring}}; background: #EEEBE4; padding: 4px; cursor: pointer"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: {{item.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.18)"></span></button>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.name}}" title="{{item.name}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid {{item.ring}}; background: transparent; padding: 4px; cursor: pointer"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: {{item.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.18)"></span></button>
 </sc-for>
 </div>
 </div>
 <label class="chk" style="padding: 0"><input type="checkbox" checked="{{stockOnly}}" onChange="{{toggleStock}}">Только в наличии</label>
-<button type="button" class="btn2" onClick="{{reset}}" style="min-height: 44px; justify-content: center">Сбросить фильтры</button>
+<button type="button" class="btn2 f-reset-d" onClick="{{reset}}" style="min-height: 44px; justify-content: center">Сбросить фильтры</button>
+<div class="f-foot"><button type="button" class="btn2" onClick="{{reset}}" style="min-height: 50px; padding: 0 18px">Сбросить</button><button type="button" class="btn" onClick="{{closeF}}" style="flex-grow: 1; justify-content: center; padding: 0 18px">{{showText}}</button></div>
 </aside>
 
 <div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px">
-<div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px; color: #5A544B">
-<span style="padding: 8px 12px; border-radius: 999px; background: #EEEBE4">Сборка включена</span>
-<span style="padding: 8px 12px; border-radius: 999px; background: #EEEBE4">Доставка по Туркестану — 0 ₸</span>
-<span style="padding: 8px 12px; border-radius: 999px; background: #EEEBE4">Kaspi / наличные</span>
-</div>
-<label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #6B645A">Сортировка
-<select class="sel" value="{{sort}}" onChange="{{setSort}}"><option value="pop">Популярные</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
+<div class="pills"><span>Сборка включена</span><span>Доставка по Туркестану — 0 ₸</span><span>Kaspi / наличные</span></div>
+<div class="bar">
+<button type="button" class="f-btn" onClick="{{openF}}" aria-controls="filters" aria-expanded="{{fExp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>Фильтры<sc-if value="{{hasActive}}" hint-placeholder-val="{{false}}"><span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #171512; color: #FAFBF4; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">{{activeCount}}</span></sc-if></button>
+<label class="sel-l" style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #5E6452"><span class="sel-t">Сортировка</span>
+<select class="sel" aria-label="Сортировка" value="{{sort}}" onChange="{{setSort}}"><option value="pop">Популярные</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
 </label>
 </div>
 
-<div class="g3" style="gap: 28px 20px">
+<div class="pgrid">
 <sc-for list="{{items}}" as="item" hint-placeholder-count="6">
-<div data-rv="{{item.delay}}" style="display: flex; flex-direction: column">
-<a class="tile" href="product.html">
-<div class="ph" style="position: relative; aspect-ratio: 4 / 5"><img src="{{item.img}}" alt="{{item.name}}" style="height: 100%; object-fit: cover">
-<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 14px; left: 14px; padding: 5px 11px; border-radius: 999px; background: #171512; color: #F6F4EF; font-size: 12px; font-weight: 500">{{item.badge}}</span></sc-if>
-<span style="position: absolute; top: 14px; right: 14px; padding: 5px 11px; border-radius: 999px; background: rgba(246,244,239,0.9); color: {{item.stockFg}}; font-size: 12px; font-weight: 500">{{item.stockText}}</span>
+<div data-rv="{{item.delay}}" style="display: flex; flex-direction: column; min-width: 0">
+<a class="tile" href="product.html#{{item.id}}">
+<div class="ph ph-r" style="position: relative; aspect-ratio: 4 / 5"><img src="{{item.img}}" alt="{{item.name}}" loading="lazy" style="height: 100%; object-fit: cover">
+<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{false}}"><span class="pc-tag" style="left: 14px; background: #171512; color: #FAFBF4">{{item.badge}}</span></sc-if>
+<span class="pc-tag" style="right: 14px; background: rgba(250,251,244,0.9); color: {{item.stockFg}}">{{item.stockText}}</span>
 </div>
 </a>
 <div style="display: flex; gap: 6px; margin-top: 14px">
 <sc-for list="{{item.swatches}}" as="sw" hint-placeholder-count="3"><span title="{{sw.name}}" style="width: 14px; height: 14px; border-radius: 50%; background: {{sw.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.2)"></span></sc-for>
 </div>
-<a href="product.html" style="margin-top: 10px; font-size: 16px; font-weight: 500; text-decoration: none; line-height: 1.3">{{item.name}}</a>
-<div style="font-size: 13px; color: #6B645A; margin-top: 4px">{{item.size}}</div>
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px">
-<div style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">{{item.priceText}}</div>
-<button type="button" onClick="{{item.add}}" aria-label="{{item.addLabel}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .25s, color .25s">{{item.btn}}</button>
+<a class="pc-name" href="product.html#{{item.id}}">{{item.name}}</a>
+<div class="pc-size">{{item.size}}</div>
+<div class="pc-foot">
+<div class="pc-price">{{item.priceText}}</div>
+<button type="button" class="pc-btn" onClick="{{item.add}}" aria-label="{{item.addLabel}}" style="border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}">{{item.btn}}</button>
 </div>
 </div>
 </sc-for>
 </div>
 
 <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
-<div style="padding: 60px 24px; border-radius: 22px; background: #EEEBE4; text-align: center">
+<div style="padding: 60px 24px; border-radius: 22px; background: #F1FEC8; text-align: center">
 <div style="font-size: 20px; font-weight: 600">Ничего не нашлось</div>
-<p style="color: #6B645A; margin: 8px 0 20px">Попробуйте изменить фильтры — или закажите мебель по своим размерам.</p>
+<p style="color: #5E6452; margin: 8px 0 20px">Попробуйте изменить фильтры — или закажите мебель по своим размерам.</p>
 <button type="button" class="btn2" onClick="{{reset}}">Сбросить фильтры</button>
 </div>
 </sc-if>
 
-<a href="kitchen.html" data-rv="0" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 32px 36px; border-radius: 24px; background: #171512; color: #F6F4EF; text-decoration: none">
-<span><span style="display: block; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Не нашли свой размер? <i class="s" style="font-size: 1.1em">Сделаем под вас.</i></span><span style="display: block; margin-top: 6px; color: #BDB5A9">Шкафы в нишу, кухни, гардеробные — по вашим меркам. Замер бесплатный.</span></span>
-<span style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #F6F4EF; color: #171512; font-weight: 500">Заказать по размерам</span>
+<a href="kitchen.html" data-rv="0" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 32px 36px; border-radius: 24px; background: #171512; color: #FAFBF4; text-decoration: none">
+<span><span style="display: block; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Не нашли свой размер? <i class="s" style="font-size: 1.1em">Сделаем под вас.</i></span><span style="display: block; margin-top: 6px; color: #B8BEA6">Шкафы в нишу, кухни, гардеробные — по вашим меркам. Замер бесплатный.</span></span>
+<span style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #FAFBF4; color: #171512; font-weight: 500">Заказать по размерам</span>
 </a>
 </div>
 </div>
@@ -231,7 +267,9 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
     if (node.nodeType === 3) {
       var t = node.nodeValue;
       if (!t.trim() && t.indexOf('\n') >= 0) return null;
-      return t.indexOf('{{') >= 0 ? interp(t, scope) : t;
+      if (t.indexOf('{{') < 0) return t;
+      var m1 = t.match(/^\{\{\s*([^}]+?)\s*\}\}$/);
+      return m1 ? lookup(m1[1], scope) : t.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null ? '' : String(v); });
     }
     if (node.nodeType !== 1) return null;
     var tag = node.localName;
@@ -283,7 +321,7 @@ class Component extends DCLogic {
   renderVals() {
     if (!this.curRef) this.curRef = { current: null };
     const s = this.state || {};
-    const A = {"nova_walnut": "img/nova_walnut.jpg", "nova_white": "img/nova_white.jpg", "nova_graphite": "img/nova_graphite.jpg", "nova_side": "img/nova_side.jpg", "loft": "img/loft.jpg", "classic": "img/classic.jpg", "skandi": "img/skandi.jpg", "port": "img/port.jpg", "liniya": "img/liniya.jpg", "grid": "img/grid.jpg", "flat": "img/flat.jpg", "son": "img/son.jpg", "student": "img/student.jpg", "mini": "img/mini.jpg", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
+    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
     const SW = { walnut: { name: 'Орех', hex: '#5A3F2E' }, white: { name: 'Белый', hex: '#F1EEE9' }, graphite: { name: 'Графит', hex: '#3B3B3D' }, oak: { name: 'Дуб', hex: '#C9A57B' }, beige: { name: 'Кашемир', hex: '#D8CDBC' }, sage: { name: 'Шалфей', hex: '#9AA38E' } };
     // Цены и товары — пример. В готовом сайте всё это брат ведёт в кабинете («Товары»).
     const PRODUCTS = [
@@ -300,6 +338,22 @@ class Component extends DCLogic {
       { id: 'mini', name: 'Тумба прикроватная «Мини»', cat: 'Комоды и тумбы', img: A.mini, w: 45, size: '45 × 50 × 40 см', price: 24000, badge: '', stock: true, c: ['sage', 'white', 'oak'] },
       { id: 'nova-g', name: 'Шкаф-купе «Нова» графит', cat: 'Шкафы-купе', img: A.nova_graphite, w: 180, size: '180 × 220 × 60 см', price: 199000, badge: '', stock: true, c: ['graphite', 'walnut', 'white'] }
     ];
+    const CAT_SLUG = { 'Шкафы-купе': 'kupe', 'Распашные шкафы': 'raspashnye', 'Прихожие': 'prihozhie', 'Комоды и тумбы': 'komody', 'Стеллажи': 'stellazhi', 'ТВ-тумбы': 'tv', 'Кровати': 'krovati', 'Столы': 'stoly' };
+    // Размеры, цены и тексты для страницы товара (пример — брат ведёт это в кабинете)
+    const DETAILS = {
+      nova: { sizes: [[120, 149000], [140, 167000], [160, 185000], [180, 199000], [200, 219000]], def: 160, dims: 'высота 220 · глубина 60 см', mirror: true, imgs: { walnut: [A.nova_walnut, A.nova_side], white: [A.nova_white], graphite: [A.nova_graphite] }, lead: 'Двухдверный шкаф-купе с зеркалом. Бесшумные роликовые механизмы, алюминиевый профиль, внутри — штанга и полки.', text: '«Нова» — вместительный шкаф-купе для спальни или прихожей. Двери двигаются плавно и тихо, зеркало визуально расширяет комнату. Внутри: две секции, штанга для одежды на всю ширину отсека и регулируемые полки. Корпус из ЛДСП 16 мм с кромкой ПВХ.' },
+      'nova-g': { alias: 'nova', color: 'graphite' },
+      loft: { sizes: [[200, 239000], [240, 265000], [270, 289000]], def: 240, dims: 'высота 240 · глубина 60 см', lead: 'Трёхдверный шкаф-купе с зеркалом по центру — вмещает гардероб всей семьи.', text: '«Лофт» — большой шкаф-купе в светлом дубе. Центральная дверь с зеркалом, боковые — с тонкой чёрной вставкой. Внутри: три секции, две штанги, полки и место под чемоданы сверху.' },
+      classic: { sizes: [[120, 119000], [160, 149000], [200, 179000]], def: 160, dims: 'высота 210 · глубина 56 см', lead: 'Распашной шкаф на четыре двери с двумя ящиками внизу.', text: '«Классик» — простой и надёжный распашной шкаф. Двери на петлях с доводчиками, длинные ручки, два вместительных ящика для белья внизу.' },
+      skandi: { sizes: [[90, 89000], [120, 109000]], def: 90, dims: 'высота 200 · глубина 52 см', lead: 'Компактный шкаф на деревянных ножках — для спальни или детской.', text: '«Сканди» — небольшой шкаф с латунными кнопками-ручками и ящиком внизу. Ножки поднимают его над полом, так проще убирать.' },
+      port: { dims: 'ширина 180 · высота 200 · глубина 40 см', lead: 'Прихожая: шкаф, вешалка с крючками, зеркало и банкетка для обуви.', text: '«Порт» собирает всё, что нужно у входа: высокий шкаф для верхней одежды, панель с крючками и полкой, зеркало и банкетку с ящиками под обувь.' },
+      liniya: { sizes: [[80, 64000], [100, 76000]], def: 80, dims: 'высота 90 · глубина 45 см', lead: 'Комод на четыре ящика с латунными ручками.', text: '«Линия» — комод на металлических ножках. Ящики на шариковых направляющих выдвигаются полностью и закрываются мягко.' },
+      grid: { sizes: [[80, 42000], [120, 58000], [160, 74000]], def: 120, dims: 'высота 180 · глубина 35 см', lead: 'Открытый стеллаж-решётка с закрытыми ящиками.', text: '«Грид» — стеллаж для книг, коробок и декора. Можно поставить к стене или использовать как перегородку в комнате.' },
+      flat: { sizes: [[140, 62000], [180, 72000]], def: 180, dims: 'высота 57 · глубина 40 см', lead: 'ТВ-тумба на ножках с открытой нишей по центру.', text: '«Флэт» — низкая тумба под телевизор. Два закрытых отсека по бокам и ниша для приставки или колонки.' },
+      son: { sizeLabel: 'Спальное место', sizes: [['140 × 200', 125000], ['160 × 200', 139000], ['180 × 200', 155000]], def: '160 × 200', dims: 'основание с ламелями, матрас в комплект не входит', lead: 'Кровать с изголовьем из ЛДСП — без мягкой обивки, легко ухаживать.', text: '«Сон» — кровать с высоким изголовьем и широкой рамой. Под основанием можно хранить вещи.' },
+      student: { sizes: [[100, 48000], [120, 54000]], def: 120, dims: 'высота 75 · глубина 60 см', lead: 'Письменный стол с тумбой на три ящика.', text: '«Студент» — рабочий стол для дома и учёбы. Ящики справа, место для ног слева.' },
+      mini: { dims: 'ширина 45 · высота 50 · глубина 40 см', lead: 'Прикроватная тумба с ящиком и открытой полкой.', text: '«Мини» — тумба на деревянных ножках. В ящике — мелочи, на полке — книги.' }
+    };
     const cat = s.cat || 'Все';
     const pmax = s.pmax === undefined ? 300000 : s.pmax;
     const wsel = s.w || {};
@@ -324,11 +378,17 @@ class Component extends DCLogic {
     if (sort === 'desc') list = list.slice().sort((a, b) => b.price - a.price);
     const catNames = ['Все', 'Шкафы-купе', 'Распашные шкафы', 'Прихожие', 'Комоды и тумбы', 'Стеллажи', 'ТВ-тумбы', 'Кровати', 'Столы'];
     const count = Object.keys(cart).length;
+    const activeCount = (pmax < 300000 ? 1 : 0) + widthDefs.filter((d) => wsel[d.id]).length + Object.keys(csel).filter((k) => csel[k]).length + (stockOnly ? 1 : 0);
+    const nWord = (n) => { const a = n % 10, b = n % 100; return a === 1 && b !== 11 ? 'товар' : a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'товара' : 'товаров'; };
     return {
+      fCls: s.fOpen ? 'open' : '', fExp: s.fOpen ? 'true' : 'false',
+      openF: () => this.setState({ fOpen: true }), closeF: () => this.setState({ fOpen: false }),
+      hasActive: activeCount > 0, activeCount,
+      showText: list.length ? 'Показать ' + list.length + ' ' + nWord(list.length) : 'Ничего не найдено',
       curRef: this.curRef,
       hasCart: count > 0, cartCount: count,
       found: list.length, empty: list.length === 0,
-      cats: catNames.map((n) => ({ name: n, pressed: n === cat ? 'true' : 'false', bg: n === cat ? '#171512' : 'transparent', fg: n === cat ? '#F6F4EF' : '#171512', bd: n === cat ? '#171512' : 'rgba(23,21,18,0.18)', pick: () => this.setState({ cat: n }) })),
+      cats: catNames.map((n) => ({ name: n, pressed: n === cat ? 'true' : 'false', bg: n === cat ? '#171512' : 'transparent', fg: n === cat ? '#FAFBF4' : '#171512', bd: n === cat ? '#171512' : 'rgba(23,21,18,0.18)', pick: () => this.pickCat(n) })),
       pmax, maxText: fmt(pmax), setMax: (e) => this.setState({ pmax: Number(e.target.value) }),
       widths: widthDefs.map((d) => ({ label: d.label, on: !!wsel[d.id], toggle: () => this.setState({ w: { ...wsel, [d.id]: !wsel[d.id] } }) })),
       colors: Object.keys(SW).map((k) => ({ name: SW[k].name, hex: SW[k].hex, pressed: csel[k] ? 'true' : 'false', ring: csel[k] ? '#171512' : 'transparent', toggle: () => this.setState({ c: { ...csel, [k]: !csel[k] } }) })),
@@ -341,14 +401,29 @@ class Component extends DCLogic {
           ...p, delay: (idx % 3) * 0.07, hasBadge: !!p.badge, priceText: fmt(p.price), swatches: p.c.map((k) => SW[k]),
           stockText: p.stock ? 'В наличии' : 'Под заказ', stockFg: p.stock ? '#2F6B3A' : '#8A4A1C',
           btn: on ? 'В корзине ✓' : 'В корзину', addLabel: 'В корзину: ' + p.name,
-          bg: on ? '#171512' : 'transparent', fg: on ? '#F6F4EF' : '#171512', bd: on ? '#171512' : 'rgba(23,21,18,0.22)',
+          bg: on ? '#171512' : 'transparent', fg: on ? '#FAFBF4' : '#171512', bd: on ? '#171512' : 'rgba(23,21,18,0.22)',
           add: () => { const c = { ...cart }; if (c[p.id]) delete c[p.id]; else c[p.id] = 1; this.setState({ cart: c }); }
         };
       })
     };
   }
-  componentDidMount() { this.startFx(); }
-  componentWillUnmount() { this.stopFx(); }
+  slugCat(h) {
+    const map = { kupe: 'Шкафы-купе', raspashnye: 'Распашные шкафы', prihozhie: 'Прихожие', komody: 'Комоды и тумбы', stellazhi: 'Стеллажи', tv: 'ТВ-тумбы', krovati: 'Кровати', stoly: 'Столы' };
+    return map[(h || '').replace('#', '')] || 'Все';
+  }
+  pickCat(n) {
+    const back = { 'Шкафы-купе': 'kupe', 'Распашные шкафы': 'raspashnye', 'Прихожие': 'prihozhie', 'Комоды и тумбы': 'komody', 'Стеллажи': 'stellazhi', 'ТВ-тумбы': 'tv', 'Кровати': 'krovati', 'Столы': 'stoly' };
+    try { history.replaceState(null, '', back[n] ? '#' + back[n] : location.pathname + location.search); } catch (e) {}
+    this.setState({ cat: n });
+  }
+  componentDidMount() {
+    this.startFx();
+    this.onHash = () => this.setState({ cat: this.slugCat(location.hash) });
+    if (location.hash) this.onHash();
+    window.addEventListener('hashchange', this.onHash);
+  }
+  componentDidUpdate() { document.body.style.overflow = this.state && this.state.fOpen ? 'hidden' : ''; }
+  componentWillUnmount() { this.stopFx(); window.removeEventListener('hashchange', this.onHash); document.body.style.overflow = ''; }
   // ---- «живые» эффекты: параллакс фото, появление блоков, горизонтальная галерея, наклон карточек, курсор ----
   startFx() {
     this.fxDead = false;

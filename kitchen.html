@@ -3,36 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAFBF4">
 <title>Кухня на заказ — New Era Mebel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth}
-body{margin:0;background:#F6F4EF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#171512}a:hover{color:#A6521F}
+body{margin:0;background:#FAFBF4;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#171512}a:hover{color:#566B0E}
 i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:0}
 .wrap{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;width:100%}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .hero-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
-.glass{background:rgba(246,244,239,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
-.nl{color:#3B3630;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
+.glass{background:rgba(250,251,244,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.nl{color:#34382B;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
 .nl:hover{background:rgba(23,21,18,.06);color:#171512}
 .ib{width:44px;height:44px;border-radius:999px;border:0;display:inline-flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;transition:background .25s}
 .ib:hover{background:rgba(23,21,18,.08)}
-.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#F6F4EF;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#FAFBF4;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .btn:hover{color:#FFFFFF;transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(23,21,18,.8)}
-.btn .dot{width:36px;height:36px;border-radius:50%;background:#F6F4EF;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn .dot{width:36px;height:36px;border-radius:50%;background:#FAFBF4;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .btn:hover .dot{transform:rotate(-45deg)}
 .btn2{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;border:1px solid rgba(23,21,18,.22);color:#171512;text-decoration:none;font-weight:500;font-size:15px;background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
 .btn2:hover{background:rgba(23,21,18,.05);border-color:rgba(23,21,18,.5);color:#171512}
 .tile{display:block;text-decoration:none;color:#171512}
-.tile .ph{overflow:hidden;border-radius:20px;background:#EEEBE4}
+.tile .ph{overflow:hidden;border-radius:20px;background:#F1FEC8}
 .tile img{display:block;width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .tile:hover img{transform:scale(1.045)}
 .tile:hover{color:#171512}
-.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#F6F4EF;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#FAFBF4;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .tall:hover{transform:translateY(-6px);color:#FFFFFF}
 .tall img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .tall:hover img{transform:scale(1.06)}
@@ -49,8 +50,16 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .cursor{position:fixed;left:0;top:0;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(23,21,18,.5);pointer-events:none;z-index:100;transform:translate3d(-100px,-100px,0);display:none;mix-blend-mode:multiply}
 @media (pointer:fine){.cursor{display:block}}
 .par{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
-.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6E1D9}
+.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6EDCF}
+.pc-name{margin-top:10px;font-size:16px;font-weight:500;text-decoration:none;line-height:1.3}
+.pc-size{font-size:13px;color:#5E6452;margin-top:4px}
+.pc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.pc-price{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.pc-btn{min-height:44px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .25s,color .25s}
+.pc-tag{position:absolute;top:14px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
+@media (max-width:980px){.g4{gap:24px 12px}.pc-name{font-size:14px;margin-top:8px}.pc-size{font-size:12px}.pc-foot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}.pc-price{font-size:17px}.pc-btn{min-height:40px;font-size:13px;padding:0 10px}.pc-tag{top:8px;padding:4px 8px;font-size:11px}.tile .ph{border-radius:16px}}
 @media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:40px!important}.h2{font-size:34px!important}.giant{font-size:26vw!important}}
+@media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}}
 @media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
 </style>
 <style>
@@ -60,45 +69,46 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .opt{min-height:52px;padding:0 16px;border-radius:14px;font:inherit;font-size:15px;font-weight:500;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background .2s,border-color .2s,color .2s}
 .fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font:inherit;font-size:15px;color:#171512;outline:none}
 .fld:focus{border-color:#171512}
-.blk{padding:28px;border-radius:24px;background:#EEEBE4}
+.blk{padding:28px;border-radius:24px;background:#F1FEC8}
 @media (max-width:980px){.kx{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:620px){.shapes{grid-template-columns:repeat(2,minmax(0,1fr))!important}.blk{padding:22px 18px}.k-hero{height:auto!important;min-height:470px;border-radius:24px!important}.k-shade{background:linear-gradient(180deg,rgba(250,251,244,.96) 0%,rgba(250,251,244,.88) 52%,rgba(250,251,244,.1) 100%)!important}.k-txt{left:22px!important;right:22px;top:28px!important;transform:none!important}}
 </style>
 
 </head>
 <body>
 <div id="root"></div>
 <template id="tpl">
-<div style="position: relative; width: 100%; min-height: 100vh; background: #F6F4EF; overflow-x: clip">
+<div style="position: relative; width: 100%; min-height: 100vh; background: #FAFBF4; overflow-x: clip">
 <div ref="{{curRef}}" class="cursor" aria-hidden="true"></div>
-<header style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
-<a href="index.html" class="glass" style="display: flex; align-items: baseline; gap: 6px; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
+<header class="hdr" style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<a href="index.html" class="glass logo" style="display: flex; align-items: baseline; gap: 6px; white-space: nowrap; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
 <span style="font-weight: 700; font-size: 16px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 19px">mebel</i>
 </a>
 <nav class="navc glass" aria-label="Главное меню" style="display: flex; gap: 2px; padding: 5px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
 <a class="nl" href="catalog.html">Каталог</a>
 <a class="nl" href="kitchen.html">Кухни на заказ</a>
-<a class="nl" href="catalog.html">Шкафы-купе</a>
+<a class="nl" href="catalog.html#kupe">Шкафы-купе</a>
 <a class="nl" href="index.html">Доставка и оплата</a>
 <a class="nl" href="index.html">Контакты</a>
 </nav>
 <div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
-<button type="button" class="ib" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
-<button type="button" class="ib" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+<button type="button" class="ib hide-s" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+<button type="button" class="ib hide-s" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
 <button type="button" class="ib" aria-label="Корзина" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
-<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #A6521F; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #566B0E; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
 </button>
-<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px">Замер бесплатно<span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px; white-space: nowrap"><span>Замер<span class="hide-s"> бесплатно</span></span><span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
 </header>
 <main style="padding-top: 90px; padding-bottom: 100px">
 <section class="wrap" style="position: relative; margin-bottom: 48px">
-<div style="position: relative; border-radius: 30px; overflow: hidden; height: 420px; background: #D9D1C6">
+<div class="k-hero" style="position: relative; border-radius: 30px; overflow: hidden; height: 420px; background: #D9E2BC">
 <img src="img/kitchen_full.jpg" alt="Кухня с островом, сделанная на заказ" class="par" data-par="0.14" style="object-position: 50% 60%">
-<div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(246,244,239,0.92) 0%, rgba(246,244,239,0.6) 38%, rgba(246,244,239,0) 62%)"></div>
-<div style="position: absolute; left: 48px; top: 50%; transform: translateY(-50%); max-width: 520px">
-<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #5A544B; margin-bottom: 18px"><a href="index.html" style="color: #5A544B; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #171512">Кухни на заказ</span></nav>
+<div class="k-shade" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(250,251,244,0.92) 0%, rgba(250,251,244,0.6) 38%, rgba(250,251,244,0) 62%)"></div>
+<div class="k-txt" style="position: absolute; left: 48px; top: 50%; transform: translateY(-50%); max-width: 520px">
+<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #525846; margin-bottom: 18px"><a href="index.html" style="color: #525846; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #171512">Кухни на заказ</span></nav>
 <h1 class="h1" style="margin: 0; font-size: 54px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 500">Кухня <i class="s" style="font-size: 1.12em">по вашим</i> размерам</h1>
-<p style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; color: #3B3630">Соберите кухню ниже — сразу увидите примерную цену. Точную назовём после бесплатного замера.</p>
+<p style="margin: 18px 0 0; font-size: 17px; line-height: 1.6; color: #34382B">Соберите кухню ниже — сразу увидите примерную цену. Точную назовём после бесплатного замера.</p>
 </div>
 </div>
 </section>
@@ -106,9 +116,9 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <div class="wrap kx">
 <div style="display: flex; flex-direction: column; gap: 20px">
 <div class="blk" data-rv="0">
-<div style="font-size: 13px; color: #A6521F; font-weight: 600; letter-spacing: 0.08em">ШАГ 1</div>
+<div style="font-size: 13px; color: #566B0E; font-weight: 600; letter-spacing: 0.08em">ШАГ 1</div>
 <h2 style="margin: 6px 0 18px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Форма кухни</h2>
-<div role="group" aria-label="Форма кухни" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<div role="group" aria-label="Форма кухни" class="shapes" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{shapes}}" as="item" hint-placeholder-count="4">
 <button type="button" class="shape" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1.5px solid {{item.bd}}; background: {{item.bg}}; color: #171512">
 <svg width="64" height="48" viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="{{item.icon}}" fill="{{item.fill}}"></path></svg>
@@ -119,7 +129,7 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </div>
 
 <div class="blk" data-rv="0">
-<div style="font-size: 13px; color: #A6521F; font-weight: 600; letter-spacing: 0.08em">ШАГ 2</div>
+<div style="font-size: 13px; color: #566B0E; font-weight: 600; letter-spacing: 0.08em">ШАГ 2</div>
 <h2 style="margin: 6px 0 18px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Размеры</h2>
 <div style="display: flex; flex-direction: column; gap: 22px">
 <sc-for list="{{dims}}" as="item" hint-placeholder-count="2">
@@ -129,21 +139,21 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </div>
 </sc-for>
 </div>
-<p style="margin: 18px 0 0; font-size: 14px; color: #6B645A">Не знаете точно? Поставьте примерно — на замере всё измерим сами.</p>
+<p style="margin: 18px 0 0; font-size: 14px; color: #5E6452">Не знаете точно? Поставьте примерно — на замере всё измерим сами.</p>
 </div>
 
 <div class="blk" data-rv="0">
-<div style="font-size: 13px; color: #A6521F; font-weight: 600; letter-spacing: 0.08em">ШАГ 3</div>
+<div style="font-size: 13px; color: #566B0E; font-weight: 600; letter-spacing: 0.08em">ШАГ 3</div>
 <h2 style="margin: 6px 0 18px; font-size: 24px; font-weight: 600; letter-spacing: -0.01em">Фасады</h2>
 <div role="group" aria-label="Фасады" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{facades}}" as="item" hint-placeholder-count="3">
-<button type="button" class="opt" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="flex-direction: column; align-items: flex-start; justify-content: center; padding: 14px 16px; border: 1.5px solid {{item.bd}}; background: {{item.bg}}; color: #171512"><span>{{item.name}}</span><span style="font-size: 13px; font-weight: 400; color: #6B645A">{{item.note}}</span></button>
+<button type="button" class="opt" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="flex-direction: column; align-items: flex-start; justify-content: center; padding: 14px 16px; border: 1.5px solid {{item.bd}}; background: {{item.bg}}; color: #171512"><span>{{item.name}}</span><span style="font-size: 13px; font-weight: 400; color: #5E6452">{{item.note}}</span></button>
 </sc-for>
 </div>
 <h3 style="margin: 24px 0 12px; font-size: 17px; font-weight: 600">Столешница</h3>
 <div role="group" aria-label="Столешница" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{tops}}" as="item" hint-placeholder-count="2">
-<button type="button" class="opt" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1.5px solid {{item.bd}}; background: {{item.bg}}; color: #171512"><span>{{item.name}}</span><span style="font-size: 13px; font-weight: 400; color: #6B645A">{{item.note}}</span></button>
+<button type="button" class="opt" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1.5px solid {{item.bd}}; background: {{item.bg}}; color: #171512"><span>{{item.name}}</span><span style="font-size: 13px; font-weight: 400; color: #5E6452">{{item.note}}</span></button>
 </sc-for>
 </div>
 <h3 style="margin: 24px 0 12px; font-size: 17px; font-weight: 600">Дополнительно</h3>
@@ -160,29 +170,29 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 
 <div style="position: sticky; top: 96px; display: flex; flex-direction: column; gap: 16px">
 <div style="padding: 24px; border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(23,21,18,0.08)">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-weight: 600">План сверху</span><span style="font-size: 13px; color: #6B645A">{{meters}} пог. м</span></div>
-<svg viewBox="0 0 440 300" width="100%" role="img" aria-label="{{planLabel}}" style="display: block; margin-top: 12px; background: #F6F4EF; border-radius: 16px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-weight: 600">План сверху</span><span style="font-size: 13px; color: #5E6452">{{meters}} пог. м</span></div>
+<svg viewBox="0 0 440 300" width="100%" role="img" aria-label="{{planLabel}}" style="display: block; margin-top: 12px; background: #FAFBF4; border-radius: 16px">
 <rect x="10" y="10" width="420" height="280" rx="6" fill="none" stroke="rgba(23,21,18,0.18)" stroke-dasharray="4 5"></rect>
 <sc-for list="{{rects}}" as="r" hint-placeholder-count="2">
 <rect x="{{r.x}}" y="{{r.y}}" width="{{r.w}}" height="{{r.h}}" rx="3" fill="{{r.fill}}" stroke="#171512" stroke-width="1.5"></rect>
 </sc-for>
 <sc-for list="{{labels}}" as="t" hint-placeholder-count="2">
-<text x="{{t.x}}" y="{{t.y}}" text-anchor="middle" font-size="13" font-weight="600" fill="#A6521F" font-family="Onest, sans-serif">{{t.text}}</text>
+<text x="{{t.x}}" y="{{t.y}}" text-anchor="middle" font-size="13" font-weight="600" fill="#566B0E" font-family="Onest, sans-serif">{{t.text}}</text>
 </sc-for>
 </svg>
 <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; gap: 12px">
-<span style="color: #6B645A; font-size: 14px">Примерная цена</span>
-<span style="font-size: 13px; color: #6B645A">сборка включена</span>
+<span style="color: #5E6452; font-size: 14px">Примерная цена</span>
+<span style="font-size: 13px; color: #5E6452">сборка включена</span>
 </div>
 <div style="font-size: 32px; font-weight: 600; letter-spacing: -0.02em; margin-top: 4px">{{range}}</div>
-<div style="font-size: 13px; color: #6B645A; margin-top: 6px; line-height: 1.5">{{summary}}</div>
+<div style="font-size: 13px; color: #5E6452; margin-top: 6px; line-height: 1.5">{{summary}}</div>
 </div>
 
-<div style="padding: 24px; border-radius: 24px; background: #171512; color: #F6F4EF">
+<div style="padding: 24px; border-radius: 24px; background: #171512; color: #FAFBF4">
 <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
 <form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 10px">
 <div style="font-size: 20px; font-weight: 600">Бесплатный замер</div>
-<div style="font-size: 14px; color: #BDB5A9; margin-bottom: 6px">Приедем, измерим и покажем образцы</div>
+<div style="font-size: 14px; color: #B8BEA6; margin-bottom: 6px">Приедем, измерим и покажем образцы</div>
 <label for="k1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Имя</label><input id="k1" class="fld" type="text" placeholder="Имя">
 <label for="k2" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Телефон</label><input id="k2" class="fld" type="tel" placeholder="Телефон">
 <label for="k3" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Адрес</label><input id="k3" class="fld" type="text" placeholder="Адрес в Туркестане">
@@ -190,15 +200,15 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <label for="k4" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Дата</label><input id="k4" class="fld" type="date">
 <label for="k5" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Время</label><select id="k5" class="fld"><option>Утро · 9–12</option><option>День · 12–16</option><option>Вечер · 16–20</option></select>
 </div>
-<button type="submit" class="btn" style="background: #F6F4EF; color: #171512; justify-content: space-between; margin-top: 6px">Записаться на замер<span class="dot" style="background: #171512; color: #F6F4EF"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+<button type="submit" class="btn" style="background: #FAFBF4; color: #171512; justify-content: space-between; margin-top: 6px">Записаться на замер<span class="dot" style="background: #171512; color: #FAFBF4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
 </form>
 </sc-if>
 <sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
 <div role="status" style="padding: 10px 0">
-<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F6F4EF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAFBF4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg>
 <div style="font-size: 20px; font-weight: 600; margin-top: 12px">Вы записаны на замер</div>
-<p style="color: #BDB5A9; margin: 8px 0 16px; line-height: 1.5">Перезвоним, чтобы подтвердить время. Ваш расчёт ({{range}}) уже у мастера.</p>
-<button type="button" class="btn2" onClick="{{again}}" style="color: #F6F4EF; border-color: rgba(246,244,239,0.3)">Изменить заявку</button>
+<p style="color: #B8BEA6; margin: 8px 0 16px; line-height: 1.5">Перезвоним, чтобы подтвердить время. Ваш расчёт ({{range}}) уже у мастера.</p>
+<button type="button" class="btn2" onClick="{{again}}" style="color: #FAFBF4; border-color: rgba(250,251,244,0.3)">Изменить заявку</button>
 </div>
 </sc-if>
 </div>
@@ -260,7 +270,9 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
     if (node.nodeType === 3) {
       var t = node.nodeValue;
       if (!t.trim() && t.indexOf('\n') >= 0) return null;
-      return t.indexOf('{{') >= 0 ? interp(t, scope) : t;
+      if (t.indexOf('{{') < 0) return t;
+      var m1 = t.match(/^\{\{\s*([^}]+?)\s*\}\}$/);
+      return m1 ? lookup(m1[1], scope) : t.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null ? '' : String(v); });
     }
     if (node.nodeType !== 1) return null;
     var tag = node.localName;

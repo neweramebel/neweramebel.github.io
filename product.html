@@ -3,36 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Шкаф-купе «Нова» — New Era Mebel</title>
+<meta name="theme-color" content="#FAFBF4">
+<title>Товар — New Era Mebel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth}
-body{margin:0;background:#F6F4EF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#171512}a:hover{color:#A6521F}
+body{margin:0;background:#FAFBF4;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#171512}a:hover{color:#566B0E}
 i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:0}
 .wrap{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;width:100%}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .hero-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
-.glass{background:rgba(246,244,239,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
-.nl{color:#3B3630;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
+.glass{background:rgba(250,251,244,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.nl{color:#34382B;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
 .nl:hover{background:rgba(23,21,18,.06);color:#171512}
 .ib{width:44px;height:44px;border-radius:999px;border:0;display:inline-flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;transition:background .25s}
 .ib:hover{background:rgba(23,21,18,.08)}
-.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#F6F4EF;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#FAFBF4;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .btn:hover{color:#FFFFFF;transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(23,21,18,.8)}
-.btn .dot{width:36px;height:36px;border-radius:50%;background:#F6F4EF;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn .dot{width:36px;height:36px;border-radius:50%;background:#FAFBF4;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .btn:hover .dot{transform:rotate(-45deg)}
 .btn2{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;border:1px solid rgba(23,21,18,.22);color:#171512;text-decoration:none;font-weight:500;font-size:15px;background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
 .btn2:hover{background:rgba(23,21,18,.05);border-color:rgba(23,21,18,.5);color:#171512}
 .tile{display:block;text-decoration:none;color:#171512}
-.tile .ph{overflow:hidden;border-radius:20px;background:#EEEBE4}
+.tile .ph{overflow:hidden;border-radius:20px;background:#F1FEC8}
 .tile img{display:block;width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .tile:hover img{transform:scale(1.045)}
 .tile:hover{color:#171512}
-.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#F6F4EF;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#FAFBF4;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .tall:hover{transform:translateY(-6px);color:#FFFFFF}
 .tall img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .tall:hover img{transform:scale(1.06)}
@@ -49,14 +50,22 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .cursor{position:fixed;left:0;top:0;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(23,21,18,.5);pointer-events:none;z-index:100;transform:translate3d(-100px,-100px,0);display:none;mix-blend-mode:multiply}
 @media (pointer:fine){.cursor{display:block}}
 .par{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
-.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6E1D9}
+.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6EDCF}
+.pc-name{margin-top:10px;font-size:16px;font-weight:500;text-decoration:none;line-height:1.3}
+.pc-size{font-size:13px;color:#5E6452;margin-top:4px}
+.pc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.pc-price{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.pc-btn{min-height:44px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .25s,color .25s}
+.pc-tag{position:absolute;top:14px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
+@media (max-width:980px){.g4{gap:24px 12px}.pc-name{font-size:14px;margin-top:8px}.pc-size{font-size:12px}.pc-foot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}.pc-price{font-size:17px}.pc-btn{min-height:40px;font-size:13px;padding:0 10px}.pc-tag{top:8px;padding:4px 8px;font-size:11px}.tile .ph{border-radius:16px}}
 @media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:40px!important}.h2{font-size:34px!important}.giant{font-size:26vw!important}}
+@media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}}
 @media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
 </style>
 <style>
 .pp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start}
 .opt{min-height:48px;padding:0 16px;border-radius:14px;font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
-.thumb{width:84px;height:104px;border-radius:14px;overflow:hidden;padding:0;cursor:pointer;background:#EEEBE4}
+.thumb{width:84px;height:104px;border-radius:14px;overflow:hidden;padding:0;cursor:pointer;background:#F1FEC8}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font:inherit;font-size:15px;color:#171512;outline:none}
 .fld:focus{border-color:#171512}
@@ -67,30 +76,30 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <body>
 <div id="root"></div>
 <template id="tpl">
-<div style="position: relative; width: 100%; min-height: 100vh; background: #F6F4EF; overflow-x: clip">
+<div style="position: relative; width: 100%; min-height: 100vh; background: #FAFBF4; overflow-x: clip">
 <div ref="{{curRef}}" class="cursor" aria-hidden="true"></div>
-<header style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
-<a href="index.html" class="glass" style="display: flex; align-items: baseline; gap: 6px; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
+<header class="hdr" style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<a href="index.html" class="glass logo" style="display: flex; align-items: baseline; gap: 6px; white-space: nowrap; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
 <span style="font-weight: 700; font-size: 16px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 19px">mebel</i>
 </a>
 <nav class="navc glass" aria-label="Главное меню" style="display: flex; gap: 2px; padding: 5px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
 <a class="nl" href="catalog.html">Каталог</a>
 <a class="nl" href="kitchen.html">Кухни на заказ</a>
-<a class="nl" href="catalog.html">Шкафы-купе</a>
+<a class="nl" href="catalog.html#kupe">Шкафы-купе</a>
 <a class="nl" href="index.html">Доставка и оплата</a>
 <a class="nl" href="index.html">Контакты</a>
 </nav>
 <div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
-<button type="button" class="ib" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
-<button type="button" class="ib" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+<button type="button" class="ib hide-s" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+<button type="button" class="ib hide-s" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
 <button type="button" class="ib" aria-label="Корзина" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
-<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #A6521F; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #566B0E; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
 </button>
-<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px">Замер бесплатно<span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px; white-space: nowrap"><span>Замер<span class="hide-s"> бесплатно</span></span><span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
 </header>
 <main class="wrap" style="padding-top: 110px; padding-bottom: 100px">
-<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #6B645A; margin-bottom: 24px"><a href="index.html" style="color: #6B645A; text-decoration: none">Главная</a><span aria-hidden="true">/</span><a href="catalog.html" style="color: #6B645A; text-decoration: none">Шкафы-купе</a><span aria-hidden="true">/</span><span style="color: #171512">«Нова»</span></nav>
+<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #5E6452; margin-bottom: 24px"><a href="index.html" style="color: #5E6452; text-decoration: none">Главная</a><span aria-hidden="true">/</span><a href="catalog.html#{{catSlug}}" style="color: #5E6452; text-decoration: none">{{catName}}</a><span aria-hidden="true">/</span><span style="color: #171512">{{quote}}</span></nav>
 
 <div class="pp">
 <div style="display: flex; gap: 16px">
@@ -99,33 +108,35 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <button type="button" class="thumb" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" aria-label="{{item.label}}" style="border: 2px solid {{item.ring}}"><img src="{{item.src}}" alt=""></button>
 </sc-for>
 </div>
-<div style="position: relative; flex-grow: 1; border-radius: 26px; overflow: hidden; background: #EEEBE4; aspect-ratio: 4 / 5">
+<div style="position: relative; flex-grow: 1; border-radius: 26px; overflow: hidden; background: #F1FEC8; aspect-ratio: 4 / 5">
 <img src="{{mainImg}}" alt="{{mainAlt}}" style="width: 100%; height: 100%; object-fit: cover; display: block">
-<div style="position: absolute; top: 18px; left: 18px; display: flex; gap: 6px"><span style="padding: 6px 12px; border-radius: 999px; background: #171512; color: #F6F4EF; font-size: 12px; font-weight: 500">Хит</span><span style="padding: 6px 12px; border-radius: 999px; background: rgba(246,244,239,0.9); color: #2F6B3A; font-size: 12px; font-weight: 500">В наличии</span></div>
-<button type="button" onClick="{{toggleFav}}" aria-pressed="{{favP}}" aria-label="В избранное" style="position: absolute; top: 14px; right: 14px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(246,244,239,0.9); color: {{favColor}}; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{favFill}}" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+<div style="position: absolute; top: 18px; left: 18px; display: flex; gap: 6px"><sc-if value="{{hasBadge}}" hint-placeholder-val="{{true}}"><span style="padding: 6px 12px; border-radius: 999px; background: #171512; color: #FAFBF4; font-size: 12px; font-weight: 500">{{badge}}</span></sc-if><span style="padding: 6px 12px; border-radius: 999px; background: rgba(250,251,244,0.9); color: {{stockFg}}; font-size: 12px; font-weight: 500">{{stockText}}</span></div>
+<button type="button" onClick="{{toggleFav}}" aria-pressed="{{favP}}" aria-label="В избранное" style="position: absolute; top: 14px; right: 14px; width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(250,251,244,0.9); color: {{favColor}}; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="{{favFill}}" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
 </div>
 </div>
 
 <div style="position: sticky; top: 100px">
-<h1 style="margin: 0; font-size: 40px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 500">Шкаф-купе <i class="s" style="font-size: 1.12em">«Нова»</i></h1>
-<p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: #5A544B">Двухдверный шкаф-купе с зеркалом. Бесшумные роликовые механизмы, алюминиевый профиль, внутри — штанга и полки.</p>
+<h1 style="margin: 0; font-size: 40px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 500">{{titleMain}} <i class="s" style="font-size: 1.12em">{{quote}}</i></h1>
+<p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: #525846">{{lead}}</p>
 
 <div style="display: flex; align-items: baseline; gap: 12px; margin-top: 26px">
 <div style="font-size: 38px; font-weight: 600; letter-spacing: -0.02em">{{priceText}}</div>
-<div style="font-size: 14px; color: #6B645A">сборка включена</div>
+<div style="font-size: 14px; color: #5E6452">сборка включена</div>
 </div>
 
 <div style="margin-top: 28px">
-<div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 600">Ширина</span><span style="color: #6B645A">высота 220 · глубина 60 см</span></div>
-<div role="group" aria-label="Ширина" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 10px">
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px"><span style="font-weight: 600">{{sizeLabel}}</span><span style="color: #5E6452">{{dims}}</span></div>
+<sc-if value="{{multiSize}}" hint-placeholder-val="{{true}}">
+<div role="group" aria-label="{{sizeLabel}}" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px">
 <sc-for list="{{widths}}" as="item" hint-placeholder-count="5">
-<button type="button" class="opt" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; padding: 0 6px">{{item.label}}</button>
+<button type="button" class="opt" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; padding: 0 16px; flex-grow: 1">{{item.label}}</button>
 </sc-for>
 </div>
+</sc-if>
 </div>
 
 <div style="margin-top: 22px">
-<div style="font-size: 14px"><span style="font-weight: 600">Цвет:</span> <span style="color: #5A544B">{{colorName}}</span></div>
+<div style="font-size: 14px"><span style="font-weight: 600">Цвет:</span> <span style="color: #525846">{{colorName}}</span></div>
 <div role="group" aria-label="Цвет" style="display: flex; gap: 10px; margin-top: 10px">
 <sc-for list="{{colors}}" as="item" hint-placeholder-count="3">
 <button type="button" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" aria-label="{{item.name}}" title="{{item.name}}" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid {{item.ring}}; background: transparent; padding: 4px; cursor: pointer"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: {{item.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.18)"></span></button>
@@ -133,6 +144,7 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </div>
 </div>
 
+<sc-if value="{{hasMirror}}" hint-placeholder-val="{{true}}">
 <div style="margin-top: 22px">
 <div style="font-size: 14px; font-weight: 600">Зеркало</div>
 <div role="group" aria-label="Зеркало" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px">
@@ -141,6 +153,7 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </sc-for>
 </div>
 </div>
+</sc-if>
 
 <div style="display: flex; gap: 10px; margin-top: 28px">
 <div style="display: flex; align-items: center; border: 1px solid rgba(23,21,18,0.2); border-radius: 999px; padding: 4px">
@@ -153,7 +166,7 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <button type="button" class="btn2" onClick="{{openQuick}}" style="width: 100%; justify-content: center; margin-top: 10px; min-height: 52px">Купить в 1 клик</button>
 
 <sc-if value="{{quick}}" hint-placeholder-val="{{false}}">
-<div style="margin-top: 12px; padding: 18px; border-radius: 18px; background: #EEEBE4">
+<div style="margin-top: 12px; padding: 18px; border-radius: 18px; background: #F1FEC8">
 <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
 <label for="q1" style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px">Ваш телефон — перезвоним и оформим</label>
 <div style="display: flex; gap: 8px"><input id="q1" class="fld" type="tel" placeholder="+7 ___ ___ __ __"><button type="button" class="btn" onClick="{{sendQuick}}" style="padding: 0 22px; min-height: 50px">Жду звонка</button></div>
@@ -163,13 +176,13 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </sc-if>
 
 <ul style="list-style: none; margin: 26px 0 0; padding: 0; border-top: 1px solid rgba(23,21,18,0.1)">
-<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #6B645A">Сборка</span><span style="font-weight: 500">Включена в цену</span></li>
-<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #6B645A">Доставка по Туркестану</span><span style="font-weight: 500">Бесплатно</span></li>
-<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #6B645A">Оплата</span><span style="font-weight: 500">Kaspi или наличные</span></li>
-<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #6B645A">Гарантия</span><span style="font-weight: 500">[срок]</span></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #5E6452">Сборка</span><span style="font-weight: 500">Включена в цену</span></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #5E6452">Доставка по Туркестану</span><span style="font-weight: 500">Бесплатно</span></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #5E6452">Оплата</span><span style="font-weight: 500">Kaspi или наличные</span></li>
+<li style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(23,21,18,0.1); font-size: 15px"><span style="color: #5E6452">Гарантия</span><span style="font-weight: 500">[срок]</span></li>
 </ul>
-<a href="kitchen.html" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; padding: 18px 20px; border-radius: 18px; background: #EEEBE4; text-decoration: none">
-<span><span style="display: block; font-weight: 600">Нужен другой размер?</span><span style="display: block; font-size: 14px; color: #6B645A; margin-top: 3px">Сделаем «Нову» под вашу нишу — замер бесплатный</span></span>
+<a href="kitchen.html" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; padding: 18px 20px; border-radius: 18px; background: #F1FEC8; text-decoration: none">
+<span><span style="display: block; font-weight: 600">Нужен другой размер?</span><span style="display: block; font-size: 14px; color: #5E6452; margin-top: 3px">Сделаем по вашим размерам — замер бесплатный</span></span>
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
 </a>
 </div>
@@ -183,17 +196,17 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </div>
 <div role="tabpanel" style="padding: 32px 0; max-width: 820px">
 <sc-if value="{{tab0}}" hint-placeholder-val="{{true}}">
-<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3B3630">«Нова» — вместительный шкаф-купе для спальни или прихожей. Двери двигаются плавно и тихо, зеркало визуально расширяет комнату. Внутри: две секции, штанга для одежды на всю ширину отсека и регулируемые полки. Корпус из ЛДСП 16 мм с кромкой ПВХ.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #34382B">{{text}}</p>
 </sc-if>
 <sc-if value="{{tab1}}" hint-placeholder-val="{{false}}">
 <div style="display: flex; flex-direction: column">
 <sc-for list="{{specs}}" as="item" hint-placeholder-count="7">
-<div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(23,21,18,0.1)"><span style="color: #6B645A">{{item.k}}</span><span style="font-weight: 500">{{item.v}}</span></div>
+<div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(23,21,18,0.1)"><span style="color: #5E6452">{{item.k}}</span><span style="font-weight: 500">{{item.v}}</span></div>
 </sc-for>
 </div>
 </sc-if>
 <sc-if value="{{tab2}}" hint-placeholder-val="{{false}}">
-<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3B3630">По Туркестану привозим бесплатно в удобный день. Мастер соберёт и установит шкаф — это уже входит в цену. Доставка за город — по договорённости. Оплата при получении: Kaspi или наличными.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #34382B">По Туркестану привозим бесплатно в удобный день. Мастер соберёт и установит мебель — это уже входит в цену. Доставка за город — по договорённости. Оплата при получении: Kaspi или наличными.</p>
 </sc-if>
 </div>
 </section>
@@ -202,7 +215,7 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <h2 style="margin: 0 0 28px; font-size: 34px; letter-spacing: -0.03em; font-weight: 500">С этим <i class="s" style="font-size: 1.1em">смотрят</i></h2>
 <div class="g4">
 <sc-for list="{{related}}" as="item" hint-placeholder-count="4">
-<a class="tile" href="product.html" data-rv="{{item.delay}}">
+<a class="tile" href="product.html#{{item.id}}" data-rv="{{item.delay}}">
 <div class="ph" style="aspect-ratio: 4 / 5"><img src="{{item.img}}" alt="{{item.name}}" style="height: 100%; object-fit: cover"></div>
 <div style="margin-top: 12px; font-weight: 500">{{item.name}}</div>
 <div style="margin-top: 6px; font-size: 18px; font-weight: 600">{{item.priceText}}</div>
@@ -266,7 +279,9 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
     if (node.nodeType === 3) {
       var t = node.nodeValue;
       if (!t.trim() && t.indexOf('\n') >= 0) return null;
-      return t.indexOf('{{') >= 0 ? interp(t, scope) : t;
+      if (t.indexOf('{{') < 0) return t;
+      var m1 = t.match(/^\{\{\s*([^}]+?)\s*\}\}$/);
+      return m1 ? lookup(m1[1], scope) : t.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null ? '' : String(v); });
     }
     if (node.nodeType !== 1) return null;
     var tag = node.localName;
@@ -318,7 +333,7 @@ class Component extends DCLogic {
   renderVals() {
     if (!this.curRef) this.curRef = { current: null };
     const s = this.state || {};
-    const A = {"nova_walnut": "img/nova_walnut.jpg", "nova_white": "img/nova_white.jpg", "nova_graphite": "img/nova_graphite.jpg", "nova_side": "img/nova_side.jpg", "loft": "img/loft.jpg", "classic": "img/classic.jpg", "skandi": "img/skandi.jpg", "port": "img/port.jpg", "liniya": "img/liniya.jpg", "grid": "img/grid.jpg", "flat": "img/flat.jpg", "son": "img/son.jpg", "student": "img/student.jpg", "mini": "img/mini.jpg", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
+    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
     const SW = { walnut: { name: 'Орех', hex: '#5A3F2E' }, white: { name: 'Белый', hex: '#F1EEE9' }, graphite: { name: 'Графит', hex: '#3B3B3D' }, oak: { name: 'Дуб', hex: '#C9A57B' }, beige: { name: 'Кашемир', hex: '#D8CDBC' }, sage: { name: 'Шалфей', hex: '#9AA38E' } };
     // Цены и товары — пример. В готовом сайте всё это брат ведёт в кабинете («Товары»).
     const PRODUCTS = [
@@ -335,48 +350,86 @@ class Component extends DCLogic {
       { id: 'mini', name: 'Тумба прикроватная «Мини»', cat: 'Комоды и тумбы', img: A.mini, w: 45, size: '45 × 50 × 40 см', price: 24000, badge: '', stock: true, c: ['sage', 'white', 'oak'] },
       { id: 'nova-g', name: 'Шкаф-купе «Нова» графит', cat: 'Шкафы-купе', img: A.nova_graphite, w: 180, size: '180 × 220 × 60 см', price: 199000, badge: '', stock: true, c: ['graphite', 'walnut', 'white'] }
     ];
+    const CAT_SLUG = { 'Шкафы-купе': 'kupe', 'Распашные шкафы': 'raspashnye', 'Прихожие': 'prihozhie', 'Комоды и тумбы': 'komody', 'Стеллажи': 'stellazhi', 'ТВ-тумбы': 'tv', 'Кровати': 'krovati', 'Столы': 'stoly' };
+    // Размеры, цены и тексты для страницы товара (пример — брат ведёт это в кабинете)
+    const DETAILS = {
+      nova: { sizes: [[120, 149000], [140, 167000], [160, 185000], [180, 199000], [200, 219000]], def: 160, dims: 'высота 220 · глубина 60 см', mirror: true, imgs: { walnut: [A.nova_walnut, A.nova_side], white: [A.nova_white], graphite: [A.nova_graphite] }, lead: 'Двухдверный шкаф-купе с зеркалом. Бесшумные роликовые механизмы, алюминиевый профиль, внутри — штанга и полки.', text: '«Нова» — вместительный шкаф-купе для спальни или прихожей. Двери двигаются плавно и тихо, зеркало визуально расширяет комнату. Внутри: две секции, штанга для одежды на всю ширину отсека и регулируемые полки. Корпус из ЛДСП 16 мм с кромкой ПВХ.' },
+      'nova-g': { alias: 'nova', color: 'graphite' },
+      loft: { sizes: [[200, 239000], [240, 265000], [270, 289000]], def: 240, dims: 'высота 240 · глубина 60 см', lead: 'Трёхдверный шкаф-купе с зеркалом по центру — вмещает гардероб всей семьи.', text: '«Лофт» — большой шкаф-купе в светлом дубе. Центральная дверь с зеркалом, боковые — с тонкой чёрной вставкой. Внутри: три секции, две штанги, полки и место под чемоданы сверху.' },
+      classic: { sizes: [[120, 119000], [160, 149000], [200, 179000]], def: 160, dims: 'высота 210 · глубина 56 см', lead: 'Распашной шкаф на четыре двери с двумя ящиками внизу.', text: '«Классик» — простой и надёжный распашной шкаф. Двери на петлях с доводчиками, длинные ручки, два вместительных ящика для белья внизу.' },
+      skandi: { sizes: [[90, 89000], [120, 109000]], def: 90, dims: 'высота 200 · глубина 52 см', lead: 'Компактный шкаф на деревянных ножках — для спальни или детской.', text: '«Сканди» — небольшой шкаф с латунными кнопками-ручками и ящиком внизу. Ножки поднимают его над полом, так проще убирать.' },
+      port: { dims: 'ширина 180 · высота 200 · глубина 40 см', lead: 'Прихожая: шкаф, вешалка с крючками, зеркало и банкетка для обуви.', text: '«Порт» собирает всё, что нужно у входа: высокий шкаф для верхней одежды, панель с крючками и полкой, зеркало и банкетку с ящиками под обувь.' },
+      liniya: { sizes: [[80, 64000], [100, 76000]], def: 80, dims: 'высота 90 · глубина 45 см', lead: 'Комод на четыре ящика с латунными ручками.', text: '«Линия» — комод на металлических ножках. Ящики на шариковых направляющих выдвигаются полностью и закрываются мягко.' },
+      grid: { sizes: [[80, 42000], [120, 58000], [160, 74000]], def: 120, dims: 'высота 180 · глубина 35 см', lead: 'Открытый стеллаж-решётка с закрытыми ящиками.', text: '«Грид» — стеллаж для книг, коробок и декора. Можно поставить к стене или использовать как перегородку в комнате.' },
+      flat: { sizes: [[140, 62000], [180, 72000]], def: 180, dims: 'высота 57 · глубина 40 см', lead: 'ТВ-тумба на ножках с открытой нишей по центру.', text: '«Флэт» — низкая тумба под телевизор. Два закрытых отсека по бокам и ниша для приставки или колонки.' },
+      son: { sizeLabel: 'Спальное место', sizes: [['140 × 200', 125000], ['160 × 200', 139000], ['180 × 200', 155000]], def: '160 × 200', dims: 'основание с ламелями, матрас в комплект не входит', lead: 'Кровать с изголовьем из ЛДСП — без мягкой обивки, легко ухаживать.', text: '«Сон» — кровать с высоким изголовьем и широкой рамой. Под основанием можно хранить вещи.' },
+      student: { sizes: [[100, 48000], [120, 54000]], def: 120, dims: 'высота 75 · глубина 60 см', lead: 'Письменный стол с тумбой на три ящика.', text: '«Студент» — рабочий стол для дома и учёбы. Ящики справа, место для ног слева.' },
+      mini: { dims: 'ширина 45 · высота 50 · глубина 40 см', lead: 'Прикроватная тумба с ящиком и открытой полкой.', text: '«Мини» — тумба на деревянных ножках. В ящике — мелочи, на полке — книги.' }
+    };
     const fmt = (n) => n.toLocaleString('ru-RU') + ' ₸';
-    const on = (x) => (x ? { bg: '#171512', fg: '#F6F4EF', bd: '#171512' } : { bg: 'transparent', fg: '#171512', bd: 'rgba(23,21,18,0.2)' });
-    const widthPrices = { 120: 149000, 140: 167000, 160: 185000, 180: 199000, 200: 219000 };
+    const on = (x) => (x ? { bg: '#171512', fg: '#FAFBF4', bd: '#171512' } : { bg: 'transparent', fg: '#171512', bd: 'rgba(23,21,18,0.2)' });
+    const SWC = { walnut: { name: 'Орех', hex: '#5A3F2E' }, white: { name: 'Белый', hex: '#F1EEE9' }, graphite: { name: 'Графит', hex: '#3B3B3D' }, oak: { name: 'Дуб', hex: '#C9A57B' }, beige: { name: 'Кашемир', hex: '#D8CDBC' }, sage: { name: 'Шалфей', hex: '#9AA38E' } };
+    const pid = s.pid || 'nova';
+    let d = DETAILS[pid] || {}, p = PRODUCTS.find((x) => x.id === pid) || PRODUCTS[0], defColor = null;
+    if (d.alias) { defColor = d.color; p = PRODUCTS.find((x) => x.id === d.alias); d = DETAILS[d.alias]; }
+    const sizes = d.sizes || [[p.w, p.price]];
+    const multi = sizes.length > 1;
+    const size = s.size !== undefined && sizes.some((z) => z[0] === s.size) ? s.size : (d.def !== undefined ? d.def : sizes[0][0]);
+    const base = (sizes.find((z) => z[0] === size) || sizes[0])[1];
+    const color = s.color && p.c.includes(s.color) ? s.color : (defColor || p.c[0]);
     const mirrorDefs = [{ id: 'one', label: '1 зеркало', add: 0 }, { id: 'two', label: '2 зеркала', add: 18000 }, { id: 'none', label: 'Без зеркал', add: -6000 }];
-    const colorDefs = [
-      { id: 'walnut', name: 'Орех', hex: '#5A3F2E', imgs: [A.nova_walnut, A.nova_side] },
-      { id: 'white', name: 'Белый', hex: '#F1EEE9', imgs: [A.nova_white] },
-      { id: 'graphite', name: 'Графит', hex: '#3B3B3D', imgs: [A.nova_graphite] }
-    ];
-    const w = s.w || 160, color = s.color || 'walnut', mirror = s.mirror || 'one', qty = s.qty || 1, img = s.img || 0, tab = s.tab || 0;
-    const cd = colorDefs.find((c) => c.id === color);
+    const mirror = s.mirror || 'one';
     const md = mirrorDefs.find((m) => m.id === mirror);
-    const unit = widthPrices[w] + md.add;
-    const imgs = cd.imgs;
-    const inCart = !!s.inCart;
+    const unit = base + (d.mirror ? md.add : 0);
+    const qty = s.qty || 1, img = s.img || 0, tab = s.tab || 0;
+    const imgs = (d.imgs && d.imgs[color]) || [p.img];
+    const m = p.name.match(/^(.*?)\s*(«.*)$/);
+    const titleMain = m ? m[1] : p.name, quote = m ? m[2] : '';
+    const cart = s.cart || {};
+    const inCart = !!cart[p.id];
+    const cartCount = Object.keys(cart).length;
+    const sizeText = (z) => (typeof z === 'number' ? z + ' см' : z);
+    let related = PRODUCTS.filter((x) => x.id !== p.id && x.id !== pid && x.cat === p.cat && !(DETAILS[x.id] && DETAILS[x.id].alias === p.id));
+    related = related.concat(PRODUCTS.filter((x) => x.id !== p.id && x.cat !== p.cat && !(DETAILS[x.id] && DETAILS[x.id].alias))).slice(0, 4);
     return {
       curRef: this.curRef,
-      hasCart: inCart, cartCount: 1,
-      mainImg: imgs[Math.min(img, imgs.length - 1)], mainAlt: 'Шкаф-купе «Нова», цвет ' + cd.name.toLowerCase(),
+      hasCart: cartCount > 0, cartCount,
+      catName: p.cat, catSlug: CAT_SLUG[p.cat] || '', titleMain, quote,
+      lead: d.lead || '', text: d.text || d.lead || '', dims: d.dims || p.size,
+      hasBadge: !!p.badge, badge: p.badge, stockText: p.stock ? 'В наличии' : 'Под заказ', stockFg: p.stock ? '#2F6B3A' : '#8A4A1C',
+      mainImg: imgs[Math.min(img, imgs.length - 1)], mainAlt: p.name + ', цвет ' + SWC[color].name.toLowerCase(),
       thumbs: imgs.map((src, i) => ({ src, label: 'Фото ' + (i + 1), pressed: i === img ? 'true' : 'false', ring: i === img ? '#171512' : 'transparent', pick: () => this.setState({ img: i }) })),
       priceText: fmt(unit * qty),
-      widths: Object.keys(widthPrices).map((k) => { const n = Number(k); return { label: n + '', pressed: n === w ? 'true' : 'false', ...on(n === w), pick: () => this.setState({ w: n }) }; }),
-      colorName: cd.name,
-      colors: colorDefs.map((c) => ({ name: c.name, hex: c.hex, pressed: c.id === color ? 'true' : 'false', ring: c.id === color ? '#171512' : 'transparent', pick: () => this.setState({ color: c.id, img: 0 }) })),
-      mirrors: mirrorDefs.map((m) => ({ label: m.label, pressed: m.id === mirror ? 'true' : 'false', ...on(m.id === mirror), pick: () => this.setState({ mirror: m.id }) })),
+      sizeLabel: d.sizeLabel || (multi ? 'Ширина' : 'Размер'), multiSize: multi,
+      widths: sizes.map((z) => ({ label: sizeText(z[0]), pressed: z[0] === size ? 'true' : 'false', ...on(z[0] === size), pick: () => this.setState({ size: z[0] }) })),
+      colorName: SWC[color].name,
+      colors: p.c.map((k) => ({ name: SWC[k].name, hex: SWC[k].hex, pressed: k === color ? 'true' : 'false', ring: k === color ? '#171512' : 'transparent', pick: () => this.setState({ color: k, img: 0 }) })),
+      hasMirror: !!d.mirror,
+      mirrors: mirrorDefs.map((x) => ({ label: x.label, pressed: x.id === mirror ? 'true' : 'false', ...on(x.id === mirror), pick: () => this.setState({ mirror: x.id }) })),
       qty, qtyUp: () => this.setState({ qty: Math.min(9, qty + 1) }), qtyDown: () => this.setState({ qty: Math.max(1, qty - 1) }),
-      cartBtn: inCart ? 'В корзине ✓' : 'Добавить в корзину', addCart: () => this.setState({ inCart: !inCart }),
-      favP: s.fav ? 'true' : 'false', favFill: s.fav ? 'currentColor' : 'none', favColor: s.fav ? '#A6521F' : '#171512', toggleFav: () => this.setState({ fav: !s.fav }),
+      cartBtn: inCart ? 'В корзине ✓' : 'Добавить в корзину',
+      addCart: () => { const c = { ...cart }; if (c[p.id]) delete c[p.id]; else c[p.id] = 1; this.setState({ cart: c }); },
+      favP: s.fav ? 'true' : 'false', favFill: s.fav ? 'currentColor' : 'none', favColor: s.fav ? '#566B0E' : '#171512', toggleFav: () => this.setState({ fav: !s.fav }),
       quick: !!s.quick, openQuick: () => this.setState({ quick: !s.quick }),
       sent: !!s.sent, notSent: !s.sent, sendQuick: () => this.setState({ sent: true }),
-      tabs: ['Описание', 'Характеристики', 'Доставка и сборка'].map((l, i) => ({ label: l, sel: i === tab ? 'true' : 'false', line: i === tab ? '#171512' : 'transparent', fg: i === tab ? '#171512' : '#6B645A', pick: () => this.setState({ tab: i }) })),
+      tabs: ['Описание', 'Характеристики', 'Доставка и сборка'].map((l, i) => ({ label: l, sel: i === tab ? 'true' : 'false', line: i === tab ? '#171512' : 'transparent', fg: i === tab ? '#171512' : '#5E6452', pick: () => this.setState({ tab: i }) })),
       tab0: tab === 0, tab1: tab === 1, tab2: tab === 2,
       specs: [
-        { k: 'Ширина', v: w + ' см' }, { k: 'Высота', v: '220 см' }, { k: 'Глубина', v: '60 см' },
-        { k: 'Корпус', v: 'ЛДСП 16 мм, кромка ПВХ' }, { k: 'Двери', v: md.label + ', профиль алюминий' },
-        { k: 'Цвет', v: cd.name }, { k: 'Внутри', v: '2 секции, штанга, 4 полки' }
-      ],
-      related: PRODUCTS.filter((p) => ['liniya', 'mini', 'port', 'son'].includes(p.id)).map((p, i) => ({ ...p, delay: i * 0.08, priceText: fmt(p.price) }))
+        { k: d.sizeLabel || 'Размер', v: multi ? sizeText(size) : p.size }, { k: 'Габариты', v: d.dims || p.size },
+        { k: 'Корпус', v: 'ЛДСП 16 мм, кромка ПВХ' }, { k: 'Цвет', v: SWC[color].name },
+        { k: 'Сборка', v: 'Включена в цену' }, { k: 'Наличие', v: p.stock ? 'В наличии' : 'Под заказ, [N] дней' }
+      ].concat(d.mirror ? [{ k: 'Двери', v: md.label + ', профиль алюминий' }] : []),
+      related: related.map((x, i) => ({ ...x, delay: i * 0.08, priceText: fmt(x.price) }))
     };
   }
-  componentDidMount() { this.startFx(); }
-  componentWillUnmount() { this.stopFx(); }
+  componentDidMount() {
+    this.startFx();
+    const read = (first) => { const h = decodeURIComponent((location.hash || '').slice(1)); if (h) this.setState({ pid: h, size: undefined, color: undefined, img: 0, mirror: undefined, qty: 1, sent: false, quick: false }); if (!first) window.scrollTo(0, 0); };
+    read(true);
+    this.onHash = () => read(false);
+    window.addEventListener('hashchange', this.onHash);
+  }
+  componentWillUnmount() { this.stopFx(); window.removeEventListener('hashchange', this.onHash); }
   // ---- «живые» эффекты: параллакс фото, появление блоков, горизонтальная галерея, наклон карточек, курсор ----
   startFx() {
     this.fxDead = false;
