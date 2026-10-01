@@ -4,64 +4,164 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAFBF4">
-<title>Кабинет — заказы и замеры</title>
+<title>Кабинет — New Era Mebel</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="manifest" href="admin.webmanifest">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NEM кабинет">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#FAFBF4;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#171512}a:hover{color:#566B0E}
+html,body{height:100%}
+body{margin:0;background:#E6EDCF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:#171512}
 i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500}
-.scroll{overflow-y:auto;scrollbar-width:none}
+.app{position:relative;width:100%;max-width:520px;height:100vh;height:100dvh;margin:0 auto;overflow:hidden;background:#FAFBF4;box-shadow:0 0 0 1px rgba(23,21,18,.06),0 30px 80px -40px rgba(23,21,18,.5)}
+.scroll{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;padding:18px 16px 118px;display:flex;flex-direction:column;gap:14px;scrollbar-width:none}
 .scroll::-webkit-scrollbar{display:none}
 .scroll>*{flex-shrink:0}
-.press{transition:transform .15s,background .25s}
+.press{transition:transform .15s,background .25s,opacity .2s}
 .press:active{transform:scale(.97)}
 @keyframes blink{50%{opacity:.3}}
 .pulse{animation:blink 1.4s infinite}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pop{animation:pop .4s cubic-bezier(.2,.8,.2,1) both}
+.card{padding:16px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(23,21,18,.08);display:flex;flex-direction:column;gap:12px}
+.ib{width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1px solid rgba(23,21,18,.12);background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;text-decoration:none;position:relative}
+.rb{width:46px;height:46px;flex-shrink:0;border-radius:50%;border:1px solid rgba(23,21,18,.14);display:flex;align-items:center;justify-content:center;color:#171512;background:#FFFFFF;text-decoration:none}
+.b1{min-height:46px;padding:0 16px;border-radius:999px;border:0;background:#171512;color:#FAFBF4;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.b1[disabled]{opacity:.55;cursor:default}
+.b2{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:transparent;color:#171512;font:inherit;font-weight:500;font-size:14px;cursor:pointer}
+.b3{min-height:40px;padding:0 14px;border-radius:999px;border:0;background:#F1FEC8;color:#171512;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.bd{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(138,74,28,.35);background:transparent;color:#8A4A1C;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.in{width:100%;box-sizing:border-box;min-height:48px;padding:0 14px;border-radius:12px;border:1px solid rgba(23,21,18,.18);background:#FFFFFF;font:inherit;font-size:16px;color:#171512;outline:none}
+.in:focus{border-color:#171512}
+textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
+.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;min-height:36px;padding:0 13px;border-radius:999px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap}
+.pill{flex-shrink:0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.muted{color:#5E6452}
+.err{padding:12px 14px;border-radius:12px;background:#F6E6D4;color:#7A3F14;font-size:14px;line-height:1.45}
+.ok{padding:12px 14px;border-radius:12px;background:#E3EEDF;color:#2F6B3A;font-size:14px;font-weight:600}
+.nav{position:absolute;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:6px;border-radius:24px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(23,21,18,.08);box-shadow:0 16px 40px -24px rgba(23,21,18,.5);z-index:5}
+.nv{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0;border-radius:18px;border:0;background:transparent;color:#525846;text-decoration:none;font:inherit;font-size:11px;font-weight:500;cursor:pointer}
+.nv[aria-current="page"]{background:#171512;color:#FAFBF4}
+.nv b{position:absolute;top:3px;right:calc(50% - 22px);min-width:17px;height:17px;padding:0 4px;box-sizing:border-box;border-radius:999px;background:#566B0E;color:#FFFFFF;font-size:10px;display:flex;align-items:center;justify-content:center}
+.it{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(23,21,18,.08)}
+.it img{width:52px;height:64px;border-radius:10px;object-fit:cover;background:#F1FEC8}
+.kv{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:3px 0}
+.kv span:first-child{color:#5E6452}
+.bars{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:24px}
+.bar{position:relative;flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;border:0;background:transparent;padding:0;cursor:pointer;font:inherit}
+.bar i{display:block;width:100%;max-width:34px;border-radius:4px 4px 0 0;background:#566B0E;min-height:2px}
+.bar[aria-pressed="true"] i{background:#171512}
+.bar em{position:absolute;bottom:calc(var(--h) + 4px);font-style:normal;font-size:11px;font-weight:600;white-space:nowrap;color:#171512}
+.toast{position:absolute;left:16px;right:16px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:6;padding:12px 16px;border-radius:16px;background:#171512;color:#FAFBF4;font-size:14px;font-weight:500;box-shadow:0 18px 40px -16px rgba(23,21,18,.6)}
+.login{position:absolute;inset:0;overflow-y:auto;padding:48px 22px 40px;display:flex;flex-direction:column;gap:14px}
+.day{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5E6452;margin:10px 2px 0}
+.ev{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(23,21,18,.08);text-align:left;font:inherit;color:#171512;cursor:pointer;width:100%;box-sizing:border-box}
+.ev.want{background:transparent;border-style:dashed}
+.sw{width:44px;height:26px;border-radius:999px;position:relative;flex-shrink:0;transition:background .25s}
+.sw i{position:absolute;top:3px;width:20px;height:20px;border-radius:50%;background:#FFFFFF;transition:left .25s}
 </style>
-<style>body{display:flex;justify-content:center;align-items:flex-start;padding-block:24px;background:#E6EDCF}</style>
+
 </head>
 <body>
 <div id="root"></div>
 <template id="tpl">
-<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #FAFBF4; font-family: 'Onest', system-ui, sans-serif; color: #171512">
-<div class="scroll" style="position: absolute; inset: 0; padding: 18px 16px 110px; display: flex; flex-direction: column; gap: 14px">
+<div class="app">
+
+<sc-if value="{{isChecking}}" hint-placeholder-val="{{false}}">
+<div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px"><span style="font-weight: 700; letter-spacing: 0.02em">NEW ERA <i class="s" style="font-size: 20px; font-weight: 500">кабинет</i></span><span class="muted pulse" style="font-size: 14px">Загружаем…</span></div>
+</sc-if>
+
+<sc-if value="{{isLogin}}" hint-placeholder-val="{{false}}">
+<div class="login">
+<div style="display: flex; align-items: baseline; gap: 6px"><span style="font-weight: 700; font-size: 15px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 19px">кабинет</i></div>
+<sc-if value="{{modeLogin}}">
+<h1 style="margin: 18px 0 0; font-size: 34px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.05">Вход <i class="s" style="font-size: 1.1em">для своих</i></h1>
+<p class="muted" style="margin: 0 0 6px; line-height: 1.5">Здесь заказы, замеры, товары и цены сайта.</p>
+<form onSubmit="{{doLogin}}" novalidate style="display: flex; flex-direction: column; gap: 12px">
+<div><label class="lbl" for="lg-email">E-mail</label><input id="lg-email" class="in" type="email" autocomplete="username" inputmode="email" value="{{lastEmail}}"></div>
+<div><label class="lbl" for="lg-pass">Пароль</label><input id="lg-pass" class="in" type="password" autocomplete="current-password"></div>
+<sc-if value="{{hasErr}}"><div class="err" role="alert">{{errText}}</div></sc-if>
+<button type="submit" class="b1 press" disabled="{{busy}}" style="min-height: 54px; font-size: 16px; margin-top: 4px">{{loginBtn}}</button>
+</form>
+<button type="button" class="b2" onClick="{{toSetup}}" style="margin-top: 6px">Первый вход или забыли пароль?</button>
+</sc-if>
+<sc-if value="{{modeSetup}}">
+<h1 style="margin: 18px 0 0; font-size: 30px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1">Создать вход <i class="s" style="font-size: 1.1em">или новый пароль</i></h1>
+<p class="muted" style="margin: 0 0 6px; line-height: 1.5">Нужен одноразовый код — его выдают один раз. Если такой e-mail уже есть, у него просто сменится пароль.</p>
+<form onSubmit="{{doSetup}}" novalidate style="display: flex; flex-direction: column; gap: 12px">
+<div><label class="lbl" for="su-code">Одноразовый код</label><input id="su-code" class="in" type="text" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" placeholder="NEM-XXXX-XXXX-XXXX"></div>
+<div><label class="lbl" for="su-name">Ваше имя</label><input id="su-name" class="in" type="text" autocomplete="given-name"></div>
+<div><label class="lbl" for="su-email">E-mail (для входа)</label><input id="su-email" class="in" type="email" autocomplete="username" inputmode="email"></div>
+<div><label class="lbl" for="su-pass">Пароль — минимум 8 символов</label><input id="su-pass" class="in" type="password" autocomplete="new-password"></div>
+<div><label class="lbl" for="su-pass2">Повторите пароль</label><input id="su-pass2" class="in" type="password" autocomplete="new-password"></div>
+<sc-if value="{{hasErr}}"><div class="err" role="alert">{{errText}}</div></sc-if>
+<button type="submit" class="b1 press" disabled="{{busy}}" style="min-height: 54px; font-size: 16px; margin-top: 4px">{{setupBtn}}</button>
+</form>
+<button type="button" class="b2" onClick="{{toLogin}}" style="margin-top: 6px">У меня уже есть вход</button>
+</sc-if>
+<a href="index.html" class="muted" style="margin-top: auto; font-size: 14px; text-align: center">← На сайт</a>
+</div>
+</sc-if>
+
+<sc-if value="{{isNoAdmin}}" hint-placeholder-val="{{false}}">
+<div class="login" style="justify-content: center; text-align: center; align-items: center">
+<div style="font-size: 22px; font-weight: 600">Нет доступа к кабинету</div>
+<p class="muted" style="margin: 0; line-height: 1.5">Аккаунт {{email}} не подключён как администратор.</p>
+<button type="button" class="b1" onClick="{{logout}}">Выйти</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isApp}}" hint-placeholder-val="{{true}}">
+<div class="scroll" ref="{{scRef}}">
 
 <div style="display: flex; justify-content: space-between; align-items: center">
 <span style="display: flex; align-items: baseline; gap: 5px"><span style="font-weight: 700; font-size: 14px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 17px">кабинет</i></span>
-<button type="button" aria-label="Уведомления" style="position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(23,21,18,0.12); background: #FFFFFF; display: flex; align-items: center; justify-content: center; color: #171512; cursor: pointer">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"></path></svg>
-<sc-if value="{{hasNew}}" hint-placeholder-val="{{true}}"><span class="pulse" style="position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: #566B0E"></span></sc-if>
-</button>
+<div style="display: flex; gap: 8px">
+<button type="button" class="ib" onClick="{{refresh}}" aria-label="Обновить"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"></path></svg></button>
+<button type="button" class="ib" onClick="{{toSettings}}" aria-label="Настройки и уведомления"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"></path></svg><sc-if value="{{notifOff}}"><span style="position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: #C25A1C"></span></sc-if></button>
+</div>
 </div>
 
+<sc-if value="{{loadErr}}"><div class="err" role="alert">{{loadErrText}} <button type="button" class="b3" onClick="{{refresh}}" style="margin-left: 6px">Повторить</button></div></sc-if>
+
+<!-- ========== ЗАКАЗЫ ========== -->
+<sc-if value="{{vOrders}}">
 <div>
-<div style="font-size: 28px; font-weight: 500; letter-spacing: -0.03em">Сәлем, <i class="s" style="font-size: 1.12em">[Имя]</i></div>
-<div style="color: #5E6452; font-size: 15px; margin-top: 2px">{{summary}}</div>
+<div style="font-size: 28px; font-weight: 500; letter-spacing: -0.03em">Сәлем, <i class="s" style="font-size: 1.12em">{{myName}}</i></div>
+<div class="muted" style="font-size: 15px; margin-top: 2px">{{summary}}</div>
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
 <div style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(23,21,18,0.08)">
-<div style="font-size: 12px; color: #5E6452">Неделя</div>
-<div style="font-size: 22px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">540 000 ₸</div>
-<div style="font-size: 12px; color: #5E6452; margin-top: 2px">6 заказов</div>
+<div style="font-size: 12px" class="muted">7 дней</div>
+<div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{weekSum}}</div>
+<div style="font-size: 12px; margin-top: 2px" class="muted">{{weekCnt}}</div>
 </div>
 <div style="padding: 16px; border-radius: 20px; background: #171512; color: #FAFBF4">
-<div style="font-size: 12px; color: #B8BEA6">Месяц</div>
-<div style="font-size: 22px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">2 180 000 ₸</div>
-<div style="font-size: 12px; color: #B8BEA6; margin-top: 2px">23 заказа</div>
+<div style="font-size: 12px; color: #B8BEA6">30 дней</div>
+<div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{monthSum}}</div>
+<div style="font-size: 12px; color: #B8BEA6; margin-top: 2px">{{monthCnt}}</div>
 </div>
 </div>
 
-<sc-if value="{{hasNew}}" hint-placeholder-val="{{true}}">
-<div style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1.5px solid #566B0E; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: #566B0E"><span class="pulse" style="width: 7px; height: 7px; border-radius: 50%; background: #566B0E"></span>НОВЫЙ ЗАКАЗ С САЙТА</span><span style="font-size: 12px; color: #5E6452">3 мин назад</span></div>
+<sc-if value="{{hasBanner}}">
+<div class="pop" style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1.5px solid #566B0E; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: #566B0E"><span class="pulse" style="width: 7px; height: 7px; border-radius: 50%; background: #566B0E"></span>{{bnKind}}</span><span style="font-size: 12px" class="muted">{{bnAgo}}</span></div>
 <div style="display: flex; gap: 12px">
-<img src="img/nova_walnut.webp" alt="" style="width: 60px; height: 74px; border-radius: 12px; object-fit: cover; background: #F1FEC8">
-<div><div style="font-weight: 600">Шкаф-купе «Нова» · 160 см</div><div style="font-size: 14px; color: #5E6452; margin-top: 3px">Орех, 1 зеркало · 185 000 ₸</div><div style="font-size: 14px; color: #5E6452; margin-top: 2px">Kaspi · [Адрес клиента]</div></div>
+<img src="{{bnImg}}" alt="" style="width: 60px; height: 74px; border-radius: 12px; object-fit: cover; background: #F1FEC8; flex-shrink: 0">
+<div style="min-width: 0"><div style="font-weight: 600; line-height: 1.3">{{bnTitle}}</div><div style="font-size: 14px; margin-top: 3px" class="muted">{{bnSub}}</div><div style="font-size: 14px; margin-top: 2px" class="muted">{{bnClient}}</div></div>
 </div>
 <div style="display: flex; gap: 8px">
-<button type="button" class="press" onClick="{{accept}}" style="flex-grow: 1; min-height: 46px; border-radius: 999px; border: 0; background: #171512; color: #FAFBF4; font: inherit; font-weight: 600; cursor: pointer">Принять</button>
-<button type="button" class="press" onClick="{{later}}" style="flex-grow: 1; min-height: 46px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.2); background: transparent; color: #171512; font: inherit; font-weight: 500; cursor: pointer">Позже</button>
+<a class="rb" href="{{bnTel}}" aria-label="Позвонить клиенту"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></a>
+<button type="button" class="b1 press" onClick="{{bnAccept}}" style="flex-grow: 1">{{bnAcceptLabel}}</button>
+<button type="button" class="b2 press" onClick="{{bnLater}}">Позже</button>
 </div>
 </div>
 </sc-if>
@@ -71,31 +171,170 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <button type="button" role="tab" class="press" onClick="{{item.pick}}" aria-selected="{{item.sel}}" style="flex-grow: 1; min-height: 44px; border-radius: 999px; border: 0; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-weight: 600; font-size: 14px; cursor: pointer">{{item.label}}</button>
 </sc-for>
 </div>
+<div class="chips" role="group" aria-label="Фильтр">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="5"><button type="button" class="chip" onClick="{{f.pick}}" aria-pressed="{{f.sel}}" style="border: 1px solid {{f.bd}}; background: {{f.bg}}; color: {{f.fg}}">{{f.label}}</button></sc-for>
+</div>
+
+<sc-if value="{{listEmpty}}"><div class="card" style="align-items: center; text-align: center; padding: 28px 16px"><div style="font-weight: 600">{{emptyTitle}}</div><div class="muted" style="font-size: 14px; line-height: 1.5">{{emptyText}}</div></div></sc-if>
 
 <sc-for list="{{cards}}" as="item" hint-placeholder-count="3">
-<div style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(23,21,18,0.08); display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px">
-<div style="display: flex; gap: 12px; min-width: 0">
-<div style="width: 52px; flex-shrink: 0; text-align: center; padding: 6px 0; border-radius: 12px; background: #F1FEC8"><div style="font-size: 11px; color: #5E6452">{{item.day}}</div><div style="font-size: 15px; font-weight: 600">{{item.time}}</div></div>
-<div style="min-width: 0"><div style="font-weight: 600; line-height: 1.3">{{item.title}}</div><div style="font-size: 13px; color: #5E6452; margin-top: 3px">{{item.sub}}</div><div style="font-size: 13px; color: #5E6452; margin-top: 2px">{{item.client}} · {{item.addr}}</div></div>
-</div>
-<span style="flex-shrink: 0; padding: 5px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: {{item.pillBg}}; color: {{item.pillFg}}">{{item.status}}</span>
-</div>
+<div class="card" style="border-color: {{item.border}}">
+<button type="button" onClick="{{item.toggle}}" aria-expanded="{{item.expanded}}" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; border: 0; background: transparent; padding: 0; text-align: left; font: inherit; color: #171512; cursor: pointer">
+<span style="display: flex; gap: 12px; min-width: 0">
+<span style="width: 54px; flex-shrink: 0; text-align: center; padding: 6px 0; border-radius: 12px; background: {{item.tileBg}}"><span style="display: block; font-size: 10px; color: #5E6452">{{item.day}}</span><span style="display: block; font-size: 14px; font-weight: 600">{{item.time}}</span></span>
+<span style="min-width: 0"><span style="display: block; font-weight: 600; line-height: 1.3">{{item.title}}</span><span style="display: block; font-size: 13px; margin-top: 3px" class="muted">{{item.sub}}</span><span style="display: block; font-size: 13px; margin-top: 2px" class="muted">{{item.client}}</span></span>
+</span>
+<span class="pill" style="background: {{item.pillBg}}; color: {{item.pillFg}}">{{item.status}}</span>
+</button>
 <div style="display: flex; gap: 8px">
-<a href="tel:+70000000000" aria-label="Позвонить клиенту" style="width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; border: 1px solid rgba(23,21,18,0.14); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></a>
-<a href="#" aria-label="Маршрут в 2GIS" style="width: 46px; height: 46px; flex-shrink: 0; border-radius: 50%; border: 1px solid rgba(23,21,18,0.14); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg></a>
-<button type="button" class="press" onClick="{{item.next}}" style="flex-grow: 1; min-height: 46px; border-radius: 999px; border: 1px solid {{item.btnBd}}; background: {{item.btnBg}}; color: {{item.btnFg}}; font: inherit; font-weight: 600; font-size: 14px; cursor: pointer">{{item.btn}}</button>
+<a class="rb" href="{{item.tel}}" aria-label="Позвонить клиенту"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></a>
+<a class="rb" href="{{item.wa}}" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.6-2-1-1 .8a4 4 0 0 1-2.2-2.2l.8-1-1-2z"></path></svg></a>
+<a class="rb" href="{{item.map}}" target="_blank" rel="noopener" aria-label="Адрес в 2GIS"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg></a>
+<button type="button" class="press" onClick="{{item.next}}" disabled="{{item.nextOff}}" style="flex-grow: 1; min-height: 46px; border-radius: 999px; border: 1px solid {{item.btnBd}}; background: {{item.btnBg}}; color: {{item.btnFg}}; font: inherit; font-weight: 600; font-size: 14px; cursor: pointer">{{item.btn}}</button>
 </div>
+<sc-if value="{{item.open}}">
+<div style="border-top: 1px solid rgba(23,21,18,0.08); padding-top: 12px; display: flex; flex-direction: column; gap: 12px">
+<div>
+<div class="kv"><span>{{item.numLabel}}</span><span>{{item.created}}</span></div>
+<div class="kv"><span>Клиент</span><span>{{item.name}}</span></div>
+<div class="kv"><span>Телефон</span><a href="{{item.tel}}">{{item.phone}}</a></div>
+<div class="kv"><span>Адрес</span><span style="text-align: right">{{item.address}}</span></div>
+<sc-for list="{{item.extra}}" as="kv" hint-placeholder-count="2"><div class="kv"><span>{{kv.k}}</span><span style="text-align: right">{{kv.v}}</span></div></sc-for>
+</div>
+<sc-if value="{{item.hasItems}}">
+<div>
+<sc-for list="{{item.lines}}" as="ln" hint-placeholder-count="2"><div class="it"><img src="{{ln.image}}" alt=""><div style="min-width: 0"><div style="font-weight: 600; font-size: 14px; line-height: 1.3">{{ln.name}}</div><div class="muted" style="font-size: 12px; margin-top: 2px">{{ln.meta}}</div></div><div style="font-weight: 600; font-size: 14px; white-space: nowrap">{{ln.sum}}</div></div></sc-for>
+<div class="kv" style="font-size: 16px; padding-top: 8px"><span>Итого</span><b>{{item.totalText}}</b></div>
+</div>
+</sc-if>
+<sc-if value="{{item.hasComment}}"><div style="padding: 10px 12px; border-radius: 12px; background: #F1FEC8; font-size: 14px; line-height: 1.45"><b>Комментарий клиента:</b> {{item.comment}}</div></sc-if>
+<div>
+<label class="lbl" for="{{item.dateId}}">{{item.dateLabel}}</label>
+<div style="display: flex; gap: 8px"><input id="{{item.dateId}}" class="in" type="date" value="{{item.dateVal}}"><sc-if value="{{item.isMeas}}"><input id="{{item.timeId}}" class="in" type="time" value="{{item.timeVal}}" style="max-width: 120px" aria-label="Время замера"></sc-if><button type="button" class="b3" onClick="{{item.saveDate}}">Сохранить</button></div>
+</div>
+<div>
+<label class="lbl" for="{{item.statusId}}">Статус</label>
+<select id="{{item.statusId}}" class="in" value="{{item.statusVal}}" onChange="{{item.setStatus}}">
+<sc-for list="{{item.statusOpts}}" as="so" hint-placeholder-count="5"><option value="{{so.id}}">{{so.label}}</option></sc-for>
+</select>
+</div>
+<div>
+<label class="lbl" for="{{item.noteId}}">Заметка для себя</label>
+<textarea id="{{item.noteId}}" class="in" rows="2" value="{{item.note}}" placeholder="Например: 3 этаж без лифта, аванс 50 000"></textarea>
+<button type="button" class="b3" onClick="{{item.saveNote}}" style="margin-top: 8px">Сохранить заметку</button>
+</div>
+<div style="display: flex; justify-content: flex-end">
+<sc-if value="{{item.notConfirmDel}}"><button type="button" class="bd" onClick="{{item.askDel}}">Удалить</button></sc-if>
+<sc-if value="{{item.confirmDel}}"><span style="display: flex; gap: 8px; align-items: center"><span class="muted" style="font-size: 13px">Удалить навсегда?</span><button type="button" class="b2" onClick="{{item.cancelDel}}">Нет</button><button type="button" class="bd" onClick="{{item.del}}" style="background: #8A4A1C; color: #FFFFFF">Да, удалить</button></span></sc-if>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</sc-if>
+
+<!-- ========== КАЛЕНДАРЬ ========== -->
+<sc-if value="{{vCal}}">
+<div><div style="font-size: 26px; font-weight: 500; letter-spacing: -0.03em">Календарь</div><div class="muted" style="font-size: 14px; margin-top: 2px">Замеры и доставки на 3 недели вперёд</div></div>
+<sc-if value="{{hasUndated}}">
+<div class="card" style="border-color: #C9A57B">
+<div style="font-weight: 600">Нужно назначить дату · {{undatedCount}}</div>
+<sc-for list="{{undated}}" as="ev" hint-placeholder-count="2"><button type="button" class="ev want" onClick="{{ev.go}}"><span class="pill" style="background: {{ev.bg}}">{{ev.kind}}</span><span style="min-width: 0"><span style="display: block; font-weight: 600; font-size: 14px">{{ev.title}}</span><span class="muted" style="display: block; font-size: 13px; margin-top: 2px">{{ev.sub}}</span></span></button></sc-for>
+</div>
+</sc-if>
+<sc-for list="{{days}}" as="d" hint-placeholder-count="5">
+<div class="day" style="color: {{d.color}}">{{d.label}}</div>
+<sc-if value="{{d.empty}}"><div class="muted" style="font-size: 13px; padding: 2px 2px 6px">Свободно</div></sc-if>
+<sc-for list="{{d.events}}" as="ev" hint-placeholder-count="1"><button type="button" class="{{ev.cls}}" onClick="{{ev.go}}"><span style="width: 46px; flex-shrink: 0; font-weight: 700; font-size: 14px; padding-top: 2px">{{ev.time}}</span><span style="min-width: 0; flex-grow: 1"><span class="pill" style="background: {{ev.bg}}; display: inline-block; margin-bottom: 6px">{{ev.kind}}</span><span style="display: block; font-weight: 600; font-size: 14px; line-height: 1.3">{{ev.title}}</span><span class="muted" style="display: block; font-size: 13px; margin-top: 2px">{{ev.sub}}</span></span></button></sc-for>
+</sc-for>
+</sc-if>
+
+<!-- ========== ДЕНЬГИ ========== -->
+<sc-if value="{{vMoney}}">
+<div><div style="font-size: 26px; font-weight: 500; letter-spacing: -0.03em">Деньги</div><div class="muted" style="font-size: 14px; margin-top: 2px">Считаются все заказы, кроме отменённых</div></div>
+<div class="chips" role="group" aria-label="Период">
+<sc-for list="{{periods}}" as="f" hint-placeholder-count="4"><button type="button" class="chip" onClick="{{f.pick}}" aria-pressed="{{f.sel}}" style="border: 1px solid {{f.bd}}; background: {{f.bg}}; color: {{f.fg}}">{{f.label}}</button></sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="4"><div style="padding: 16px; border-radius: 20px; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid rgba(23,21,18,0.08)"><div style="font-size: 12px; opacity: 0.75">{{t.k}}</div><div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{t.v}}</div><div style="font-size: 12px; opacity: 0.75; margin-top: 2px">{{t.s}}</div></div></sc-for>
+</div>
+<div class="card">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 600">Заказы по неделям</span><span class="muted" style="font-size: 13px">{{wkCaption}}</span></div>
+<div class="bars" role="group" aria-label="Сумма заказов за последние 8 недель">
+<sc-for list="{{weeks}}" as="w" hint-placeholder-count="8"><button type="button" class="bar" onClick="{{w.pick}}" aria-pressed="{{w.sel}}" aria-label="{{w.aria}}" style="--h: {{w.h}}"><sc-if value="{{w.show}}"><em>{{w.short}}</em></sc-if><i style="height: {{w.h}}"></i></button></sc-for>
+</div>
+<div style="display: flex; gap: 6px">
+<sc-for list="{{weeks}}" as="w" hint-placeholder-count="8"><span style="flex: 1 1 0; text-align: center; font-size: 10px" class="muted">{{w.label}}</span></sc-for>
+</div>
+</div>
+<div class="card">
+<div style="font-weight: 600">Что заказывают</div>
+<sc-if value="{{noTop}}"><div class="muted" style="font-size: 14px">Пока нет заказов за этот период.</div></sc-if>
+<sc-for list="{{top}}" as="t" hint-placeholder-count="3"><div class="kv"><span>{{t.name}}</span><span><b style="color: #171512">{{t.qty}} шт.</b> · {{t.sum}}</span></div></sc-for>
+</div>
+<div class="card">
+<div style="font-weight: 600">Оплата</div>
+<sc-for list="{{pays}}" as="t" hint-placeholder-count="2"><div class="kv"><span>{{t.k}}</span><span>{{t.v}}</span></div></sc-for>
+</div>
+</sc-if>
+
+<!-- ========== НАСТРОЙКИ ========== -->
+<sc-if value="{{vSettings}}">
+<div><div style="font-size: 26px; font-weight: 500; letter-spacing: -0.03em">Настройки</div><div class="muted" style="font-size: 14px; margin-top: 2px">{{email}}</div></div>
+
+<div class="card">
+<div style="font-weight: 600">Уведомления о новых заказах</div>
+<div class="muted" style="font-size: 14px; line-height: 1.5">{{notifText}}</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<sc-if value="{{canEnableNotif}}"><button type="button" class="b1 press" onClick="{{enableNotif}}">Включить уведомления</button></sc-if>
+<button type="button" class="b2" onClick="{{testNotif}}">Проверить</button>
+</div>
+<div class="muted" style="font-size: 13px; line-height: 1.5">{{installText}}</div>
+<sc-if value="{{canInstall}}"><button type="button" class="b3" onClick="{{install}}">Установить кабинет на телефон</button></sc-if>
+</div>
+
+<div class="card">
+<div style="font-weight: 600">Отзывы · на проверке {{pendingCount}}</div>
+<sc-if value="{{noRevs}}"><div class="muted" style="font-size: 14px">Отзывов пока нет.</div></sc-if>
+<sc-for list="{{revs}}" as="r" hint-placeholder-count="2">
+<div style="padding: 12px; border-radius: 14px; background: {{r.bg}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; gap: 8px"><b>{{r.name}}</b><span style="color: #566B0E">{{r.stars}}</span></div>
+<div class="muted" style="font-size: 13px">{{r.meta}}</div>
+<div style="font-size: 14px; line-height: 1.5">{{r.text}}</div>
+<div style="display: flex; gap: 8px"><button type="button" class="{{r.mainCls}}" onClick="{{r.toggle}}">{{r.toggleLabel}}</button><button type="button" class="bd" onClick="{{r.del}}">Удалить</button></div>
 </div>
 </sc-for>
 </div>
 
-<nav aria-label="Разделы кабинета" style="position: absolute; left: 12px; right: 12px; bottom: 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; border-radius: 24px; background: rgba(255,255,255,0.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(23,21,18,0.08); box-shadow: 0 16px 40px -24px rgba(23,21,18,0.5)">
-<a href="admin.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 0; border-radius: 18px; background: #171512; color: #FAFBF4; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Заказы</a>
-<a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 0; border-radius: 18px; color: #525846; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>Календарь</a>
-<a href="admin-products.html" style="display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 0; border-radius: 18px; color: #525846; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V4h8v17M11 21V9h10v12M3 21h18M6 8h2M6 12h2M14 13h4M14 17h4"></path></svg>Товары</a>
-<a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 0; border-radius: 18px; color: #525846; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"></path></svg>Деньги</a>
+<div class="card">
+<div style="font-weight: 600">Контакты на сайте</div>
+<div class="muted" style="font-size: 13px; margin-top: -6px">Появятся внизу сайта, в корзине и на странице заказа.</div>
+<sc-for list="{{fields}}" as="f" hint-placeholder-count="8"><div><label class="lbl" for="{{f.id}}">{{f.label}}</label><input id="{{f.id}}" class="in" type="{{f.type}}" inputmode="{{f.mode}}" value="{{f.value}}" placeholder="{{f.ph}}"></div></sc-for>
+<sc-if value="{{setOk}}"><div class="ok" role="status">Сохранено — уже на сайте</div></sc-if>
+<button type="button" class="b1 press" onClick="{{saveContacts}}" disabled="{{busy}}">Сохранить контакты</button>
+</div>
+
+<div class="card">
+<div style="font-weight: 600">Как к вам обращаться</div>
+<div style="display: flex; gap: 8px"><label for="st-name" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Имя</label><input id="st-name" class="in" type="text" value="{{myName}}"><button type="button" class="b3" onClick="{{saveName}}">Сохранить</button></div>
+</div>
+
+<a href="admin-products.html" class="card" style="text-decoration: none; flex-direction: row; justify-content: space-between; align-items: center"><span><b>Товары, цены и фото</b><span class="muted" style="display: block; font-size: 13px; margin-top: 2px">А также цены кухни за метр</span></span><span aria-hidden="true">→</span></a>
+<a href="index.html" class="card" style="text-decoration: none; flex-direction: row; justify-content: space-between; align-items: center"><b>Открыть сайт</b><span aria-hidden="true">→</span></a>
+<button type="button" class="b2" onClick="{{logout}}" style="align-self: flex-start">Выйти из кабинета</button>
+</sc-if>
+
+</div>
+
+<sc-if value="{{hasToast}}"><div class="toast pop" role="status">{{toastText}}</div></sc-if>
+
+<nav class="nav" aria-label="Разделы кабинета">
+<button type="button" class="nv" onClick="{{goOrders}}" aria-current="{{curOrders}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>Заказы<sc-if value="{{hasNewBadge}}"><b>{{newCount}}</b></sc-if></button>
+<button type="button" class="nv" onClick="{{goCal}}" aria-current="{{curCal}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>Календарь</button>
+<a class="nv" href="admin-products.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V4h8v17M11 21V9h10v12M3 21h18M6 8h2M6 12h2M14 13h4M14 17h4"></path></svg>Товары</a>
+<button type="button" class="nv" onClick="{{goMoney}}" aria-current="{{curMoney}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V11M10 19V5M16 19v-6M22 19H2"></path></svg>Деньги</button>
 </nav>
+</sc-if>
 </div>
 </template>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
@@ -200,44 +439,478 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
   };
 })();
 </script>
+<script src="nem.js?v=53b0f47f"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
+    if (!this.scRef) this.scRef = { current: null };
     const s = this.state || {};
+    const N = window.NEM;
+    const auth = s.auth || 'checking';
+    const base = {
+      scRef: this.scRef,
+      isChecking: auth === 'checking', isLogin: auth === 'login', isNoAdmin: auth === 'noadmin', isApp: auth === 'app',
+      modeLogin: !s.setup, modeSetup: !!s.setup,
+      toSetup: () => this.setState({ setup: true, err: '' }), toLogin: () => this.setState({ setup: false, err: '' }),
+      lastEmail: N.LS.get('nem-last-email', ''), email: N.auth.email(),
+      hasErr: !!s.err, errText: s.err || '', busy: !!s.busy,
+      loginBtn: s.busy ? 'Входим…' : 'Войти', setupBtn: s.busy ? 'Создаём…' : 'Создать вход',
+      doLogin: (e) => { if (e && e.preventDefault) e.preventDefault(); this.doLogin(); },
+      doSetup: (e) => { if (e && e.preventDefault) e.preventDefault(); this.doSetup(); },
+      logout: () => { N.auth.signOut(); this.stopPoll(); this.setState({ auth: 'login', orders: [], meas: [], reviews: [] }); },
+      hasToast: !!s.toast, toastText: s.toast || ''
+    };
+    if (auth !== 'app') return base;
+    const view = s.view || 'orders';
+    const orders = s.orders || [], meas = s.meas || [], reviews = s.reviews || [];
+    const st = N.settings();
+    const now = Date.now(), DAY = 86400000;
+    const fmt = N.fmt;
+    const live = orders.filter((o) => o.status !== 'cancelled');
+    const sumOf = (l) => l.reduce((a, o) => a + (o.total || 0), 0);
+    const inDays = (o, d) => now - new Date(o.created_at).getTime() < d * DAY;
+    const wk = live.filter((o) => inDays(o, 7)), mo = live.filter((o) => inDays(o, 30));
+    const cntText = (n) => n + ' ' + N.plural(n, 'заказ', 'заказа', 'заказов');
+    const newO = orders.filter((o) => o.status === 'new'), newM = meas.filter((m) => m.status === 'new');
+    const today = this.ymd(new Date());
+    const todayDel = orders.filter((o) => o.delivery_date === today && o.status !== 'cancelled').length;
+    const todayMeas = meas.filter((m) => m.scheduled_at && this.ymd(new Date(m.scheduled_at)) === today && m.status !== 'cancelled').length;
+    const sumParts = [];
+    if (newO.length) sumParts.push(newO.length + ' ' + N.plural(newO.length, 'новый заказ', 'новых заказа', 'новых заказов'));
+    if (newM.length) sumParts.push(newM.length + ' ' + N.plural(newM.length, 'новая заявка на замер', 'новые заявки на замер', 'новых заявок на замер'));
+    const todayParts = [];
+    if (todayDel) todayParts.push(todayDel + ' ' + N.plural(todayDel, 'доставка', 'доставки', 'доставок'));
+    if (todayMeas) todayParts.push(todayMeas + ' ' + N.plural(todayMeas, 'замер', 'замера', 'замеров'));
+    const nav = (v) => () => { this.setState({ view: v, open: null }); try { history.replaceState(null, '', v === 'orders' ? 'admin.html' : '#' + v); } catch (e) {} if (this.scRef.current) this.scRef.current.scrollTop = 0; };
+    const perm = typeof Notification !== 'undefined' ? Notification.permission : 'unsupported';
+    const out = Object.assign(base, {
+      myName: (s.me && s.me.name) || 'хозяин',
+      summary: (sumParts.length ? 'Ждут ответа: ' + sumParts.join(' и ') : 'Новых заявок нет') + (todayParts.length ? '. Сегодня: ' + todayParts.join(', ') : ''),
+      weekSum: fmt(sumOf(wk)), weekCnt: cntText(wk.length), monthSum: fmt(sumOf(mo)), monthCnt: cntText(mo.length),
+      loadErr: !!s.loadErr, loadErrText: s.loadErr || '',
+      refresh: () => this.loadAll(true),
+      toSettings: nav('settings'), goOrders: nav('orders'), goCal: nav('calendar'), goMoney: nav('money'),
+      curOrders: view === 'orders' ? 'page' : 'false', curCal: view === 'calendar' ? 'page' : 'false', curMoney: view === 'money' ? 'page' : 'false',
+      vOrders: view === 'orders', vCal: view === 'calendar', vMoney: view === 'money', vSettings: view === 'settings',
+      newCount: newO.length + newM.length, hasNewBadge: newO.length + newM.length > 0,
+      notifOff: perm !== 'granted'
+    });
+    if (view === 'orders') Object.assign(out, this.ordersVals(s, orders, meas));
+    if (view === 'calendar') Object.assign(out, this.calVals(s, orders, meas));
+    if (view === 'money') Object.assign(out, this.moneyVals(s, orders, meas));
+    if (view === 'settings') Object.assign(out, this.settingsVals(s, st, reviews, perm));
+    return out;
+  }
+
+  // ---------- помощники ----------
+  ymd(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  dayName(d) {
+    const t = new Date(); t.setHours(0, 0, 0, 0);
+    const x = new Date(d); x.setHours(0, 0, 0, 0);
+    const diff = Math.round((x - t) / 86400000);
+    if (diff === 0) return 'Сегодня'; if (diff === -1) return 'Вчера'; if (diff === 1) return 'Завтра';
+    return x.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }).replace('.', '');
+  }
+  hm(d) { return new Date(d).toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }); }
+  ago(d) {
+    const m = Math.round((Date.now() - new Date(d).getTime()) / 60000);
+    if (m < 1) return 'только что'; if (m < 60) return m + ' мин назад';
+    const h = Math.round(m / 60); if (h < 24) return h + ' ч назад';
+    return this.dayName(d);
+  }
+  say(t) { clearTimeout(this.toastT); this.setState({ toast: t }); this.toastT = setTimeout(() => this.setState({ toast: '' }), 2600); }
+  mapLink(addr) { return 'https://2gis.kz/search/' + encodeURIComponent((/туркестан/i.test(addr || '') ? '' : 'Туркестан, ') + (addr || '')); }
+  orderTitle(o) { const it = o.items || []; if (!it.length) return 'Заказ'; return (o.kind === 'one_click' ? '1 клик: ' : '') + it[0].name + (it.length > 1 ? ' + ещё ' + (it.length - 1) : ''); }
+  orderSub(o) {
+    const N = window.NEM, it = (o.items || [])[0] || {};
+    const parts = [];
+    if (it.size) parts.push(it.size);
+    if (it.color && N.SW[it.color]) parts.push(N.SW[it.color].name.toLowerCase());
+    parts.push(N.fmt(o.total));
+    if (o.payment) parts.push(o.payment === 'kaspi' ? 'Kaspi' : 'наличные');
+    return parts.join(' · ');
+  }
+  measTitle(m) {
+    const k = { kitchen: 'Замер кухни', wardrobe: 'Замер · шкаф / гардеробная', other: 'Замер мебели' }[m.kind] || 'Замер';
+    return k + (m.calc && m.calc.shape ? ' · ' + String(m.calc.shape).toLowerCase() : '');
+  }
+  measSub(m) {
+    const c = m.calc || {};
+    if (c.range) return 'Расчёт с сайта: ' + c.range;
+    return m.want_date ? 'Хочет: ' + new Date(m.want_date + 'T12:00:00').toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + (m.want_time ? ', ' + m.want_time : '') : 'Без расчёта';
+  }
+
+  // ---------- Заказы и замеры ----------
+  ordersVals(s, orders, meas) {
+    const N = window.NEM;
     const tab = s.tab || 'orders';
-    const st = s.st || {};
-    const accepted = !!s.accepted;
-    const orders = [
-      { id: 'o1', day: 'Сегодня', time: '11:00', title: 'Кухня угловая · 3,2 + 2,4 м', sub: 'МДФ плёнка · 1 480 000 ₸ · аванс внесён', client: 'Айгуль', addr: '[Адрес]', flow: ['Принят', 'Изготовление', 'Доставка', 'Сборка', 'Готово'], at: 1 },
-      { id: 'o2', day: 'Сегодня', time: '15:30', title: 'Комод «Линия» + тумба «Мини»', sub: 'Графит · 88 000 ₸ · Kaspi', client: 'Ерлан', addr: '[Адрес]', flow: ['Принят', 'Доставка', 'Сборка', 'Готово'], at: 1 },
-      { id: 'o3', day: 'Завтра', time: '10:00', title: 'Шкаф «Классик» 4-дверный', sub: 'Белый · 149 000 ₸ · наличные', client: 'Дина', addr: '[Адрес]', flow: ['Принят', 'Доставка', 'Сборка', 'Готово'], at: 0 }
-    ];
-    if (accepted) orders.unshift({ id: 'o0', day: 'Завтра', time: '—', title: 'Шкаф-купе «Нова» · 160 см', sub: 'Орех, 1 зеркало · 185 000 ₸ · Kaspi', client: 'Новый клиент', addr: '[Адрес]', flow: ['Принят', 'Доставка', 'Сборка', 'Готово'], at: 0 });
-    const measures = [
-      { id: 'm1', day: 'Сегодня', time: '17:00', title: 'Замер кухни · угловая', sub: 'Расчёт с сайта: от 1 190 000 до 1 430 000 ₸', client: 'Марат', addr: '[Адрес]', flow: ['Назначен', 'Замер сделан', 'Проект отправлен', 'Договор'], at: 0 },
-      { id: 'm2', day: 'Пт', time: '12:00', title: 'Замер · шкаф-купе в нишу', sub: 'Ниша примерно 2,1 × 2,6 м', client: 'Салтанат', addr: '[Адрес]', flow: ['Назначен', 'Замер сделан', 'Проект отправлен', 'Договор'], at: 0 }
-    ];
-    const src = tab === 'orders' ? orders : measures;
-    const cards = src.map((o) => {
-      const v = st[o.id] === undefined ? o.at : st[o.id];
-      const last = o.flow.length - 1, done = v >= last;
+    const filt = s.filt || 'active';
+    const isO = tab === 'orders';
+    const flow = isO ? N.ORDER_FLOW : N.MEASURE_FLOW;
+    const doneId = isO ? 'done' : 'contract';
+    const src = isO ? orders : meas;
+    const activeO = orders.filter((o) => o.status !== 'done' && o.status !== 'cancelled').length;
+    const activeM = meas.filter((m) => m.status !== 'contract' && m.status !== 'cancelled').length;
+    let list = src.filter((x) => filt === 'all' ? true : filt === 'active' ? (x.status !== doneId && x.status !== 'cancelled') : filt === 'new' ? x.status === 'new' : filt === 'done' ? x.status === doneId : x.status === 'cancelled');
+    list = list.slice().sort((a, b) => (a.status === 'new') !== (b.status === 'new') ? (a.status === 'new' ? -1 : 1) : new Date(b.created_at) - new Date(a.created_at));
+    const nextLabel = isO ? { new: 'Принять заказ', accepted: 'В производство', production: 'На доставку', delivery: 'Готово, сдан' } : { new: 'Назначить замер', scheduled: 'Замер сделан', measured: 'Проект отправлен', project: 'Договор подписан' };
+    const bannerItem = s.banner ? (s.banner.t === 'o' ? orders : meas).filter((x) => x.id === s.banner.id && x.status === 'new')[0] : null;
+    const out = {
+      tabs: [{ id: 'orders', label: 'Заказы · ' + activeO }, { id: 'meas', label: 'Замеры · ' + activeM }].map((t) => ({ ...t, sel: t.id === tab ? 'true' : 'false', bg: t.id === tab ? '#171512' : 'transparent', fg: t.id === tab ? '#FAFBF4' : '#525846', pick: () => this.setState({ tab: t.id, open: null }) })),
+      filters: [['active', 'В работе'], ['new', 'Новые'], ['done', isO ? 'Выполнены' : 'Договор'], ['cancelled', 'Отменены'], ['all', 'Все']].map(([id, label]) => ({ label, sel: id === filt ? 'true' : 'false', bg: id === filt ? '#171512' : '#FFFFFF', fg: id === filt ? '#FAFBF4' : '#171512', bd: id === filt ? '#171512' : 'rgba(23,21,18,0.14)', pick: () => this.setState({ filt: id, open: null }) })),
+      listEmpty: list.length === 0,
+      emptyTitle: s.loaded ? (isO ? 'Заказов нет' : 'Заявок на замер нет') : 'Загружаем…',
+      emptyText: s.loaded ? (filt === 'active' ? 'Когда клиент оформит ' + (isO ? 'заказ' : 'замер') + ' на сайте, он появится здесь, и телефон даст знать.' : 'В этом списке пусто.') : '',
+      hasBanner: !!bannerItem
+    };
+    if (bannerItem) {
+      const isBo = s.banner.t === 'o';
+      Object.assign(out, {
+        bnKind: isBo ? (bannerItem.kind === 'one_click' ? 'КУПИТЬ В 1 КЛИК — ПЕРЕЗВОНИТЬ' : 'НОВЫЙ ЗАКАЗ С САЙТА') : 'НОВАЯ ЗАЯВКА НА ЗАМЕР',
+        bnAgo: this.ago(bannerItem.created_at),
+        bnImg: isBo ? (((bannerItem.items || [])[0] || {}).image || 'img/nova_walnut.webp') : 'img/kitchen_full.jpg',
+        bnTitle: isBo ? this.orderTitle(bannerItem) : this.measTitle(bannerItem),
+        bnSub: isBo ? this.orderSub(bannerItem) : this.measSub(bannerItem),
+        bnClient: [bannerItem.name || 'Без имени', N.prettyPhone(bannerItem.phone), bannerItem.address].filter(Boolean).join(' · '),
+        bnTel: 'tel:' + bannerItem.phone,
+        bnAcceptLabel: isBo ? 'Принять' : 'Назначить',
+        bnAccept: () => { this.setStatus(isBo ? 'orders' : 'measurements', bannerItem.id, isBo ? 'accepted' : 'scheduled'); this.setState({ banner: null, tab: isBo ? 'orders' : 'meas', open: (isBo ? 'o' : 'm') + bannerItem.id }); },
+        bnLater: () => this.setState({ banner: null })
+      });
+    }
+    out.cards = list.map((x) => {
+      const key = (isO ? 'o' : 'm') + x.id;
+      const idx = flow.findIndex((f) => f.id === x.status);
+      const cancelled = x.status === 'cancelled', done = x.status === doneId, isNew = x.status === 'new';
+      const label = cancelled ? 'Отменён' : (flow[idx] || {}).label || x.status;
+      const nextId = !cancelled && !done && idx >= 0 ? flow[idx + 1].id : null;
+      const open = s.open === key;
+      let day, time;
+      if (isO) { if (x.delivery_date) { day = 'доставка'; time = this.dayName(x.delivery_date + 'T12:00:00'); } else { day = this.dayName(x.created_at); time = this.hm(x.created_at); } }
+      else if (x.scheduled_at) { day = this.dayName(x.scheduled_at); time = this.hm(x.scheduled_at); }
+      else { day = 'заявка'; time = this.dayName(x.created_at); }
+      const sched = x.scheduled_at ? new Date(x.scheduled_at) : null;
+      const c = x.calc || {};
+      const extra = isO ? [{ k: 'Оплата', v: x.payment === 'kaspi' ? 'Kaspi' : x.payment === 'cash' ? 'Наличные' : 'уточнить' }, { k: 'Тип', v: x.kind === 'one_click' ? 'Купить в 1 клик — перезвонить' : 'Корзина' }]
+        : [{ k: 'Что замерить', v: { kitchen: 'Кухня', wardrobe: 'Шкаф / гардеробная', other: 'Другое' }[x.kind] || x.kind }, { k: 'Удобно клиенту', v: (x.want_date ? new Date(x.want_date + 'T12:00:00').toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : 'не указано') + (x.want_time ? ', ' + x.want_time : '') }]
+          .concat(c.range ? [{ k: 'Кухня', v: [c.shape, c.meters ? String(c.meters).replace('.', ',') + ' пог. м' : '', c.facade, c.top ? 'столешница ' + String(c.top).toLowerCase() : '', (c.extras || []).join(', ')].filter(Boolean).join(' · ') }, { k: 'Расчёт', v: c.range }] : []);
       return {
-        ...o, status: o.flow[v],
-        pillBg: done ? '#E3EEDF' : v === 0 ? '#F1FEC8' : '#F6E6D4', pillFg: done ? '#2F6B3A' : v === 0 ? '#34382B' : '#8A4A1C',
-        btn: done ? 'Завершён ✓' : 'Дальше: ' + o.flow[v + 1],
-        btnBg: done ? 'transparent' : '#171512', btnFg: done ? '#2F6B3A' : '#FAFBF4', btnBd: done ? 'rgba(47,107,58,0.35)' : '#171512',
-        next: () => { if (!done) this.setState({ st: { ...st, [o.id]: v + 1 } }); }
+        open, expanded: open ? 'true' : 'false', toggle: () => this.setState({ open: open ? null : key, delAsk: null }),
+        border: isNew ? '#566B0E' : open ? '#171512' : 'rgba(23,21,18,0.08)',
+        tileBg: isNew ? '#F1FEC8' : '#F3F5EC', day, time,
+        title: isO ? this.orderTitle(x) : this.measTitle(x),
+        sub: isO ? this.orderSub(x) : this.measSub(x),
+        client: [x.name || 'Без имени', x.address].filter(Boolean).join(' · '),
+        status: label,
+        pillBg: cancelled ? '#ECEAE6' : done ? '#E3EEDF' : isNew ? '#F1FEC8' : '#F6E6D4', pillFg: cancelled ? '#5E6452' : done ? '#2F6B3A' : isNew ? '#3E4D0A' : '#8A4A1C',
+        tel: 'tel:' + x.phone, wa: N.waLink(x.phone, 'Здравствуйте' + (x.name ? ', ' + x.name : '') + '! Это New Era Mebel, по вашей ' + (isO ? 'заявке №' + x.id : 'заявке на замер') + '.'),
+        map: this.mapLink(x.address),
+        btn: cancelled ? 'Отменён' : done ? 'Завершён ✓' : nextLabel[x.status] || 'Дальше',
+        nextOff: cancelled || done,
+        btnBg: cancelled || done ? 'transparent' : '#171512', btnFg: cancelled ? '#5E6452' : done ? '#2F6B3A' : '#FAFBF4', btnBd: cancelled ? 'rgba(23,21,18,0.14)' : done ? 'rgba(47,107,58,0.35)' : '#171512',
+        next: () => { if (nextId) this.setStatus(isO ? 'orders' : 'measurements', x.id, nextId); },
+        numLabel: (isO ? 'Заказ №' : 'Заявка №') + x.id, created: new Date(x.created_at).toLocaleString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }),
+        name: x.name || '—', phone: N.prettyPhone(x.phone), address: x.address || '—', extra,
+        hasItems: isO && (x.items || []).length > 0,
+        lines: isO ? (x.items || []).map((it) => ({ image: it.image || 'img/nova_walnut.webp', name: it.name, meta: [it.size, it.color && N.SW[it.color] ? N.SW[it.color].name.toLowerCase() : '', it.mirror ? ({ one: '1 зеркало', two: '2 зеркала', none: 'без зеркал' })[it.mirror] : '', (it.qty || 1) + ' шт. × ' + N.fmt(it.price)].filter(Boolean).join(' · '), sum: N.fmt((it.price || 0) * (it.qty || 1)) })) : [],
+        totalText: N.fmt(x.total || 0),
+        hasComment: !!x.comment, comment: x.comment || '',
+        isMeas: !isO, dateId: 'dt-' + key, timeId: 'tm-' + key, statusId: 'ss-' + key, noteId: 'nt-' + key,
+        dateLabel: isO ? 'День доставки и сборки' : 'Дата и время замера',
+        dateVal: isO ? (x.delivery_date || '') : (sched ? this.ymd(sched) : (x.want_date || '')),
+        timeVal: sched ? String(sched.getHours()).padStart(2, '0') + ':' + String(sched.getMinutes()).padStart(2, '0') : (x.want_time && /16/.test(x.want_time) && /20/.test(x.want_time) ? '17:00' : /12/.test(x.want_time || '') && /16/.test(x.want_time || '') ? '13:00' : '10:00'),
+        saveDate: () => this.saveDate(isO, x),
+        statusVal: x.status, statusOpts: flow.concat([{ id: 'cancelled', label: 'Отменён' }]),
+        setStatus: (e) => this.setStatus(isO ? 'orders' : 'measurements', x.id, e.target.value),
+        note: x.note || '', saveNote: () => { const el = document.getElementById('nt-' + key); this.patch(isO ? 'orders' : 'measurements', x.id, { note: el ? el.value : '' }, 'Заметка сохранена'); },
+        confirmDel: s.delAsk === key, notConfirmDel: s.delAsk !== key,
+        askDel: () => this.setState({ delAsk: key }), cancelDel: () => this.setState({ delAsk: null }),
+        del: () => this.removeRow(isO ? 'orders' : 'measurements', x.id)
       };
     });
+    return out;
+  }
+  saveDate(isO, x) {
+    const key = (isO ? 'o' : 'm') + x.id;
+    const d = (document.getElementById('dt-' + key) || {}).value || '';
+    if (isO) return this.patch('orders', x.id, { delivery_date: d || null }, d ? 'День доставки сохранён' : 'Дата убрана');
+    const t = (document.getElementById('tm-' + key) || {}).value || '10:00';
+    const patch = { scheduled_at: d ? new Date(d + 'T' + t + ':00').toISOString() : null };
+    if (d && x.status === 'new') patch.status = 'scheduled';
+    this.patch('measurements', x.id, patch, d ? 'Замер назначен' : 'Дата убрана');
+  }
+
+  // ---------- Календарь ----------
+  calVals(s, orders, meas) {
+    const N = window.NEM;
+    const go = (t, x) => () => this.setState({ view: 'orders', tab: t === 'o' ? 'orders' : 'meas', filt: 'all', open: t + x.id });
+    const days = [];
+    const start = new Date(); start.setHours(0, 0, 0, 0);
+    for (let i = 0; i < 21; i++) {
+      const d = new Date(start.getTime() + i * 86400000), key = this.ymd(d);
+      const ev = [];
+      meas.forEach((m) => {
+        if (m.status === 'cancelled') return;
+        if (m.scheduled_at && this.ymd(new Date(m.scheduled_at)) === key) ev.push({ sort: new Date(m.scheduled_at).getHours() * 60 + new Date(m.scheduled_at).getMinutes(), cls: 'ev', time: this.hm(m.scheduled_at), kind: 'Замер', bg: '#F1FEC8', title: this.measTitle(m), sub: [m.name, m.address, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) });
+        else if (!m.scheduled_at && m.want_date === key) ev.push({ sort: 2000, cls: 'ev want', time: '—', kind: 'Просит замер', bg: '#F6E6D4', title: this.measTitle(m) + (m.want_time ? ' · ' + m.want_time : ''), sub: [m.name, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) });
+      });
+      orders.forEach((o) => {
+        if (o.status === 'cancelled' || o.delivery_date !== key) return;
+        ev.push({ sort: 1500, cls: 'ev', time: o.status === 'done' ? '✓' : '—', kind: 'Доставка', bg: '#E3EEDF', title: this.orderTitle(o), sub: [o.name, o.address, N.prettyPhone(o.phone)].filter(Boolean).join(' · '), go: go('o', o) });
+      });
+      ev.sort((a, b) => a.sort - b.sort);
+      const wd = d.toLocaleDateString('ru-RU', { weekday: 'long' });
+      days.push({ label: (i === 0 ? 'Сегодня · ' : i === 1 ? 'Завтра · ' : '') + wd + ', ' + d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }), color: i === 0 ? '#171512' : '#5E6452', events: ev, empty: !ev.length });
+    }
+    const undated = orders.filter((o) => (o.status === 'accepted' || o.status === 'production' || o.status === 'delivery') && !o.delivery_date)
+      .map((o) => ({ kind: 'Заказ №' + o.id, bg: '#E3EEDF', title: this.orderTitle(o), sub: [o.name, N.prettyPhone(o.phone)].filter(Boolean).join(' · '), go: go('o', o) }))
+      .concat(meas.filter((m) => (m.status === 'new' || m.status === 'scheduled') && !m.scheduled_at).map((m) => ({ kind: 'Замер', bg: '#F1FEC8', title: this.measTitle(m), sub: [m.name, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) })));
+    return { days, undated, hasUndated: undated.length > 0, undatedCount: undated.length };
+  }
+
+  // ---------- Деньги ----------
+  moneyVals(s, orders, meas) {
+    const N = window.NEM;
+    const per = s.per || 'month';
+    const D = { week: 7, month: 30, year: 365, all: 100000 }[per];
+    const now = Date.now();
+    const live = orders.filter((o) => o.status !== 'cancelled');
+    const inP = (x) => now - new Date(x.created_at).getTime() < D * 86400000;
+    const L = live.filter(inP), done = L.filter((o) => o.status === 'done'), M = meas.filter(inP).filter((m) => m.status !== 'cancelled');
+    const sum = (l) => l.reduce((a, o) => a + (o.total || 0), 0);
+    const tiles = [
+      { k: 'Заказано на', v: N.fmt(sum(L)), s: L.length + ' ' + N.plural(L.length, 'заказ', 'заказа', 'заказов'), bg: '#171512', fg: '#FAFBF4' },
+      { k: 'Выполнено', v: N.fmt(sum(done)), s: done.length + ' ' + N.plural(done.length, 'заказ', 'заказа', 'заказов'), bg: '#FFFFFF', fg: '#171512' },
+      { k: 'Средний чек', v: L.length ? N.fmt(sum(L) / L.length) : '—', s: 'по всем заказам', bg: '#FFFFFF', fg: '#171512' },
+      { k: 'Замеров', v: String(M.length), s: M.filter((m) => m.status === 'contract').length + ' дошли до договора', bg: '#F1FEC8', fg: '#171512' }
+    ];
+    // 8 недель (понедельник — начало недели)
+    const mon = new Date(); mon.setHours(0, 0, 0, 0); mon.setDate(mon.getDate() - ((mon.getDay() + 6) % 7));
+    const weeks = [];
+    for (let i = 7; i >= 0; i--) {
+      const a = new Date(mon.getTime() - i * 7 * 86400000), b = new Date(a.getTime() + 7 * 86400000);
+      const l = live.filter((o) => { const t = new Date(o.created_at); return t >= a && t < b; });
+      weeks.push({ a, v: sum(l), n: l.length });
+    }
+    const max = Math.max.apply(null, weeks.map((w) => w.v)) || 1;
+    const sel = s.wk === undefined ? 7 : s.wk;
+    const short = (v) => v >= 1000000 ? (v / 1000000).toFixed(1).replace('.', ',') + ' млн' : v >= 1000 ? Math.round(v / 1000) + ' тыс' : String(v);
+    const top = {};
+    L.forEach((o) => (o.items || []).forEach((it) => { const t = top[it.name] || (top[it.name] = { name: it.name, qty: 0, sum: 0 }); t.qty += it.qty || 1; t.sum += (it.price || 0) * (it.qty || 1); }));
+    const topL = Object.keys(top).map((k) => top[k]).sort((a, b) => b.qty - a.qty || b.sum - a.sum).slice(0, 6);
+    const kaspi = L.filter((o) => o.payment === 'kaspi'), cash = L.filter((o) => o.payment === 'cash'), unk = L.filter((o) => !o.payment);
+    const sw = weeks[sel];
     return {
-      hasNew: !accepted && !s.dismissed,
-      accept: () => this.setState({ accepted: true, tab: 'orders' }),
-      later: () => this.setState({ dismissed: true }),
-      summary: 'Сегодня: 2 доставки и 1 замер',
-      tabs: [{ id: 'orders', label: 'Заказы · ' + orders.length }, { id: 'measure', label: 'Замеры · ' + measures.length }].map((t) => ({ ...t, sel: t.id === tab ? 'true' : 'false', bg: t.id === tab ? '#171512' : 'transparent', fg: t.id === tab ? '#FAFBF4' : '#525846', pick: () => this.setState({ tab: t.id }) })),
-      cards
+      periods: [['week', '7 дней'], ['month', '30 дней'], ['year', 'Год'], ['all', 'Всё время']].map(([id, label]) => ({ label, sel: id === per ? 'true' : 'false', bg: id === per ? '#171512' : '#FFFFFF', fg: id === per ? '#FAFBF4' : '#171512', bd: id === per ? '#171512' : 'rgba(23,21,18,0.14)', pick: () => this.setState({ per: id }) })),
+      tiles,
+      wkCaption: sw ? 'неделя с ' + sw.a.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }) + ': ' + N.fmt(sw.v) + ' · ' + sw.n + ' ' + N.plural(sw.n, 'заказ', 'заказа', 'заказов') : '',
+      weeks: weeks.map((w, i) => ({ h: Math.max(2, Math.round((w.v / max) * 120)) + 'px', show: i === sel && w.v > 0, short: short(w.v), sel: i === sel ? 'true' : 'false', label: w.a.getDate() + '.' + String(w.a.getMonth() + 1).padStart(2, '0'), aria: 'Неделя с ' + w.a.toLocaleDateString('ru-RU') + ': ' + N.fmt(w.v), pick: () => this.setState({ wk: i }) })),
+      top: topL.map((t) => ({ name: t.name, qty: t.qty, sum: N.fmt(t.sum) })), noTop: !topL.length,
+      pays: [{ k: 'Kaspi', v: kaspi.length + ' · ' + N.fmt(sum(kaspi)) }, { k: 'Наличные', v: cash.length + ' · ' + N.fmt(sum(cash)) }].concat(unk.length ? [{ k: 'Уточнить (1 клик)', v: unk.length + ' · ' + N.fmt(sum(unk)) }] : [])
     };
   }
+
+  // ---------- Настройки ----------
+  settingsVals(s, st, reviews, perm) {
+    const N = window.NEM;
+    const fields = [
+      ['phone', 'Телефон для звонков', 'tel', 'tel', '+7 7__ ___ __ __'], ['whatsapp', 'WhatsApp (если другой номер)', 'tel', 'tel', 'можно оставить пустым'],
+      ['address', 'Адрес магазина или цеха', 'text', 'text', 'улица, дом'], ['hours', 'Режим работы', 'text', 'text', 'Пн–Сб, 9:00–19:00'],
+      ['gis_url', 'Ссылка на 2GIS', 'url', 'url', 'https://2gis.kz/…'], ['instagram', 'Instagram', 'text', 'text', '@neweramebel'],
+      ['warranty', 'Гарантия', 'text', 'text', 'например: 1 год'], ['order_days', 'Срок изготовления под заказ', 'text', 'text', 'например: 7–14 дней']
+    ].map(([k, label, type, mode, ph]) => ({ id: 'set-' + k, label, type, mode, ph, value: st[k] || '' }));
+    const pend = reviews.filter((r) => !r.approved);
+    const revs = pend.concat(reviews.filter((r) => r.approved));
+    const sw = 'serviceWorker' in navigator, standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone;
+    const ios = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    let notifText;
+    if (perm === 'unsupported') notifText = ios && !standalone ? 'На iPhone уведомления работают, когда кабинет установлен на экран «Домой»: в Safari нажмите «Поделиться» → «На экран „Домой“», потом откройте кабинет с иконки.' : 'Этот браузер не умеет показывать уведомления. Откройте кабинет в Chrome.';
+    else if (perm === 'granted') notifText = s.pushOk ? 'Включены. Телефон сообщит о новом заказе, даже когда кабинет закрыт.' : 'Включены. Пока кабинет открыт (или свёрнут), телефон подаст сигнал о новом заказе.';
+    else if (perm === 'denied') notifText = 'Уведомления запрещены в настройках браузера. Разрешите их для этого сайта в настройках Chrome (значок замка в адресной строке).';
+    else notifText = 'Нажмите «Включить», и телефон будет сообщать о новых заказах и замерах.';
+    return {
+      notifText, canEnableNotif: perm === 'default' || (perm === 'granted' && !s.pushOk && sw),
+      enableNotif: () => this.enableNotif(), testNotif: () => this.testNotif(),
+      installText: standalone ? 'Кабинет установлен как приложение.' : ios ? 'Совет: в Safari нажмите «Поделиться» → «На экран „Домой“» — кабинет откроется как приложение.' : 'Совет: в Chrome нажмите ⋮ → «Добавить на главный экран» — кабинет откроется как приложение.',
+      canInstall: !!this.installEvt, install: () => { if (this.installEvt) { this.installEvt.prompt(); this.installEvt = null; this.setState({}); } },
+      pendingCount: pend.length, noRevs: !revs.length,
+      revs: revs.map((r) => ({
+        name: r.name, stars: '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating), text: r.text,
+        meta: (r.approved ? 'На сайте' : 'Ждёт проверки') + ' · ' + new Date(r.created_at).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + (r.what ? ' · ' + r.what : ''),
+        bg: r.approved ? '#F3F5EC' : '#F1FEC8', mainCls: r.approved ? 'b2' : 'b1',
+        toggleLabel: r.approved ? 'Скрыть с сайта' : 'Показать на сайте',
+        toggle: () => this.patch('reviews', r.id, { approved: !r.approved }, r.approved ? 'Отзыв скрыт' : 'Отзыв опубликован'),
+        del: () => this.removeRow('reviews', r.id)
+      })),
+      fields, setOk: !!s.setOk,
+      saveContacts: () => this.saveContacts(fields),
+      saveName: () => { const el = document.getElementById('st-name'); const name = (el ? el.value : '').trim().slice(0, 40); if (!s.me) return; N.admin.setName(s.me.user_id, name).then(() => { this.setState({ me: { ...s.me, name } }); this.say('Имя сохранено'); }).catch((e) => this.say(e.message)); }
+    };
+  }
+  saveContacts(fields) {
+    const N = window.NEM;
+    const patch = {};
+    fields.forEach((f) => { const el = document.getElementById(f.id); patch[f.id.slice(4)] = (el ? el.value : '').trim().slice(0, 200); });
+    if (patch.phone && !N.normPhone(patch.phone)) return this.say('Проверьте телефон: нужно 10 цифр после +7');
+    if (patch.whatsapp && !N.normPhone(patch.whatsapp)) return this.say('Проверьте номер WhatsApp');
+    if (patch.phone) patch.phone = N.prettyPhone(patch.phone);
+    if (patch.whatsapp) patch.whatsapp = N.prettyPhone(patch.whatsapp);
+    this.setState({ busy: true, setOk: false });
+    N.admin.saveSettings(patch).then(() => this.setState({ busy: false, setOk: true })).catch((e) => { this.setState({ busy: false }); this.say(e.message); });
+  }
+
+  // ---------- Действия ----------
+  patch(table, id, patch, msg) {
+    const N = window.NEM, key = table === 'orders' ? 'orders' : table === 'measurements' ? 'meas' : 'reviews';
+    const before = (this.state || {})[key] || [];
+    this.setState({ [key]: before.map((x) => (x.id === id ? { ...x, ...patch } : x)) });
+    return N.admin.update(table, id, patch).then((row) => {
+      if (row) this.setState({ [key]: ((this.state || {})[key] || []).map((x) => (x.id === id ? row : x)) });
+      if (msg) this.say(msg);
+    }).catch((e) => { this.setState({ [key]: before }); this.say(e.message); });
+  }
+  setStatus(table, id, status) {
+    const N = window.NEM;
+    const flow = table === 'orders' ? N.ORDER_FLOW : N.MEASURE_FLOW;
+    const f = flow.filter((x) => x.id === status)[0];
+    this.patch(table, id, { status }, 'Статус: ' + (f ? f.label : 'отменён'));
+  }
+  removeRow(table, id) {
+    const N = window.NEM, key = table === 'orders' ? 'orders' : table === 'measurements' ? 'meas' : 'reviews';
+    N.admin.remove(table, id).then(() => { this.setState({ [key]: ((this.state || {})[key] || []).filter((x) => x.id !== id), open: null, delAsk: null }); this.say('Удалено'); }).catch((e) => this.say(e.message));
+  }
+  doLogin() {
+    const N = window.NEM;
+    const email = (document.getElementById('lg-email') || {}).value || '', pass = (document.getElementById('lg-pass') || {}).value || '';
+    if (!email || !pass) return this.setState({ err: 'Введите e-mail и пароль' });
+    this.setState({ busy: true, err: '' });
+    N.auth.signIn(email, pass).then(() => { N.LS.set('nem-last-email', email.trim()); this.setState({ busy: false }); this.boot(); }).catch((e) => this.setState({ busy: false, err: e.message }));
+  }
+  doSetup() {
+    const N = window.NEM;
+    const v = (id) => ((document.getElementById(id) || {}).value || '').trim();
+    const o = { code: v('su-code'), name: v('su-name'), email: v('su-email'), password: (document.getElementById('su-pass') || {}).value || '' };
+    const p2 = (document.getElementById('su-pass2') || {}).value || '';
+    if (!o.code) return this.setState({ err: 'Введите одноразовый код' });
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(o.email)) return this.setState({ err: 'Проверьте e-mail' });
+    if (o.password.length < 8) return this.setState({ err: 'Пароль — минимум 8 символов' });
+    if (o.password !== p2) return this.setState({ err: 'Пароли не совпадают' });
+    this.setState({ busy: true, err: '' });
+    N.auth.setup(o).then(() => N.auth.signIn(o.email, o.password)).then(() => { N.LS.set('nem-last-email', o.email); this.setState({ busy: false, setup: false }); this.boot(); })
+      .catch((e) => this.setState({ busy: false, err: e.message }));
+  }
+  boot() {
+    const N = window.NEM;
+    if (!N.auth.signedIn()) return this.setState({ auth: 'login' });
+    N.admin.me().then((me) => {
+      if (!me) return this.setState({ auth: 'noadmin' });
+      this.setState({ auth: 'app', me });
+      this.loadAll();
+      this.startPoll();
+      this.registerSW();
+    }).catch((e) => {
+      if (e.status === 401 || e.status === 403) { N.auth.signOut(); return this.setState({ auth: 'login', err: 'Войдите заново' }); }
+      this.setState({ auth: 'app', loadErr: e.message });
+    });
+  }
+  loadAll(manual) {
+    const N = window.NEM, A = N.admin;
+    return Promise.all([
+      A.list('orders', 'select=*&order=created_at.desc&limit=1000'),
+      A.list('measurements', 'select=*&order=created_at.desc&limit=1000'),
+      A.list('reviews', 'select=*&order=created_at.desc&limit=200'),
+      N.load(true)
+    ]).then(([o, m, r]) => {
+      this.maxO = Math.max(0, ...o.map((x) => x.id)); this.maxM = Math.max(0, ...m.map((x) => x.id));
+      this.setState({ orders: o, meas: m, reviews: r, loaded: true, loadErr: '' });
+      if (manual) this.say('Обновлено');
+    }).catch((e) => { this.setState({ loadErr: e.message, loaded: true }); if (e.status === 401) this.setState({ auth: 'login' }); });
+  }
+  poll() {
+    const N = window.NEM, A = N.admin;
+    if (this.polling || (this.state || {}).auth !== 'app') return;
+    this.polling = true;
+    Promise.all([A.list('orders', 'select=*&id=gt.' + (this.maxO || 0) + '&order=id.asc'), A.list('measurements', 'select=*&id=gt.' + (this.maxM || 0) + '&order=id.asc')])
+      .then(([o, m]) => {
+        this.polling = false;
+        if (!o.length && !m.length) return;
+        const s = this.state || {};
+        this.maxO = Math.max(this.maxO || 0, ...o.map((x) => x.id)); this.maxM = Math.max(this.maxM || 0, ...m.map((x) => x.id));
+        this.setState({ orders: o.slice().reverse().concat(s.orders || []), meas: m.slice().reverse().concat(s.meas || []) });
+        const last = o.length ? { t: 'o', x: o[o.length - 1] } : { t: 'm', x: m[m.length - 1] };
+        this.setState({ banner: { t: last.t, id: last.x.id } });
+        o.forEach((x) => this.notify(x.kind === 'one_click' ? 'Купить в 1 клик — перезвоните' : 'Новый заказ №' + x.id, this.orderTitle(x) + ' · ' + N.fmt(x.total) + (x.name ? ' · ' + x.name : '')));
+        m.forEach((x) => this.notify('Новая заявка на замер', this.measTitle(x) + (x.name ? ' · ' + x.name : '') + ' · ' + N.prettyPhone(x.phone)));
+      }).catch(() => { this.polling = false; });
+  }
+  startPoll() {
+    this.stopPoll();
+    this.pollT = setInterval(() => this.poll(), 20000);
+    this.fullT = setInterval(() => { if (!document.hidden) this.loadAll(); }, 180000);
+    this.onVis = () => { if (!document.hidden) this.poll(); };
+    document.addEventListener('visibilitychange', this.onVis);
+  }
+  stopPoll() { clearInterval(this.pollT); clearInterval(this.fullT); if (this.onVis) document.removeEventListener('visibilitychange', this.onVis); }
+  registerSW() {
+    if (!('serviceWorker' in navigator)) return;
+    navigator.serviceWorker.register('sw.js').then((reg) => {
+      this.swReg = reg;
+      if (reg.pushManager && window.NEM_PUSH_KEY) reg.pushManager.getSubscription().then((sub) => { if (sub) { this.setState({ pushOk: true }); this.savePush(sub); } }).catch(() => {});
+    }).catch(() => {});
+  }
+  notify(title, body, test) {
+    const N = window.NEM;
+    N.beep();
+    try { if (navigator.vibrate) navigator.vibrate([180, 90, 180]); } catch (e) {}
+    if (test) this.say('Звук и вибрация работают');
+    if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return;
+    if (!test && !document.hidden) return;
+    const opts = { body, tag: 'nem-' + Date.now(), icon: 'img/icon-192.png', badge: 'img/icon-96.png', data: { url: 'admin.html' } };
+    if (this.swReg && this.swReg.showNotification) this.swReg.showNotification(title, opts).catch(() => {});
+    else { try { new Notification(title, opts); } catch (e) {} }
+  }
+  testNotif() {
+    const N = window.NEM, s = this.state || {};
+    this.notify('Проверка уведомлений', 'Так будет выглядеть сообщение о новом заказе', true);
+    if (!s.pushOk) return;
+    N.testPush().then((r) => this.say(r && r.sent ? 'Проверка отправлена на телефон — уведомление придёт через пару секунд' : 'Сервер не смог отправить уведомление. Нажмите «Включить уведомления» ещё раз.')).catch((e) => this.say(e.message));
+  }
+  enableNotif() {
+    if (typeof Notification === 'undefined') return this.say('Этот браузер не поддерживает уведомления');
+    Notification.requestPermission().then((p) => {
+      this.setState({});
+      if (p !== 'granted') return this.say('Уведомления не разрешены');
+      this.say('Уведомления включены');
+      this.subscribePush();
+    });
+  }
+  subscribePush() {
+    const key = window.NEM_PUSH_KEY;
+    if (!key || !('serviceWorker' in navigator)) return;
+    const raw = atob(key.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((key.length + 3) % 4));
+    const arr = new Uint8Array(raw.length); for (let i = 0; i < raw.length; i++) arr[i] = raw.charCodeAt(i);
+    navigator.serviceWorker.register('sw.js').then(() => navigator.serviceWorker.ready).then((reg) => {
+      this.swReg = reg;
+      if (!reg.pushManager) throw new Error('браузер не поддерживает');
+      return reg.pushManager.getSubscription().then((old) => old || reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: arr }));
+    }).then((sub) => { this.setState({ pushOk: true }); return this.savePush(sub); })
+      .then(() => this.say('Готово: уведомления будут приходить, даже когда кабинет закрыт'))
+      .catch((e) => this.say('Не удалось включить фоновые уведомления: ' + (e && e.message ? e.message : e)));
+  }
+  savePush(sub) {
+    const j = sub.toJSON ? sub.toJSON() : sub;
+    if (!j || !j.endpoint || !j.keys) return;
+    return window.NEM.api('/rest/v1/push_subs?on_conflict=endpoint', { method: 'POST', auth: true, body: { endpoint: j.endpoint, p256dh: j.keys.p256dh, auth: j.keys.auth, ua: navigator.userAgent.slice(0, 200) }, headers: { Prefer: 'resolution=merge-duplicates,return=minimal' } }).catch(() => {});
+  }
+  componentDidMount() {
+    const v = (location.hash || '').replace('#', '');
+    if (['calendar', 'money', 'settings'].indexOf(v) >= 0) this.setState({ view: v });
+    this.onInstall = (e) => { e.preventDefault(); this.installEvt = e; this.setState({}); };
+    window.addEventListener('beforeinstallprompt', this.onInstall);
+    this.nemOff = window.NEM.on(() => this.setState({ nemT: Date.now() }));
+    this.boot();
+  }
+  componentWillUnmount() { this.stopPoll(); window.removeEventListener('beforeinstallprompt', this.onInstall); if (this.nemOff) this.nemOff(); }
 }
 </script>
 <script>DCLite.mount();</script>

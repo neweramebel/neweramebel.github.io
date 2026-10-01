@@ -4,109 +4,200 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAFBF4">
-<title>Кабинет — товары и цены</title>
+<title>Товары и цены — кабинет New Era Mebel</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="manifest" href="admin.webmanifest">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NEM кабинет">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#FAFBF4;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#171512}a:hover{color:#566B0E}
+html,body{height:100%}
+body{margin:0;background:#E6EDCF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:#171512}
 i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500}
-.scroll{overflow-y:auto;scrollbar-width:none}
+.app{position:relative;width:100%;max-width:520px;height:100vh;height:100dvh;margin:0 auto;overflow:hidden;background:#FAFBF4;box-shadow:0 0 0 1px rgba(23,21,18,.06),0 30px 80px -40px rgba(23,21,18,.5)}
+.scroll{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;padding:18px 16px 150px;display:flex;flex-direction:column;gap:14px;scrollbar-width:none}
 .scroll::-webkit-scrollbar{display:none}
 .scroll>*{flex-shrink:0}
-.hs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
-.hs::-webkit-scrollbar{display:none}
-.fld{width:100%;box-sizing:border-box;min-height:46px;padding:0 14px;border-radius:12px;border:1px solid rgba(23,21,18,.16);background:#FFFFFF;font:inherit;font-size:15px;color:#171512;outline:none}
-.fld:focus{border-color:#171512}
-.num{width:124px;text-align:right;font-variant-numeric:tabular-nums}
 .press{transition:transform .15s,background .25s}
 .press:active{transform:scale(.97)}
 @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .pop{animation:pop .4s cubic-bezier(.2,.8,.2,1) both}
+.ib{width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1px solid rgba(23,21,18,.12);background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;text-decoration:none}
+.hs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+.hs::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;min-height:38px;padding:0 13px;border-radius:999px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap}
+.in{width:100%;box-sizing:border-box;min-height:46px;padding:0 12px;border-radius:12px;border:1px solid rgba(23,21,18,.16);background:#FFFFFF;font:inherit;font-size:16px;color:#171512;outline:none}
+.in:focus{border-color:#171512}
+textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.lbl{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+.sec{display:flex;flex-direction:column;gap:8px}
+.row{border-radius:20px;background:#FFFFFF;overflow:hidden}
+.b1{min-height:46px;padding:0 16px;border-radius:999px;border:0;background:#171512;color:#FAFBF4;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.b1[disabled]{opacity:.5;cursor:default}
+.b2{min-height:42px;padding:0 14px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:transparent;color:#171512;font:inherit;font-weight:500;font-size:13px;cursor:pointer}
+.bd{min-height:42px;padding:0 14px;border-radius:999px;border:1px solid rgba(138,74,28,.35);background:transparent;color:#8A4A1C;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.add{min-height:40px;width:100%;border-radius:12px;border:1px dashed rgba(23,21,18,.28);background:transparent;font:inherit;font-size:13px;color:#525846;cursor:pointer}
+.tg{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:46px;padding:0 2px;border:0;background:transparent;font:inherit;font-size:15px;cursor:pointer;color:#171512;text-align:left;width:100%}
+.sw{position:relative;width:44px;height:26px;border-radius:999px;flex-shrink:0;transition:background .25s}
+.sw i{position:absolute;top:3px;width:20px;height:20px;border-radius:50%;background:#FFFFFF;transition:left .25s}
+.ph{position:relative;width:72px;height:90px;border-radius:12px;overflow:hidden;background:#F1FEC8;flex-shrink:0}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph button{position:absolute;width:26px;height:26px;border-radius:50%;border:0;background:rgba(23,21,18,.75);color:#FFFFFF;font-size:13px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.ph .x{top:4px;right:4px}
+.ph .st{bottom:4px;left:4px}
+.ph.main{outline:3px solid #566B0E;outline-offset:-3px}
+.upl{position:relative;width:72px;height:90px;border-radius:12px;border:1px dashed rgba(23,21,18,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#525846;font-size:11px;cursor:pointer;flex-shrink:0;text-align:center}
+.upl input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:600;margin-right:4px}
+.err{padding:12px 14px;border-radius:12px;background:#F6E6D4;color:#7A3F14;font-size:14px;line-height:1.45}
+.bar{position:absolute;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:5;display:flex;flex-direction:column;gap:8px}
+.toast{padding:12px 14px;border-radius:16px;background:#171512;color:#FAFBF4;font-size:14px;font-weight:600;box-shadow:0 18px 40px -16px rgba(23,21,18,.6)}
 </style>
-<style>body{display:flex;justify-content:center;align-items:flex-start;padding-block:24px;background:#E6EDCF}</style>
+
 </head>
 <body>
 <div id="root"></div>
 <template id="tpl">
-<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #FAFBF4; font-family: 'Onest', system-ui, sans-serif; color: #171512">
-<div class="scroll" style="position: absolute; inset: 0; padding: 18px 16px 130px; display: flex; flex-direction: column; gap: 14px">
+<div class="app">
+<div class="scroll">
 
 <div style="display: flex; align-items: center; gap: 10px">
-<a href="admin.html" aria-label="Назад к заказам" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(23,21,18,0.12); background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
-<div style="flex-grow: 1"><div style="font-size: 24px; font-weight: 500; letter-spacing: -0.02em">Товары <i class="s" style="font-size: 1.1em">и цены</i></div><div style="font-size: 13px; color: #5E6452">Меняете здесь — сразу меняется на сайте</div></div>
-<button type="button" class="press" aria-label="Добавить товар" style="width: 44px; height: 44px; border-radius: 50%; border: 0; background: #171512; color: #FAFBF4; font-size: 22px; cursor: pointer">+</button>
+<a href="admin.html" class="ib" aria-label="Назад к заказам"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+<div style="flex-grow: 1; min-width: 0"><div style="font-size: 24px; font-weight: 500; letter-spacing: -0.02em">Товары <i class="s" style="font-size: 1.1em">и цены</i></div><div style="font-size: 13px; color: #5E6452">Меняете здесь — сразу меняется на сайте</div></div>
+<button type="button" class="press" onClick="{{addProduct}}" aria-label="Добавить товар" disabled="{{busyAdd}}" style="width: 44px; height: 44px; border-radius: 50%; border: 0; background: #171512; color: #FAFBF4; font-size: 24px; cursor: pointer; flex-shrink: 0">+</button>
 </div>
 
+<sc-if value="{{needLogin}}" hint-placeholder-val="{{false}}"><div class="err">Нужно войти в кабинет. <a href="admin.html">Войти →</a></div></sc-if>
+<sc-if value="{{hasErr}}" hint-placeholder-val="{{false}}"><div class="err" role="alert">{{errText}}</div></sc-if>
+
 <label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Поиск товара</label>
-<input id="q" class="fld" type="search" placeholder="Поиск: шкаф, комод…">
+<input id="q" class="in" type="search" placeholder="Поиск: шкаф, комод…" value="{{q}}" onChange="{{setQ}}">
 
 <div class="hs" role="group" aria-label="Категории">
 <sc-for list="{{chips}}" as="item" hint-placeholder-count="5">
-<button type="button" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="flex-shrink: 0; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer">{{item.label}}</button>
+<button type="button" class="chip" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}">{{item.label}}</button>
 </sc-for>
 </div>
 
+<sc-if value="{{loading}}" hint-placeholder-val="{{false}}"><div style="padding: 30px; text-align: center; color: #5E6452">Загружаем товары…</div></sc-if>
+
 <sc-for list="{{rows}}" as="item" hint-placeholder-count="4">
-<div style="border-radius: 20px; background: #FFFFFF; border: 1px solid {{item.border}}; overflow: hidden">
-<div style="display: flex; gap: 12px; align-items: center; padding: 12px">
+<div class="row" style="border: 1px solid {{item.border}}">
+<button type="button" onClick="{{item.toggleOpen}}" aria-expanded="{{item.expanded}}" style="display: flex; gap: 12px; align-items: center; padding: 12px; width: 100%; border: 0; background: transparent; font: inherit; color: #171512; text-align: left; cursor: pointer">
 <img src="{{item.img}}" alt="" style="width: 56px; height: 70px; border-radius: 12px; object-fit: cover; background: #F1FEC8; flex-shrink: 0">
-<div style="flex-grow: 1; min-width: 0">
-<div style="font-weight: 600; font-size: 15px; line-height: 1.25">{{item.name}}</div>
-<div style="font-size: 14px; margin-top: 3px">{{item.priceText}}</div>
-<span style="display: inline-block; margin-top: 5px; padding: 3px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; background: {{item.stBg}}; color: {{item.stFg}}">{{item.stock}}</span>
+<span style="flex-grow: 1; min-width: 0">
+<span style="display: block; font-weight: 600; font-size: 15px; line-height: 1.25">{{item.name}}</span>
+<span style="display: block; font-size: 14px; margin-top: 3px">{{item.priceText}}</span>
+<span style="display: block; margin-top: 5px"><span class="pill" style="background: {{item.stBg}}; color: {{item.stFg}}">{{item.stock}}</span><sc-if value="{{item.hidden}}"><span class="pill" style="background: #ECEAE6; color: #5E6452">Скрыт</span></sc-if><sc-if value="{{item.hasBadge}}"><span class="pill" style="background: #171512; color: #FAFBF4">{{item.badge}}</span></sc-if><sc-if value="{{item.dirty}}"><span class="pill" style="background: #F6E6D4; color: #8A4A1C">не сохранено</span></sc-if></span>
+</span>
+<span style="min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.16); display: inline-flex; align-items: center; font-size: 13px; font-weight: 500; flex-shrink: 0">{{item.openLabel}}</span>
+</button>
+<sc-if value="{{item.open}}">
+<div style="padding: 4px 14px 16px; border-top: 1px solid rgba(23,21,18,0.08); display: flex; flex-direction: column; gap: 18px">
+
+<div class="sec" style="margin-top: 12px">
+<label class="lbl" for="{{item.fid}}-name">Название</label>
+<input id="{{item.fid}}-name" class="in" type="text" value="{{item.e.name}}" onChange="{{item.set.name}}">
+<label class="lbl" for="{{item.fid}}-cat" style="margin-top: 6px">Категория</label>
+<select id="{{item.fid}}-cat" class="in" value="{{item.e.category}}" onChange="{{item.set.category}}"><sc-for list="{{cats}}" as="c" hint-placeholder-count="8"><option value="{{c}}">{{c}}</option></sc-for></select>
 </div>
-<button type="button" class="press" onClick="{{item.toggleOpen}}" aria-expanded="{{item.expanded}}" style="min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.16); background: transparent; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; color: #171512">{{item.openLabel}}</button>
-</div>
-<sc-if value="{{item.open}}" hint-placeholder-val="{{false}}">
-<div style="padding: 4px 14px 16px; border-top: 1px solid rgba(23,21,18,0.08); display: flex; flex-direction: column; gap: 16px">
-<div>
-<div style="font-size: 13px; font-weight: 600; margin: 12px 0 8px">Цена по ширине (сборка включена)</div>
+
+<div class="sec">
+<div class="lbl" style="margin: 0">Цены по размерам (сборка включена)</div>
+<sc-if value="{{item.noSizes}}">
+<div style="display: flex; align-items: center; gap: 8px"><label for="{{item.fid}}-price" style="flex-grow: 1; font-size: 15px">Цена</label><input id="{{item.fid}}-price" class="in num" type="number" inputmode="numeric" min="0" step="1000" value="{{item.e.price}}" onChange="{{item.set.price}}" style="width: 140px"><span style="font-size: 14px; color: #5E6452">₸</span></div>
+</sc-if>
 <sc-for list="{{item.sizes}}" as="sz" hint-placeholder-count="3">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 5px 0">
-<label for="{{sz.fid}}" style="font-size: 15px">{{sz.label}}</label>
-<div style="display: flex; align-items: center; gap: 6px"><input id="{{sz.fid}}" class="fld num" type="number" inputmode="numeric" step="1000" min="0" value="{{sz.value}}" onChange="{{sz.change}}"><span style="font-size: 14px; color: #5E6452">₸</span></div>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) 120px 34px 34px; gap: 6px; align-items: center">
+<input class="in" type="text" value="{{sz.label}}" onChange="{{sz.setLabel}}" aria-label="Размер" placeholder="160 см">
+<input class="in num" type="number" inputmode="numeric" min="0" step="1000" value="{{sz.price}}" onChange="{{sz.setPrice}}" aria-label="{{sz.priceAria}}">
+<button type="button" onClick="{{sz.makeDef}}" aria-pressed="{{sz.isDef}}" title="Основной размер (показывается первым)" aria-label="Сделать основным" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(23,21,18,0.16); background: {{sz.defBg}}; color: {{sz.defFg}}; cursor: pointer; font-size: 14px">★</button>
+<button type="button" onClick="{{sz.remove}}" aria-label="Убрать размер" style="width: 34px; height: 34px; border-radius: 50%; border: 0; background: rgba(23,21,18,0.06); cursor: pointer; font-size: 15px; color: #171512">×</button>
 </div>
 </sc-for>
-<button type="button" style="margin-top: 6px; min-height: 40px; padding: 0 12px; border-radius: 12px; border: 1px dashed rgba(23,21,18,0.25); background: transparent; font: inherit; font-size: 13px; color: #525846; cursor: pointer; width: 100%">+ Добавить размер</button>
+<button type="button" class="add" onClick="{{item.addSize}}">+ Добавить размер</button>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 4px">
+<div><label class="lbl" for="{{item.fid}}-sl">Подпись к размерам</label><input id="{{item.fid}}-sl" class="in" type="text" value="{{item.e.size_label}}" onChange="{{item.set.size_label}}" placeholder="Ширина"></div>
+<div><label class="lbl" for="{{item.fid}}-w">Ширина для фильтра, см</label><input id="{{item.fid}}-w" class="in num" type="number" inputmode="numeric" value="{{item.e.width_cm}}" onChange="{{item.set.width_cm}}"></div>
 </div>
-<div>
-<div style="font-size: 13px; font-weight: 600; margin-bottom: 8px">Цвета</div>
+<div><label class="lbl" for="{{item.fid}}-st">Габариты (в карточке)</label><input id="{{item.fid}}-st" class="in" type="text" value="{{item.e.size_text}}" onChange="{{item.set.size_text}}" placeholder="160 × 220 × 60 см"></div>
+<div><label class="lbl" for="{{item.fid}}-dm">Подробно о размерах</label><input id="{{item.fid}}-dm" class="in" type="text" value="{{item.e.dims}}" onChange="{{item.set.dims}}" placeholder="высота 220 · глубина 60 см"></div>
+</div>
+
+<div class="sec">
+<div class="lbl" style="margin: 0">Цвета</div>
 <div style="display: flex; flex-wrap: wrap; gap: 6px">
 <sc-for list="{{item.colors}}" as="c" hint-placeholder-count="6">
 <button type="button" onClick="{{c.toggle}}" aria-pressed="{{c.pressed}}" style="display: flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 10px 0 6px; border-radius: 999px; border: 1px solid {{c.bd}}; background: {{c.bg}}; font: inherit; font-size: 13px; cursor: pointer; color: #171512"><span style="width: 20px; height: 20px; border-radius: 50%; background: {{c.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.2)"></span>{{c.name}}</button>
 </sc-for>
 </div>
 </div>
-<div>
-<div style="font-size: 13px; font-weight: 600; margin-bottom: 8px">Фото</div>
-<div style="display: flex; gap: 8px">
-<img src="{{item.img}}" alt="Фото 1" style="width: 64px; height: 80px; border-radius: 12px; object-fit: cover; background: #F1FEC8">
-<button type="button" aria-label="Добавить фото" style="width: 64px; height: 80px; border-radius: 12px; border: 1px dashed rgba(23,21,18,0.3); background: transparent; color: #525846; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"></rect><circle cx="12" cy="13" r="3.5"></circle><path d="M8 6l1.5-2h5L16 6"></path></svg></button>
+
+<div class="sec">
+<div class="lbl" style="margin: 0">Фото</div>
+<div style="font-size: 12px; color: #5E6452; margin-top: -4px">Фото сохраняются сразу. ★ — главное фото в каталоге.</div>
+<sc-for list="{{item.groups}}" as="g" hint-placeholder-count="2">
+<div style="font-size: 13px; color: #525846; margin-top: 4px">{{g.label}}</div>
+<div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px">
+<sc-for list="{{g.photos}}" as="ph" hint-placeholder-count="2">
+<div class="{{ph.cls}}"><img src="{{ph.src}}" alt=""><button type="button" class="x" onClick="{{ph.remove}}" aria-label="Удалить фото">✕</button><button type="button" class="st" onClick="{{ph.makeMain}}" aria-label="Сделать главным фото">★</button></div>
+</sc-for>
+<label class="upl"><input type="file" accept="image/*" multiple onChange="{{g.upload}}" aria-label="{{g.uploadAria}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"></rect><circle cx="12" cy="13" r="3.5"></circle><path d="M8 6l1.5-2h5L16 6"></path></svg>{{g.uplText}}</label>
+</div>
+</sc-for>
+</div>
+
+<div class="sec">
+<button type="button" class="tg" onClick="{{item.tStock}}" aria-pressed="{{item.e.in_stock}}">В наличии (выкл. — «под заказ»)<span class="sw" style="background: {{item.k1.track}}"><i style="left: {{item.k1.knob}}"></i></span></button>
+<button type="button" class="tg" onClick="{{item.tActive}}" aria-pressed="{{item.e.active}}">Показывать на сайте<span class="sw" style="background: {{item.k2.track}}"><i style="left: {{item.k2.knob}}"></i></span></button>
+<button type="button" class="tg" onClick="{{item.tMirror}}" aria-pressed="{{item.e.has_mirror}}">Выбор зеркал (для шкафов-купе)<span class="sw" style="background: {{item.k3.track}}"><i style="left: {{item.k3.knob}}"></i></span></button>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<div><label class="lbl" for="{{item.fid}}-bd">Метка</label><select id="{{item.fid}}-bd" class="in" value="{{item.e.badge}}" onChange="{{item.set.badge}}"><option value="">Без метки</option><option value="Хит">Хит</option><option value="Новинка">Новинка</option><option value="Скидка">Скидка</option></select></div>
+<div><label class="lbl" for="{{item.fid}}-so">Порядок в каталоге</label><input id="{{item.fid}}-so" class="in num" type="number" inputmode="numeric" value="{{item.e.sort}}" onChange="{{item.set.sort}}"></div>
 </div>
 </div>
-<button type="button" onClick="{{item.toggleStock}}" aria-pressed="{{item.stockP}}" style="display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 0 2px; border: 0; background: transparent; font: inherit; font-size: 15px; cursor: pointer; color: #171512">В наличии (если выкл. — «под заказ»)<span style="position: relative; width: 44px; height: 26px; border-radius: 999px; background: {{item.stTrack}}; flex-shrink: 0; transition: background .25s"><span style="position: absolute; top: 3px; left: {{item.stKnob}}; width: 20px; height: 20px; border-radius: 50%; background: #FFFFFF; transition: left .25s"></span></span></button>
+
+<div class="sec">
+<label class="lbl" for="{{item.fid}}-ld">Коротко (под названием)</label>
+<textarea id="{{item.fid}}-ld" class="in" rows="2" value="{{item.e.lead}}" onChange="{{item.set.lead}}"></textarea>
+<label class="lbl" for="{{item.fid}}-ds" style="margin-top: 6px">Описание</label>
+<textarea id="{{item.fid}}-ds" class="in" rows="4" value="{{item.e.description}}" onChange="{{item.set.description}}"></textarea>
+</div>
+
+<sc-if value="{{item.hasRowErr}}"><div class="err" role="alert">{{item.rowErr}}</div></sc-if>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center">
+<button type="button" class="b1 press" onClick="{{item.save}}" disabled="{{item.saveOff}}" style="flex-grow: 1">{{item.saveLabel}}</button>
+<sc-if value="{{item.dirty}}"><button type="button" class="b2" onClick="{{item.revert}}">Отменить</button></sc-if>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap">
+<a href="{{item.viewHref}}" target="_blank" rel="noopener" style="font-size: 13px; color: #525846">Открыть на сайте ↗</a>
+<sc-if value="{{item.notAskDel}}"><button type="button" class="bd" onClick="{{item.askDel}}">Удалить товар</button></sc-if>
+<sc-if value="{{item.askingDel}}"><span style="display: flex; gap: 6px; align-items: center"><span style="font-size: 13px; color: #5E6452">Точно?</span><button type="button" class="b2" onClick="{{item.noDel}}">Нет</button><button type="button" class="bd" onClick="{{item.del}}" style="background: #8A4A1C; color: #FFFFFF">Удалить</button></span></sc-if>
+</div>
 </div>
 </sc-if>
 </div>
 </sc-for>
 
-<div style="border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(23,21,18,0.08); padding: 14px">
-<div style="font-weight: 600">Кухни на заказ — цена за метр</div>
-<div style="font-size: 13px; color: #5E6452; margin-top: 2px">По этим цифрам сайт считает примерную цену</div>
-<sc-for list="{{kitchen}}" as="k" hint-placeholder-count="4">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 0; margin-top: 4px">
-<label for="{{k.fid}}" style="font-size: 15px">{{k.label}}</label>
-<div style="display: flex; align-items: center; gap: 6px"><input id="{{k.fid}}" class="fld num" type="number" inputmode="numeric" step="5000" min="0" value="{{k.value}}" onChange="{{k.change}}"><span style="font-size: 14px; color: #5E6452">₸</span></div>
+<div class="row" style="border: 1px solid rgba(23,21,18,0.08); padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<div><div style="font-weight: 600">Кухни на заказ — цены</div><div style="font-size: 13px; color: #5E6452; margin-top: 2px">По этим цифрам калькулятор на сайте считает примерную цену</div></div>
+<sc-for list="{{kitchen}}" as="k" hint-placeholder-count="7">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
+<label for="{{k.fid}}" style="font-size: 15px; line-height: 1.3">{{k.label}}</label>
+<div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0"><input id="{{k.fid}}" class="in num" type="number" inputmode="numeric" min="{{k.min}}" step="{{k.step}}" value="{{k.value}}" onChange="{{k.change}}" style="width: 124px"><span style="font-size: 14px; color: #5E6452; width: 14px">{{k.unit}}</span></div>
 </div>
 </sc-for>
+<button type="button" class="b1 press" onClick="{{saveKitchen}}" disabled="{{kitOff}}">{{kitLabel}}</button>
 </div>
 </div>
 
-<div style="position: absolute; left: 12px; right: 12px; bottom: 14px; display: flex; flex-direction: column; gap: 8px">
-<sc-if value="{{saved}}" hint-placeholder-val="{{false}}">
-<div class="pop" role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; background: #E3EEDF; color: #2F6B3A; font-size: 14px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Сохранено — на сайте уже новые цены</div>
-</sc-if>
-<button type="button" class="press" onClick="{{save}}" style="min-height: 56px; border-radius: 999px; border: 0; background: {{saveBg}}; color: {{saveFg}}; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer">{{saveLabel}}</button>
+<div class="bar">
+<sc-if value="{{hasToast}}"><div class="toast pop" role="status">{{toast}}</div></sc-if>
+<sc-if value="{{anyDirty}}"><button type="button" class="b1 press" onClick="{{saveAll}}" style="min-height: 56px; font-size: 16px; box-shadow: 0 18px 40px -16px rgba(23,21,18,.6)">{{saveAllLabel}}</button></sc-if>
 </div>
 </div>
 </template>
@@ -212,50 +303,231 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
   };
 })();
 </script>
+<script src="nem.js?v=53b0f47f"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
     const s = this.state || {};
-    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
-    const SW = { walnut: { name: 'Орех', hex: '#5A3F2E' }, white: { name: 'Белый', hex: '#F1EEE9' }, graphite: { name: 'Графит', hex: '#3B3B3D' }, oak: { name: 'Дуб', hex: '#C9A57B' }, beige: { name: 'Кашемир', hex: '#D8CDBC' }, sage: { name: 'Шалфей', hex: '#9AA38E' } };
-    const base = [
-      { id: 'nova', name: 'Шкаф-купе «Нова»', cat: 'Шкафы', img: A.nova_walnut, sizes: { 120: 149000, 140: 167000, 160: 185000, 180: 199000, 200: 219000 }, colors: ['walnut', 'white', 'graphite'], stock: true },
-      { id: 'classic', name: 'Шкаф «Классик» 4-дверный', cat: 'Шкафы', img: A.classic, sizes: { 160: 149000 }, colors: ['white', 'beige'], stock: true },
-      { id: 'liniya', name: 'Комод «Линия»', cat: 'Комоды', img: A.liniya, sizes: { 80: 64000, 100: 76000 }, colors: ['graphite', 'white', 'oak'], stock: true },
-      { id: 'son', name: 'Кровать «Сон»', cat: 'Кровати', img: A.son, sizes: { 140: 125000, 160: 139000, 180: 155000 }, colors: ['walnut', 'oak', 'white'], stock: false },
-      { id: 'grid', name: 'Стеллаж «Грид»', cat: 'Стеллажи', img: A.grid, sizes: { 120: 58000 }, colors: ['oak', 'white'], stock: true }
-    ];
+    const N = window.NEM;
+    const base = s.products;
     const edits = s.edits || {};
-    const open = s.open === undefined ? 'nova' : s.open;
     const chip = s.chip || 'Все';
-    const dirty = !!s.dirty;
-    const fmt = (n) => n.toLocaleString('ru-RU') + ' ₸';
-    const upd = (id, patch) => this.setState({ edits: { ...edits, [id]: { ...(edits[id] || {}), ...patch } }, dirty: true, saved: false });
-    const list = base.map((p) => ({ ...p, ...(edits[p.id] || {}) })).filter((p) => chip === 'Все' || p.cat === chip);
-    const kd = { ldsp: 120000, film: 160000, enamel: 220000, stone: 45000, ...(s.kd || {}) };
+    const q = (s.q || '').trim().toLowerCase();
+    const list = (base || []).map((p) => edits[p.id] || p).filter((p) => (chip === 'Все' || (chip === 'Скрытые' ? !p.active : p.category === chip)) && (!q || (p.name + ' ' + p.category).toLowerCase().indexOf(q) >= 0));
+    const tog = (on) => ({ track: on ? '#171512' : 'rgba(23,21,18,0.2)', knob: on ? '21px' : '3px' });
+    const kd = this.kitchenDraft();
+    const dirtyIds = Object.keys(edits);
     return {
-      chips: ['Все', 'Шкафы', 'Комоды', 'Кровати', 'Стеллажи'].map((c) => ({ label: c, pressed: c === chip ? 'true' : 'false', bg: c === chip ? '#171512' : '#FFFFFF', fg: c === chip ? '#FAFBF4' : '#171512', bd: c === chip ? '#171512' : 'rgba(23,21,18,0.14)', pick: () => this.setState({ chip: c }) })),
-      rows: list.map((p) => {
-        const min = Math.min.apply(null, Object.keys(p.sizes).map((k) => p.sizes[k]));
-        const isOpen = open === p.id;
-        return {
-          id: p.id, name: p.name, img: p.img, priceText: 'от ' + fmt(min),
-          stock: p.stock ? 'В наличии' : 'Под заказ', stBg: p.stock ? '#E3EEDF' : '#F6E6D4', stFg: p.stock ? '#2F6B3A' : '#8A4A1C',
-          open: isOpen, expanded: isOpen ? 'true' : 'false', openLabel: isOpen ? 'Свернуть' : 'Изменить', border: isOpen ? '#171512' : 'rgba(23,21,18,0.08)',
-          toggleOpen: () => this.setState({ open: isOpen ? '' : p.id }),
-          sizes: Object.keys(p.sizes).map((k) => ({ fid: 'sz-' + p.id + '-' + k, label: k + ' см', value: p.sizes[k], change: (e) => upd(p.id, { sizes: { ...p.sizes, [k]: Math.max(0, Math.round(Number(e.target.value) || 0)) } }) })),
-          colors: Object.keys(SW).map((k) => { const on = p.colors.includes(k); return { name: SW[k].name, hex: SW[k].hex, pressed: on ? 'true' : 'false', bd: on ? '#171512' : 'rgba(23,21,18,0.14)', bg: on ? '#FAFBF4' : '#FFFFFF', toggle: () => upd(p.id, { colors: on ? p.colors.filter((x) => x !== k) : p.colors.concat([k]) }) }; }),
-          stockP: p.stock ? 'true' : 'false', stTrack: p.stock ? '#171512' : 'rgba(23,21,18,0.2)', stKnob: p.stock ? '21px' : '3px',
-          toggleStock: () => upd(p.id, { stock: !p.stock })
-        };
-      }),
-      kitchen: [['ldsp', 'Фасады ЛДСП, за м'], ['film', 'МДФ плёнка, за м'], ['enamel', 'МДФ эмаль, за м'], ['stone', 'Доплата: камень, за м']].map(([k, label]) => ({ fid: 'kd-' + k, label, value: kd[k], change: (e) => this.setState({ kd: { ...kd, [k]: Math.max(0, Math.round(Number(e.target.value) || 0)) }, dirty: true, saved: false }) })),
-      saved: !!s.saved,
-      saveLabel: dirty ? 'Сохранить изменения' : 'Всё сохранено',
-      saveBg: dirty ? '#171512' : '#E6EDCF', saveFg: dirty ? '#FAFBF4' : '#525846',
-      save: () => { if (dirty) this.setState({ dirty: false, saved: true }); }
+      needLogin: s.auth === 'login', hasErr: !!s.err, errText: s.err || '', loading: !base && s.auth !== 'login',
+      q: s.q || '', setQ: (e) => this.setState({ q: e.target.value }),
+      cats: N.CATS,
+      chips: ['Все'].concat(N.CATS, ['Скрытые']).map((c) => ({ label: c, pressed: c === chip ? 'true' : 'false', bg: c === chip ? '#171512' : '#FFFFFF', fg: c === chip ? '#FAFBF4' : '#171512', bd: c === chip ? '#171512' : 'rgba(23,21,18,0.14)', pick: () => this.setState({ chip: c }) })),
+      busyAdd: !!s.busyAdd, addProduct: () => this.addProduct(chip),
+      rows: list.map((p) => this.rowVals(p, s, tog)),
+      kitchen: kd.rows.map((r) => ({ ...r, fid: 'kd-' + r.key, change: (e) => this.setState({ kd: { ...(s.kd || {}), [r.key]: e.target.value }, kitDirty: true }) })),
+      kitOff: !s.kitDirty || !!s.kitBusy, kitLabel: s.kitBusy ? 'Сохраняем…' : s.kitDirty ? 'Сохранить цены кухни' : 'Цены кухни сохранены',
+      saveKitchen: () => this.saveKitchen(),
+      hasToast: !!s.toast, toast: s.toast || '',
+      anyDirty: dirtyIds.length > 1 || (dirtyIds.length === 1 && s.open !== dirtyIds[0]),
+      saveAllLabel: 'Сохранить все изменения · ' + dirtyIds.length,
+      saveAll: () => this.saveAll()
     };
   }
+  rowVals(p, s, tog) {
+    const N = window.NEM;
+    const isOpen = s.open === p.id;
+    const dirty = !!(s.edits || {})[p.id];
+    const e = p;
+    const z0 = (v) => (v === null || v === undefined ? '' : v);
+    const ed = { ...p, name: z0(p.name), price: z0(p.price), width_cm: z0(p.width_cm), sort: z0(p.sort), size_label: z0(p.size_label), size_text: z0(p.size_text), dims: z0(p.dims), lead: z0(p.lead), description: z0(p.description), badge: z0(p.badge) };
+    const upd = (patch) => this.edit(p.id, patch);
+    const setF = (k, num) => (ev) => upd({ [k]: num ? (ev.target.value === '' ? null : Math.max(0, Math.round(Number(ev.target.value) || 0))) : ev.target.value });
+    const sizes = e.sizes || [];
+    const groups = [{ key: 'all', label: 'Общие фото (для всех цветов)' }].concat((e.colors || []).filter((k) => N.SW[k]).map((k) => ({ key: k, label: 'Фото в цвете «' + N.SW[k].name + '»' })));
+    const rowErr = (s.rowErr || {})[p.id];
+    return {
+      id: p.id, fid: 'p-' + p.id, e: ed, name: e.name, img: N.imagesFor(e)[0], priceText: N.priceFrom(e),
+      stock: e.in_stock ? 'В наличии' : 'Под заказ', stBg: e.in_stock ? '#E3EEDF' : '#F6E6D4', stFg: e.in_stock ? '#2F6B3A' : '#8A4A1C',
+      hidden: !e.active, hasBadge: !!e.badge, badge: e.badge, dirty,
+      open: isOpen, expanded: isOpen ? 'true' : 'false', openLabel: isOpen ? 'Свернуть' : 'Изменить', border: isOpen ? '#171512' : dirty ? '#C9A57B' : 'rgba(23,21,18,0.08)',
+      toggleOpen: () => this.setState({ open: isOpen ? '' : p.id, delAsk: '' }),
+      set: { name: setF('name'), category: setF('category'), price: setF('price', true), size_label: setF('size_label'), width_cm: setF('width_cm', true), size_text: setF('size_text'), dims: setF('dims'), badge: setF('badge'), sort: setF('sort', true), lead: setF('lead'), description: setF('description') },
+      noSizes: sizes.length === 0,
+      sizes: sizes.map((z, i) => ({
+        label: z.label, price: z.price, priceAria: 'Цена: ' + z.label, isDef: z.label === e.default_size ? 'true' : 'false',
+        defBg: z.label === e.default_size ? '#171512' : 'transparent', defFg: z.label === e.default_size ? '#F1FEC8' : '#525846',
+        setLabel: (ev) => { const v = ev.target.value; const nz = sizes.map((x, j) => (j === i ? { ...x, label: v } : x)); upd({ sizes: nz, default_size: e.default_size === z.label ? v : e.default_size }); },
+        setPrice: (ev) => upd({ sizes: sizes.map((x, j) => (j === i ? { ...x, price: Math.max(0, Math.round(Number(ev.target.value) || 0)) } : x)) }),
+        makeDef: () => upd({ default_size: z.label }),
+        remove: () => { const nz = sizes.filter((x, j) => j !== i); upd({ sizes: nz, default_size: e.default_size === z.label ? (nz[0] ? nz[0].label : null) : e.default_size }); }
+      })),
+      addSize: () => { const last = sizes[sizes.length - 1]; const nz = sizes.length ? sizes.concat([{ label: '', price: last ? last.price : e.price }]) : [{ label: e.width_cm ? e.width_cm + ' см' : '', price: e.price || 0 }, { label: '', price: e.price || 0 }]; upd({ sizes: nz, default_size: e.default_size || (nz[0].label || null) }); },
+      colors: Object.keys(N.SW).map((k) => { const on = (e.colors || []).indexOf(k) >= 0; return { name: N.SW[k].name, hex: N.SW[k].hex, pressed: on ? 'true' : 'false', bd: on ? '#171512' : 'rgba(23,21,18,0.14)', bg: on ? '#F1FEC8' : '#FFFFFF', toggle: () => upd({ colors: on ? e.colors.filter((x) => x !== k) : (e.colors || []).concat([k]) }) }; }),
+      groups: groups.map((g) => {
+        const photos = ((e.images || {})[g.key] || []);
+        return {
+          label: g.label, uploadAria: 'Добавить фото: ' + g.label, uplText: (s.uploading || {})[p.id + g.key] ? 'Загрузка…' : 'Добавить',
+          upload: (ev) => this.upload(p.id, g.key, ev.target.files, ev.target),
+          photos: photos.map((src) => ({ src, cls: 'ph' + (src === e.image ? ' main' : ''), remove: () => this.removePhoto(p.id, g.key, src), makeMain: () => this.saveImages(p.id, e.images || {}, src, 'Главное фото выбрано') }))
+        };
+      }),
+      tStock: () => upd({ in_stock: !e.in_stock }), tActive: () => upd({ active: !e.active }), tMirror: () => upd({ has_mirror: !e.has_mirror }),
+      k1: tog(!!e.in_stock), k2: tog(!!e.active), k3: tog(!!e.has_mirror),
+      hasRowErr: !!rowErr, rowErr: rowErr || '',
+      saveOff: !dirty || !!(s.saving || {})[p.id], saveLabel: (s.saving || {})[p.id] ? 'Сохраняем…' : dirty ? 'Сохранить товар' : 'Сохранено',
+      save: () => this.saveOne(p.id), revert: () => { const ed = { ...(s.edits || {}) }; delete ed[p.id]; this.setState({ edits: ed, rowErr: { ...(s.rowErr || {}), [p.id]: '' } }); },
+      viewHref: 'product.html#' + p.id,
+      notAskDel: s.delAsk !== p.id, askingDel: s.delAsk === p.id, askDel: () => this.setState({ delAsk: p.id }), noDel: () => this.setState({ delAsk: '' }),
+      del: () => this.deleteProduct(p)
+    };
+  }
+  baseOf(id) { return ((this.state || {}).products || []).filter((p) => p.id === id)[0]; }
+  edit(id, patch) {
+    const s = this.state || {};
+    const cur = (s.edits || {})[id] || this.baseOf(id);
+    this.setState({ edits: { ...(s.edits || {}), [id]: { ...cur, ...patch } }, rowErr: { ...(s.rowErr || {}), [id]: '' } });
+  }
+  say(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: '' }), 2600); }
+  validate(p) {
+    if (!p.name || p.name.trim().length < 2) return 'Напишите название';
+    const sizes = p.sizes || [];
+    if (sizes.some((z) => !String(z.label || '').trim())) return 'У каждого размера должна быть подпись, например «160 см»';
+    const labels = sizes.map((z) => z.label.trim());
+    if (labels.some((l, i) => labels.indexOf(l) !== i)) return 'Два одинаковых размера — переименуйте один';
+    if (!sizes.length && !(p.price > 0)) return 'Укажите цену';
+    if (sizes.some((z) => !(z.price > 0))) return 'Укажите цену для каждого размера';
+    return '';
+  }
+  payload(p) {
+    const sizes = (p.sizes || []).map((z) => ({ label: String(z.label).trim(), price: Math.round(Number(z.price) || 0) }));
+    let def = p.default_size && sizes.some((z) => z.label === p.default_size) ? p.default_size : (sizes[0] ? sizes[0].label : null);
+    const price = sizes.length ? sizes.filter((z) => z.label === def)[0].price : Math.round(Number(p.price) || 0);
+    return {
+      name: p.name.trim(), category: p.category, price, sizes, default_size: def, size_label: (p.size_label || '').trim() || (sizes.length > 1 ? 'Ширина' : 'Размер'),
+      width_cm: p.width_cm || null, size_text: (p.size_text || '').trim(), dims: (p.dims || '').trim(), colors: p.colors || [],
+      has_mirror: !!p.has_mirror, badge: p.badge || '', in_stock: !!p.in_stock, active: !!p.active,
+      lead: (p.lead || '').trim(), description: (p.description || '').trim(), sort: Number(p.sort) || 0
+    };
+  }
+  saveOne(id) {
+    const N = window.NEM, s = this.state || {};
+    const p = (s.edits || {})[id]; if (!p) return Promise.resolve();
+    const err = this.validate(p);
+    if (err) { this.setState({ rowErr: { ...(s.rowErr || {}), [id]: err }, open: id }); return Promise.reject(new Error(err)); }
+    this.setState({ saving: { ...(s.saving || {}), [id]: true } });
+    return N.admin.update('products', id, this.payload(p)).then((row) => {
+      const st = this.state || {};
+      const ed = { ...(st.edits || {}) }; delete ed[id];
+      this.setState({ products: (st.products || []).map((x) => (x.id === id ? row || x : x)), edits: ed, saving: { ...(st.saving || {}), [id]: false } });
+      this.say('Сохранено — уже на сайте');
+    }).catch((e) => { const st = this.state || {}; this.setState({ saving: { ...(st.saving || {}), [id]: false }, rowErr: { ...(st.rowErr || {}), [id]: e.message } }); throw e; });
+  }
+  saveAll() {
+    const ids = Object.keys((this.state || {}).edits || {});
+    ids.reduce((pr, id) => pr.then(() => this.saveOne(id).catch(() => {})), Promise.resolve()).then(() => { if (!Object.keys((this.state || {}).edits || {}).length) this.say('Все изменения сохранены'); });
+  }
+  saveImages(id, images, image, msg) {
+    const N = window.NEM;
+    const s = this.state || {};
+    const all = []; Object.keys(images).forEach((k) => (images[k] || []).forEach((u) => all.push(u)));
+    const main = image && all.indexOf(image) >= 0 ? image : (all[0] || '');
+    const patchLocal = (list) => (list || []).map((x) => (x.id === id ? { ...x, images, image: main } : x));
+    const ed = { ...(s.edits || {}) }; if (ed[id]) ed[id] = { ...ed[id], images, image: main };
+    this.setState({ products: patchLocal(s.products), edits: ed });
+    return N.admin.update('products', id, { images, image: main }).then(() => { if (msg) this.say(msg); }).catch((e) => this.say(e.message));
+  }
+  upload(id, group, files, input) {
+    const N = window.NEM;
+    const list = Array.prototype.slice.call(files || []).slice(0, 8);
+    if (!list.length) return;
+    const k = id + group;
+    this.setState({ uploading: { ...((this.state || {}).uploading || {}), [k]: true } });
+    const cur = () => (((this.state || {}).edits || {})[id] || this.baseOf(id));
+    list.reduce((pr, f) => pr.then((urls) => N.resizeImage(f, 1400).then((blob) => {
+      const ext = blob.type === 'image/webp' ? 'webp' : 'jpg';
+      return N.admin.upload(blob, id + '/' + Date.now() + '-' + Math.random().toString(36).slice(2, 7) + '.' + ext);
+    }).then((u) => urls.concat([u]))), Promise.resolve([])).then((urls) => {
+      const p = cur();
+      const images = { ...(p.images || {}) };
+      images[group] = (images[group] || []).concat(urls);
+      return this.saveImages(id, images, p.image || urls[0], urls.length > 1 ? 'Загружено фото: ' + urls.length : 'Фото загружено');
+    }).catch((e) => this.say(e.message)).then(() => {
+      this.setState({ uploading: { ...((this.state || {}).uploading || {}), [k]: false } });
+      if (input) input.value = '';
+    });
+  }
+  removePhoto(id, group, src) {
+    const N = window.NEM;
+    const p = ((this.state || {}).edits || {})[id] || this.baseOf(id);
+    const images = { ...(p.images || {}) };
+    images[group] = (images[group] || []).filter((u) => u !== src);
+    if (!images[group].length && group !== 'all') delete images[group];
+    this.saveImages(id, images, p.image === src ? '' : p.image, 'Фото удалено').then(() => N.admin.removeFile(src));
+  }
+  addProduct(chip) {
+    const N = window.NEM, s = this.state || {};
+    const ids = (s.products || []).map((p) => p.id);
+    let id = 'tovar-' + Date.now().toString(36).slice(-5);
+    while (ids.indexOf(id) >= 0) id += '1';
+    const cat = N.CATS.indexOf(chip) >= 0 ? chip : N.CATS[0];
+    const row = { id, name: 'Новый товар', category: cat, price: 0, sizes: [], size_label: 'Размер', default_size: null, colors: ['white'], images: {}, image: '', in_stock: false, active: false, badge: '', sort: 1000, lead: '', description: '', size_text: '', dims: '' };
+    this.setState({ busyAdd: true });
+    N.admin.insert('products', row).then((r) => {
+      const st = this.state || {};
+      this.setState({ busyAdd: false, products: [r].concat(st.products || []), open: r.id, chip: 'Все', q: '' });
+      this.say('Товар создан. Он скрыт с сайта, пока не включите «Показывать на сайте».');
+    }).catch((e) => { this.setState({ busyAdd: false }); this.say(e.message); });
+  }
+  deleteProduct(p) {
+    const N = window.NEM;
+    N.admin.remove('products', p.id).then(() => {
+      const st = this.state || {};
+      const ed = { ...(st.edits || {}) }; delete ed[p.id];
+      this.setState({ products: (st.products || []).filter((x) => x.id !== p.id), edits: ed, open: '', delAsk: '' });
+      this.say('Товар удалён');
+      Object.keys(p.images || {}).forEach((k) => (p.images[k] || []).forEach((u) => N.admin.removeFile(u)));
+    }).catch((e) => this.say(e.message));
+  }
+  kitchenDraft() {
+    const N = window.NEM, s = this.state || {};
+    const st = N.settings(), k = st.kitchen || {}, m = st.mirror || {};
+    const f = k.facade || {}, t = k.top || {}, x = k.extra || {};
+    const z0 = (v) => (v === null || v === undefined ? '' : v);
+    const cur = { f_ldsp: z0(f.ldsp), f_film: z0(f.film), f_enamel: z0(f.enamel), t_ldsp: z0(t.ldsp), t_stone: z0(t.stone), x_tall: z0(x.tall_pct), x_led: z0(x.led), m_two: z0(m.two), m_none: m.none === undefined ? '' : Math.abs(Number(m.none) || 0) };
+    const d = { ...cur, ...(s.kd || {}) };
+    const rows = [
+      ['f_ldsp', 'Фасады ЛДСП, за метр', '₸', 5000, 0], ['f_film', 'МДФ плёнка, за метр', '₸', 5000, 0], ['f_enamel', 'МДФ эмаль, за метр', '₸', 5000, 0],
+      ['t_ldsp', 'Столешница ЛДСП, доплата за метр', '₸', 1000, 0], ['t_stone', 'Камень, доплата за метр', '₸', 1000, 0],
+      ['x_tall', 'Верх до потолка, наценка', '%', 1, 0], ['x_led', 'LED-подсветка, за кухню', '₸', 1000, 0],
+      ['m_two', 'Шкаф-купе: 2 зеркала, доплата', '₸', 1000, 0], ['m_none', 'Шкаф-купе: без зеркал, скидка', '₸', 1000, -1000000]
+    ].map(([key, label, unit, step, min]) => ({ key, label, unit, step, min: 0, value: d[key] }));
+    return { rows, d };
+  }
+  saveKitchen() {
+    const N = window.NEM;
+    const { d } = this.kitchenDraft();
+    const n = (v) => Math.max(0, Math.round(Number(v) || 0));
+    const patch = {
+      kitchen: { facade: { ldsp: n(d.f_ldsp), film: n(d.f_film), enamel: n(d.f_enamel) }, top: { ldsp: n(d.t_ldsp), stone: n(d.t_stone) }, extra: { tall_pct: Math.min(100, n(d.x_tall)), led: n(d.x_led) } },
+      mirror: { one: 0, two: n(d.m_two), none: -n(d.m_none) }
+    };
+    this.setState({ kitBusy: true });
+    N.admin.saveSettings(patch).then(() => { this.setState({ kitBusy: false, kitDirty: false, kd: {} }); this.say('Цены кухни сохранены'); })
+      .catch((e) => { this.setState({ kitBusy: false }); this.say(e.message); });
+  }
+  componentDidMount() {
+    const N = window.NEM;
+    this.nemOff = N.on(() => this.setState({ nemT: Date.now() }));
+    N.load(true);
+    if (!N.auth.signedIn()) { this.setState({ auth: 'login' }); return; }
+    N.admin.me().then((me) => {
+      if (!me) return this.setState({ auth: 'login', err: 'Этот аккаунт не имеет доступа к кабинету' });
+      return N.admin.list('products', 'select=*&order=sort.asc,name.asc').then((rows) => this.setState({ products: rows, auth: 'app' }));
+    }).catch((e) => this.setState({ err: e.message, auth: e.status === 401 ? 'login' : 'app' }));
+    this.onLeave = (e) => { if (Object.keys((this.state || {}).edits || {}).length) { e.preventDefault(); e.returnValue = ''; } };
+    window.addEventListener('beforeunload', this.onLeave);
+  }
+  componentWillUnmount() { if (this.nemOff) this.nemOff(); window.removeEventListener('beforeunload', this.onLeave); }
 }
 </script>
 <script>DCLite.mount();</script>

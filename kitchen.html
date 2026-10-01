@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FAFBF4">
 <title>Кухня на заказ — New Era Mebel</title>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
 <style>
@@ -57,9 +58,51 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .pc-price{font-size:20px;font-weight:600;letter-spacing:-.01em}
 .pc-btn{min-height:44px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .25s,color .25s}
 .pc-tag{position:absolute;top:14px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
+.sh-shade{position:fixed;inset:0;z-index:90;background:rgba(23,21,18,.45);opacity:0;pointer-events:none;transition:opacity .35s}
+.sh-shade.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:91;width:min(460px,100%);display:flex;flex-direction:column;background:#FAFBF4;box-shadow:-30px 0 80px -30px rgba(23,21,18,.45);transform:translateX(104%);visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s}
+.drawer.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s 0s}
+.dr-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px 14px;border-bottom:1px solid rgba(23,21,18,.08)}
+.dr-body{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;padding:4px 20px 24px}
+.dr-foot{padding:14px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid rgba(23,21,18,.08);background:#FAFBF4}
+.ln{display:grid;grid-template-columns:80px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid rgba(23,21,18,.08)}
+.ln img{display:block;width:80px;height:100px;border-radius:14px;object-fit:cover;background:#F1FEC8}
+.ln-x{width:32px;height:32px;flex-shrink:0;border:0;border-radius:50%;background:transparent;color:#5E6452;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ln-x:hover{background:rgba(23,21,18,.06);color:#171512}
+.qty{display:inline-flex;align-items:center;border:1px solid rgba(23,21,18,.18);border-radius:999px;padding:2px}
+.qty button{width:34px;height:34px;border:0;background:transparent;font:inherit;font-size:18px;cursor:pointer;color:#171512;border-radius:50%}
+.qty button:hover{background:rgba(23,21,18,.06)}
+.lbl{display:block;font-size:14px;font-weight:600;margin:0 0 6px;padding:0}
+.in{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font:inherit;font-size:16px;color:#171512;outline:none;transition:border-color .2s}
+.in:focus{border-color:#171512}
+textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
+.pay{display:flex;gap:8px}
+.payo{flex:1 1 0;position:relative;cursor:pointer}
+.payo input{position:absolute;opacity:0;width:1px;height:1px}
+.payo span{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.payo input:checked+span{background:#171512;color:#FAFBF4;border-color:#171512}
+.payo input:focus-visible+span{outline:2px solid #566B0E;outline-offset:2px}
+.err{padding:12px 14px;border-radius:12px;background:#F6E6D4;color:#7A3F14;font-size:14px;line-height:1.45}
+.ok-box{padding:12px 14px;border-radius:12px;background:#E3EEDF;color:#2F6B3A;font-size:14px;font-weight:600}
+.srch{position:fixed;inset:0;z-index:92;background:#FAFBF4;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.srch.open{opacity:1;visibility:visible;transition:opacity .3s,visibility 0s 0s}
+.srch-input{flex:1 1 auto;min-width:0;min-height:64px;border:0;border-bottom:2px solid #171512;background:transparent;font:inherit;font-size:30px;letter-spacing:-.02em;padding:0 2px;outline:none;color:#171512;border-radius:0}
+.srch-input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px;margin-bottom:28px}
+.toast{position:fixed;left:50%;bottom:22px;z-index:93;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);box-sizing:border-box;padding:10px 10px 10px 18px;border-radius:999px;background:#171512;color:#FAFBF4;font-size:14px;box-shadow:0 18px 40px -16px rgba(23,21,18,.6);transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.toast.open{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.toast span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.toast button{flex-shrink:0;min-height:36px;padding:0 14px;border-radius:999px;border:0;background:#F1FEC8;color:#171512;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.fav-b{position:absolute;bottom:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(250,251,244,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s;color:#171512}
+.fav-b:active{transform:scale(.9)}
+.skel{background:linear-gradient(90deg,#EEF3DC 0%,#F6F9EA 50%,#EEF3DC 100%);background-size:200% 100%;animation:sk 1.4s linear infinite;border-radius:20px}
+@keyframes sk{to{background-position:-200% 0}}
+.stars{display:flex;gap:2px}
+.stars button{width:40px;height:40px;border:0;background:transparent;cursor:pointer;padding:0;color:#C9CFB4;display:flex;align-items:center;justify-content:center}
+.stars button[aria-pressed="true"]{color:#566B0E}
 @media (max-width:980px){.g4{gap:24px 12px}.pc-name{font-size:14px;margin-top:8px}.pc-size{font-size:12px}.pc-foot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}.pc-price{font-size:17px}.pc-btn{min-height:40px;font-size:13px;padding:0 10px}.pc-tag{top:8px;padding:4px 8px;font-size:11px}.tile .ph{border-radius:16px}}
 @media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:40px!important}.h2{font-size:34px!important}.giant{font-size:26vw!important}}
-@media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}}
+@media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}.srch-input{font-size:22px}.sr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rev-f{grid-template-columns:minmax(0,1fr)!important}}
 @media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
 </style>
 <style>
@@ -67,7 +110,7 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .shape{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:16px;border-radius:18px;font:inherit;text-align:left;cursor:pointer;transition:background .2s,border-color .2s}
 .rng{width:100%;accent-color:#171512}
 .opt{min-height:52px;padding:0 16px;border-radius:14px;font:inherit;font-size:15px;font-weight:500;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:background .2s,border-color .2s,color .2s}
-.fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font:inherit;font-size:15px;color:#171512;outline:none}
+.fld{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font:inherit;font-size:16px;color:#171512;outline:none}
 .fld:focus{border-color:#171512}
 .blk{padding:28px;border-radius:24px;background:#F1FEC8}
 @media (max-width:980px){.kx{grid-template-columns:minmax(0,1fr)}}
@@ -92,9 +135,9 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 <a class="nl" href="index.html">Контакты</a>
 </nav>
 <div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
-<button type="button" class="ib hide-s" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
-<button type="button" class="ib hide-s" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
-<button type="button" class="ib" aria-label="Корзина" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
+<button type="button" class="ib hide-s" aria-label="Поиск" onClick="{{openSearch}}" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+<a class="ib hide-s" href="catalog.html#fav" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></a>
+<button type="button" class="ib" aria-label="Корзина" onClick="{{openCart}}" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
 <sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #566B0E; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
 </button>
 <a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px; white-space: nowrap"><span>Замер<span class="hide-s"> бесплатно</span></span><span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
@@ -190,24 +233,27 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 
 <div style="padding: 24px; border-radius: 24px; background: #171512; color: #FAFBF4">
 <sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
-<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 10px">
+<form onSubmit="{{submit}}" novalidate style="display: flex; flex-direction: column; gap: 10px">
 <div style="font-size: 20px; font-weight: 600">Бесплатный замер</div>
-<div style="font-size: 14px; color: #B8BEA6; margin-bottom: 6px">Приедем, измерим и покажем образцы</div>
-<label for="k1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Имя</label><input id="k1" class="fld" type="text" placeholder="Имя">
-<label for="k2" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Телефон</label><input id="k2" class="fld" type="tel" placeholder="Телефон">
-<label for="k3" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Адрес</label><input id="k3" class="fld" type="text" placeholder="Адрес в Туркестане">
+<div style="font-size: 14px; color: #B8BEA6; margin-bottom: 6px">Приедем, измерим и покажем образцы материалов</div>
+<label for="k6" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Что нужно замерить</label><select id="k6" class="fld"><option value="kitchen">Кухня</option><option value="wardrobe">Шкаф-купе или гардеробная</option><option value="other">Другая мебель</option></select>
+<label for="k1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Имя</label><input id="k1" class="fld" type="text" autocomplete="name" value="{{meName}}" placeholder="Имя">
+<label for="k2" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Телефон</label><input id="k2" class="fld" type="tel" inputmode="tel" autocomplete="tel" value="{{mePhone}}" placeholder="Телефон">
+<label for="k3" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Адрес</label><input id="k3" class="fld" type="text" autocomplete="street-address" value="{{meAddr}}" placeholder="Адрес в Туркестане">
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<label for="k4" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Дата</label><input id="k4" class="fld" type="date">
+<label for="k4" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Удобная дата</label><input id="k4" class="fld" type="date" min="{{minDate}}" max="{{maxDate}}" value="{{defDate}}">
 <label for="k5" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Время</label><select id="k5" class="fld"><option>Утро · 9–12</option><option>День · 12–16</option><option>Вечер · 16–20</option></select>
 </div>
-<button type="submit" class="btn" style="background: #FAFBF4; color: #171512; justify-content: space-between; margin-top: 6px">Записаться на замер<span class="dot" style="background: #171512; color: #FAFBF4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+<sc-if value="{{bkErr}}"><div class="err" role="alert">{{bkErrText}}</div></sc-if>
+<button type="submit" class="btn" disabled="{{bkBusy}}" style="background: #FAFBF4; color: #171512; justify-content: space-between; margin-top: 6px">{{bkBtn}}<span class="dot" style="background: #171512; color: #FAFBF4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+<div style="font-size: 12px; color: #959B85; line-height: 1.5">Ваш расчёт ({{range}}) придёт мастеру вместе с заявкой.</div>
 </form>
 </sc-if>
 <sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
 <div role="status" style="padding: 10px 0">
 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAFBF4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6.5"></path></svg>
-<div style="font-size: 20px; font-weight: 600; margin-top: 12px">Вы записаны на замер</div>
-<p style="color: #B8BEA6; margin: 8px 0 16px; line-height: 1.5">Перезвоним, чтобы подтвердить время. Ваш расчёт ({{range}}) уже у мастера.</p>
+<div style="font-size: 20px; font-weight: 600; margin-top: 12px">Заявка №{{bkId}} принята</div>
+<p style="color: #B8BEA6; margin: 8px 0 16px; line-height: 1.5">Мы перезвоним, чтобы подтвердить день и время замера. Ваш расчёт ({{range}}) уже у мастера.</p>
 <button type="button" class="btn2" onClick="{{again}}" style="color: #FAFBF4; border-color: rgba(250,251,244,0.3)">Изменить заявку</button>
 </div>
 </sc-if>
@@ -215,6 +261,103 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 </div>
 </div>
 </main>
+<div class="sh-shade {{cartCls}}" onClick="{{closeCart}}" aria-hidden="true"></div>
+<aside class="drawer {{cartCls}}" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="{{cartHidden}}" data-overlay="1">
+<div class="dr-head">
+<div style="display: flex; align-items: center; gap: 10px"><sc-if value="{{coForm}}"><button type="button" class="ib" onClick="{{coBack}}" aria-label="Назад к корзине" style="background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button></sc-if><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em">{{drTitle}}</span><sc-if value="{{coCart}}"><span style="font-size: 15px; color: #5E6452">{{cartCountText}}</span></sc-if></div>
+<button type="button" class="ib" onClick="{{closeCart}}" aria-label="Закрыть корзину" style="background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div class="dr-body">
+<sc-if value="{{coCart}}">
+<sc-if value="{{cartEmpty}}">
+<div style="padding: 56px 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px">
+<span style="width: 72px; height: 72px; border-radius: 50%; background: #F1FEC8; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#171512" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg></span>
+<div style="font-size: 20px; font-weight: 600">Корзина пока пуста</div>
+<p style="margin: 0 0 8px; color: #5E6452; line-height: 1.55; max-width: 300px">Выберите мебель в каталоге — сборка и доставка по Туркестану уже включены в цену.</p>
+<a class="btn" href="catalog.html">Перейти в каталог<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+</sc-if>
+<sc-for list="{{cartLines}}" as="ln" hint-placeholder-count="2">
+<div class="ln">
+<a href="product.html#{{ln.id}}" onClick="{{closeCart}}" tabindex="-1"><img src="{{ln.img}}" alt="{{ln.name}}"></a>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px"><a href="product.html#{{ln.id}}" onClick="{{closeCart}}" style="font-weight: 600; line-height: 1.3; text-decoration: none">{{ln.name}}</a><button type="button" class="ln-x" onClick="{{ln.remove}}" aria-label="{{ln.removeLabel}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+<div style="font-size: 13px; color: #5E6452; line-height: 1.4">{{ln.meta}}</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; padding-top: 8px">
+<div class="qty"><button type="button" onClick="{{ln.dec}}" aria-label="Меньше">−</button><span style="min-width: 22px; text-align: center; font-weight: 600">{{ln.qty}}</span><button type="button" onClick="{{ln.inc}}" aria-label="Больше">+</button></div>
+<div style="font-weight: 600; font-size: 17px">{{ln.sumText}}</div>
+</div>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{cartHasItems}}">
+<ul style="list-style: none; margin: 18px 0 0; padding: 14px 16px; border-radius: 16px; background: #F1FEC8; display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+<li>✓ Сборка мебели входит в цену</li><li>✓ Доставка по Туркестану — бесплатно</li><li>✓ Оплата при получении: Kaspi или наличные</li>
+</ul>
+</sc-if>
+</sc-if>
+<sc-if value="{{coForm}}">
+<form id="co-form" onSubmit="{{coSubmit}}" novalidate style="display: flex; flex-direction: column; gap: 14px; padding-top: 16px">
+<div><label class="lbl" for="co-name">Ваше имя</label><input id="co-name" class="in" type="text" autocomplete="name" value="{{meName}}" placeholder="Как к вам обращаться"></div>
+<div><label class="lbl" for="co-phone">Телефон</label><input id="co-phone" class="in" type="tel" inputmode="tel" autocomplete="tel" value="{{mePhone}}" placeholder="+7 7__ ___ __ __"></div>
+<div><label class="lbl" for="co-addr">Адрес доставки</label><input id="co-addr" class="in" type="text" autocomplete="street-address" value="{{meAddr}}" placeholder="Туркестан, улица, дом, квартира"></div>
+<fieldset style="border: 0; margin: 0; padding: 0"><legend class="lbl">Оплата при получении</legend>
+<div class="pay"><label class="payo"><input type="radio" name="co-pay" value="kaspi" checked><span>Kaspi</span></label><label class="payo"><input type="radio" name="co-pay" value="cash"><span>Наличные</span></label></div>
+</fieldset>
+<div><label class="lbl" for="co-com">Комментарий <span style="color: #5E6452; font-weight: 400">— необязательно</span></label><textarea id="co-com" class="in" rows="3" placeholder="Этаж, есть ли лифт, удобное время"></textarea></div>
+<sc-if value="{{coErr}}"><div class="err" role="alert">{{coErrText}}</div></sc-if>
+<p style="margin: 0; font-size: 13px; color: #5E6452; line-height: 1.5">После заказа мы позвоним, чтобы подтвердить размеры, цвет и день доставки. Предоплата не нужна.</p>
+</form>
+</sc-if>
+<sc-if value="{{coDone}}">
+<div role="status" style="padding: 36px 4px; display: flex; flex-direction: column; gap: 14px">
+<span style="width: 64px; height: 64px; border-radius: 50%; background: #171512; color: #F1FEC8; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<div style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15">Заказ №{{doneId}} <i class="s" style="font-size: 1.12em">принят</i></div>
+<p style="margin: 0; color: #424737; line-height: 1.6">Сумма: <b>{{doneTotal}}</b>. Мы позвоним в ближайшее время, чтобы подтвердить заказ и договориться о дне доставки.</p>
+<div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
+<a class="btn" href="status.html#{{doneId}}" style="justify-content: space-between">Следить за заказом<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<sc-if value="{{hasWa}}"><a class="btn2" href="{{doneWa}}" target="_blank" rel="noopener" style="justify-content: center">Написать нам в WhatsApp</a></sc-if>
+<button type="button" class="btn2" onClick="{{closeCart}}" style="justify-content: center">Продолжить покупки</button>
+</div>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{showFoot}}">
+<div class="dr-foot">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px"><span style="font-size: 14px; color: #5E6452">Итого, со сборкой и доставкой</span><span style="font-size: 24px; font-weight: 600; letter-spacing: -0.02em">{{cartTotalText}}</span></div>
+<sc-if value="{{coCart}}"><button type="button" class="btn" onClick="{{coNext}}" style="width: 100%; justify-content: space-between">Оформить заказ<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button></sc-if>
+<sc-if value="{{coForm}}"><button type="button" class="btn" onClick="{{coSubmit}}" disabled="{{coBusy}}" style="width: 100%; justify-content: space-between; opacity: {{coOp}}">{{coBtn}}<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button></sc-if>
+</div>
+</sc-if>
+</aside>
+
+<div class="srch {{srchCls}}" role="dialog" aria-modal="true" aria-label="Поиск по каталогу" aria-hidden="{{srchHidden}}" data-overlay="1">
+<div class="wrap" style="padding-top: 26px; padding-bottom: 80px">
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="srch-q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Поиск по каталогу</label>
+<input id="srch-q" class="srch-input" type="search" placeholder="Шкаф, комод, кровать…" value="{{q}}" onChange="{{setQ}}" autocomplete="off" enterkeyhint="search">
+<button type="button" class="ib" onClick="{{closeSearch}}" aria-label="Закрыть поиск" style="flex-shrink: 0; background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="margin: 16px 0 22px; font-size: 14px; color: #5E6452">{{srchHint}}</div>
+<div class="sr-grid">
+<sc-for list="{{srchRes}}" as="r" hint-placeholder-count="4">
+<a class="tile" href="product.html#{{r.id}}" onClick="{{closeSearch}}">
+<div class="ph" style="aspect-ratio: 4 / 5"><img src="{{r.img}}" alt="{{r.name}}" loading="lazy" style="height: 100%; object-fit: cover"></div>
+<div style="margin-top: 10px; font-weight: 500; line-height: 1.3">{{r.name}}</div>
+<div style="margin-top: 4px; font-weight: 600">{{r.priceText}}</div>
+</a>
+</sc-for>
+</div>
+<sc-if value="{{srchNone}}">
+<div style="padding: 28px; border-radius: 22px; background: #F1FEC8; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<span><b>Не нашли подходящее?</b> Сделаем по вашим размерам — замер бесплатный.</span>
+<a class="btn" href="kitchen.html" onClick="{{closeSearch}}">Заказать замер<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+</sc-if>
+</div>
+</div>
+
+<div class="toast {{toastCls}}" role="status" aria-live="polite"><span>{{toastText}}</span><button type="button" onClick="{{openCart}}">Корзина</button></div>
 </div>
 </template>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
@@ -319,15 +462,22 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
   };
 })();
 </script>
+<script src="nem.js?v=53b0f47f"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
     if (!this.curRef) this.curRef = { current: null };
     const s = this.state || {};
     // Цены за погонный метр — пример; брат задаёт их в кабинете.
-    const facadeDefs = [{ id: 'ldsp', name: 'ЛДСП', note: '120 000 ₸ / м', rate: 120000 }, { id: 'film', name: 'МДФ плёнка', note: '160 000 ₸ / м', rate: 160000 }, { id: 'enamel', name: 'МДФ эмаль', note: '220 000 ₸ / м', rate: 220000 }];
-    const topDefs = [{ id: 'ldsp', name: 'ЛДСП 38 мм', note: 'в цене', rate: 0 }, { id: 'stone', name: 'Искусственный камень', note: '+45 000 ₸ / м', rate: 45000 }];
-    const extraDefs = [{ id: 'tall', name: 'Верх до потолка', pct: 0.12, fix: 0 }, { id: 'led', name: 'LED-подсветка', pct: 0, fix: 25000 }];
+    const N = window.NEM;
+    const K = N.settings().kitchen || {};
+    const kf = K.facade || {}, kt = K.top || {}, ke = K.extra || {};
+    const num = (v, d) => (v === undefined || v === null || v === '' || isNaN(Number(v)) ? d : Number(v));
+    const rate = (v) => N.fmt(v) + ' / м';
+    const facadeDefs = [{ id: 'ldsp', name: 'ЛДСП', rate: num(kf.ldsp, 120000) }, { id: 'film', name: 'МДФ плёнка', rate: num(kf.film, 160000) }, { id: 'enamel', name: 'МДФ эмаль', rate: num(kf.enamel, 220000) }].map((f) => ({ ...f, note: rate(f.rate) }));
+    const stoneR = num(kt.stone, 45000), ldspTopR = num(kt.ldsp, 0);
+    const topDefs = [{ id: 'ldsp', name: 'ЛДСП 38 мм', note: ldspTopR ? '+' + rate(ldspTopR) : 'в цене', rate: ldspTopR }, { id: 'stone', name: 'Искусственный камень', note: '+' + rate(stoneR), rate: stoneR }];
+    const extraDefs = [{ id: 'tall', name: 'Верх до потолка', pct: num(ke.tall_pct, 12) / 100, fix: 0 }, { id: 'led', name: 'LED-подсветка', pct: 0, fix: num(ke.led, 25000) }];
     const shapeDefs = [
       { id: 'line', name: 'Прямая', icon: 'M6 8h52v10H6z' },
       { id: 'corner', name: 'Угловая', icon: 'M6 8h52v10H16v24H6z' },
@@ -367,9 +517,8 @@ class Component extends DCLogic {
     if (shape === 'island') dims.push({ id: 'di', label: 'Длина острова', value: isl, min: 1.2, max: 3.5, key: 'isl' });
     const fName = facadeDefs.find((f) => f.id === facade).name, tName = topDefs.find((t) => t.id === top).name;
     const shapeName = shapeDefs.find((x) => x.id === shape).name;
-    return {
+    this.lastVals = {
       curRef: this.curRef,
-      hasCart: false, cartCount: 0,
       shapes: shapeDefs.map((x) => ({ ...x, ...sel(x.id === shape), fill: x.id === shape ? '#D8CDBC' : 'none', pressed: x.id === shape ? 'true' : 'false', pick: () => this.setState({ shape: x.id }) })),
       dims: dims.map((d) => ({ ...d, text: m1(d.value), change: (e) => this.setState({ [d.key]: Number(e.target.value) }) })),
       facades: facadeDefs.map((f) => ({ ...f, ...sel(f.id === facade), pressed: f.id === facade ? 'true' : 'false', pick: () => this.setState({ facade: f.id }) })),
@@ -379,13 +528,29 @@ class Component extends DCLogic {
       planLabel: 'План кухни: ' + shapeName.toLowerCase() + ', ' + meters.toFixed(1) + ' погонных метров',
       range,
       summary: shapeName + ' · ' + fName + ' · столешница ' + tName.toLowerCase() + '. Цена примерная, без техники и мойки.',
-      sent: !!s.sent, notSent: !s.sent,
-      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
-      again: () => this.setState({ sent: false })
+      sent: !!s.bkId, notSent: !s.bkId, bkId: s.bkId || '',
+      bkErr: !!s.bkErr, bkErrText: s.bkErr || '', bkBusy: !!s.bkBusy, bkBtn: s.bkBusy ? 'Отправляем…' : 'Записаться на замер',
+      minDate: this.dayStr(1), maxDate: this.dayStr(90), defDate: this.dayStr(1),
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.book({ shape: shapeName, a, b, c, isl, facade: fName, top: tName, extras: extraDefs.filter((x) => ex[x.id]).map((x) => x.name), meters: Number(meters.toFixed(1)), range }); },
+      again: () => this.setState({ bkId: 0 })
     };
+    const out = this.lastVals;
+    return Object.assign(out, this.shopVals(s));
   }
-  componentDidMount() { this.startFx(); }
-  componentWillUnmount() { this.stopFx(); }
+  dayStr(add) { const d = new Date(Date.now() + add * 86400000); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  book(calc) {
+    const N = window.NEM, s = this.state || {};
+    if (s.bkBusy) return;
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+    const o = { kind: v('k6') || 'kitchen', name: v('k1'), phone: v('k2'), address: v('k3'), date: v('k4') || null, time: v('k5'), calc: (v('k6') || 'kitchen') === 'kitchen' ? calc : null };
+    if (o.name.trim().length < 2) return this.setState({ bkErr: 'Напишите ваше имя' });
+    if (!N.normPhone(o.phone)) return this.setState({ bkErr: 'Проверьте номер: нужно 10 цифр после +7' });
+    this.setState({ bkBusy: true, bkErr: '' });
+    N.bookMeasure(o).then((r) => this.setState({ bkBusy: false, bkId: r.id })).catch((e) => this.setState({ bkBusy: false, bkErr: e.message }));
+  }
+  componentDidMount() { this.startFx(); this.shopMount(); }
+  componentDidUpdate() { this.shopSync(); }
+  componentWillUnmount() { this.stopFx(); this.shopUnmount(); }
   // ---- «живые» эффекты: параллакс фото, появление блоков, горизонтальная галерея, наклон карточек, курсор ----
   startFx() {
     this.fxDead = false;
@@ -471,6 +636,96 @@ class Component extends DCLogic {
     this.fxDead = true;
     if (this.fxRaf) cancelAnimationFrame(this.fxRaf);
     if (this.fxOff) this.fxOff();
+  }
+  // ---- общее для страниц магазина: корзина, оформление, поиск ----
+  shopVals(s) {
+    const N = window.NEM;
+    const lines = N.cart.lines();
+    const cnt = N.cart.count();
+    const step = s.coStep || 'cart';
+    const st = N.settings();
+    const meV = N.me.get();
+    const q = s.q || '';
+    const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    const prods = N.state.products || [];
+    const res = words.length ? prods.filter((p) => { const t = (p.name + ' ' + p.category + ' ' + (p.lead || '')).toLowerCase(); return words.every((w) => t.indexOf(w.slice(0, Math.max(3, w.length - 1))) >= 0); }) : prods.filter((p) => p.badge).concat(prods.filter((p) => !p.badge)).slice(0, 4);
+    return {
+      hasCart: cnt > 0, cartCount: cnt,
+      cartCountText: cnt ? cnt + ' ' + N.plural(cnt, 'товар', 'товара', 'товаров') : '',
+      openCart: () => this.setState({ cartOpen: true, searchOpen: false, toastOn: false, coStep: step === 'done' ? 'cart' : step, coErr: '' }),
+      closeCart: () => this.setState({ cartOpen: false, coStep: step === 'done' ? 'cart' : step }),
+      cartCls: s.cartOpen ? 'open' : '', cartHidden: s.cartOpen ? 'false' : 'true',
+      drTitle: step === 'form' ? 'Оформление' : step === 'done' ? 'Спасибо!' : 'Корзина',
+      coCart: step === 'cart', coForm: step === 'form', coDone: step === 'done',
+      cartEmpty: !lines.length, cartHasItems: lines.length > 0,
+      cartLines: lines.map((l) => ({
+        ...l, sumText: N.fmt(l.sum), removeLabel: 'Убрать: ' + l.name,
+        inc: () => N.cart.setQty(l.key, l.qty + 1),
+        dec: () => (l.qty > 1 ? N.cart.setQty(l.key, l.qty - 1) : N.cart.remove(l.key)),
+        remove: () => N.cart.remove(l.key)
+      })),
+      cartTotalText: N.fmt(N.cart.total()),
+      showFoot: step !== 'done' && lines.length > 0,
+      coNext: () => this.setState({ coStep: 'form', coErr: '' }),
+      coBack: () => this.setState({ coStep: 'cart', coErr: '' }),
+      meName: meV.name || '', mePhone: meV.phone || '', meAddr: meV.address || '',
+      coErr: !!s.coErr, coErrText: s.coErr || '',
+      coBusy: !!s.coBusy, coOp: s.coBusy ? 0.6 : 1, coBtn: s.coBusy ? 'Отправляем…' : 'Подтвердить заказ',
+      coSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.coSubmit(); },
+      doneId: s.doneId || '', doneTotal: N.fmt(s.doneTotal || 0), hasWa: !!N.normPhone(st.whatsapp),
+      doneWa: N.waLink(st.whatsapp, 'Здравствуйте! Я оформил(а) заказ №' + (s.doneId || '') + ' на сайте New Era Mebel.'),
+      openSearch: () => { this.setState({ searchOpen: true, cartOpen: false }); setTimeout(() => { const el = document.getElementById('srch-q'); if (el) el.focus(); }, 60); },
+      closeSearch: () => this.setState({ searchOpen: false }),
+      srchCls: s.searchOpen ? 'open' : '', srchHidden: s.searchOpen ? 'false' : 'true',
+      q, setQ: (e) => this.setState({ q: e.target.value }),
+      srchRes: res.slice(0, 12).map((p) => ({ id: p.id, name: p.name, img: N.imagesFor(p)[0], priceText: (p.sizes && p.sizes.length > 1 ? 'от ' : '') + N.fmt(Math.min.apply(null, [p.price].concat((p.sizes || []).map((z) => z.price)))) })),
+      srchNone: words.length > 0 && !res.length,
+      srchHint: words.length ? (res.length ? 'Нашли: ' + res.length : 'По запросу «' + q.trim() + '» ничего нет') : 'Популярное сейчас',
+      toastCls: s.toastOn ? 'open' : '', toastText: s.toastText || '',
+      favCount: N.fav.list().length
+    };
+  }
+  coSubmit() {
+    const N = window.NEM;
+    if ((this.state || {}).coBusy) return;
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+    const payEl = document.querySelector('input[name="co-pay"]:checked');
+    const o = { kind: 'cart', name: v('co-name'), phone: v('co-phone'), address: v('co-addr'), payment: payEl ? payEl.value : 'kaspi', comment: v('co-com') };
+    if (o.name.trim().length < 2) return this.setState({ coErr: 'Напишите, как к вам обращаться' });
+    if (!N.normPhone(o.phone)) return this.setState({ coErr: 'Проверьте номер телефона: нужно 10 цифр после +7' });
+    if (o.address.trim().length < 3) return this.setState({ coErr: 'Укажите адрес доставки' });
+    this.setState({ coBusy: true, coErr: '' });
+    N.placeOrder(o).then((r) => { N.cart.clear(); this.setState({ coBusy: false, coStep: 'done', doneId: r.id, doneTotal: r.total }); })
+      .catch((e) => this.setState({ coBusy: false, coErr: e.message || 'Не получилось отправить заказ' }));
+  }
+  toast(t) {
+    clearTimeout(this.toastT);
+    this.setState({ toastText: t, toastOn: true });
+    this.toastT = setTimeout(() => this.setState({ toastOn: false }), 3500);
+  }
+  quickAdd(p) {
+    const N = window.NEM;
+    N.cart.add({ id: p.id, size: N.defSize(p), color: (p.colors || [])[0] || null, mirror: p.has_mirror ? 'one' : null, qty: 1 });
+    this.toast('Добавлено в корзину: ' + p.name);
+  }
+  shopMount() {
+    this.nemOff = window.NEM.on(() => this.setState({ nemT: Date.now() }));
+    window.NEM.load();
+    this.onEsc = (e) => { if (e.key === 'Escape') this.setState({ cartOpen: false, searchOpen: false, fOpen: false }); };
+    window.addEventListener('keydown', this.onEsc);
+    if (/[?&]cart=1/.test(location.search)) this.setState({ cartOpen: true });
+  }
+  shopUnmount() {
+    if (this.nemOff) this.nemOff();
+    window.removeEventListener('keydown', this.onEsc);
+    clearTimeout(this.toastT);
+    document.body.style.overflow = ''; document.body.classList.remove('nem-lock');
+  }
+  shopSync() {
+    const s = this.state || {};
+    const lock = !!(s.cartOpen || s.searchOpen || s.fOpen);
+    document.body.style.overflow = lock ? 'hidden' : '';
+    document.body.classList.toggle('nem-lock', lock);
   }
 }
 </script>
