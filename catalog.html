@@ -3,38 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FAFBF4">
+<meta name="theme-color" content="#F2F3F1">
 <title>Каталог мебели — New Era Mebel</title>
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Unbounded:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth}
-body{margin:0;background:#FAFBF4;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:#171512}a:hover{color:#566B0E}
-i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:0}
+:root{--studio:linear-gradient(180deg,#C3CBCF 0%,#B4BEC3 64%,#A6B1B7 64%,#97A3A9 100%);--ink:#1B1F22;--tape:#F3C431;--paper:#F2F3F1}
+body{margin:0;background-color:#F2F3F1;background-image:radial-gradient(rgba(27,31,34,.15) 1px,transparent 1.5px);background-size:22px 22px;color:#1B1F22;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,.h1,.h2{font-family:'Unbounded','Onest',system-ui,sans-serif;font-weight:500!important;letter-spacing:-.025em!important}
+.logo span{font-family:'Unbounded','Onest',sans-serif;font-weight:600!important;font-size:14px!important;letter-spacing:0!important}
+.logo i.s{color:#59626A;font-size:14px!important}
+.dk{background-image:radial-gradient(rgba(242,243,241,.11) 1px,transparent 1.5px);background-size:22px 22px}
+.dim{position:relative;display:flex;justify-content:center;margin-top:12px;height:13px;border-left:1.5px solid rgba(27,31,34,.5);border-right:1.5px solid rgba(27,31,34,.5)}
+.dim::before{content:'';position:absolute;left:0;right:0;top:6px;border-top:1px solid rgba(27,31,34,.4)}
+.dim span{position:relative;padding:0 8px;background:#F2F3F1;font-size:11px;line-height:13px;font-weight:600;color:#3E464D;font-variant-numeric:tabular-nums}
+a{color:#1B1F22}a:hover{color:#1B1F22}
+i.s{font-family:inherit!important;font-style:normal!important;font-size:1em!important;font-weight:inherit;letter-spacing:inherit}
 .wrap{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;width:100%}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 .hero-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
-.glass{background:rgba(250,251,244,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
-.nl{color:#34382B;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
-.nl:hover{background:rgba(23,21,18,.06);color:#171512}
-.ib{width:44px;height:44px;border-radius:999px;border:0;display:inline-flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;transition:background .25s}
-.ib:hover{background:rgba(23,21,18,.08)}
-.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#FAFBF4;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.btn:hover{color:#FFFFFF;transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(23,21,18,.8)}
-.btn .dot{width:36px;height:36px;border-radius:50%;background:#FAFBF4;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.glass{background:rgba(242,243,241,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.nl{color:#30373D;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
+.nl:hover{background:rgba(27,31,34,.06);color:#1B1F22}
+.ib{width:44px;height:44px;border-radius:999px;border:0;display:inline-flex;align-items:center;justify-content:center;color:#1B1F22;cursor:pointer;transition:background .25s}
+.ib:hover{background:rgba(27,31,34,.08)}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#1B1F22;color:#F2F3F1;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn:hover{color:#FFFFFF;transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(27,31,34,.8)}
+.btn .dot{width:36px;height:36px;border-radius:50%;background:#F3C431;color:#1B1F22;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .btn:hover .dot{transform:rotate(-45deg)}
-.btn2{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;border:1px solid rgba(23,21,18,.22);color:#171512;text-decoration:none;font-weight:500;font-size:15px;background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
-.btn2:hover{background:rgba(23,21,18,.05);border-color:rgba(23,21,18,.5);color:#171512}
-.tile{display:block;text-decoration:none;color:#171512}
-.tile .ph{overflow:hidden;border-radius:20px;background:#F1FEC8}
+.btn2{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;border:1px solid rgba(27,31,34,.22);color:#1B1F22;text-decoration:none;font-weight:500;font-size:15px;background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
+.btn2:hover{background:rgba(27,31,34,.05);border-color:rgba(27,31,34,.5);color:#1B1F22}
+.tile{display:block;text-decoration:none;color:#1B1F22}
+.tile .ph{overflow:hidden;border-radius:20px;background:var(--studio)}
 .tile img{display:block;width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .tile:hover img{transform:scale(1.045)}
-.tile:hover{color:#171512}
-.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#FAFBF4;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tile:hover{color:#1B1F22}
+.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#F2F3F1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .tall:hover{transform:translateY(-6px);color:#FFFFFF}
 .tall img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
 .tall:hover img{transform:scale(1.06)}
@@ -48,75 +56,75 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 @keyframes mq{to{transform:translateX(-50%)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spin{animation:spin 20s linear infinite}
-.cursor{position:fixed;left:0;top:0;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(23,21,18,.5);pointer-events:none;z-index:100;transform:translate3d(-100px,-100px,0);display:none;mix-blend-mode:multiply}
+.cursor{position:fixed;left:0;top:0;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(27,31,34,.5);pointer-events:none;z-index:100;transform:translate3d(-100px,-100px,0);display:none;mix-blend-mode:multiply}
 @media (pointer:fine){.cursor{display:block}}
 .par{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
-.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6EDCF}
+.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:var(--studio)}
 .pc-name{margin-top:10px;font-size:16px;font-weight:500;text-decoration:none;line-height:1.3}
-.pc-size{font-size:13px;color:#5E6452;margin-top:4px}
+.pc-size{font-size:13px;color:#59626A;margin-top:4px}
 .pc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
 .pc-price{font-size:20px;font-weight:600;letter-spacing:-.01em}
 .pc-btn{min-height:44px;padding:0 16px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:background .25s,color .25s}
 .pc-tag{position:absolute;top:14px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
-.sh-shade{position:fixed;inset:0;z-index:90;background:rgba(23,21,18,.45);opacity:0;pointer-events:none;transition:opacity .35s}
+.sh-shade{position:fixed;inset:0;z-index:90;background:rgba(27,31,34,.45);opacity:0;pointer-events:none;transition:opacity .35s}
 .sh-shade.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;bottom:0;z-index:91;width:min(460px,100%);display:flex;flex-direction:column;background:#FAFBF4;box-shadow:-30px 0 80px -30px rgba(23,21,18,.45);transform:translateX(104%);visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:91;width:min(460px,100%);display:flex;flex-direction:column;background:#F2F3F1;box-shadow:-30px 0 80px -30px rgba(27,31,34,.45);transform:translateX(104%);visibility:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s .5s}
 .drawer.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.2,.8,.2,1),visibility 0s 0s}
-.dr-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px 14px;border-bottom:1px solid rgba(23,21,18,.08)}
+.dr-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px 14px;border-bottom:1px solid rgba(27,31,34,.08)}
 .dr-body{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;padding:4px 20px 24px}
-.dr-foot{padding:14px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid rgba(23,21,18,.08);background:#FAFBF4}
-.ln{display:grid;grid-template-columns:80px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid rgba(23,21,18,.08)}
-.ln img{display:block;width:80px;height:100px;border-radius:14px;object-fit:cover;background:#F1FEC8}
-.ln-x{width:32px;height:32px;flex-shrink:0;border:0;border-radius:50%;background:transparent;color:#5E6452;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.ln-x:hover{background:rgba(23,21,18,.06);color:#171512}
-.qty{display:inline-flex;align-items:center;border:1px solid rgba(23,21,18,.18);border-radius:999px;padding:2px}
-.qty button{width:34px;height:34px;border:0;background:transparent;font:inherit;font-size:18px;cursor:pointer;color:#171512;border-radius:50%}
-.qty button:hover{background:rgba(23,21,18,.06)}
+.dr-foot{padding:14px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid rgba(27,31,34,.08);background:#F2F3F1}
+.ln{display:grid;grid-template-columns:80px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid rgba(27,31,34,.08)}
+.ln img{display:block;width:80px;height:100px;border-radius:14px;object-fit:cover;background:var(--studio)}
+.ln-x{width:32px;height:32px;flex-shrink:0;border:0;border-radius:50%;background:transparent;color:#59626A;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ln-x:hover{background:rgba(27,31,34,.06);color:#1B1F22}
+.qty{display:inline-flex;align-items:center;border:1px solid rgba(27,31,34,.18);border-radius:999px;padding:2px}
+.qty button{width:34px;height:34px;border:0;background:transparent;font:inherit;font-size:18px;cursor:pointer;color:#1B1F22;border-radius:50%}
+.qty button:hover{background:rgba(27,31,34,.06)}
 .lbl{display:block;font-size:14px;font-weight:600;margin:0 0 6px;padding:0}
-.in{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font:inherit;font-size:16px;color:#171512;outline:none;transition:border-color .2s}
-.in:focus{border-color:#171512}
+.in{width:100%;box-sizing:border-box;min-height:50px;padding:0 16px;border-radius:14px;border:1px solid rgba(27,31,34,.2);background:#FFFFFF;font:inherit;font-size:16px;color:#1B1F22;outline:none;transition:border-color .2s}
+.in:focus{border-color:#1B1F22}
 textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .pay{display:flex;gap:8px}
 .payo{flex:1 1 0;position:relative;cursor:pointer}
 .payo input{position:absolute;opacity:0;width:1px;height:1px}
-.payo span{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:14px;border:1px solid rgba(23,21,18,.2);background:#FFFFFF;font-weight:500;transition:background .2s,color .2s,border-color .2s}
-.payo input:checked+span{background:#171512;color:#FAFBF4;border-color:#171512}
-.payo input:focus-visible+span{outline:2px solid #566B0E;outline-offset:2px}
+.payo span{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:14px;border:1px solid rgba(27,31,34,.2);background:#FFFFFF;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.payo input:checked+span{background:#1B1F22;color:#F2F3F1;border-color:#1B1F22}
+.payo input:focus-visible+span{outline:2px solid #1B1F22;outline-offset:2px}
 .err{padding:12px 14px;border-radius:12px;background:#F6E6D4;color:#7A3F14;font-size:14px;line-height:1.45}
 .ok-box{padding:12px 14px;border-radius:12px;background:#E3EEDF;color:#2F6B3A;font-size:14px;font-weight:600}
-.srch{position:fixed;inset:0;z-index:92;background:#FAFBF4;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
+.srch{position:fixed;inset:0;z-index:92;background:#F2F3F1;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s,visibility 0s .3s}
 .srch.open{opacity:1;visibility:visible;transition:opacity .3s,visibility 0s 0s}
-.srch-input{flex:1 1 auto;min-width:0;min-height:64px;border:0;border-bottom:2px solid #171512;background:transparent;font:inherit;font-size:30px;letter-spacing:-.02em;padding:0 2px;outline:none;color:#171512;border-radius:0}
+.srch-input{flex:1 1 auto;min-width:0;min-height:64px;border:0;border-bottom:2px solid #1B1F22;background:transparent;font:inherit;font-size:30px;letter-spacing:-.02em;padding:0 2px;outline:none;color:#1B1F22;border-radius:0}
 .srch-input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
 .sr-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px;margin-bottom:28px}
-.toast{position:fixed;left:50%;bottom:22px;z-index:93;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);box-sizing:border-box;padding:10px 10px 10px 18px;border-radius:999px;background:#171512;color:#FAFBF4;font-size:14px;box-shadow:0 18px 40px -16px rgba(23,21,18,.6);transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s}
+.toast{position:fixed;left:50%;bottom:22px;z-index:93;display:flex;align-items:center;gap:14px;max-width:calc(100% - 32px);box-sizing:border-box;padding:10px 10px 10px 18px;border-radius:999px;background:#1B1F22;color:#F2F3F1;font-size:14px;box-shadow:0 18px 40px -16px rgba(27,31,34,.6);transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s}
 .toast.open{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 .toast span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.toast button{flex-shrink:0;min-height:36px;padding:0 14px;border-radius:999px;border:0;background:#F1FEC8;color:#171512;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
-.fav-b{position:absolute;bottom:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(250,251,244,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s;color:#171512}
+.toast button{flex-shrink:0;min-height:36px;padding:0 14px;border-radius:999px;border:0;background:#E4E8E7;color:#1B1F22;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.fav-b{position:absolute;bottom:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(242,243,241,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s;color:#1B1F22}
 .fav-b:active{transform:scale(.9)}
-.skel{background:linear-gradient(90deg,#EEF3DC 0%,#F6F9EA 50%,#EEF3DC 100%);background-size:200% 100%;animation:sk 1.4s linear infinite;border-radius:20px}
+.skel{background:linear-gradient(90deg,#E3E7E6 0%,#EEF1F0 50%,#E3E7E6 100%);background-size:200% 100%;animation:sk 1.4s linear infinite;border-radius:20px}
 @keyframes sk{to{background-position:-200% 0}}
 .stars{display:flex;gap:2px}
-.stars button{width:40px;height:40px;border:0;background:transparent;cursor:pointer;padding:0;color:#C9CFB4;display:flex;align-items:center;justify-content:center}
-.stars button[aria-pressed="true"]{color:#566B0E}
+.stars button{width:40px;height:40px;border:0;background:transparent;cursor:pointer;padding:0;color:#C2C8C9;display:flex;align-items:center;justify-content:center}
+.stars button[aria-pressed="true"]{color:#E0A800}
 @media (max-width:980px){.g4{gap:24px 12px}.pc-name{font-size:14px;margin-top:8px}.pc-size{font-size:12px}.pc-foot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}.pc-price{font-size:17px}.pc-btn{min-height:40px;font-size:13px;padding:0 10px}.pc-tag{top:8px;padding:4px 8px;font-size:11px}.tile .ph{border-radius:16px}}
-@media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:40px!important}.h2{font-size:34px!important}.giant{font-size:26vw!important}}
+@media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:29px!important}.h2{font-size:25px!important}.giant{font-size:20vw!important}}
 @media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}.srch-input{font-size:22px}.sr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rev-f{grid-template-columns:minmax(0,1fr)!important}}
 @media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
 </style>
 <style>
 .cat-layout{display:grid;grid-template-columns:272px minmax(0,1fr);gap:44px;align-items:start}
-.chk{display:flex;align-items:center;gap:12px;min-height:40px;padding:0 4px;border-radius:10px;cursor:pointer;font-size:15px;color:#272A20}
-.chk input{width:18px;height:18px;accent-color:#171512;margin:0}
-.rng{width:100%;accent-color:#171512}
-.sel{min-height:44px;padding:0 40px 0 16px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:#FAFBF4;font:inherit;font-size:14px;color:#171512;cursor:pointer}
+.chk{display:flex;align-items:center;gap:12px;min-height:40px;padding:0 4px;border-radius:10px;cursor:pointer;font-size:15px;color:#252B30}
+.chk input{width:18px;height:18px;accent-color:#1B1F22;margin:0}
+.rng{width:100%;accent-color:#1B1F22}
+.sel{min-height:44px;padding:0 40px 0 16px;border-radius:999px;border:1px solid rgba(27,31,34,.2);background:#F2F3F1;font:inherit;font-size:14px;color:#1B1F22;cursor:pointer}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
 .chip{flex-shrink:0;min-height:44px;padding:0 18px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
-.filters{position:sticky;top:100px;display:flex;flex-direction:column;gap:28px;padding:24px;border-radius:22px;background:#F1FEC8}
+.filters{position:sticky;top:100px;display:flex;flex-direction:column;gap:28px;padding:24px;border-radius:22px;background:#E4E8E7;border:1px solid rgba(27,31,34,.06)}
 .f-head,.f-foot,.f-btn,.f-shade{display:none}
-.pills{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:#525846}
-.pills span{padding:8px 12px;border-radius:999px;background:#F1FEC8;white-space:nowrap}
+.pills{display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:#4E575E}
+.pills span{padding:8px 12px;border-radius:999px;background:#E4E8E7;white-space:nowrap}
 .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
 .pgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
 @media (max-width:1180px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -125,13 +133,13 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px 20px;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{display:none}
 .chip{min-height:40px;padding:0 15px}
-.filters{position:fixed;top:auto;left:0;right:0;bottom:0;z-index:80;max-height:86vh;max-height:86dvh;overflow-y:auto;overscroll-behavior:contain;border-radius:26px 26px 0 0;padding:0 20px 0;gap:24px;background:#FAFBF4;box-shadow:0 -24px 60px -20px rgba(23,21,18,.35);transform:translateY(105%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
+.filters{position:fixed;top:auto;left:0;right:0;bottom:0;z-index:80;max-height:86vh;max-height:86dvh;overflow-y:auto;overscroll-behavior:contain;border-radius:26px 26px 0 0;padding:0 20px 0;gap:24px;background:#F2F3F1;box-shadow:0 -24px 60px -20px rgba(27,31,34,.35);transform:translateY(105%);visibility:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s .45s}
 .filters.open{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.2,.8,.2,1),visibility 0s 0s}
-.f-head{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:2;margin:0 -20px;padding:18px 20px 12px;background:#FAFBF4}
-.f-foot{display:flex;gap:10px;position:sticky;bottom:0;margin:0 -20px;padding:12px 20px calc(14px + env(safe-area-inset-bottom));background:#FAFBF4;border-top:1px solid rgba(23,21,18,.08)}
-.f-shade{display:block;position:fixed;inset:0;z-index:79;background:rgba(23,21,18,.42);opacity:0;pointer-events:none;transition:opacity .35s}
+.f-head{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:2;margin:0 -20px;padding:18px 20px 12px;background:#F2F3F1}
+.f-foot{display:flex;gap:10px;position:sticky;bottom:0;margin:0 -20px;padding:12px 20px calc(14px + env(safe-area-inset-bottom));background:#F2F3F1;border-top:1px solid rgba(27,31,34,.08)}
+.f-shade{display:block;position:fixed;inset:0;z-index:79;background:rgba(27,31,34,.42);opacity:0;pointer-events:none;transition:opacity .35s}
 .f-shade.open{opacity:1;pointer-events:auto}
-.f-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(23,21,18,.22);background:transparent;font:inherit;font-size:14px;font-weight:500;color:#171512;cursor:pointer}
+.f-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(27,31,34,.22);background:transparent;font:inherit;font-size:14px;font-weight:500;color:#1B1F22;cursor:pointer}
 .f-reset-d{display:none!important}
 .pills{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px 16px;padding:0 20px;scrollbar-width:none}
 .pills::-webkit-scrollbar{display:none}
@@ -145,33 +153,33 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <body>
 <div id="root"></div>
 <template id="tpl">
-<div style="position: relative; width: 100%; min-height: 100vh; background: #FAFBF4; overflow-x: clip">
+<div style="position: relative; width: 100%; min-height: 100vh; background: transparent; overflow-x: clip">
 <div ref="{{curRef}}" class="cursor" aria-hidden="true"></div>
 <header class="hdr" style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
-<a href="index.html" class="glass logo" style="display: flex; align-items: baseline; gap: 6px; white-space: nowrap; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
+<a href="index.html" class="glass logo" style="display: flex; align-items: baseline; gap: 6px; white-space: nowrap; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #1B1F22; border: 1px solid rgba(27,31,34,0.06)">
 <span style="font-weight: 700; font-size: 16px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 19px">mebel</i>
 </a>
-<nav class="navc glass" aria-label="Главное меню" style="display: flex; gap: 2px; padding: 5px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
+<nav class="navc glass" aria-label="Главное меню" style="display: flex; gap: 2px; padding: 5px; border-radius: 999px; border: 1px solid rgba(27,31,34,0.06)">
 <a class="nl" href="catalog.html">Каталог</a>
 <a class="nl" href="kitchen.html">Кухни на заказ</a>
 <a class="nl" href="catalog.html#kupe">Шкафы-купе</a>
 <a class="nl" href="index.html">Доставка и оплата</a>
 <a class="nl" href="index.html">Контакты</a>
 </nav>
-<div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
+<div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(27,31,34,0.06)">
 <button type="button" class="ib hide-s" aria-label="Поиск" onClick="{{openSearch}}" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
 <a class="ib hide-s" href="catalog.html#fav" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></a>
 <button type="button" class="ib" aria-label="Корзина" onClick="{{openCart}}" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
-<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #566B0E; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #1B1F22; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
 </button>
 <a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px; white-space: nowrap"><span>Замер<span class="hide-s"> бесплатно</span></span><span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
 </header>
 <main class="wrap" style="padding-top: 110px; padding-bottom: 100px">
-<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #5E6452"><a href="index.html" style="color: #5E6452; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #171512">Каталог</span></nav>
+<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #59626A"><a href="index.html" style="color: #59626A; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #1B1F22">Каталог</span></nav>
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin: 18px 0 28px">
-<h1 class="h1" style="margin: 0; font-size: 52px; letter-spacing: -0.035em; font-weight: 500; line-height: 1">Каталог <i class="s" style="font-size: 1.1em">мебели</i></h1>
-<div style="font-size: 15px; color: #5E6452">Найдено: <span style="color: #171512; font-weight: 600">{{found}}</span></div>
+<h1 class="h1" style="margin: 0; font-size: 42px; letter-spacing: -0.035em; font-weight: 500; line-height: 1">Каталог <i class="s" style="font-size: 1.1em">мебели</i></h1>
+<div style="font-size: 15px; color: #59626A">Найдено: <span style="color: #1B1F22; font-weight: 600">{{found}}</span></div>
 </div>
 
 <div role="group" aria-label="Категории" class="chips">
@@ -183,12 +191,12 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div class="cat-layout">
 <div class="f-shade {{fCls}}" onClick="{{closeF}}" aria-hidden="true"></div>
 <aside id="filters" aria-label="Фильтры" class="filters {{fCls}}">
-<div class="f-head"><span style="font-size: 20px; font-weight: 600">Фильтры</span><button type="button" class="ib" onClick="{{closeF}}" aria-label="Закрыть фильтры" style="background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+<div class="f-head"><span style="font-size: 20px; font-weight: 600">Фильтры</span><button type="button" class="ib" onClick="{{closeF}}" aria-label="Закрыть фильтры" style="background: rgba(27,31,34,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
 <div>
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 600">Цена до</span><span style="font-size: 15px">{{maxText}}</span></div>
 <label for="pmax" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Максимальная цена</label>
 <input id="pmax" class="rng" type="range" min="{{pMinR}}" max="{{pMaxR}}" step="5000" value="{{pmax}}" onChange="{{setMax}}" style="margin-top: 14px">
-<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5E6452; margin-top: 4px"><span>{{pMinText}}</span><span>{{pMaxText}}</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #59626A; margin-top: 4px"><span>{{pMinText}}</span><span>{{pMaxText}}</span></div>
 </div>
 <div>
 <div style="font-weight: 600; margin-bottom: 8px">Ширина</div>
@@ -200,7 +208,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div style="font-weight: 600; margin-bottom: 12px">Цвет</div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{colors}}" as="item" hint-placeholder-count="6">
-<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.name}}" title="{{item.name}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid {{item.ring}}; background: transparent; padding: 4px; cursor: pointer"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: {{item.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.18)"></span></button>
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.name}}" title="{{item.name}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid {{item.ring}}; background: transparent; padding: 4px; cursor: pointer"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: {{item.hex}}; box-shadow: inset 0 0 0 1px rgba(27,31,34,0.18)"></span></button>
 </sc-for>
 </div>
 </div>
@@ -212,9 +220,9 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div>
 <div class="pills"><span>Сборка включена</span><span>Доставка по Туркестану — 0 ₸</span><span>Kaspi / наличные</span></div>
 <div class="bar">
-<button type="button" class="f-btn" onClick="{{openF}}" aria-controls="filters" aria-expanded="{{fExp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>Фильтры<sc-if value="{{hasActive}}" hint-placeholder-val="{{false}}"><span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #171512; color: #FAFBF4; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">{{activeCount}}</span></sc-if></button>
-<div style="display: flex; align-items: center; gap: 8px"><button type="button" class="ib" onClick="{{openSearch}}" aria-label="Поиск по каталогу" style="border: 1px solid rgba(23,21,18,0.18); background: transparent"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
-<label class="sel-l" style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #5E6452"><span class="sel-t">Сортировка</span>
+<button type="button" class="f-btn" onClick="{{openF}}" aria-controls="filters" aria-expanded="{{fExp}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>Фильтры<sc-if value="{{hasActive}}" hint-placeholder-val="{{false}}"><span style="min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #1B1F22; color: #F2F3F1; font-size: 12px; display: inline-flex; align-items: center; justify-content: center">{{activeCount}}</span></sc-if></button>
+<div style="display: flex; align-items: center; gap: 8px"><button type="button" class="ib" onClick="{{openSearch}}" aria-label="Поиск по каталогу" style="border: 1px solid rgba(27,31,34,0.18); background: transparent"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+<label class="sel-l" style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #59626A"><span class="sel-t">Сортировка</span>
 <select class="sel" aria-label="Сортировка" value="{{sort}}" onChange="{{setSort}}"><option value="pop">Популярные</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
 </label>
 </div>
@@ -227,14 +235,15 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div style="position: relative">
 <a class="tile" href="product.html#{{item.id}}">
 <div class="ph ph-r" style="position: relative; aspect-ratio: 4 / 5"><img src="{{item.img}}" alt="{{item.name}}" loading="lazy" style="height: 100%; object-fit: cover">
-<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{false}}"><span class="pc-tag" style="left: 14px; background: #171512; color: #FAFBF4">{{item.badge}}</span></sc-if>
-<span class="pc-tag" style="right: 14px; background: rgba(250,251,244,0.9); color: {{item.stockFg}}">{{item.stockText}}</span>
+<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{false}}"><span class="pc-tag" style="left: 14px; background: #1B1F22; color: #F2F3F1">{{item.badge}}</span></sc-if>
+<span class="pc-tag" style="right: 14px; background: rgba(242,243,241,0.9); color: {{item.stockFg}}">{{item.stockText}}</span>
 </div>
 </a>
 <button type="button" class="fav-b" onClick="{{item.favToggle}}" aria-pressed="{{item.favP}}" aria-label="{{item.favLabel}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="{{item.favFill}}" stroke="{{item.favStroke}}" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
 </div>
-<div style="display: flex; gap: 6px; margin-top: 14px">
-<sc-for list="{{item.swatches}}" as="sw" hint-placeholder-count="3"><span title="{{sw.name}}" style="width: 14px; height: 14px; border-radius: 50%; background: {{sw.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.2)"></span></sc-for>
+<div class="dim" title="Ширина"><span>{{item.wText}}</span></div>
+<div style="display: flex; gap: 6px; margin-top: 12px">
+<sc-for list="{{item.swatches}}" as="sw" hint-placeholder-count="3"><span title="{{sw.name}}" style="width: 14px; height: 14px; border-radius: 50%; background: {{sw.hex}}; box-shadow: inset 0 0 0 1px rgba(27,31,34,0.2)"></span></sc-for>
 </div>
 <a class="pc-name" href="product.html#{{item.id}}">{{item.name}}</a>
 <div class="pc-size">{{item.size}}</div>
@@ -247,16 +256,16 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 
 <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
-<div style="padding: 60px 24px; border-radius: 22px; background: #F1FEC8; text-align: center">
+<div style="padding: 60px 24px; border-radius: 22px; background: #E4E8E7; text-align: center">
 <div style="font-size: 20px; font-weight: 600">{{emptyTitle}}</div>
-<p style="color: #5E6452; margin: 8px 0 20px">{{emptyText}}</p>
+<p style="color: #59626A; margin: 8px 0 20px">{{emptyText}}</p>
 <button type="button" class="btn2" onClick="{{reset}}">Сбросить фильтры</button>
 </div>
 </sc-if>
 
-<a href="kitchen.html" data-rv="0" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 32px 36px; border-radius: 24px; background: #171512; color: #FAFBF4; text-decoration: none">
-<span><span style="display: block; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Не нашли свой размер? <i class="s" style="font-size: 1.1em">Сделаем под вас.</i></span><span style="display: block; margin-top: 6px; color: #B8BEA6">Шкафы в нишу, кухни, гардеробные — по вашим меркам. Замер бесплатный.</span></span>
-<span style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #FAFBF4; color: #171512; font-weight: 500">Заказать по размерам</span>
+<a href="kitchen.html" data-rv="0" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 32px 36px; border-radius: 24px; background: #1B1F22; color: #F2F3F1; text-decoration: none">
+<span><span style="display: block; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Не нашли свой размер? <i class="s" style="font-size: 1.1em">Сделаем под вас.</i></span><span style="display: block; margin-top: 6px; color: #AEB6BC">Шкафы в нишу, кухни, гардеробные — по вашим меркам. Замер бесплатный.</span></span>
+<span style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #F2F3F1; color: #1B1F22; font-weight: 500">Заказать по размерам</span>
 </a>
 </div>
 </div>
@@ -264,16 +273,16 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div class="sh-shade {{cartCls}}" onClick="{{closeCart}}" aria-hidden="true"></div>
 <aside class="drawer {{cartCls}}" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="{{cartHidden}}" data-overlay="1">
 <div class="dr-head">
-<div style="display: flex; align-items: center; gap: 10px"><sc-if value="{{coForm}}"><button type="button" class="ib" onClick="{{coBack}}" aria-label="Назад к корзине" style="background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button></sc-if><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em">{{drTitle}}</span><sc-if value="{{coCart}}"><span style="font-size: 15px; color: #5E6452">{{cartCountText}}</span></sc-if></div>
-<button type="button" class="ib" onClick="{{closeCart}}" aria-label="Закрыть корзину" style="background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<div style="display: flex; align-items: center; gap: 10px"><sc-if value="{{coForm}}"><button type="button" class="ib" onClick="{{coBack}}" aria-label="Назад к корзине" style="background: rgba(27,31,34,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button></sc-if><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.02em">{{drTitle}}</span><sc-if value="{{coCart}}"><span style="font-size: 15px; color: #59626A">{{cartCountText}}</span></sc-if></div>
+<button type="button" class="ib" onClick="{{closeCart}}" aria-label="Закрыть корзину" style="background: rgba(27,31,34,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
 <div class="dr-body">
 <sc-if value="{{coCart}}">
 <sc-if value="{{cartEmpty}}">
 <div style="padding: 56px 8px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px">
-<span style="width: 72px; height: 72px; border-radius: 50%; background: #F1FEC8; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#171512" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg></span>
+<span style="width: 72px; height: 72px; border-radius: 50%; background: #E4E8E7; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1B1F22" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg></span>
 <div style="font-size: 20px; font-weight: 600">Корзина пока пуста</div>
-<p style="margin: 0 0 8px; color: #5E6452; line-height: 1.55; max-width: 300px">Выберите мебель в каталоге — сборка и доставка по Туркестану уже включены в цену.</p>
+<p style="margin: 0 0 8px; color: #59626A; line-height: 1.55; max-width: 300px">Выберите мебель в каталоге — сборка и доставка по Туркестану уже включены в цену.</p>
 <a class="btn" href="catalog.html">Перейти в каталог<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
 </sc-if>
@@ -282,7 +291,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <a href="product.html#{{ln.id}}" onClick="{{closeCart}}" tabindex="-1"><img src="{{ln.img}}" alt="{{ln.name}}"></a>
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 4px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px"><a href="product.html#{{ln.id}}" onClick="{{closeCart}}" style="font-weight: 600; line-height: 1.3; text-decoration: none">{{ln.name}}</a><button type="button" class="ln-x" onClick="{{ln.remove}}" aria-label="{{ln.removeLabel}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
-<div style="font-size: 13px; color: #5E6452; line-height: 1.4">{{ln.meta}}</div>
+<div style="font-size: 13px; color: #59626A; line-height: 1.4">{{ln.meta}}</div>
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; padding-top: 8px">
 <div class="qty"><button type="button" onClick="{{ln.dec}}" aria-label="Меньше">−</button><span style="min-width: 22px; text-align: center; font-weight: 600">{{ln.qty}}</span><button type="button" onClick="{{ln.inc}}" aria-label="Больше">+</button></div>
 <div style="font-weight: 600; font-size: 17px">{{ln.sumText}}</div>
@@ -291,7 +300,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 </sc-for>
 <sc-if value="{{cartHasItems}}">
-<ul style="list-style: none; margin: 18px 0 0; padding: 14px 16px; border-radius: 16px; background: #F1FEC8; display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+<ul style="list-style: none; margin: 18px 0 0; padding: 14px 16px; border-radius: 16px; background: #E4E8E7; display: flex; flex-direction: column; gap: 6px; font-size: 14px">
 <li>✓ Сборка мебели входит в цену</li><li>✓ Доставка по Туркестану — бесплатно</li><li>✓ Оплата при получении: Kaspi или наличные</li>
 </ul>
 </sc-if>
@@ -304,16 +313,16 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <fieldset style="border: 0; margin: 0; padding: 0"><legend class="lbl">Оплата при получении</legend>
 <div class="pay"><label class="payo"><input type="radio" name="co-pay" value="kaspi" checked><span>Kaspi</span></label><label class="payo"><input type="radio" name="co-pay" value="cash"><span>Наличные</span></label></div>
 </fieldset>
-<div><label class="lbl" for="co-com">Комментарий <span style="color: #5E6452; font-weight: 400">— необязательно</span></label><textarea id="co-com" class="in" rows="3" placeholder="Этаж, есть ли лифт, удобное время"></textarea></div>
+<div><label class="lbl" for="co-com">Комментарий <span style="color: #59626A; font-weight: 400">— необязательно</span></label><textarea id="co-com" class="in" rows="3" placeholder="Этаж, есть ли лифт, удобное время"></textarea></div>
 <sc-if value="{{coErr}}"><div class="err" role="alert">{{coErrText}}</div></sc-if>
-<p style="margin: 0; font-size: 13px; color: #5E6452; line-height: 1.5">После заказа мы позвоним, чтобы подтвердить размеры, цвет и день доставки. Предоплата не нужна.</p>
+<p style="margin: 0; font-size: 13px; color: #59626A; line-height: 1.5">После заказа мы позвоним, чтобы подтвердить размеры, цвет и день доставки. Предоплата не нужна.</p>
 </form>
 </sc-if>
 <sc-if value="{{coDone}}">
 <div role="status" style="padding: 36px 4px; display: flex; flex-direction: column; gap: 14px">
-<span style="width: 64px; height: 64px; border-radius: 50%; background: #171512; color: #F1FEC8; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<span style="width: 64px; height: 64px; border-radius: 50%; background: #F3C431; color: #1B1F22; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
 <div style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15">Заказ №{{doneId}} <i class="s" style="font-size: 1.12em">принят</i></div>
-<p style="margin: 0; color: #424737; line-height: 1.6">Сумма: <b>{{doneTotal}}</b>. Мы позвоним в ближайшее время, чтобы подтвердить заказ и договориться о дне доставки.</p>
+<p style="margin: 0; color: #3E464D; line-height: 1.6">Сумма: <b>{{doneTotal}}</b>. Мы позвоним в ближайшее время, чтобы подтвердить заказ и договориться о дне доставки.</p>
 <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
 <a class="btn" href="status.html#{{doneId}}" style="justify-content: space-between">Следить за заказом<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 <sc-if value="{{hasWa}}"><a class="btn2" href="{{doneWa}}" target="_blank" rel="noopener" style="justify-content: center">Написать нам в WhatsApp</a></sc-if>
@@ -324,7 +333,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 <sc-if value="{{showFoot}}">
 <div class="dr-foot">
-<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px"><span style="font-size: 14px; color: #5E6452">Итого, со сборкой и доставкой</span><span style="font-size: 24px; font-weight: 600; letter-spacing: -0.02em">{{cartTotalText}}</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 12px"><span style="font-size: 14px; color: #59626A">Итого, со сборкой и доставкой</span><span style="font-size: 24px; font-weight: 600; letter-spacing: -0.02em">{{cartTotalText}}</span></div>
 <sc-if value="{{coCart}}"><button type="button" class="btn" onClick="{{coNext}}" style="width: 100%; justify-content: space-between">Оформить заказ<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button></sc-if>
 <sc-if value="{{coForm}}"><button type="button" class="btn" onClick="{{coSubmit}}" disabled="{{coBusy}}" style="width: 100%; justify-content: space-between; opacity: {{coOp}}">{{coBtn}}<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button></sc-if>
 </div>
@@ -336,9 +345,9 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div style="display: flex; align-items: center; gap: 12px">
 <label for="srch-q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Поиск по каталогу</label>
 <input id="srch-q" class="srch-input" type="search" placeholder="Шкаф, комод, кровать…" value="{{q}}" onChange="{{setQ}}" autocomplete="off" enterkeyhint="search">
-<button type="button" class="ib" onClick="{{closeSearch}}" aria-label="Закрыть поиск" style="flex-shrink: 0; background: rgba(23,21,18,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<button type="button" class="ib" onClick="{{closeSearch}}" aria-label="Закрыть поиск" style="flex-shrink: 0; background: rgba(27,31,34,0.06)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
-<div style="margin: 16px 0 22px; font-size: 14px; color: #5E6452">{{srchHint}}</div>
+<div style="margin: 16px 0 22px; font-size: 14px; color: #59626A">{{srchHint}}</div>
 <div class="sr-grid">
 <sc-for list="{{srchRes}}" as="r" hint-placeholder-count="4">
 <a class="tile" href="product.html#{{r.id}}" onClick="{{closeSearch}}">
@@ -349,7 +358,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </sc-for>
 </div>
 <sc-if value="{{srchNone}}">
-<div style="padding: 28px; border-radius: 22px; background: #F1FEC8; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
+<div style="padding: 28px; border-radius: 22px; background: #E4E8E7; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap">
 <span><b>Не нашли подходящее?</b> Сделаем по вашим размерам — замер бесплатный.</span>
 <a class="btn" href="kitchen.html" onClick="{{closeSearch}}">Заказать замер<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
@@ -462,7 +471,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=53b0f47f"></script>
+<script src="nem.js?v=8ec6f783"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -507,23 +516,23 @@ class Component extends DCLogic {
       found: all ? list.length : '…', empty: !!all && list.length === 0,
       emptyTitle: cat === 'Избранное' ? 'В избранном пока пусто' : 'Ничего не нашлось',
       emptyText: cat === 'Избранное' ? 'Нажмите на сердечко у товара, чтобы сохранить его здесь.' : 'Попробуйте изменить фильтры — или закажите мебель по своим размерам.',
-      cats: catNames.map((n) => ({ name: n === 'Избранное' ? '♥ Избранное · ' + favs.length : n, pressed: n === cat ? 'true' : 'false', bg: n === cat ? '#171512' : 'transparent', fg: n === cat ? '#FAFBF4' : '#171512', bd: n === cat ? '#171512' : 'rgba(23,21,18,0.18)', pick: () => this.pickCat(n) })),
+      cats: catNames.map((n) => ({ name: n === 'Избранное' ? '♥ Избранное · ' + favs.length : n, pressed: n === cat ? 'true' : 'false', bg: n === cat ? '#1B1F22' : 'transparent', fg: n === cat ? '#F2F3F1' : '#1B1F22', bd: n === cat ? '#1B1F22' : 'rgba(27,31,34,0.18)', pick: () => this.pickCat(n) })),
       pmax, pMaxR, pMinR, pMinText: N.fmt(pMinR), pMaxText: N.fmt(pMaxR), maxText: N.fmt(pmax), setMax: (e) => this.setState({ pmax: Number(e.target.value) }),
       widths: widthDefs.map((d) => ({ label: d.label, on: !!wsel[d.id], toggle: () => this.setState({ w: { ...wsel, [d.id]: !wsel[d.id] } }) })),
-      colors: Object.keys(N.SW).map((k) => ({ name: N.SW[k].name, hex: N.SW[k].hex, pressed: csel[k] ? 'true' : 'false', ring: csel[k] ? '#171512' : 'transparent', toggle: () => this.setState({ c: { ...csel, [k]: !csel[k] } }) })),
+      colors: Object.keys(N.SW).map((k) => ({ name: N.SW[k].name, hex: N.SW[k].hex, pressed: csel[k] ? 'true' : 'false', ring: csel[k] ? '#1B1F22' : 'transparent', toggle: () => this.setState({ c: { ...csel, [k]: !csel[k] } }) })),
       stockOnly, toggleStock: () => this.setState({ stock: !stockOnly }),
       sort, setSort: (e) => this.setState({ sort: e.target.value }),
       reset: () => this.setState({ pmax: undefined, w: {}, c: {}, stock: false, sort: 'pop' }),
       items: list.map((p, idx) => {
         const on = N.cart.has(p.id), fv = favs.indexOf(p.id) >= 0;
         return {
-          id: p.id, name: p.name, img: N.imagesFor(p)[0], size: p.size_text, delay: (idx % 3) * 0.07, hasBadge: !!p.badge, badge: p.badge,
+          id: p.id, name: p.name, img: N.imagesFor(p)[0], size: p.size_text, wText: N.widthText(p), delay: (idx % 3) * 0.07, hasBadge: !!p.badge, badge: p.badge,
           priceText: N.priceFrom(p), swatches: (p.colors || []).map((k) => N.SW[k]).filter(Boolean),
           stockText: p.in_stock ? 'В наличии' : 'Под заказ', stockFg: p.in_stock ? '#2F6B3A' : '#8A4A1C',
           btn: on ? 'В корзине ✓' : 'В корзину', addLabel: (on ? 'Открыть корзину: ' : 'В корзину: ') + p.name,
-          bg: on ? '#171512' : 'transparent', fg: on ? '#FAFBF4' : '#171512', bd: on ? '#171512' : 'rgba(23,21,18,0.22)',
+          bg: on ? '#1B1F22' : 'transparent', fg: on ? '#F2F3F1' : '#1B1F22', bd: on ? '#1B1F22' : 'rgba(27,31,34,0.22)',
           add: () => (on ? this.setState({ cartOpen: true, coStep: 'cart' }) : this.quickAdd(p)),
-          favToggle: () => N.fav.toggle(p.id), favP: fv ? 'true' : 'false', favFill: fv ? '#566B0E' : 'none', favStroke: fv ? '#566B0E' : '#171512', favLabel: fv ? 'Убрать из избранного' : 'В избранное'
+          favToggle: () => N.fav.toggle(p.id), favP: fv ? 'true' : 'false', favFill: fv ? '#F3C431' : 'none', favStroke: '#1B1F22', favLabel: fv ? 'Убрать из избранного' : 'В избранное'
         };
       })
     };
@@ -566,7 +575,8 @@ class Component extends DCLogic {
       els = {
         par: Array.prototype.slice.call(document.querySelectorAll('[data-par]')),
         rv: Array.prototype.slice.call(document.querySelectorAll('[data-rv]')),
-        hs: Array.prototype.slice.call(document.querySelectorAll('[data-hs]'))
+        hs: Array.prototype.slice.call(document.querySelectorAll('[data-hs]')),
+        dk: Array.prototype.slice.call(document.querySelectorAll('.dk'))
       };
     };
     q();
@@ -593,6 +603,13 @@ class Component extends DCLogic {
       if (this.fxDead) return;
       if (++n % 45 === 0) q();
       const vh = window.innerHeight || 900, vw = window.innerWidth || 1440;
+      // сетка точек «как на чертёжной бумаге» движется вместе с прокруткой, но медленнее страницы
+      const sy = window.scrollY || 0;
+      if (!reduce && sy !== this.fxSy) {
+        this.fxSy = sy;
+        document.body.style.backgroundPosition = '0 ' + (-(sy * 0.35) % 22).toFixed(1) + 'px';
+        for (let i = 0; i < els.dk.length; i++) els.dk[i].style.backgroundPosition = '0 ' + ((sy * 0.18) % 22).toFixed(1) + 'px';
+      }
       if (!reduce) {
         for (let i = 0; i < els.par.length; i++) {
           const el = els.par[i], box = (el.parentElement || el).getBoundingClientRect();

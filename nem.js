@@ -129,6 +129,11 @@
   }
   function minPrice(p) { return Math.min.apply(null, [p.price].concat((p.sizes || []).map(function (z) { return z.price; }))); }
   function priceFrom(p) { return ((p.sizes || []).length > 1 ? 'от ' : '') + fmt(minPrice(p)); }
+  function widthText(p) {
+    var nums = (p.sizes || []).map(function (z) { var m = String(z.label || '').match(/^\s*(\d{2,3})/); return m ? Number(m[1]) : null; }).filter(function (x) { return x; });
+    if (nums.length > 1) { var a = Math.min.apply(null, nums), b = Math.max.apply(null, nums); if (a !== b) return 'ширина ' + a + '–' + b + ' см'; }
+    var w = nums[0] || p.width_cm; return w ? 'ширина ' + w + ' см' : '';
+  }
   function splitName(name) { var m = String(name || '').match(/^(.*?)\s*(«.*)$/); return m ? [m[1], m[2]] : [name, '']; }
   function loadReviews() {
     return api('/rest/v1/reviews?select=name,what,rating,text,created_at&approved=eq.true&order=created_at.desc&limit=12')
@@ -331,7 +336,7 @@
   window.NEM = {
     URL: URL, KEY: KEY, SW: SW, CATS: CATS, CAT_SLUG: CAT_SLUG, MIRRORS: MIRRORS, ORDER_FLOW: ORDER_FLOW, MEASURE_FLOW: MEASURE_FLOW,
     state: S, on: on, emit: emit, load: load, product: product, settings: settings, defSize: defSize, unitPrice: unitPrice,
-    imagesFor: imagesFor, splitName: splitName, minPrice: minPrice, priceFrom: priceFrom, loadReviews: loadReviews,
+    imagesFor: imagesFor, splitName: splitName, minPrice: minPrice, priceFrom: priceFrom, widthText: widthText, loadReviews: loadReviews,
     cart: cart, fav: fav, me: me, orders: function () { return LS.get('nem-orders', []); },
     placeOrder: placeOrder, bookMeasure: bookMeasure, orderStatus: orderStatus, submitReview: submitReview,
     auth: auth, admin: admin, api: api, testPush: testPush, rpc: rpc, resizeImage: resizeImage, translit: translit, beep: beep,

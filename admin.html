@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FAFBF4">
+<meta name="theme-color" content="#F2F3F1">
 <title>Кабинет — New Era Mebel</title>
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="manifest" href="admin.webmanifest">
@@ -11,13 +11,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="NEM кабинет">
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Unbounded:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
 html,body{height:100%}
-body{margin:0;background:#E6EDCF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
-a{color:#171512}
-i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500}
-.app{position:relative;width:100%;max-width:520px;height:100vh;height:100dvh;margin:0 auto;overflow:hidden;background:#FAFBF4;box-shadow:0 0 0 1px rgba(23,21,18,.06),0 30px 80px -40px rgba(23,21,18,.5)}
+body{margin:0;background:#DDE2E1;color:#1B1F22;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:#1B1F22}
+i.s{font-family:inherit;font-style:normal;font-weight:inherit}
+:root{--studio:linear-gradient(180deg,#C3CBCF 0%,#B4BEC3 64%,#A6B1B7 64%,#97A3A9 100%)}
+.app{position:relative;width:100%;max-width:520px;height:100vh;height:100dvh;margin:0 auto;overflow:hidden;background:#F2F3F1;box-shadow:0 0 0 1px rgba(27,31,34,.06),0 30px 80px -40px rgba(27,31,34,.5)}
 .scroll{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;padding:18px 16px 118px;display:flex;flex-direction:column;gap:14px;scrollbar-width:none}
 .scroll::-webkit-scrollbar{display:none}
 .scroll>*{flex-shrink:0}
@@ -27,42 +28,42 @@ i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight
 .pulse{animation:blink 1.4s infinite}
 @keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .pop{animation:pop .4s cubic-bezier(.2,.8,.2,1) both}
-.card{padding:16px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(23,21,18,.08);display:flex;flex-direction:column;gap:12px}
-.ib{width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1px solid rgba(23,21,18,.12);background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;text-decoration:none;position:relative}
-.rb{width:46px;height:46px;flex-shrink:0;border-radius:50%;border:1px solid rgba(23,21,18,.14);display:flex;align-items:center;justify-content:center;color:#171512;background:#FFFFFF;text-decoration:none}
-.b1{min-height:46px;padding:0 16px;border-radius:999px;border:0;background:#171512;color:#FAFBF4;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
+.card{padding:16px;border-radius:20px;background:#FFFFFF;border:1px solid rgba(27,31,34,.08);display:flex;flex-direction:column;gap:12px}
+.ib{width:44px;height:44px;flex-shrink:0;border-radius:50%;border:1px solid rgba(27,31,34,.12);background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#1B1F22;cursor:pointer;text-decoration:none;position:relative}
+.rb{width:46px;height:46px;flex-shrink:0;border-radius:50%;border:1px solid rgba(27,31,34,.14);display:flex;align-items:center;justify-content:center;color:#1B1F22;background:#FFFFFF;text-decoration:none}
+.b1{min-height:46px;padding:0 16px;border-radius:999px;border:0;background:#1B1F22;color:#F2F3F1;font:inherit;font-weight:600;font-size:14px;cursor:pointer}
 .b1[disabled]{opacity:.55;cursor:default}
-.b2{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:transparent;color:#171512;font:inherit;font-weight:500;font-size:14px;cursor:pointer}
-.b3{min-height:40px;padding:0 14px;border-radius:999px;border:0;background:#F1FEC8;color:#171512;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.b2{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid rgba(27,31,34,.2);background:transparent;color:#1B1F22;font:inherit;font-weight:500;font-size:14px;cursor:pointer}
+.b3{min-height:40px;padding:0 14px;border-radius:999px;border:0;background:#E4E8E7;color:#1B1F22;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
 .bd{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(138,74,28,.35);background:transparent;color:#8A4A1C;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
-.in{width:100%;box-sizing:border-box;min-height:48px;padding:0 14px;border-radius:12px;border:1px solid rgba(23,21,18,.18);background:#FFFFFF;font:inherit;font-size:16px;color:#171512;outline:none}
-.in:focus{border-color:#171512}
+.in{width:100%;box-sizing:border-box;min-height:48px;padding:0 14px;border-radius:12px;border:1px solid rgba(27,31,34,.18);background:#FFFFFF;font:inherit;font-size:16px;color:#1B1F22;outline:none}
+.in:focus{border-color:#1B1F22}
 textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 .lbl{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
 .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex-shrink:0;min-height:36px;padding:0 13px;border-radius:999px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap}
 .pill{flex-shrink:0;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
-.muted{color:#5E6452}
+.muted{color:#59626A}
 .err{padding:12px 14px;border-radius:12px;background:#F6E6D4;color:#7A3F14;font-size:14px;line-height:1.45}
 .ok{padding:12px 14px;border-radius:12px;background:#E3EEDF;color:#2F6B3A;font-size:14px;font-weight:600}
-.nav{position:absolute;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:6px;border-radius:24px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(23,21,18,.08);box-shadow:0 16px 40px -24px rgba(23,21,18,.5);z-index:5}
-.nv{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0;border-radius:18px;border:0;background:transparent;color:#525846;text-decoration:none;font:inherit;font-size:11px;font-weight:500;cursor:pointer}
-.nv[aria-current="page"]{background:#171512;color:#FAFBF4}
-.nv b{position:absolute;top:3px;right:calc(50% - 22px);min-width:17px;height:17px;padding:0 4px;box-sizing:border-box;border-radius:999px;background:#566B0E;color:#FFFFFF;font-size:10px;display:flex;align-items:center;justify-content:center}
-.it{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(23,21,18,.08)}
-.it img{width:52px;height:64px;border-radius:10px;object-fit:cover;background:#F1FEC8}
+.nav{position:absolute;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:6px;border-radius:24px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(27,31,34,.08);box-shadow:0 16px 40px -24px rgba(27,31,34,.5);z-index:5}
+.nv{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0;border-radius:18px;border:0;background:transparent;color:#4E575E;text-decoration:none;font:inherit;font-size:11px;font-weight:500;cursor:pointer}
+.nv[aria-current="page"]{background:#1B1F22;color:#F2F3F1}
+.nv b{position:absolute;top:3px;right:calc(50% - 22px);min-width:17px;height:17px;padding:0 4px;box-sizing:border-box;border-radius:999px;background:#F3C431;color:#1B1F22;font-size:10px;display:flex;align-items:center;justify-content:center}
+.it{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(27,31,34,.08)}
+.it img{width:52px;height:64px;border-radius:10px;object-fit:cover;background:var(--studio)}
 .kv{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:3px 0}
-.kv span:first-child{color:#5E6452}
+.kv span:first-child{color:#59626A}
 .bars{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:24px}
 .bar{position:relative;flex:1 1 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;border:0;background:transparent;padding:0;cursor:pointer;font:inherit}
-.bar i{display:block;width:100%;max-width:34px;border-radius:4px 4px 0 0;background:#566B0E;min-height:2px}
-.bar[aria-pressed="true"] i{background:#171512}
-.bar em{position:absolute;bottom:calc(var(--h) + 4px);font-style:normal;font-size:11px;font-weight:600;white-space:nowrap;color:#171512}
-.toast{position:absolute;left:16px;right:16px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:6;padding:12px 16px;border-radius:16px;background:#171512;color:#FAFBF4;font-size:14px;font-weight:500;box-shadow:0 18px 40px -16px rgba(23,21,18,.6)}
+.bar i{display:block;width:100%;max-width:34px;border-radius:4px 4px 0 0;background:#1B1F22;min-height:2px}
+.bar[aria-pressed="true"] i{background:#1B1F22}
+.bar em{position:absolute;bottom:calc(var(--h) + 4px);font-style:normal;font-size:11px;font-weight:600;white-space:nowrap;color:#1B1F22}
+.toast{position:absolute;left:16px;right:16px;bottom:calc(92px + env(safe-area-inset-bottom));z-index:6;padding:12px 16px;border-radius:16px;background:#1B1F22;color:#F2F3F1;font-size:14px;font-weight:500;box-shadow:0 18px 40px -16px rgba(27,31,34,.6)}
 .login{position:absolute;inset:0;overflow-y:auto;padding:48px 22px 40px;display:flex;flex-direction:column;gap:14px}
-.day{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5E6452;margin:10px 2px 0}
-.ev{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(23,21,18,.08);text-align:left;font:inherit;color:#171512;cursor:pointer;width:100%;box-sizing:border-box}
+.day{font-size:15px;font-weight:700;color:#59626A;margin:10px 2px 0}
+.ev{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:16px;background:#FFFFFF;border:1px solid rgba(27,31,34,.08);text-align:left;font:inherit;color:#1B1F22;cursor:pointer;width:100%;box-sizing:border-box}
 .ev.want{background:transparent;border-style:dashed}
 .sw{width:44px;height:26px;border-radius:999px;position:relative;flex-shrink:0;transition:background .25s}
 .sw i{position:absolute;top:3px;width:20px;height:20px;border-radius:50%;background:#FFFFFF;transition:left .25s}
@@ -139,23 +140,23 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<div style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(23,21,18,0.08)">
+<div style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(27,31,34,0.08)">
 <div style="font-size: 12px" class="muted">7 дней</div>
 <div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{weekSum}}</div>
 <div style="font-size: 12px; margin-top: 2px" class="muted">{{weekCnt}}</div>
 </div>
-<div style="padding: 16px; border-radius: 20px; background: #171512; color: #FAFBF4">
-<div style="font-size: 12px; color: #B8BEA6">30 дней</div>
+<div style="padding: 16px; border-radius: 20px; background: #1B1F22; color: #F2F3F1">
+<div style="font-size: 12px; color: #AEB6BC">30 дней</div>
 <div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{monthSum}}</div>
-<div style="font-size: 12px; color: #B8BEA6; margin-top: 2px">{{monthCnt}}</div>
+<div style="font-size: 12px; color: #AEB6BC; margin-top: 2px">{{monthCnt}}</div>
 </div>
 </div>
 
 <sc-if value="{{hasBanner}}">
-<div class="pop" style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 1.5px solid #566B0E; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: #566B0E"><span class="pulse" style="width: 7px; height: 7px; border-radius: 50%; background: #566B0E"></span>{{bnKind}}</span><span style="font-size: 12px" class="muted">{{bnAgo}}</span></div>
+<div class="pop" style="padding: 16px; border-radius: 20px; background: #FFFFFF; border: 2px solid #F3C431; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: center"><span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #1B1F22"><span class="pulse" style="width: 9px; height: 9px; border-radius: 50%; background: #E0A800"></span>{{bnKind}}</span><span style="font-size: 12px" class="muted">{{bnAgo}}</span></div>
 <div style="display: flex; gap: 12px">
-<img src="{{bnImg}}" alt="" style="width: 60px; height: 74px; border-radius: 12px; object-fit: cover; background: #F1FEC8; flex-shrink: 0">
+<img src="{{bnImg}}" alt="" style="width: 60px; height: 74px; border-radius: 12px; object-fit: cover; background: var(--studio); flex-shrink: 0">
 <div style="min-width: 0"><div style="font-weight: 600; line-height: 1.3">{{bnTitle}}</div><div style="font-size: 14px; margin-top: 3px" class="muted">{{bnSub}}</div><div style="font-size: 14px; margin-top: 2px" class="muted">{{bnClient}}</div></div>
 </div>
 <div style="display: flex; gap: 8px">
@@ -166,7 +167,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 </div>
 </sc-if>
 
-<div role="tablist" aria-label="Раздел" style="display: flex; padding: 4px; border-radius: 999px; background: #F1FEC8">
+<div role="tablist" aria-label="Раздел" style="display: flex; padding: 4px; border-radius: 999px; background: #E4E8E7">
 <sc-for list="{{tabs}}" as="item" hint-placeholder-count="2">
 <button type="button" role="tab" class="press" onClick="{{item.pick}}" aria-selected="{{item.sel}}" style="flex-grow: 1; min-height: 44px; border-radius: 999px; border: 0; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-weight: 600; font-size: 14px; cursor: pointer">{{item.label}}</button>
 </sc-for>
@@ -179,9 +180,9 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 
 <sc-for list="{{cards}}" as="item" hint-placeholder-count="3">
 <div class="card" style="border-color: {{item.border}}">
-<button type="button" onClick="{{item.toggle}}" aria-expanded="{{item.expanded}}" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; border: 0; background: transparent; padding: 0; text-align: left; font: inherit; color: #171512; cursor: pointer">
+<button type="button" onClick="{{item.toggle}}" aria-expanded="{{item.expanded}}" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; border: 0; background: transparent; padding: 0; text-align: left; font: inherit; color: #1B1F22; cursor: pointer">
 <span style="display: flex; gap: 12px; min-width: 0">
-<span style="width: 54px; flex-shrink: 0; text-align: center; padding: 6px 0; border-radius: 12px; background: {{item.tileBg}}"><span style="display: block; font-size: 10px; color: #5E6452">{{item.day}}</span><span style="display: block; font-size: 14px; font-weight: 600">{{item.time}}</span></span>
+<span style="width: 54px; flex-shrink: 0; text-align: center; padding: 6px 0; border-radius: 12px; background: {{item.tileBg}}"><span style="display: block; font-size: 10px; color: #59626A">{{item.day}}</span><span style="display: block; font-size: 14px; font-weight: 600">{{item.time}}</span></span>
 <span style="min-width: 0"><span style="display: block; font-weight: 600; line-height: 1.3">{{item.title}}</span><span style="display: block; font-size: 13px; margin-top: 3px" class="muted">{{item.sub}}</span><span style="display: block; font-size: 13px; margin-top: 2px" class="muted">{{item.client}}</span></span>
 </span>
 <span class="pill" style="background: {{item.pillBg}}; color: {{item.pillFg}}">{{item.status}}</span>
@@ -193,7 +194,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 <button type="button" class="press" onClick="{{item.next}}" disabled="{{item.nextOff}}" style="flex-grow: 1; min-height: 46px; border-radius: 999px; border: 1px solid {{item.btnBd}}; background: {{item.btnBg}}; color: {{item.btnFg}}; font: inherit; font-weight: 600; font-size: 14px; cursor: pointer">{{item.btn}}</button>
 </div>
 <sc-if value="{{item.open}}">
-<div style="border-top: 1px solid rgba(23,21,18,0.08); padding-top: 12px; display: flex; flex-direction: column; gap: 12px">
+<div style="border-top: 1px solid rgba(27,31,34,0.08); padding-top: 12px; display: flex; flex-direction: column; gap: 12px">
 <div>
 <div class="kv"><span>{{item.numLabel}}</span><span>{{item.created}}</span></div>
 <div class="kv"><span>Клиент</span><span>{{item.name}}</span></div>
@@ -207,7 +208,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 <div class="kv" style="font-size: 16px; padding-top: 8px"><span>Итого</span><b>{{item.totalText}}</b></div>
 </div>
 </sc-if>
-<sc-if value="{{item.hasComment}}"><div style="padding: 10px 12px; border-radius: 12px; background: #F1FEC8; font-size: 14px; line-height: 1.45"><b>Комментарий клиента:</b> {{item.comment}}</div></sc-if>
+<sc-if value="{{item.hasComment}}"><div style="padding: 10px 12px; border-radius: 12px; background: #E4E8E7; font-size: 14px; line-height: 1.45"><b>Комментарий клиента:</b> {{item.comment}}</div></sc-if>
 <div>
 <label class="lbl" for="{{item.dateId}}">{{item.dateLabel}}</label>
 <div style="display: flex; gap: 8px"><input id="{{item.dateId}}" class="in" type="date" value="{{item.dateVal}}"><sc-if value="{{item.isMeas}}"><input id="{{item.timeId}}" class="in" type="time" value="{{item.timeVal}}" style="max-width: 120px" aria-label="Время замера"></sc-if><button type="button" class="b3" onClick="{{item.saveDate}}">Сохранить</button></div>
@@ -256,7 +257,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 <sc-for list="{{periods}}" as="f" hint-placeholder-count="4"><button type="button" class="chip" onClick="{{f.pick}}" aria-pressed="{{f.sel}}" style="border: 1px solid {{f.bd}}; background: {{f.bg}}; color: {{f.fg}}">{{f.label}}</button></sc-for>
 </div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<sc-for list="{{tiles}}" as="t" hint-placeholder-count="4"><div style="padding: 16px; border-radius: 20px; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid rgba(23,21,18,0.08)"><div style="font-size: 12px; opacity: 0.75">{{t.k}}</div><div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{t.v}}</div><div style="font-size: 12px; opacity: 0.75; margin-top: 2px">{{t.s}}</div></div></sc-for>
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="4"><div style="padding: 16px; border-radius: 20px; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid rgba(27,31,34,0.08)"><div style="font-size: 12px; opacity: 0.75">{{t.k}}</div><div style="font-size: 21px; font-weight: 600; margin-top: 6px; letter-spacing: -0.02em">{{t.v}}</div><div style="font-size: 12px; opacity: 0.75; margin-top: 2px">{{t.s}}</div></div></sc-for>
 </div>
 <div class="card">
 <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 600">Заказы по неделям</span><span class="muted" style="font-size: 13px">{{wkCaption}}</span></div>
@@ -270,7 +271,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 <div class="card">
 <div style="font-weight: 600">Что заказывают</div>
 <sc-if value="{{noTop}}"><div class="muted" style="font-size: 14px">Пока нет заказов за этот период.</div></sc-if>
-<sc-for list="{{top}}" as="t" hint-placeholder-count="3"><div class="kv"><span>{{t.name}}</span><span><b style="color: #171512">{{t.qty}} шт.</b> · {{t.sum}}</span></div></sc-for>
+<sc-for list="{{top}}" as="t" hint-placeholder-count="3"><div class="kv"><span>{{t.name}}</span><span><b style="color: #1B1F22">{{t.qty}} шт.</b> · {{t.sum}}</span></div></sc-for>
 </div>
 <div class="card">
 <div style="font-weight: 600">Оплата</div>
@@ -298,7 +299,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
 <sc-if value="{{noRevs}}"><div class="muted" style="font-size: 14px">Отзывов пока нет.</div></sc-if>
 <sc-for list="{{revs}}" as="r" hint-placeholder-count="2">
 <div style="padding: 12px; border-radius: 14px; background: {{r.bg}}; display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; justify-content: space-between; gap: 8px"><b>{{r.name}}</b><span style="color: #566B0E">{{r.stars}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 8px"><b>{{r.name}}</b><span style="color: #D49A00">{{r.stars}}</span></div>
 <div class="muted" style="font-size: 13px">{{r.meta}}</div>
 <div style="font-size: 14px; line-height: 1.5">{{r.text}}</div>
 <div style="display: flex; gap: 8px"><button type="button" class="{{r.mainCls}}" onClick="{{r.toggle}}">{{r.toggleLabel}}</button><button type="button" class="bd" onClick="{{r.del}}">Удалить</button></div>
@@ -439,7 +440,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
   };
 })();
 </script>
-<script src="nem.js?v=53b0f47f"></script>
+<script src="nem.js?v=8ec6f783"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -556,8 +557,8 @@ class Component extends DCLogic {
     const nextLabel = isO ? { new: 'Принять заказ', accepted: 'В производство', production: 'На доставку', delivery: 'Готово, сдан' } : { new: 'Назначить замер', scheduled: 'Замер сделан', measured: 'Проект отправлен', project: 'Договор подписан' };
     const bannerItem = s.banner ? (s.banner.t === 'o' ? orders : meas).filter((x) => x.id === s.banner.id && x.status === 'new')[0] : null;
     const out = {
-      tabs: [{ id: 'orders', label: 'Заказы · ' + activeO }, { id: 'meas', label: 'Замеры · ' + activeM }].map((t) => ({ ...t, sel: t.id === tab ? 'true' : 'false', bg: t.id === tab ? '#171512' : 'transparent', fg: t.id === tab ? '#FAFBF4' : '#525846', pick: () => this.setState({ tab: t.id, open: null }) })),
-      filters: [['active', 'В работе'], ['new', 'Новые'], ['done', isO ? 'Выполнены' : 'Договор'], ['cancelled', 'Отменены'], ['all', 'Все']].map(([id, label]) => ({ label, sel: id === filt ? 'true' : 'false', bg: id === filt ? '#171512' : '#FFFFFF', fg: id === filt ? '#FAFBF4' : '#171512', bd: id === filt ? '#171512' : 'rgba(23,21,18,0.14)', pick: () => this.setState({ filt: id, open: null }) })),
+      tabs: [{ id: 'orders', label: 'Заказы · ' + activeO }, { id: 'meas', label: 'Замеры · ' + activeM }].map((t) => ({ ...t, sel: t.id === tab ? 'true' : 'false', bg: t.id === tab ? '#1B1F22' : 'transparent', fg: t.id === tab ? '#F2F3F1' : '#4E575E', pick: () => this.setState({ tab: t.id, open: null }) })),
+      filters: [['active', 'В работе'], ['new', 'Новые'], ['done', isO ? 'Выполнены' : 'Договор'], ['cancelled', 'Отменены'], ['all', 'Все']].map(([id, label]) => ({ label, sel: id === filt ? 'true' : 'false', bg: id === filt ? '#1B1F22' : '#FFFFFF', fg: id === filt ? '#F2F3F1' : '#1B1F22', bd: id === filt ? '#1B1F22' : 'rgba(27,31,34,0.14)', pick: () => this.setState({ filt: id, open: null }) })),
       listEmpty: list.length === 0,
       emptyTitle: s.loaded ? (isO ? 'Заказов нет' : 'Заявок на замер нет') : 'Загружаем…',
       emptyText: s.loaded ? (filt === 'active' ? 'Когда клиент оформит ' + (isO ? 'заказ' : 'замер') + ' на сайте, он появится здесь, и телефон даст знать.' : 'В этом списке пусто.') : '',
@@ -566,7 +567,7 @@ class Component extends DCLogic {
     if (bannerItem) {
       const isBo = s.banner.t === 'o';
       Object.assign(out, {
-        bnKind: isBo ? (bannerItem.kind === 'one_click' ? 'КУПИТЬ В 1 КЛИК — ПЕРЕЗВОНИТЬ' : 'НОВЫЙ ЗАКАЗ С САЙТА') : 'НОВАЯ ЗАЯВКА НА ЗАМЕР',
+        bnKind: isBo ? (bannerItem.kind === 'one_click' ? 'Купить в 1 клик: перезвоните' : 'Новый заказ с сайта') : 'Новая заявка на замер',
         bnAgo: this.ago(bannerItem.created_at),
         bnImg: isBo ? (((bannerItem.items || [])[0] || {}).image || 'img/nova_walnut.webp') : 'img/kitchen_full.jpg',
         bnTitle: isBo ? this.orderTitle(bannerItem) : this.measTitle(bannerItem),
@@ -596,18 +597,18 @@ class Component extends DCLogic {
           .concat(c.range ? [{ k: 'Кухня', v: [c.shape, c.meters ? String(c.meters).replace('.', ',') + ' пог. м' : '', c.facade, c.top ? 'столешница ' + String(c.top).toLowerCase() : '', (c.extras || []).join(', ')].filter(Boolean).join(' · ') }, { k: 'Расчёт', v: c.range }] : []);
       return {
         open, expanded: open ? 'true' : 'false', toggle: () => this.setState({ open: open ? null : key, delAsk: null }),
-        border: isNew ? '#566B0E' : open ? '#171512' : 'rgba(23,21,18,0.08)',
-        tileBg: isNew ? '#F1FEC8' : '#F3F5EC', day, time,
+        border: isNew ? '#F3C431' : open ? '#1B1F22' : 'rgba(27,31,34,0.08)',
+        tileBg: isNew ? '#FCEFC2' : '#ECEFEE', day, time,
         title: isO ? this.orderTitle(x) : this.measTitle(x),
         sub: isO ? this.orderSub(x) : this.measSub(x),
         client: [x.name || 'Без имени', x.address].filter(Boolean).join(' · '),
         status: label,
-        pillBg: cancelled ? '#ECEAE6' : done ? '#E3EEDF' : isNew ? '#F1FEC8' : '#F6E6D4', pillFg: cancelled ? '#5E6452' : done ? '#2F6B3A' : isNew ? '#3E4D0A' : '#8A4A1C',
+        pillBg: cancelled ? '#ECEAE6' : done ? '#E3EEDF' : isNew ? '#F3C431' : '#F6E6D4', pillFg: cancelled ? '#59626A' : done ? '#2F6B3A' : isNew ? '#1B1F22' : '#8A4A1C',
         tel: 'tel:' + x.phone, wa: N.waLink(x.phone, 'Здравствуйте' + (x.name ? ', ' + x.name : '') + '! Это New Era Mebel, по вашей ' + (isO ? 'заявке №' + x.id : 'заявке на замер') + '.'),
         map: this.mapLink(x.address),
         btn: cancelled ? 'Отменён' : done ? 'Завершён ✓' : nextLabel[x.status] || 'Дальше',
         nextOff: cancelled || done,
-        btnBg: cancelled || done ? 'transparent' : '#171512', btnFg: cancelled ? '#5E6452' : done ? '#2F6B3A' : '#FAFBF4', btnBd: cancelled ? 'rgba(23,21,18,0.14)' : done ? 'rgba(47,107,58,0.35)' : '#171512',
+        btnBg: cancelled || done ? 'transparent' : '#1B1F22', btnFg: cancelled ? '#59626A' : done ? '#2F6B3A' : '#F2F3F1', btnBd: cancelled ? 'rgba(27,31,34,0.14)' : done ? 'rgba(47,107,58,0.35)' : '#1B1F22',
         next: () => { if (nextId) this.setStatus(isO ? 'orders' : 'measurements', x.id, nextId); },
         numLabel: (isO ? 'Заказ №' : 'Заявка №') + x.id, created: new Date(x.created_at).toLocaleString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }),
         name: x.name || '—', phone: N.prettyPhone(x.phone), address: x.address || '—', extra,
@@ -651,7 +652,7 @@ class Component extends DCLogic {
       const ev = [];
       meas.forEach((m) => {
         if (m.status === 'cancelled') return;
-        if (m.scheduled_at && this.ymd(new Date(m.scheduled_at)) === key) ev.push({ sort: new Date(m.scheduled_at).getHours() * 60 + new Date(m.scheduled_at).getMinutes(), cls: 'ev', time: this.hm(m.scheduled_at), kind: 'Замер', bg: '#F1FEC8', title: this.measTitle(m), sub: [m.name, m.address, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) });
+        if (m.scheduled_at && this.ymd(new Date(m.scheduled_at)) === key) ev.push({ sort: new Date(m.scheduled_at).getHours() * 60 + new Date(m.scheduled_at).getMinutes(), cls: 'ev', time: this.hm(m.scheduled_at), kind: 'Замер', bg: '#E4E8E7', title: this.measTitle(m), sub: [m.name, m.address, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) });
         else if (!m.scheduled_at && m.want_date === key) ev.push({ sort: 2000, cls: 'ev want', time: '—', kind: 'Просит замер', bg: '#F6E6D4', title: this.measTitle(m) + (m.want_time ? ' · ' + m.want_time : ''), sub: [m.name, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) });
       });
       orders.forEach((o) => {
@@ -660,11 +661,11 @@ class Component extends DCLogic {
       });
       ev.sort((a, b) => a.sort - b.sort);
       const wd = d.toLocaleDateString('ru-RU', { weekday: 'long' });
-      days.push({ label: (i === 0 ? 'Сегодня · ' : i === 1 ? 'Завтра · ' : '') + wd + ', ' + d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }), color: i === 0 ? '#171512' : '#5E6452', events: ev, empty: !ev.length });
+      days.push({ label: (i === 0 ? 'Сегодня · ' : i === 1 ? 'Завтра · ' : '') + wd + ', ' + d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }), color: i === 0 ? '#1B1F22' : '#59626A', events: ev, empty: !ev.length });
     }
     const undated = orders.filter((o) => (o.status === 'accepted' || o.status === 'production' || o.status === 'delivery') && !o.delivery_date)
       .map((o) => ({ kind: 'Заказ №' + o.id, bg: '#E3EEDF', title: this.orderTitle(o), sub: [o.name, N.prettyPhone(o.phone)].filter(Boolean).join(' · '), go: go('o', o) }))
-      .concat(meas.filter((m) => (m.status === 'new' || m.status === 'scheduled') && !m.scheduled_at).map((m) => ({ kind: 'Замер', bg: '#F1FEC8', title: this.measTitle(m), sub: [m.name, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) })));
+      .concat(meas.filter((m) => (m.status === 'new' || m.status === 'scheduled') && !m.scheduled_at).map((m) => ({ kind: 'Замер', bg: '#E4E8E7', title: this.measTitle(m), sub: [m.name, N.prettyPhone(m.phone)].filter(Boolean).join(' · '), go: go('m', m) })));
     return { days, undated, hasUndated: undated.length > 0, undatedCount: undated.length };
   }
 
@@ -679,10 +680,10 @@ class Component extends DCLogic {
     const L = live.filter(inP), done = L.filter((o) => o.status === 'done'), M = meas.filter(inP).filter((m) => m.status !== 'cancelled');
     const sum = (l) => l.reduce((a, o) => a + (o.total || 0), 0);
     const tiles = [
-      { k: 'Заказано на', v: N.fmt(sum(L)), s: L.length + ' ' + N.plural(L.length, 'заказ', 'заказа', 'заказов'), bg: '#171512', fg: '#FAFBF4' },
-      { k: 'Выполнено', v: N.fmt(sum(done)), s: done.length + ' ' + N.plural(done.length, 'заказ', 'заказа', 'заказов'), bg: '#FFFFFF', fg: '#171512' },
-      { k: 'Средний чек', v: L.length ? N.fmt(sum(L) / L.length) : '—', s: 'по всем заказам', bg: '#FFFFFF', fg: '#171512' },
-      { k: 'Замеров', v: String(M.length), s: M.filter((m) => m.status === 'contract').length + ' дошли до договора', bg: '#F1FEC8', fg: '#171512' }
+      { k: 'Заказано на', v: N.fmt(sum(L)), s: L.length + ' ' + N.plural(L.length, 'заказ', 'заказа', 'заказов'), bg: '#1B1F22', fg: '#F2F3F1' },
+      { k: 'Выполнено', v: N.fmt(sum(done)), s: done.length + ' ' + N.plural(done.length, 'заказ', 'заказа', 'заказов'), bg: '#FFFFFF', fg: '#1B1F22' },
+      { k: 'Средний чек', v: L.length ? N.fmt(sum(L) / L.length) : '—', s: 'по всем заказам', bg: '#FFFFFF', fg: '#1B1F22' },
+      { k: 'Замеров', v: String(M.length), s: M.filter((m) => m.status === 'contract').length + ' дошли до договора', bg: '#E4E8E7', fg: '#1B1F22' }
     ];
     // 8 недель (понедельник — начало недели)
     const mon = new Date(); mon.setHours(0, 0, 0, 0); mon.setDate(mon.getDate() - ((mon.getDay() + 6) % 7));
@@ -701,7 +702,7 @@ class Component extends DCLogic {
     const kaspi = L.filter((o) => o.payment === 'kaspi'), cash = L.filter((o) => o.payment === 'cash'), unk = L.filter((o) => !o.payment);
     const sw = weeks[sel];
     return {
-      periods: [['week', '7 дней'], ['month', '30 дней'], ['year', 'Год'], ['all', 'Всё время']].map(([id, label]) => ({ label, sel: id === per ? 'true' : 'false', bg: id === per ? '#171512' : '#FFFFFF', fg: id === per ? '#FAFBF4' : '#171512', bd: id === per ? '#171512' : 'rgba(23,21,18,0.14)', pick: () => this.setState({ per: id }) })),
+      periods: [['week', '7 дней'], ['month', '30 дней'], ['year', 'Год'], ['all', 'Всё время']].map(([id, label]) => ({ label, sel: id === per ? 'true' : 'false', bg: id === per ? '#1B1F22' : '#FFFFFF', fg: id === per ? '#F2F3F1' : '#1B1F22', bd: id === per ? '#1B1F22' : 'rgba(27,31,34,0.14)', pick: () => this.setState({ per: id }) })),
       tiles,
       wkCaption: sw ? 'неделя с ' + sw.a.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }) + ': ' + N.fmt(sw.v) + ' · ' + sw.n + ' ' + N.plural(sw.n, 'заказ', 'заказа', 'заказов') : '',
       weeks: weeks.map((w, i) => ({ h: Math.max(2, Math.round((w.v / max) * 120)) + 'px', show: i === sel && w.v > 0, short: short(w.v), sel: i === sel ? 'true' : 'false', label: w.a.getDate() + '.' + String(w.a.getMonth() + 1).padStart(2, '0'), aria: 'Неделя с ' + w.a.toLocaleDateString('ru-RU') + ': ' + N.fmt(w.v), pick: () => this.setState({ wk: i }) })),
@@ -737,7 +738,7 @@ class Component extends DCLogic {
       revs: revs.map((r) => ({
         name: r.name, stars: '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating), text: r.text,
         meta: (r.approved ? 'На сайте' : 'Ждёт проверки') + ' · ' + new Date(r.created_at).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + (r.what ? ' · ' + r.what : ''),
-        bg: r.approved ? '#F3F5EC' : '#F1FEC8', mainCls: r.approved ? 'b2' : 'b1',
+        bg: r.approved ? '#ECEFEE' : '#FCEFC2', mainCls: r.approved ? 'b2' : 'b1',
         toggleLabel: r.approved ? 'Скрыть с сайта' : 'Показать на сайте',
         toggle: () => this.patch('reviews', r.id, { approved: !r.approved }, r.approved ? 'Отзыв скрыт' : 'Отзыв опубликован'),
         del: () => this.removeRow('reviews', r.id)
