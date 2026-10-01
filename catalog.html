@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Каталог мебели — New Era Mebel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;family=Cormorant+Garamond:ital,wght@1,500;1,600&amp;display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F4EF;color:#171512;font-family:'Onest',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#171512}a:hover{color:#A6521F}
+i.s{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:0}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px;box-sizing:border-box;width:100%}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.hero-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
+.glass{background:rgba(246,244,239,.74);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+.nl{color:#3B3630;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
+.nl:hover{background:rgba(23,21,18,.06);color:#171512}
+.ib{width:44px;height:44px;border-radius:999px;border:0;display:inline-flex;align-items:center;justify-content:center;color:#171512;cursor:pointer;transition:background .25s}
+.ib:hover{background:rgba(23,21,18,.08)}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 8px 0 22px;border-radius:999px;background:#171512;color:#F6F4EF;text-decoration:none;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn:hover{color:#FFFFFF;transform:translateY(-2px);box-shadow:0 16px 40px -18px rgba(23,21,18,.8)}
+.btn .dot{width:36px;height:36px;border-radius:50%;background:#F6F4EF;color:#171512;display:inline-flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn:hover .dot{transform:rotate(-45deg)}
+.btn2{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border-radius:999px;border:1px solid rgba(23,21,18,.22);color:#171512;text-decoration:none;font-weight:500;font-size:15px;background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
+.btn2:hover{background:rgba(23,21,18,.05);border-color:rgba(23,21,18,.5);color:#171512}
+.tile{display:block;text-decoration:none;color:#171512}
+.tile .ph{overflow:hidden;border-radius:20px;background:#EEEBE4}
+.tile img{display:block;width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.045)}
+.tile:hover{color:#171512}
+.tall{position:relative;display:block;border-radius:22px;overflow:hidden;text-decoration:none;color:#F6F4EF;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.tall:hover{transform:translateY(-6px);color:#FFFFFF}
+.tall img{transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.tall:hover img{transform:scale(1.06)}
+.fade{transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.bob{animation:bob 1.8s ease-in-out infinite}
+.mqw{overflow:hidden;position:relative}
+.mq{display:flex;width:max-content;animation:mq 40s linear infinite}
+.mq.rev{animation-direction:reverse;animation-duration:70s}
+.mqw:hover .mq{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin 20s linear infinite}
+.cursor{position:fixed;left:0;top:0;width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(23,21,18,.5);pointer-events:none;z-index:100;transform:translate3d(-100px,-100px,0);display:none;mix-blend-mode:multiply}
+@media (pointer:fine){.cursor{display:block}}
+.par{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.hcard{position:relative;flex-shrink:0;border-radius:24px;overflow:hidden;background:#E6E1D9}
+@media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:40px!important}.h2{font-size:34px!important}.giant{font-size:26vw!important}}
+@media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
+</style>
+<style>
+.cat-layout{display:grid;grid-template-columns:272px minmax(0,1fr);gap:44px;align-items:start}
+.chk{display:flex;align-items:center;gap:12px;min-height:40px;padding:0 4px;border-radius:10px;cursor:pointer;font-size:15px;color:#2B2722}
+.chk input{width:18px;height:18px;accent-color:#171512;margin:0}
+.rng{width:100%;accent-color:#171512}
+.sel{min-height:44px;padding:0 40px 0 16px;border-radius:999px;border:1px solid rgba(23,21,18,.2);background:#F6F4EF;font:inherit;font-size:14px;color:#171512;cursor:pointer}
+@media (max-width:980px){.cat-layout{grid-template-columns:minmax(0,1fr)}}
+</style>
+
+</head>
+<body>
+<div id="root"></div>
+<template id="tpl">
+<div style="position: relative; width: 100%; min-height: 100vh; background: #F6F4EF; overflow-x: clip">
+<div ref="{{curRef}}" class="cursor" aria-hidden="true"></div>
+<header style="position: fixed; top: 16px; left: 24px; right: 24px; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<a href="index.html" class="glass" style="display: flex; align-items: baseline; gap: 6px; padding: 12px 20px; border-radius: 999px; text-decoration: none; color: #171512; border: 1px solid rgba(23,21,18,0.06)">
+<span style="font-weight: 700; font-size: 16px; letter-spacing: 0.02em">NEW ERA</span><i class="s" style="font-size: 19px">mebel</i>
+</a>
+<nav class="navc glass" aria-label="Главное меню" style="display: flex; gap: 2px; padding: 5px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
+<a class="nl" href="catalog.html">Каталог</a>
+<a class="nl" href="kitchen.html">Кухни на заказ</a>
+<a class="nl" href="catalog.html">Шкафы-купе</a>
+<a class="nl" href="index.html">Доставка и оплата</a>
+<a class="nl" href="index.html">Контакты</a>
+</nav>
+<div class="glass" style="display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; border: 1px solid rgba(23,21,18,0.06)">
+<button type="button" class="ib" aria-label="Поиск" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+<button type="button" class="ib" aria-label="Избранное" style="background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+<button type="button" class="ib" aria-label="Корзина" style="position: relative; background: transparent"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 4px; right: 4px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #A6521F; color: #FFFFFF; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></sc-if>
+</button>
+<a class="btn" href="kitchen.html" style="min-height: 44px; font-size: 14px; padding-left: 18px; padding-right: 5px; gap: 10px">Замер бесплатно<span class="dot" style="width: 34px; height: 34px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+</div>
+</header>
+<main class="wrap" style="padding-top: 110px; padding-bottom: 100px">
+<nav aria-label="Навигация" style="display: flex; gap: 8px; font-size: 14px; color: #6B645A"><a href="index.html" style="color: #6B645A; text-decoration: none">Главная</a><span aria-hidden="true">/</span><span style="color: #171512">Каталог</span></nav>
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin: 18px 0 28px">
+<h1 class="h1" style="margin: 0; font-size: 52px; letter-spacing: -0.035em; font-weight: 500; line-height: 1">Каталог <i class="s" style="font-size: 1.1em">мебели</i></h1>
+<div style="font-size: 15px; color: #6B645A">Найдено: <span style="color: #171512; font-weight: 600">{{found}}</span></div>
+</div>
+
+<div role="group" aria-label="Категории" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px">
+<sc-for list="{{cats}}" as="item" hint-placeholder-count="9">
+<button type="button" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .25s, color .25s">{{item.name}}</button>
+</sc-for>
+</div>
+
+<div class="cat-layout">
+<aside aria-label="Фильтры" style="position: sticky; top: 100px; display: flex; flex-direction: column; gap: 28px; padding: 24px; border-radius: 22px; background: #EEEBE4">
+<div>
+<div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-weight: 600">Цена до</span><span style="font-size: 15px">{{maxText}}</span></div>
+<label for="pmax" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Максимальная цена</label>
+<input id="pmax" class="rng" type="range" min="20000" max="300000" step="5000" value="{{pmax}}" onChange="{{setMax}}" style="margin-top: 14px">
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #6B645A; margin-top: 4px"><span>20 000 ₸</span><span>300 000 ₸</span></div>
+</div>
+<div>
+<div style="font-weight: 600; margin-bottom: 8px">Ширина</div>
+<sc-for list="{{widths}}" as="item" hint-placeholder-count="4">
+<label class="chk"><input type="checkbox" checked="{{item.on}}" onChange="{{item.toggle}}">{{item.label}}</label>
+</sc-for>
+</div>
+<div>
+<div style="font-weight: 600; margin-bottom: 12px">Цвет</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{colors}}" as="item" hint-placeholder-count="6">
+<button type="button" onClick="{{item.toggle}}" aria-pressed="{{item.pressed}}" aria-label="{{item.name}}" title="{{item.name}}" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid {{item.ring}}; background: #EEEBE4; padding: 4px; cursor: pointer"><span style="display: block; width: 100%; height: 100%; border-radius: 50%; background: {{item.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.18)"></span></button>
+</sc-for>
+</div>
+</div>
+<label class="chk" style="padding: 0"><input type="checkbox" checked="{{stockOnly}}" onChange="{{toggleStock}}">Только в наличии</label>
+<button type="button" class="btn2" onClick="{{reset}}" style="min-height: 44px; justify-content: center">Сбросить фильтры</button>
+</aside>
+
+<div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px">
+<div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 13px; color: #5A544B">
+<span style="padding: 8px 12px; border-radius: 999px; background: #EEEBE4">Сборка включена</span>
+<span style="padding: 8px 12px; border-radius: 999px; background: #EEEBE4">Доставка по Туркестану — 0 ₸</span>
+<span style="padding: 8px 12px; border-radius: 999px; background: #EEEBE4">Kaspi / наличные</span>
+</div>
+<label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #6B645A">Сортировка
+<select class="sel" value="{{sort}}" onChange="{{setSort}}"><option value="pop">Популярные</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select>
+</label>
+</div>
+
+<div class="g3" style="gap: 28px 20px">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="6">
+<div data-rv="{{item.delay}}" style="display: flex; flex-direction: column">
+<a class="tile" href="product.html">
+<div class="ph" style="position: relative; aspect-ratio: 4 / 5"><img src="{{item.img}}" alt="{{item.name}}" style="height: 100%; object-fit: cover">
+<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{false}}"><span style="position: absolute; top: 14px; left: 14px; padding: 5px 11px; border-radius: 999px; background: #171512; color: #F6F4EF; font-size: 12px; font-weight: 500">{{item.badge}}</span></sc-if>
+<span style="position: absolute; top: 14px; right: 14px; padding: 5px 11px; border-radius: 999px; background: rgba(246,244,239,0.9); color: {{item.stockFg}}; font-size: 12px; font-weight: 500">{{item.stockText}}</span>
+</div>
+</a>
+<div style="display: flex; gap: 6px; margin-top: 14px">
+<sc-for list="{{item.swatches}}" as="sw" hint-placeholder-count="3"><span title="{{sw.name}}" style="width: 14px; height: 14px; border-radius: 50%; background: {{sw.hex}}; box-shadow: inset 0 0 0 1px rgba(23,21,18,0.2)"></span></sc-for>
+</div>
+<a href="product.html" style="margin-top: 10px; font-size: 16px; font-weight: 500; text-decoration: none; line-height: 1.3">{{item.name}}</a>
+<div style="font-size: 13px; color: #6B645A; margin-top: 4px">{{item.size}}</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px">
+<div style="font-size: 20px; font-weight: 600; letter-spacing: -0.01em">{{item.priceText}}</div>
+<button type="button" onClick="{{item.add}}" aria-label="{{item.addLabel}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .25s, color .25s">{{item.btn}}</button>
+</div>
+</div>
+</sc-for>
+</div>
+
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+<div style="padding: 60px 24px; border-radius: 22px; background: #EEEBE4; text-align: center">
+<div style="font-size: 20px; font-weight: 600">Ничего не нашлось</div>
+<p style="color: #6B645A; margin: 8px 0 20px">Попробуйте изменить фильтры — или закажите мебель по своим размерам.</p>
+<button type="button" class="btn2" onClick="{{reset}}">Сбросить фильтры</button>
+</div>
+</sc-if>
+
+<a href="kitchen.html" data-rv="0" style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 32px 36px; border-radius: 24px; background: #171512; color: #F6F4EF; text-decoration: none">
+<span><span style="display: block; font-size: 26px; font-weight: 500; letter-spacing: -0.02em">Не нашли свой размер? <i class="s" style="font-size: 1.1em">Сделаем под вас.</i></span><span style="display: block; margin-top: 6px; color: #BDB5A9">Шкафы в нишу, кухни, гардеробные — по вашим меркам. Замер бесплатный.</span></span>
+<span style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #F6F4EF; color: #171512; font-weight: 500">Заказать по размерам</span>
+</a>
+</div>
+</div>
+</main>
+</div>
+</template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script>/* Мини-движок страниц New Era Mebel: шаблон + логика компонента → React */
+(function () {
+  var R = window.React, h = R.createElement;
+  var HOLE = /\{\{\s*([^}]+?)\s*\}\}/g, WHOLE = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/;
+  var RENAME = { 'class': 'className', 'for': 'htmlFor', tabindex: 'tabIndex', readonly: 'readOnly', maxlength: 'maxLength', inputmode: 'inputMode', autocomplete: 'autoComplete', srcset: 'srcSet', crossorigin: 'crossOrigin', viewbox: 'viewBox',
+    onclick: 'onClick', onchange: 'onChange', oninput: 'onInput', onsubmit: 'onSubmit', onkeydown: 'onKeyDown', onfocus: 'onFocus', onblur: 'onBlur', onmouseenter: 'onMouseEnter', onmouseleave: 'onMouseLeave' };
+  var BOOL = { checked: 1, disabled: 1, multiple: 1, required: 1, selected: 1, autofocus: 1, hidden: 1 };
+  var VOID = { input: 1, img: 1, br: 1, hr: 1, meta: 1, link: 1, source: 1, area: 1, col: 1, wbr: 1 };
+  var ROOT = null;
+  function camel(s) { return s.replace(/-([a-z])/g, function (m, c) { return c.toUpperCase(); }); }
+  function propName(n) {
+    if (RENAME[n]) return RENAME[n];
+    if (n.indexOf('aria-') === 0 || n.indexOf('data-') === 0) return n;
+    return n.indexOf('-') >= 0 ? camel(n) : n;
+  }
+  function lookup(p, scope) {
+    p = p.trim();
+    if (p === 'true') return true; if (p === 'false') return false; if (p === 'null') return null;
+    if (/^-?\d+(\.\d+)?$/.test(p)) return +p;
+    var v = scope, parts = p.split('.');
+    for (var i = 0; i < parts.length; i++) { if (v == null) return undefined; v = v[parts[i]]; }
+    return v;
+  }
+  function interp(str, scope) {
+    var m = str.match(WHOLE);
+    if (m) return lookup(m[1], scope);
+    return str.replace(HOLE, function (_, p) { var v = lookup(p, scope); return v == null ? '' : String(v); });
+  }
+  function parseStyle(str) {
+    var o = {};
+    str.split(';').forEach(function (d) {
+      var i = d.indexOf(':'); if (i < 0) return;
+      var k = d.slice(0, i).trim(), v = d.slice(i + 1).trim();
+      if (!k) return;
+      if (k.indexOf('--') !== 0) { k = k.replace(/^-webkit-/, 'Webkit-').replace(/^-ms-/, 'ms-'); k = camel(k); }
+      o[k] = v;
+    });
+    return o;
+  }
+  function kids(node, scope) {
+    var out = [];
+    for (var c = node.firstChild, i = 0; c; c = c.nextSibling, i++) {
+      var r = build(c, scope, i);
+      if (r !== null && r !== undefined && r !== '') out.push(r);
+    }
+    return out;
+  }
+  function build(node, scope, key) {
+    if (node.nodeType === 3) {
+      var t = node.nodeValue;
+      if (!t.trim() && t.indexOf('\n') >= 0) return null;
+      return t.indexOf('{{') >= 0 ? interp(t, scope) : t;
+    }
+    if (node.nodeType !== 1) return null;
+    var tag = node.localName;
+    if (tag === 'helmet') return null;
+    if (tag === 'sc-if') {
+      return interp(node.getAttribute('value') || '', scope) ? h.apply(null, [R.Fragment, { key: key }].concat(kids(node, scope))) : null;
+    }
+    if (tag === 'sc-for') {
+      var list = interp(node.getAttribute('list') || '', scope) || [], as = node.getAttribute('as') || 'item';
+      return h(R.Fragment, { key: key }, list.map(function (it, i) {
+        var sc = Object.create(scope); sc[as] = it; sc.$index = i;
+        return h.apply(null, [R.Fragment, { key: i }].concat(kids(node, sc)));
+      }));
+    }
+    var props = { key: key };
+    for (var j = 0; j < node.attributes.length; j++) {
+      var a = node.attributes[j], n = a.name, v = a.value;
+      if (n === 'style') { props.style = parseStyle(v.indexOf('{{') >= 0 ? interp(v, scope) : v); continue; }
+      var val = v.indexOf('{{') >= 0 ? interp(v, scope) : v;
+      if (BOOL[n]) { if (val === '') val = true; else if (val === 'false') val = false; }
+      if (n === 'ref') { props.ref = val; continue; }
+      props[propName(n)] = val;
+    }
+    var formy = tag === 'input' || tag === 'select' || tag === 'textarea';
+    if (formy && ('value' in props) && !props.onChange && !props.onInput) { props.defaultValue = props.value; delete props.value; }
+    if (formy && ('checked' in props) && !props.onChange) { props.defaultChecked = props.checked; delete props.checked; }
+    if (VOID[tag] || tag === 'textarea') return h(tag, props);
+    return h.apply(null, [tag, props].concat(kids(node, scope)));
+  }
+  function DCLogic(p) { R.Component.call(this, p); }
+  DCLogic.prototype = Object.create(R.Component.prototype);
+  DCLogic.prototype.constructor = DCLogic;
+  DCLogic.prototype.render = function () {
+    var vals = this.renderVals ? this.renderVals() : {};
+    return h.apply(null, [R.Fragment, null].concat(kids(ROOT, vals)));
+  };
+  window.DCLite = {
+    mount: function () {
+      ROOT = document.getElementById('tpl').content;
+      var src = document.getElementById('logic').textContent;
+      var Comp = new Function('DCLogic', 'React', src + '\nreturn Component;')(DCLogic, R);
+      ReactDOM.createRoot(document.getElementById('root')).render(h(Comp, {}));
+    }
+  };
+})();
+</script>
+<script type="text/plain" id="logic">
+class Component extends DCLogic {
+  renderVals() {
+    if (!this.curRef) this.curRef = { current: null };
+    const s = this.state || {};
+    const A = {"nova_walnut": "img/nova_walnut.jpg", "nova_white": "img/nova_white.jpg", "nova_graphite": "img/nova_graphite.jpg", "nova_side": "img/nova_side.jpg", "loft": "img/loft.jpg", "classic": "img/classic.jpg", "skandi": "img/skandi.jpg", "port": "img/port.jpg", "liniya": "img/liniya.jpg", "grid": "img/grid.jpg", "flat": "img/flat.jpg", "son": "img/son.jpg", "student": "img/student.jpg", "mini": "img/mini.jpg", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
+    const SW = { walnut: { name: 'Орех', hex: '#5A3F2E' }, white: { name: 'Белый', hex: '#F1EEE9' }, graphite: { name: 'Графит', hex: '#3B3B3D' }, oak: { name: 'Дуб', hex: '#C9A57B' }, beige: { name: 'Кашемир', hex: '#D8CDBC' }, sage: { name: 'Шалфей', hex: '#9AA38E' } };
+    // Цены и товары — пример. В готовом сайте всё это брат ведёт в кабинете («Товары»).
+    const PRODUCTS = [
+      { id: 'nova', name: 'Шкаф-купе «Нова»', cat: 'Шкафы-купе', img: A.nova_walnut, w: 160, size: '160 × 220 × 60 см', price: 185000, badge: 'Хит', stock: true, c: ['walnut', 'white', 'graphite'] },
+      { id: 'loft', name: 'Шкаф-купе «Лофт» 3-дверный', cat: 'Шкафы-купе', img: A.loft, w: 240, size: '240 × 240 × 60 см', price: 265000, badge: 'Новинка', stock: false, c: ['oak', 'white'] },
+      { id: 'classic', name: 'Шкаф «Классик» 4-дверный', cat: 'Распашные шкафы', img: A.classic, w: 160, size: '160 × 210 × 56 см', price: 149000, badge: '', stock: true, c: ['white', 'beige'] },
+      { id: 'skandi', name: 'Шкаф «Сканди» 2-дверный', cat: 'Распашные шкафы', img: A.skandi, w: 90, size: '90 × 200 × 52 см', price: 89000, badge: '', stock: true, c: ['beige', 'sage', 'white'] },
+      { id: 'port', name: 'Прихожая «Порт»', cat: 'Прихожие', img: A.port, w: 180, size: '180 × 200 × 40 см', price: 128000, badge: '', stock: true, c: ['walnut', 'oak'] },
+      { id: 'liniya', name: 'Комод «Линия»', cat: 'Комоды и тумбы', img: A.liniya, w: 80, size: '80 × 90 × 45 см', price: 64000, badge: 'Новинка', stock: true, c: ['graphite', 'white', 'oak'] },
+      { id: 'grid', name: 'Стеллаж «Грид»', cat: 'Стеллажи', img: A.grid, w: 120, size: '120 × 180 × 35 см', price: 58000, badge: '', stock: true, c: ['oak', 'white'] },
+      { id: 'flat', name: 'ТВ-тумба «Флэт»', cat: 'ТВ-тумбы', img: A.flat, w: 180, size: '180 × 57 × 40 см', price: 72000, badge: '', stock: false, c: ['walnut', 'white'] },
+      { id: 'son', name: 'Кровать «Сон» 160 × 200', cat: 'Кровати', img: A.son, w: 172, size: '172 × 101 × 212 см', price: 139000, badge: '', stock: false, c: ['walnut', 'oak', 'white'] },
+      { id: 'student', name: 'Стол письменный «Студент»', cat: 'Столы', img: A.student, w: 120, size: '120 × 75 × 60 см', price: 54000, badge: '', stock: true, c: ['white', 'oak'] },
+      { id: 'mini', name: 'Тумба прикроватная «Мини»', cat: 'Комоды и тумбы', img: A.mini, w: 45, size: '45 × 50 × 40 см', price: 24000, badge: '', stock: true, c: ['sage', 'white', 'oak'] },
+      { id: 'nova-g', name: 'Шкаф-купе «Нова» графит', cat: 'Шкафы-купе', img: A.nova_graphite, w: 180, size: '180 × 220 × 60 см', price: 199000, badge: '', stock: true, c: ['graphite', 'walnut', 'white'] }
+    ];
+    const cat = s.cat || 'Все';
+    const pmax = s.pmax === undefined ? 300000 : s.pmax;
+    const wsel = s.w || {};
+    const csel = s.c || {};
+    const stockOnly = !!s.stock;
+    const sort = s.sort || 'pop';
+    const cart = s.cart || {};
+    const fmt = (n) => n.toLocaleString('ru-RU') + ' ₸';
+    const widthDefs = [
+      { id: 'w1', label: 'до 100 см', test: (w) => w < 100 },
+      { id: 'w2', label: '100–160 см', test: (w) => w >= 100 && w <= 160 },
+      { id: 'w3', label: '160–200 см', test: (w) => w > 160 && w <= 200 },
+      { id: 'w4', label: 'больше 200 см', test: (w) => w > 200 }
+    ];
+    const anyW = widthDefs.some((d) => wsel[d.id]);
+    const anyC = Object.keys(csel).some((k) => csel[k]);
+    let list = PRODUCTS.filter((p) =>
+      (cat === 'Все' || p.cat === cat) && p.price <= pmax && (!stockOnly || p.stock) &&
+      (!anyW || widthDefs.some((d) => wsel[d.id] && d.test(p.w))) &&
+      (!anyC || p.c.some((k) => csel[k])));
+    if (sort === 'asc') list = list.slice().sort((a, b) => a.price - b.price);
+    if (sort === 'desc') list = list.slice().sort((a, b) => b.price - a.price);
+    const catNames = ['Все', 'Шкафы-купе', 'Распашные шкафы', 'Прихожие', 'Комоды и тумбы', 'Стеллажи', 'ТВ-тумбы', 'Кровати', 'Столы'];
+    const count = Object.keys(cart).length;
+    return {
+      curRef: this.curRef,
+      hasCart: count > 0, cartCount: count,
+      found: list.length, empty: list.length === 0,
+      cats: catNames.map((n) => ({ name: n, pressed: n === cat ? 'true' : 'false', bg: n === cat ? '#171512' : 'transparent', fg: n === cat ? '#F6F4EF' : '#171512', bd: n === cat ? '#171512' : 'rgba(23,21,18,0.18)', pick: () => this.setState({ cat: n }) })),
+      pmax, maxText: fmt(pmax), setMax: (e) => this.setState({ pmax: Number(e.target.value) }),
+      widths: widthDefs.map((d) => ({ label: d.label, on: !!wsel[d.id], toggle: () => this.setState({ w: { ...wsel, [d.id]: !wsel[d.id] } }) })),
+      colors: Object.keys(SW).map((k) => ({ name: SW[k].name, hex: SW[k].hex, pressed: csel[k] ? 'true' : 'false', ring: csel[k] ? '#171512' : 'transparent', toggle: () => this.setState({ c: { ...csel, [k]: !csel[k] } }) })),
+      stockOnly, toggleStock: () => this.setState({ stock: !stockOnly }),
+      sort, setSort: (e) => this.setState({ sort: e.target.value }),
+      reset: () => this.setState({ cat: 'Все', pmax: 300000, w: {}, c: {}, stock: false, sort: 'pop' }),
+      items: list.map((p, idx) => {
+        const on = !!cart[p.id];
+        return {
+          ...p, delay: (idx % 3) * 0.07, hasBadge: !!p.badge, priceText: fmt(p.price), swatches: p.c.map((k) => SW[k]),
+          stockText: p.stock ? 'В наличии' : 'Под заказ', stockFg: p.stock ? '#2F6B3A' : '#8A4A1C',
+          btn: on ? 'В корзине ✓' : 'В корзину', addLabel: 'В корзину: ' + p.name,
+          bg: on ? '#171512' : 'transparent', fg: on ? '#F6F4EF' : '#171512', bd: on ? '#171512' : 'rgba(23,21,18,0.22)',
+          add: () => { const c = { ...cart }; if (c[p.id]) delete c[p.id]; else c[p.id] = 1; this.setState({ cart: c }); }
+        };
+      })
+    };
+  }
+  componentDidMount() { this.startFx(); }
+  componentWillUnmount() { this.stopFx(); }
+  // ---- «живые» эффекты: параллакс фото, появление блоков, горизонтальная галерея, наклон карточек, курсор ----
+  startFx() {
+    this.fxDead = false;
+    const mm = (q) => !!(window.matchMedia && window.matchMedia(q).matches);
+    const reduce = mm('(prefers-reduced-motion: reduce)');
+    const fine = mm('(pointer: fine)');
+    let els = { par: [], rv: [], hs: [] }, n = 0;
+    const q = () => {
+      els = {
+        par: Array.prototype.slice.call(document.querySelectorAll('[data-par]')),
+        rv: Array.prototype.slice.call(document.querySelectorAll('[data-rv]')),
+        hs: Array.prototype.slice.call(document.querySelectorAll('[data-hs]'))
+      };
+    };
+    q();
+    let cx = -100, cy = -100, tx = -100, ty = -100, big = 0, tbig = 0, tiltEl = null;
+    const onMove = (e) => {
+      tx = e.clientX; ty = e.clientY;
+      const t = e.target && e.target.closest ? e.target : null;
+      tbig = t && t.closest('a,button,input,select,label,[data-tilt]') ? 1 : 0;
+      const el = t ? t.closest('[data-tilt]') : null;
+      if (tiltEl && tiltEl !== el) { tiltEl.style.transform = ''; }
+      tiltEl = el;
+      if (el && fine && !reduce) {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transition = 'transform .25s ease-out';
+        el.style.transform = 'perspective(900px) rotateX(' + (-y * 7).toFixed(2) + 'deg) rotateY(' + (x * 9).toFixed(2) + 'deg) translateY(-6px)';
+      }
+    };
+    const onOut = (e) => { if (!e.relatedTarget && tiltEl) { tiltEl.style.transform = ''; tiltEl = null; } };
+    window.addEventListener('pointermove', onMove, { passive: true });
+    document.addEventListener('pointerout', onOut);
+    this.fxOff = () => { window.removeEventListener('pointermove', onMove); document.removeEventListener('pointerout', onOut); };
+    const loop = () => {
+      if (this.fxDead) return;
+      if (++n % 45 === 0) q();
+      const vh = window.innerHeight || 900, vw = window.innerWidth || 1440;
+      if (!reduce) {
+        for (let i = 0; i < els.par.length; i++) {
+          const el = els.par[i], box = (el.parentElement || el).getBoundingClientRect();
+          if (box.bottom < -200 || box.top > vh + 200) continue;
+          const sp = parseFloat(el.getAttribute('data-par')) || 0.12;
+          const c = (box.top + box.height / 2 - vh / 2) / vh;
+          el.style.transform = 'translate3d(0,' + (-c * sp * 100).toFixed(2) + '%,0) scale(' + (1 + sp * 1.6).toFixed(3) + ')';
+        }
+      }
+      for (let i = 0; i < els.rv.length; i++) {
+        const el = els.rv[i];
+        if (el.__rv === 2) continue;
+        const r = el.getBoundingClientRect();
+        const inView = r.top < vh * 0.92 && r.bottom > 0;
+        if (!el.__rv) {
+          el.__rv = 1;
+          if (inView || reduce) { el.__rv = 2; continue; }
+          el.style.transition = 'none'; el.style.opacity = '0'; el.style.transform = 'translate3d(0,40px,0)';
+        } else if (inView) {
+          const d = parseFloat(el.getAttribute('data-rv')) || 0;
+          el.style.transition = 'opacity 1s cubic-bezier(.2,.8,.2,1) ' + d + 's, transform 1s cubic-bezier(.2,.8,.2,1) ' + d + 's';
+          el.style.opacity = '1'; el.style.transform = 'none'; el.__rv = 2;
+        }
+      }
+      for (let i = 0; i < els.hs.length; i++) {
+        const sec = els.hs[i], track = sec.querySelector('[data-hs-track]');
+        if (!track) continue;
+        const r = sec.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - vh)));
+        const dist = Math.max(0, track.scrollWidth - vw + 60);
+        track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+        const bar = sec.querySelector('[data-hs-bar]');
+        if (bar) bar.style.transform = 'scaleX(' + p.toFixed(3) + ')';
+      }
+      const cur = this.curRef && this.curRef.current;
+      if (cur && fine) {
+        cx += (tx - cx) * 0.22; cy += (ty - cy) * 0.22; big += (tbig - big) * 0.15;
+        cur.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0) translate(-50%,-50%) scale(' + (1 + big * 1.5).toFixed(3) + ')';
+      }
+      this.fxRaf = requestAnimationFrame(loop);
+    };
+    this.fxRaf = requestAnimationFrame(loop);
+  }
+  stopFx() {
+    this.fxDead = true;
+    if (this.fxRaf) cancelAnimationFrame(this.fxRaf);
+    if (this.fxOff) this.fxOff();
+  }
+}
+</script>
+<script>DCLite.mount();</script>
+</body>
+</html>
