@@ -441,7 +441,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
   };
 })();
 </script>
-<script src="nem.js?v=49b2dc8d"></script>
+<script src="nem.js?v=784a5383"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -598,7 +598,7 @@ class Component extends DCLogic {
       const c = x.calc || {};
       const extra = isO ? [{ k: 'Оплата', v: x.payment === 'kaspi' ? 'Kaspi' : x.payment === 'cash' ? 'Наличные' : 'уточнить' }, { k: 'Тип', v: x.kind === 'one_click' ? 'Купить в 1 клик — перезвонить' : 'Корзина' }]
         : [{ k: 'Что замерить', v: { kitchen: 'Кухня', wardrobe: 'Шкаф / гардеробная', other: 'Другое' }[x.kind] || x.kind }, { k: 'Удобно клиенту', v: (x.want_date ? new Date(x.want_date + 'T12:00:00').toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) : 'не указано') + (x.want_time ? ', ' + x.want_time : '') }]
-          .concat(c.range ? [{ k: 'Кухня', v: [c.shape, c.meters ? String(c.meters).replace('.', ',') + ' пог. м' : '', c.facade, c.top ? 'столешница ' + String(c.top).toLowerCase() : '', (c.extras || []).join(', ')].filter(Boolean).join(' · ') }, { k: 'Расчёт', v: c.range }] : []);
+          .concat(c.range ? [{ k: 'Кухня', v: [c.shape, c.meters ? String(c.meters).replace('.', ',') + ' пог. м' : '', c.facade, c.top ? 'столешница ' + String(c.top).toLowerCase() : '', c.apron ? 'фартук ' + String(c.apron).toLowerCase() : '', (c.extras || []).join(', ')].filter(Boolean).join(' · ') }, { k: 'Расчёт', v: c.range }] : []);
       return {
         open, expanded: open ? 'true' : 'false', toggle: () => this.setState({ open: open ? null : key, delAsk: null }),
         border: isNew ? '#F3C431' : open ? '#1B1F22' : 'rgba(27,31,34,0.08)',

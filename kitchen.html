@@ -144,7 +144,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .blk{padding:28px;border-radius:24px;background:#E4E8E7}
 .kpv{position:sticky;top:92px;z-index:3;border-radius:18px;overflow:hidden;background:#D5DBDC;aspect-ratio:16 / 9;box-shadow:0 18px 40px -26px rgba(27,31,34,.55)}
 .kpv img,.kpv canvas{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
-.ztabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:16px 0 0;padding:5px;border-radius:16px;background:rgba(27,31,34,.06)}
+.ztabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:16px 0 0;padding:5px;border-radius:16px;background:rgba(27,31,34,.06)}
 .ztab{min-height:46px;border-radius:12px;border:0;font:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 8px;transition:background .2s,color .2s}
 .ztab i{width:14px;height:14px;border-radius:50%;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(27,31,34,.2)}
 .mchips{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
@@ -160,7 +160,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .kpv canvas.on{animation:pvin .35s ease}
 @media (max-width:980px){.kx{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:980px){.kpv{top:74px;margin:0 -6px}}
-@media (max-width:620px){.ztab{font-size:13px;gap:6px}.shapes{grid-template-columns:repeat(2,minmax(0,1fr))!important}.blk{padding:22px 18px}.k-hero{height:auto!important;min-height:470px;border-radius:24px!important}.k-shade{background:linear-gradient(180deg,rgba(242,243,241,.96) 0%,rgba(242,243,241,.88) 52%,rgba(242,243,241,.1) 100%)!important}.k-txt{left:22px!important;right:22px;top:28px!important;transform:none!important}}
+@media (max-width:620px){.ztabs{grid-template-columns:repeat(2,minmax(0,1fr))}.ztab{font-size:13px;gap:6px}.shapes{grid-template-columns:repeat(2,minmax(0,1fr))!important}.blk{padding:22px 18px}.k-hero{height:auto!important;min-height:470px;border-radius:24px!important}.k-shade{background:linear-gradient(180deg,rgba(242,243,241,.96) 0%,rgba(242,243,241,.88) 52%,rgba(242,243,241,.1) 100%)!important}.k-txt{left:22px!important;right:22px;top:28px!important;transform:none!important}}
 </style>
 
 </head>
@@ -235,12 +235,12 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div style="font-size: 14px; color: #59626A; font-weight: 600">Шаг 3 из 3</div>
 <h2 style="margin: 6px 0 16px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em">Материалы и цвета</h2>
 <div class="kpv">
-<img src="cfg/kitchen.webp" alt="" aria-hidden="true">
+<img src="cfg/k2_base.webp?v=2" alt="" aria-hidden="true">
 <canvas ref="{{kcvRef}}" class="{{kcvCls}}" role="img" aria-label="{{kpvAlt}}" style="display: {{kcvDisp}}"></canvas>
 <span style="position: absolute; left: 12px; bottom: 12px; padding: 6px 11px; border-radius: 999px; background: rgba(242,243,241,0.92); font-size: 12px; font-weight: 600; color: #1B1F22">{{kpvLabel}}</span>
 </div>
 <div role="tablist" aria-label="Что красим" class="ztabs">
-<sc-for list="{{ztabs}}" as="z" hint-placeholder-count="3">
+<sc-for list="{{ztabs}}" as="z" hint-placeholder-count="4">
 <button type="button" role="tab" class="ztab" onClick="{{z.pick}}" aria-selected="{{z.sel}}" style="background: {{z.bg}}; color: {{z.fg}}; box-shadow: {{z.sh}}"><i style="background: {{z.sw}}"></i>{{z.name}}</button>
 </sc-for>
 </div>
@@ -585,7 +585,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=49b2dc8d"></script>
+<script src="nem.js?v=784a5383"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -610,6 +610,7 @@ class Component extends DCLogic {
     const uM0 = N.matById(s.kum || 'mdf') || fM, uD0 = uM0 ? pickIn(uM0, s.ku, 'mdf-white') : null;
     const uM = uSame ? fM : uM0, uD = uSame ? fD : uD0;
     const tM = N.topById(s.ktm || 'ldsp') || N.MAT.tops[0], tD = tM ? pickIn(tM, s.kt, 'top-calacatta') : null;
+    const bM = N.bsById(s.kbm || 'tile') || N.MAT.bs[0], bD = bM ? pickIn(bM, s.kb, 'bs-tile-white') : null;
     const zone = s.kz || 'f';
     const hasMat = !!(fM && tM);
     const extraDefs = [{ id: 'tall', name: 'Верх до потолка', pct: num(ke.tall_pct, 12) / 100, fix: 0 }, { id: 'led', name: 'LED-подсветка', pct: 0, fix: num(ke.led, 25000) }];
@@ -653,24 +654,26 @@ class Component extends DCLogic {
     if (shape === 'island') dims.push({ id: 'di', label: 'Длина острова', value: isl, min: 1.2, max: 3.5, key: 'isl' });
     const fName = hasMat ? fM.name + ' — ' + fD.name.toLowerCase() + (uSame ? '' : ', верх: ' + (uM.id !== fM.id ? uM.name + ' — ' : '') + uD.name.toLowerCase()) : '';
     const tName = hasMat ? tM.name + ' — ' + tD.name.toLowerCase() : '';
-    const dec = { f: fD, u: uD, t: tD };
-    const kkey = hasMat ? [fD.id, uD.id, tD.id].join('|') : '';
-    this.kWant = hasMat ? { f: fD, u: uD, t: tD, key: kkey } : null;
+    const bName = hasMat ? bM.name + ' — ' + bD.name.toLowerCase() : '';
+    const dec = { f: fD, u: uD, t: tD, b: bD };
+    const kkey = hasMat ? [fM.id, fD.id, uM.id, uD.id, tM.id, tD.id, bM.id, bD.id].join('|') : '';
+    const GL = N.GLOSS;
+    this.kWant = hasMat ? { z: { f: { d: fD, gk: GL[fM.id] }, u: { d: uD, gk: GL[uM.id] }, t: { d: tD, gk: GL[tM.id === 'ldsp' ? 'top_ldsp' : tM.id] }, b: { d: bD, gk: GL[bM.id] } }, key: kkey } : null;
     const kPainted = hasMat && s.kPainted === kkey;
     const on2 = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: '#FFFFFF', fg: '#1B1F22', bd: 'rgba(27,31,34,0.14)' });
-    const zM = zone === 't' ? tM : zone === 'u' ? uM : fM, zD = dec[zone];
-    const zSet = (m, d) => { if (zone === 'f') this.setState({ kfm: m, kf: d }); else if (zone === 'u') this.setState({ kum: m, ku: d, kuSame: false }); else this.setState({ ktm: m, kt: d }); };
-    const zList = zone === 't' ? N.MAT.tops : N.MAT.mats;
-    const zAdd = (m) => { if (zone === 't') { const r = tRate(m.id); return r ? '+' + rate(r) : 'в цене'; } return rate(fRate(m.id)); };
+    const zM = zone === 'b' ? bM : zone === 't' ? tM : zone === 'u' ? uM : fM, zD = dec[zone];
+    const zSet = (m, d) => { if (zone === 'f') this.setState({ kfm: m, kf: d }); else if (zone === 'u') this.setState({ kum: m, ku: d, kuSame: false }); else if (zone === 'b') this.setState({ kbm: m, kb: d }); else this.setState({ ktm: m, kt: d }); };
+    const zList = zone === 'b' ? N.MAT.bs : zone === 't' ? N.MAT.tops : N.MAT.mats;
+    const zAdd = (m) => { if (zone === 'b') return 'по замеру'; if (zone === 't') { const r = tRate(m.id); return r ? '+' + rate(r) : 'в цене'; } return rate(fRate(m.id)); };
     const shapeName = shapeDefs.find((x) => x.id === shape).name;
     this.lastVals = {
       curRef: this.curRef,
       shapes: shapeDefs.map((x) => ({ ...x, ...sel(x.id === shape), fill: x.id === shape ? '#D8CDBC' : 'none', pressed: x.id === shape ? 'true' : 'false', pick: () => this.setState({ shape: x.id }) })),
       dims: dims.map((d) => ({ ...d, text: m1(d.value), change: (e) => this.setState({ [d.key]: Number(e.target.value) }) })),
       kcvRef: this.kcvRef, kcvDisp: kPainted ? 'block' : 'none', kcvCls: kPainted ? 'on' : '',
-      kpvLabel: kPainted ? 'Предпросмотр цвета' : 'Перекрашиваем…', kpvAlt: 'Кухня: фасады ' + fName + ', столешница ' + tName,
-      ztabs: hasMat ? [['f', 'Низ и пеналы'], ['u', 'Верх'], ['t', 'Столешница']].map(([id, name]) => ({ name, sel: id === zone ? 'true' : 'false', bg: id === zone ? '#FFFFFF' : 'transparent', fg: '#1B1F22', sh: id === zone ? '0 6px 16px -10px rgba(27,31,34,.5)' : 'none', sw: N.swatchBg(dec[id]), pick: () => this.setState({ kz: id }) })) : [],
-      zMatLabel: zone === 't' ? 'Материал столешницы' : 'Материал фасадов', zMatNote: zM ? zM.note : '',
+      kpvLabel: kPainted ? 'Предпросмотр цвета' : 'Перекрашиваем…', kpvAlt: 'Кухня: фасады ' + fName + ', столешница ' + tName + ', фартук ' + bName,
+      ztabs: hasMat ? [['f', 'Низ'], ['u', 'Верх и пеналы'], ['t', 'Столешница'], ['b', 'Фартук']].map(([id, name]) => ({ name, sel: id === zone ? 'true' : 'false', bg: id === zone ? '#FFFFFF' : 'transparent', fg: '#1B1F22', sh: id === zone ? '0 6px 16px -10px rgba(27,31,34,.5)' : 'none', sw: N.swatchBg(dec[id]), pick: () => this.setState({ kz: id }) })) : [],
+      zMatLabel: zone === 'b' ? 'Материал фартука' : zone === 't' ? 'Материал столешницы' : 'Материал фасадов', zMatNote: zM ? zM.note : '',
       zMats: hasMat ? zList.map((m) => ({ name: m.name, add: zAdd(m), pressed: m.id === zM.id ? 'true' : 'false', ...on2(m.id === zM.id), pick: () => zSet(m.id, null) })) : [],
       zIsU: zone === 'u', zSameP: uSame ? 'true' : 'false', zSameBd: uSame ? '#1B1F22' : 'rgba(27,31,34,0.12)', zSameBg: uSame ? '#FFFFFF' : 'transparent', zSameTrack: uSame ? '#1B1F22' : 'rgba(27,31,34,0.2)', zSameKnob: uSame ? '19px' : '3px',
       zSameToggle: () => this.setState({ kuSame: !uSame }),
@@ -680,11 +683,11 @@ class Component extends DCLogic {
       meters: meters.toFixed(1).replace('.', ','), rects, labels,
       planLabel: 'План кухни: ' + shapeName.toLowerCase() + ', ' + meters.toFixed(1) + ' погонных метров',
       range,
-      summary: shapeName + ' · фасады: ' + fName + ' · столешница: ' + tName + '. Цена примерная, без техники и мойки.',
+      summary: shapeName + ' · фасады: ' + fName + ' · столешница: ' + tName + ' · фартук: ' + bName + '. Цена примерная, без техники и мойки; фартук считаем после замера.',
       sent: !!s.bkId, notSent: !s.bkId, bkId: s.bkId || '',
       bkErr: !!s.bkErr, bkErrText: s.bkErr || '', bkBusy: !!s.bkBusy, bkBtn: s.bkBusy ? 'Отправляем…' : 'Записаться на замер',
       minDate: this.dayStr(1), maxDate: this.dayStr(90), defDate: this.dayStr(1),
-      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.book({ shape: shapeName, a, b, c, isl, facade: fName, top: tName, extras: extraDefs.filter((x) => ex[x.id]).map((x) => x.name), meters: Number(meters.toFixed(1)), range }); },
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.book({ shape: shapeName, a, b, c, isl, facade: fName, top: tName, apron: bName, extras: extraDefs.filter((x) => ex[x.id]).map((x) => x.name), meters: Number(meters.toFixed(1)), range }); },
       again: () => this.setState({ bkId: 0 })
     };
     const out = this.lastVals;
@@ -708,7 +711,7 @@ class Component extends DCLogic {
     const w = this.kWant, cv = this.kcvRef && this.kcvRef.current;
     if (w && cv && this.kKey !== w.key) {
       const key = w.key; this.kKey = key;
-      window.NEM.kitchenPaint(cv, w.f, w.u, w.t, () => this.kKey === key)
+      window.NEM.kitchenPaint(cv, w.z, () => this.kKey === key)
         .then((r) => { if (r && this.kKey === key) this.setState({ kPainted: key }); })
         .catch(() => { if (this.kKey === key) this.kKey = null; });
     }

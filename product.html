@@ -579,7 +579,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=49b2dc8d"></script>
+<script src="nem.js?v=784a5383"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -638,12 +638,12 @@ class Component extends DCLogic {
       catName: p.category, catSlug: N.CAT_SLUG[p.category] || '', titleMain: nm[0], quote: nm[1],
       lead: p.lead || '', text: p.description || p.lead || '', dims: p.dims || p.size_text,
       hasBadge: !!p.badge, badge: p.badge, stockText: orderDays, stockFg: p.in_stock ? '#2F6B3A' : '#59626A',
-      mainImg: showCv ? 'cfg/' + p.id + '.webp' : imgs[cur], mainAlt: p.name + (colorName !== '—' ? ', цвет ' + colorName.toLowerCase() : ''),
+      mainImg: showCv ? N.cfgBase(p) : imgs[cur], mainAlt: p.name + (colorName !== '—' ? ', цвет ' + colorName.toLowerCase() : ''),
       cvDisp: painted ? 'block' : 'none', cvClass: 'pvw' + (painted ? ' on' : ''), cvMode: showCv,
       pvLabel: painted ? 'Предпросмотр: ' + colorName.toLowerCase() : 'Перекрашиваем…', decorBg: N.swatchBg(d),
-      thumbs: imgs.length > 1 ? imgs.map((src, i) => ({ src: src === null ? (myThumb || 'cfg/' + p.id + '.webp') : src, label: src === null ? 'Ваш цвет' : 'Фото ' + (i + 1), pressed: i === cur ? 'true' : 'false', ring: i === cur ? '#1B1F22' : 'transparent', pick: () => this.setState({ img: i }) })) : [],
+      thumbs: imgs.length > 1 ? imgs.map((src, i) => ({ src: src === null ? (myThumb || N.cfgBase(p)) : src, label: src === null ? 'Ваш цвет' : 'Фото ' + (i + 1), pressed: i === cur ? 'true' : 'false', ring: i === cur ? '#1B1F22' : 'transparent', pick: () => this.setState({ img: i }) })) : [],
       hasCfg: cfg, noCfg: !cfg, matNote: mt ? mt.note : '',
-      mpvSrc: cvMode ? (myThumb || 'cfg/' + p.id + '.webp') : photos[0], mpvSub: mt ? mt.name + (size ? ' · ' + size : '') : '',
+      mpvSrc: cvMode ? (myThumb || N.cfgBase(p)) : photos[0], mpvSub: mt ? mt.name + (size ? ' · ' + size : '') : '',
       mats: cfg ? N.MAT.mats.map((m) => { const pc = N.matPct(m.id); return { name: m.name, add: pc ? '+' + pc + '%' : 'в цене', pressed: m.id === matId ? 'true' : 'false', ...on2(m.id === matId), pick: () => this.setState({ mat: m.id, decor: null, img: 0 }) }; }) : [],
       groups: cfg ? mt.groups.map((g) => ({ name: g.name, decors: g.decors.map((x) => ({ name: x.name, bg: N.swatchBg(x), pressed: x.id === d.id ? 'true' : 'false', ring: x.id === d.id ? '#1B1F22' : 'transparent', pick: () => this.setState({ decor: x.id, img: 0 }) })) })) : [],
       priceText: N.fmt(unit * qty),
