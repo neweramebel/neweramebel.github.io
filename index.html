@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F2F3F1">
-<meta name="description" content="New Era Mebel — мебель на заказ и в наличии в Туркестане. Кухни, шкафы-купе, корпусная мебель. Сборка входит в цену, доставка по городу бесплатно.">
+<meta name="description" content="New Era Mebel — мебель на заказ в Туркестане: модели из каталога за несколько дней и по вашим размерам. Кухни, шкафы-купе, корпусная мебель. Сборка входит в цену, доставка по городу бесплатно.">
 <title>New Era Mebel — мебель на заказ, Туркестан</title>
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -133,6 +133,19 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 @media (max-width:980px){.g4{gap:24px 12px}.pc-name{font-size:14px;margin-top:8px}.pc-size{font-size:12px}.pc-foot{flex-direction:column;align-items:stretch;gap:8px;margin-top:10px}.pc-price{font-size:17px}.pc-btn{min-height:40px;font-size:13px;padding:0 10px}.pc-tag{top:8px;padding:4px 8px;font-size:11px}.tile .ph{border-radius:16px}}
 @media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3,.two,.hero-split{grid-template-columns:minmax(0,1fr)}.navc{display:none!important}.wrap{padding:0 20px}.h1{font-size:29px!important}.h2{font-size:25px!important}.giant{font-size:20vw!important}}
 @media (max-width:560px){.hdr{left:12px!important;right:12px!important;top:12px!important}.hide-s{display:none!important}.h-hint{bottom:132px!important}.h-card{left:16px;right:16px!important;bottom:20px!important;width:auto!important}.logo{padding:11px 16px!important}.srch-input{font-size:22px}.sr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rev-f{grid-template-columns:minmax(0,1fr)!important}}
+@media (max-aspect-ratio:4/5){
+.hero{--hoff:max(0px,(100vh - 56.25vw - 440px)*.4);--hoff:max(0px,(100svh - 56.25vw - 440px)*.4)}
+.h-in{background:transparent!important}
+.h-vis{top:calc(76px + var(--hoff))!important;bottom:auto!important;left:0!important;right:0!important;height:auto!important;aspect-ratio:16/9;transform:none!important;box-shadow:0 34px 60px -44px rgba(27,31,34,.55)}
+.h-ov{display:none}
+.h-txt{top:calc(76px + var(--hoff) + 56.25vw + 24px)!important;transform:none!important}
+.giant{color:rgba(27,31,34,.05)!important;bottom:-1.6vw!important}
+.h-hint{color:#59626A!important;bottom:136px!important}
+.h-card{left:0!important;right:0!important;margin:0 auto;width:min(420px,calc(100% - 32px))!important}
+}
+@media (max-aspect-ratio:4/5) and (max-width:560px){.h-txt p{font-size:16px!important;margin-top:12px!important;line-height:1.5!important}.h-txt h1,.h-txt h2{font-size:27px!important}}
+@media (max-aspect-ratio:4/5) and (max-height:760px){.h-hint{display:none!important}.h-card{padding:10px 12px!important}.h-card>div:first-child{width:46px!important;height:46px!important}}
+@media (max-aspect-ratio:4/5) and (max-height:680px){.h-txt p{font-size:14.5px!important}.h-txt h1,.h-txt h2{font-size:24px!important}}
 @media (prefers-reduced-motion:reduce){.bob,.mq,.spin{animation:none}.fade{transition:none}}
 </style>
 </head>
@@ -164,19 +177,19 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </header>
 
 <main id="top">
-<section ref="{{heroRef}}" aria-label="Как мы делаем мебель" style="position: relative; height: 100vh; height: 100svh">
-<div style="position: relative; height: 100%; overflow: hidden; background: #DDE1DF">
-<div ref="{{visRef}}" style="position: absolute; top: -12px; left: -18px; right: -18px; bottom: -12px; will-change: transform">
+<section ref="{{heroRef}}" class="hero" aria-label="Как мы делаем мебель" style="position: relative; height: 100vh; height: 100svh">
+<div class="h-in" style="position: relative; height: 100%; overflow: hidden; background: #DDE1DF">
+<div ref="{{visRef}}" class="h-vis" style="position: absolute; top: -12px; left: -18px; right: -18px; bottom: -12px; will-change: transform">
 <img src="{{heroImg0}}" alt="Комната, в которой будет собрана кухня" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
 <canvas ref="{{cvRef}}" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block"></canvas>
 </div>
-<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(242,243,241,0.72) 0%, rgba(242,243,241,0.2) 30%, rgba(242,243,241,0) 55%, rgba(20,26,30,0.16) 100%)"></div>
+<div aria-hidden="true" class="h-ov" style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(242,243,241,0.72) 0%, rgba(242,243,241,0.2) 30%, rgba(242,243,241,0) 55%, rgba(20,26,30,0.16) 100%)"></div>
 
-<div ref="{{txtRef}}" class="wrap" style="position: absolute; left: 0; right: 0; top: 128px; margin: 0 auto; will-change: transform">
+<div ref="{{txtRef}}" class="wrap h-txt" style="position: absolute; left: 0; right: 0; top: 128px; margin: 0 auto; will-change: transform">
 <div style="position: relative; max-width: 620px; min-height: 280px">
 <div class="fade" style="position: absolute; top: 0; left: 0; opacity: {{o0}}; transform: {{t0}}">
 <h1 class="h1" style="margin: 0; font-size: 46px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 500">Мебель <i class="s" style="font-size: 1.12em">по вашим</i> размерам. <i class="s" style="font-size: 1.12em">Надолго.</i></h1>
-<p style="margin: 20px 0 0; font-size: 18px; line-height: 1.55; color: #3E464D; max-width: 460px">Своё производство в Туркестане. Кухни, шкафы и корпусная мебель — готовая и на заказ.</p>
+<p style="margin: 20px 0 0; font-size: 18px; line-height: 1.55; color: #3E464D; max-width: 460px">Своё производство в Туркестане. Кухни, шкафы и корпусная мебель — модели из каталога за несколько дней или по вашим размерам.</p>
 </div>
 <div class="fade" style="position: absolute; top: 0; left: 0; opacity: {{o1}}; transform: {{t1}}">
 <h2 class="h1" style="margin: 0; font-size: 46px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 500">Каждый шкаф — <i class="s" style="font-size: 1.12em">с точностью</i> до миллиметра.</h2>
@@ -194,13 +207,13 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <h2 class="h1" style="margin: 0; font-size: 46px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 500">Давайте сделаем <i class="s" style="font-size: 1.12em">вашу.</i></h2>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px">
 <a class="btn" href="kitchen.html">Вызвать замерщика<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
-<a class="btn2 glass" href="catalog.html">Готовая мебель</a>
+<a class="btn2 glass" href="catalog.html">Готовые модели</a>
 </div>
 </div>
 </div>
 </div>
 
-<div aria-hidden="true" class="giant" style="position: absolute; left: 0; right: 0; bottom: -2.4vw; text-align: center; font-family: 'Unbounded', sans-serif; font-size: 15.5vw; line-height: 0.8; font-weight: 600; letter-spacing: -0.05em; color: rgba(255,255,255,0.38); -webkit-text-stroke: 1px rgba(255,255,255,0.5); pointer-events: none; user-select: none; white-space: nowrap">NEW ERA</div>
+<div aria-hidden="true" class="giant" style="position: absolute; left: 0; right: 0; bottom: -2.4vw; text-align: center; font-family: 'Unbounded', sans-serif; font-size: 15.5vw; line-height: 0.8; font-weight: 600; letter-spacing: -0.05em; color: rgba(255,255,255,0.42); pointer-events: none; user-select: none; white-space: nowrap">NEW ERA</div>
 
 <div class="glass h-card" style="position: absolute; right: 28px; bottom: 28px; width: 300px; padding: 14px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.5); display: flex; gap: 14px; align-items: center; box-shadow: 0 20px 50px -30px rgba(20,26,30,0.6)">
 <div style="width: 56px; height: 56px; flex-shrink: 0; border-radius: 14px; background: #1B1F22; color: #F2F3F1; display: flex; align-items: center; justify-content: center">
@@ -230,7 +243,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <section style="padding: 140px 0 100px">
 <div class="wrap hero-split">
 <div>
-<h2 class="h2" data-rv="0" style="margin: 16px 0 20px; font-size: 38px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 500">Мебель для дома — <i class="s" style="font-size: 1.1em">от готовой</i> до сделанной под вас</h2>
+<h2 class="h2" data-rv="0" style="margin: 16px 0 20px; font-size: 38px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 500">Мебель для дома — <i class="s" style="font-size: 1.1em">от готовых моделей</i> до сделанной под вас</h2>
 <p style="margin: 0 0 32px; font-size: 17px; line-height: 1.6; color: #4E575E; max-width: 440px">Выберите модель в каталоге или закажите мебель по своим размерам — замер бесплатный, сборка входит в цену.</p>
 <a class="btn" href="catalog.html">Смотреть каталог<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
 </div>
@@ -238,7 +251,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <a class="tall" data-tilt="1" href="catalog.html" style="height: 460px; background: var(--studio)">
 <img src="img/nova_walnut.webp" alt="Шкаф-купе с зеркалом" class="par" data-par="0.1">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,31,34,0) 45%, rgba(27,31,34,0.72) 100%)"></div>
-<div style="position: absolute; top: 18px; left: 18px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #1B1F22; background: rgba(242,243,241,0.85)">Готовая мебель</div>
+<div style="position: absolute; top: 18px; left: 18px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #1B1F22; background: rgba(242,243,241,0.85)">Готовые модели</div>
 <div style="position: absolute; left: 20px; right: 20px; bottom: 20px">
 <div style="font-size: 19px; font-weight: 600; line-height: 1.25">Шкафы, комоды, прихожие</div>
 <div style="font-size: 14px; opacity: 0.85; margin-top: 6px">Стандартные размеры, быстрый срок</div>
@@ -375,7 +388,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <img src="img/kitchen_build.jpg" alt="Кухня в процессе сборки" class="par" data-par="0.08" style="opacity: {{kbOp}}; transition: opacity .8s">
 <img src="img/kitchen_full.jpg" alt="Готовая кухня" class="par" data-par="0.08" style="opacity: {{kfOp}}; transition: opacity .8s">
 <a href="kitchen.html" aria-label="Бесплатный замер" style="position: absolute; top: 18px; right: 18px; width: 128px; height: 128px; border-radius: 50%; background: #1B1F22; color: #F2F3F1; display: flex; align-items: center; justify-content: center; text-decoration: none">
-<svg class="spin" width="128" height="128" viewBox="0 0 128 128" aria-hidden="true" style="position: absolute; inset: 0"><g fill="#F2F3F1" font-family="Onest, sans-serif" font-size="10.5" font-weight="600" text-anchor="middle"><sc-for list="{{ring}}" as="item" hint-placeholder-count="38"><text x="64" y="21" transform="{{item.tr}}">{{item.ch}}</text></sc-for></g></svg>
+<svg class="spin" width="128" height="128" viewBox="0 0 128 128" aria-hidden="true" style="position: absolute; inset: 0"><g fill="#F2F3F1" font-family="Onest, sans-serif" font-size="10" font-weight="600" text-anchor="middle"><sc-for list="{{ring}}" as="item" hint-placeholder-count="38"><text x="64" y="20" transform="{{item.tr}}">{{item.ch}}</text></sc-for></g></svg>
 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
 </a>
 <div class="glass" style="position: absolute; left: 16px; bottom: 16px; display: flex; padding: 4px; border-radius: 999px">
@@ -485,7 +498,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 80px; padding-top: 24px; border-top: 1px solid rgba(242,243,241,0.12); font-size: 13px; color: #8D969D">
 <span>© New Era Mebel · Туркестан · <a href="admin.html" style="color: #BDB5A9">Вход для администратора</a></span>
-<span>Мебель на заказ и в наличии · Сборка включена</span>
+<span>Мебель на заказ · Изготовим быстро · Сборка включена</span>
 </div>
 </div>
 </footer>
@@ -723,7 +736,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=f26e41ae"></script>
+<script src="nem.js?v=49b2dc8d"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -789,8 +802,13 @@ class Component extends DCLogic {
       fullBg: s.kb ? 'transparent' : '#1B1F22', fullFg: s.kb ? '#1B1F22' : '#F2F3F1',
       showBuild: () => this.setState({ kb: true }), showFull: () => this.setState({ kb: false })
     };
+    // буквы кольца ставим по их настоящей ширине (шрифт Onest 600), чтобы широкие «Ы», «М» не налезали на соседей
     const ringT = Array.from('БЕСПЛАТНЫЙ ЗАМЕР • БЕСПЛАТНЫЙ ЗАМЕР • ');
-    out.ring = ringT.map((ch, i) => ({ ch, tr: 'rotate(' + (i * 360 / ringT.length).toFixed(2) + ' 64 64)' }));
+    const RW = { 'Б': 6.69, 'Е': 6.18, 'С': 7.17, 'П': 7.36, 'Л': 6.98, 'А': 6.98, 'Т': 5.86, 'Н': 7.37, 'Ы': 8.8, 'Й': 7.47, ' ': 2.78, 'З': 6.46, 'М': 8.87, 'Р': 6.43, '•': 3.55 };
+    const ringC = 2 * Math.PI * 44, ringW = ringT.map((ch) => RW[ch] || 7);
+    const ringGap = (ringC - ringW.reduce((a, b) => a + b, 0)) / ringT.length;
+    let ringAt = 0;
+    out.ring = ringT.map((ch, i) => { const a = (ringAt + ringW[i] / 2) / ringC * 360; ringAt += ringW[i] + ringGap; return { ch, tr: 'rotate(' + a.toFixed(2) + ' 64 64)' }; });
     out.cats = out.cats.map((c, i) => ({ ...c, delay: (i % 4) * 0.08 }));
     out.popular = out.popular.map((c, i) => ({ ...c, delay: i * 0.08 }));
     out.heroImg0 = this.heroPortrait() ? this.framesP()[0] : 'frames/k000.webp';
@@ -927,6 +945,7 @@ class Component extends DCLogic {
       if ((e.key === 'ArrowUp' || e.key === 'PageUp') && stage > 0) { e.preventDefault(); if (!anim) goTo(stage - 1); }
     };
     let mx = 0, my = 0, tmx = 0, tmy = 0, lw = 0, lh = 0;
+    const narrowQ = window.matchMedia ? window.matchMedia('(max-aspect-ratio: 4/5)') : null;
     const onMove = (e) => { tmx = (e.clientX / (window.innerWidth || 1) - 0.5) * 2; tmy = (e.clientY / (window.innerHeight || 1) - 0.5) * 2; };
     window.addEventListener('wheel', onWheel, { passive: false });
     window.addEventListener('touchstart', onTouchStart, { passive: true });
@@ -953,7 +972,7 @@ class Component extends DCLogic {
         const r = hero.getBoundingClientRect(), vh = window.innerHeight || 900;
         const visible = r.bottom > 0 && r.top < vh;
         if (visible && (dirty || Math.abs(p - lastPainted) > 0.00005)) { if (paint(p)) { lastPainted = p; dirty = false; } }
-        if (!reduce && visible) {
+        if (!reduce && visible && !(narrowQ && narrowQ.matches)) {
           mx += (tmx - mx) * 0.05; my += (tmy - my) * 0.05;
           const v = this.visRef.current, t2 = this.txtRef.current;
           if (v) v.style.transform = 'translate3d(' + (-mx * 14).toFixed(2) + 'px,' + (-my * 9).toFixed(2) + 'px,0)';

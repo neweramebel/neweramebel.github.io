@@ -110,7 +110,7 @@
     var st = S.settings || {};
     return {
       phone: st.phone || '', whatsapp: st.whatsapp || st.phone || '', address: st.address || '', hours: st.hours || '',
-      gis_url: st.gis_url || '', instagram: st.instagram || '', warranty: st.warranty || '', order_days: st.order_days || '',
+      gis_url: st.gis_url || '', instagram: st.instagram || '', warranty: st.warranty || '', order_days: st.order_days || '', fast_days: st.fast_days || '',
       kitchen: {
         facade: merge({ ldsp: 120000, film: 160000, enamel: 220000, akril: 200000, shpon: 260000 }, (st.kitchen || {}).facade),
         top: merge({ ldsp: 0, stone: 45000, kompakt: 60000, kvarc: 95000, wood: 55000 }, (st.kitchen || {}).top),
@@ -144,6 +144,9 @@
     if (nums.length > 1) { var a = Math.min.apply(null, nums), b = Math.max.apply(null, nums); if (a !== b) return 'ширина ' + a + '–' + b + ' см'; }
     var w = nums[0] || p.width_cm; return w ? 'ширина ' + w + ' см' : '';
   }
+  // Готовых запасов нет — каждую модель делаем после заказа. in_stock = «быстрое изготовление».
+  function leadDays(p) { var st = settings(); return p && p.in_stock ? (st.fast_days || '3–5 дней') : (st.order_days || '7–14 дней'); }
+  function leadText(p) { return 'Изготовим за ' + leadDays(p); }
   function splitName(name) { var m = String(name || '').match(/^(.*?)\s*(«.*)$/); return m ? [m[1], m[2]] : [name, '']; }
   function loadReviews() {
     return api('/rest/v1/reviews?select=name,what,rating,text,created_at&approved=eq.true&order=created_at.desc&limit=12')
@@ -462,7 +465,7 @@
     MAT: MAT, CFG: CFG, SW_DECOR: SW_DECOR, matById: matById, topById: topById, decor: decor, matDecors: matDecors, matPct: matPct, swatchBg: swatchBg, hasCfg: hasCfg,
     paint: paint, productPaint: productPaint, kitchenPaint: kitchenPaint, thumbOf: thumbOf, loadImg: loadImg,
     designSrc: designSrc, loadDesigns: loadDesigns, designKind: designKind,
-    imagesFor: imagesFor, splitName: splitName, minPrice: minPrice, priceFrom: priceFrom, widthText: widthText, loadReviews: loadReviews,
+    imagesFor: imagesFor, splitName: splitName, minPrice: minPrice, priceFrom: priceFrom, widthText: widthText, leadDays: leadDays, leadText: leadText, loadReviews: loadReviews,
     cart: cart, fav: fav, me: me, orders: function () { return LS.get('nem-orders', []); },
     placeOrder: placeOrder, bookMeasure: bookMeasure, orderStatus: orderStatus, submitReview: submitReview,
     auth: auth, admin: admin, api: api, testPush: testPush, rpc: rpc, resizeImage: resizeImage, translit: translit, beep: beep,

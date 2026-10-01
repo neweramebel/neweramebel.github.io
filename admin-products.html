@@ -159,7 +159,7 @@ textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
 </div>
 
 <div class="sec">
-<button type="button" class="tg" onClick="{{item.tStock}}" aria-pressed="{{item.e.in_stock}}">В наличии (выкл. — «под заказ»)<span class="sw" style="background: {{item.k1.track}}"><i style="left: {{item.k1.knob}}"></i></span></button>
+<button type="button" class="tg" onClick="{{item.tStock}}" aria-pressed="{{item.e.in_stock}}">Быстрое изготовление (выкл. — обычный срок)<span class="sw" style="background: {{item.k1.track}}"><i style="left: {{item.k1.knob}}"></i></span></button>
 <button type="button" class="tg" onClick="{{item.tActive}}" aria-pressed="{{item.e.active}}">Показывать на сайте<span class="sw" style="background: {{item.k2.track}}"><i style="left: {{item.k2.knob}}"></i></span></button>
 <button type="button" class="tg" onClick="{{item.tMirror}}" aria-pressed="{{item.e.has_mirror}}">Выбор зеркал (для шкафов-купе)<span class="sw" style="background: {{item.k3.track}}"><i style="left: {{item.k3.knob}}"></i></span></button>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
@@ -327,7 +327,7 @@ textarea.in{padding:10px 12px;min-height:76px;resize:vertical;line-height:1.45}
   };
 })();
 </script>
-<script src="nem.js?v=f26e41ae"></script>
+<script src="nem.js?v=49b2dc8d"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -372,7 +372,7 @@ class Component extends DCLogic {
     const rowErr = (s.rowErr || {})[p.id];
     return {
       id: p.id, fid: 'p-' + p.id, e: ed, name: e.name, img: N.imagesFor(e)[0], priceText: N.priceFrom(e),
-      stock: e.in_stock ? 'В наличии' : 'Под заказ', stBg: e.in_stock ? '#E3EEDF' : '#F6E6D4', stFg: e.in_stock ? '#2F6B3A' : '#8A4A1C',
+      stock: N.leadText(e), stBg: e.in_stock ? '#E3EEDF' : '#E6E9E8', stFg: e.in_stock ? '#2F6B3A' : '#3E464D',
       hidden: !e.active, hasBadge: !!e.badge, badge: e.badge, dirty,
       open: isOpen, expanded: isOpen ? 'true' : 'false', openLabel: isOpen ? 'Свернуть' : 'Изменить', border: isOpen ? '#1B1F22' : dirty ? '#C9A57B' : 'rgba(27,31,34,0.08)',
       toggleOpen: () => this.setState({ open: isOpen ? '' : p.id, delAsk: '' }),

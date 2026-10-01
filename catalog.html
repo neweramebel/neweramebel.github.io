@@ -233,7 +233,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </sc-for>
 </div>
 </div>
-<label class="chk" style="padding: 0"><input type="checkbox" checked="{{stockOnly}}" onChange="{{toggleStock}}">Только в наличии</label>
+<label class="chk" style="padding: 0"><input type="checkbox" checked="{{stockOnly}}" onChange="{{toggleStock}}">Быстрое изготовление</label>
 <button type="button" class="btn2 f-reset-d" onClick="{{reset}}" style="min-height: 44px; justify-content: center">Сбросить фильтры</button>
 <div class="f-foot"><button type="button" class="btn2" onClick="{{reset}}" style="min-height: 50px; padding: 0 18px">Сбросить</button><button type="button" class="btn" onClick="{{closeF}}" style="flex-grow: 1; justify-content: center; padding: 0 18px">{{showText}}</button></div>
 </aside>
@@ -549,7 +549,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=f26e41ae"></script>
+<script src="nem.js?v=49b2dc8d"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -606,7 +606,7 @@ class Component extends DCLogic {
         return {
           id: p.id, name: p.name, img: N.imagesFor(p)[0], size: p.size_text, wText: N.widthText(p), delay: (idx % 3) * 0.07, hasBadge: !!p.badge, badge: p.badge,
           priceText: N.priceFrom(p), swatches: (p.colors || []).map((k) => N.SW[k]).filter(Boolean),
-          stockText: p.in_stock ? 'В наличии' : 'Под заказ', stockFg: p.in_stock ? '#2F6B3A' : '#8A4A1C',
+          stockText: N.leadText(p), stockFg: p.in_stock ? '#2F6B3A' : '#59626A',
           btn: on ? 'В корзине ✓' : 'В корзину', addLabel: (on ? 'Открыть корзину: ' : 'В корзину: ') + p.name,
           bg: on ? '#1B1F22' : 'transparent', fg: on ? '#F2F3F1' : '#1B1F22', bd: on ? '#1B1F22' : 'rgba(27,31,34,0.22)',
           add: () => (on ? this.setState({ cartOpen: true, coStep: 'cart' }) : this.quickAdd(p)),

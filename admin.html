@@ -441,7 +441,7 @@ textarea.in{padding:10px 14px;min-height:76px;resize:vertical;line-height:1.45}
   };
 })();
 </script>
-<script src="nem.js?v=f26e41ae"></script>
+<script src="nem.js?v=49b2dc8d"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -723,7 +723,7 @@ class Component extends DCLogic {
       ['phone', 'Телефон для звонков', 'tel', 'tel', '+7 7__ ___ __ __'], ['whatsapp', 'WhatsApp (если другой номер)', 'tel', 'tel', 'можно оставить пустым'],
       ['address', 'Адрес магазина или цеха', 'text', 'text', 'улица, дом'], ['hours', 'Режим работы', 'text', 'text', 'Пн–Сб, 9:00–19:00'],
       ['gis_url', 'Ссылка на 2GIS', 'url', 'url', 'https://2gis.kz/…'], ['instagram', 'Instagram', 'text', 'text', '@neweramebel'],
-      ['warranty', 'Гарантия', 'text', 'text', 'например: 1 год'], ['order_days', 'Срок изготовления под заказ', 'text', 'text', 'например: 7–14 дней']
+      ['warranty', 'Гарантия', 'text', 'text', 'например: 1 год'], ['fast_days', 'Срок «быстрых» моделей', 'text', 'text', 'например: 3–5 дней'], ['order_days', 'Обычный срок изготовления', 'text', 'text', 'например: 7–14 дней']
     ].map(([k, label, type, mode, ph]) => ({ id: 'set-' + k, label, type, mode, ph, value: st[k] || '' }));
     const pend = reviews.filter((r) => !r.approved);
     const revs = pend.concat(reviews.filter((r) => r.approved));
@@ -756,7 +756,7 @@ class Component extends DCLogic {
   saveContacts(fields) {
     const N = window.NEM;
     const patch = {};
-    fields.forEach((f) => { const el = document.getElementById(f.id); patch[f.id.slice(4)] = (el ? el.value : '').trim().slice(0, 200); });
+    fields.forEach((f) => { const el = document.getElementById(f.id); patch[f.id.slice(4)] = (el ? el.value : '').trim().slice(0, f.id === 'set-fast_days' ? 40 : 200); });
     if (patch.phone && !N.normPhone(patch.phone)) return this.say('Проверьте телефон: нужно 10 цифр после +7');
     if (patch.whatsapp && !N.normPhone(patch.whatsapp)) return this.say('Проверьте номер WhatsApp');
     if (patch.phone) patch.phone = N.prettyPhone(patch.phone);

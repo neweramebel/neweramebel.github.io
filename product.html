@@ -579,7 +579,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=f26e41ae"></script>
+<script src="nem.js?v=49b2dc8d"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -633,11 +633,11 @@ class Component extends DCLogic {
     const colorName = d ? d.name : color ? N.SW[color].name : '—';
     const on2 = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: '#FFFFFF', fg: '#1B1F22', bd: 'rgba(27,31,34,0.14)' });
     const md = N.MIRRORS.filter((m) => m.id === mirror)[0] || N.MIRRORS[0];
-    const orderDays = st.order_days ? 'Под заказ, ' + st.order_days : 'Под заказ';
+    const orderDays = N.leadText(p);
     Object.assign(out, {
       catName: p.category, catSlug: N.CAT_SLUG[p.category] || '', titleMain: nm[0], quote: nm[1],
       lead: p.lead || '', text: p.description || p.lead || '', dims: p.dims || p.size_text,
-      hasBadge: !!p.badge, badge: p.badge, stockText: p.in_stock ? 'В наличии' : orderDays, stockFg: p.in_stock ? '#2F6B3A' : '#8A4A1C',
+      hasBadge: !!p.badge, badge: p.badge, stockText: orderDays, stockFg: p.in_stock ? '#2F6B3A' : '#59626A',
       mainImg: showCv ? 'cfg/' + p.id + '.webp' : imgs[cur], mainAlt: p.name + (colorName !== '—' ? ', цвет ' + colorName.toLowerCase() : ''),
       cvDisp: painted ? 'block' : 'none', cvClass: 'pvw' + (painted ? ' on' : ''), cvMode: showCv,
       pvLabel: painted ? 'Предпросмотр: ' + colorName.toLowerCase() : 'Перекрашиваем…', decorBg: N.swatchBg(d),
@@ -669,7 +669,7 @@ class Component extends DCLogic {
       specs: [
         { k: p.size_label || 'Размер', v: size || p.size_text }, { k: 'Габариты', v: p.dims || p.size_text },
         { k: 'Корпус', v: 'ЛДСП 16 мм, кромка ПВХ' }, { k: mt ? 'Фасады' : 'Цвет', v: mt ? mt.name + ' — ' + colorName.toLowerCase() : colorName },
-        { k: 'Сборка', v: 'Включена в цену' }, { k: 'Наличие', v: p.in_stock ? 'В наличии' : orderDays }
+        { k: 'Сборка', v: 'Включена в цену' }, { k: 'Срок', v: orderDays + ' после заказа' }
       ].concat(p.has_mirror ? [{ k: 'Двери', v: md.label + ', профиль алюминий' }] : []).concat(st.warranty ? [{ k: 'Гарантия', v: st.warranty }] : []),
       related: related.map((x, i) => ({ id: x.id, name: x.name, img: N.imagesFor(x)[0], delay: i * 0.08, priceText: N.priceFrom(x) }))
     });
