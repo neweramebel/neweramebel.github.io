@@ -259,7 +259,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 </a>
 <a class="tall" data-tilt="1" href="kitchen.html" style="height: 460px; background: #C9D0CF">
-<img src="img/kitchen_full.jpg" alt="Кухня с островом" class="par" data-par="0.1" style="object-position: 55% 50%">
+<img src="img/kitchen_full.jpg?v=2" alt="Кухня с островом" class="par" data-par="0.1" style="object-position: 55% 50%">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,31,34,0) 45%, rgba(27,31,34,0.72) 100%)"></div>
 <div style="position: absolute; top: 18px; left: 18px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #1B1F22; background: rgba(242,243,241,0.85)">На заказ</div>
 <div style="position: absolute; left: 20px; right: 20px; bottom: 20px">
@@ -385,8 +385,8 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <section style="padding: 0 0 120px">
 <div class="wrap two">
 <div style="position: relative; border-radius: 26px; overflow: hidden; background: #C9D0CF; aspect-ratio: 16 / 11">
-<img src="img/kitchen_build.jpg" alt="Кухня в процессе сборки" class="par" data-par="0.08" style="opacity: {{kbOp}}; transition: opacity .8s">
-<img src="img/kitchen_full.jpg" alt="Готовая кухня" class="par" data-par="0.08" style="opacity: {{kfOp}}; transition: opacity .8s">
+<img src="img/kitchen_build.jpg?v=2" alt="Кухня в процессе сборки" class="par" data-par="0.08" style="opacity: {{kbOp}}; transition: opacity .8s">
+<img src="img/kitchen_full.jpg?v=2" alt="Готовая кухня" class="par" data-par="0.08" style="opacity: {{kfOp}}; transition: opacity .8s">
 <a href="kitchen.html" aria-label="Бесплатный замер" style="position: absolute; top: 18px; right: 18px; width: 128px; height: 128px; border-radius: 50%; background: #1B1F22; color: #F2F3F1; display: flex; align-items: center; justify-content: center; text-decoration: none">
 <svg class="spin" width="128" height="128" viewBox="0 0 128 128" aria-hidden="true" style="position: absolute; inset: 0"><g fill="#F2F3F1" font-family="Onest, sans-serif" font-size="10" font-weight="600" text-anchor="middle"><sc-for list="{{ring}}" as="item" hint-placeholder-count="38"><text x="64" y="20" transform="{{item.tr}}">{{item.ch}}</text></sc-for></g></svg>
 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
@@ -736,14 +736,14 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=49b2dc8d"></script>
+<script src="nem.js?v=784a5383"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
     if (!this.cvRef) { this.cvRef = { current: null }; this.heroRef = { current: null }; this.visRef = { current: null }; this.txtRef = { current: null }; this.curRef = { current: null }; }
     const s = this.state || {};
     const step = s.step || 0;
-    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg", "shot_column": "img/shot_column.jpg", "shot_dining": "img/shot_dining.jpg", "kitchen_full": "img/kitchen_full.jpg", "kitchen_build": "img/kitchen_build.jpg"};
+    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg?v=2", "shot_column": "img/shot_column.jpg?v=2", "shot_dining": "img/shot_dining.jpg?v=2", "kitchen_full": "img/kitchen_full.jpg?v=2", "kitchen_build": "img/kitchen_build.jpg?v=2"};
     const names = ['Пустая комната', 'Замер и проект', 'Производство', 'Сборка', 'Готово'];
     const icons = ['M4 20h16M6 20V9l6-5 6 5v11', 'M3 17L17 3l4 4L7 21H3zM14 6l4 4M9 11l2 2M6 14l2 2', 'M3 21h18M5 21V10l5 3V10l5 3V7l4 2v12', 'M14.5 6.5l3 3M4 20l7.5-7.5M13 4l7 7-3 3-7-7z', 'M5 12.5l4.5 4.5L19 7.5'];
     const fx = (i) => (i === step ? { o: 1, t: 'translateY(0)' } : { o: 0, t: i < step ? 'translateY(-24px)' : 'translateY(24px)' });
@@ -811,7 +811,7 @@ class Component extends DCLogic {
     out.ring = ringT.map((ch, i) => { const a = (ringAt + ringW[i] / 2) / ringC * 360; ringAt += ringW[i] + ringGap; return { ch, tr: 'rotate(' + a.toFixed(2) + ' 64 64)' }; });
     out.cats = out.cats.map((c, i) => ({ ...c, delay: (i % 4) * 0.08 }));
     out.popular = out.popular.map((c, i) => ({ ...c, delay: i * 0.08 }));
-    out.heroImg0 = this.heroPortrait() ? this.framesP()[0] : 'frames/k000.webp';
+    out.heroImg0 = this.heroUrls()[0];
     Object.assign(out, this.shopVals(s));
     Object.assign(out, this.ideasVals(s, { chips: true, title: 'Идеи', titleI: 'для вашего дома', step: 9 }));
     const mqT = ['Сборка входит в цену', 'Доставка по Туркестану — 0 ₸', 'Замер бесплатно', 'Kaspi или наличные', 'Своё производство', 'Кухни по вашим размерам'];
@@ -857,14 +857,12 @@ class Component extends DCLogic {
   // Главный экран: последовательность настоящих рендеров (как в видео), кадр выбирается прокруткой
   // Главный экран: 4 прокрутки = 4 этапа. Каждая прокрутка плавно проигрывает сборку до следующей остановки.
   // На телефоне (вертикальный экран) — отдельные вертикальные кадры: кухня видна целиком, а не только центр
-  heroPortrait() {
-    if (this.isP === undefined) { const P = this.framesP(); const w = window.innerWidth || 1, h = window.innerHeight || 1; this.isP = P.length > 0 && w / h < 0.85; }
-    return this.isP;
-  }
-  framesP() { return []; }
+  // на телефоне и узких экранах — облегчённые кадры 960×540 (быстрее грузятся, меньше памяти)
+  heroSmall() { if (this.isS === undefined) this.isS = (window.innerWidth || 1600) <= 900; return this.isS; }
+  heroUrls() { const pre = this.heroSmall() ? 'frames2/m' : 'frames2/d'; const a = []; for (let i = 0; i < 121; i++) a.push(pre + String(i).padStart(3, '0') + '.webp'); return a; }
   startHero(cv) {
-    const urlsL = ["frames/k000.webp", "frames/k004.webp", "frames/k008.webp", "frames/k012.webp", "frames/k016.webp", "frames/k020.webp", "frames/k024.webp", "frames/k028.webp", "frames/k032.webp", "frames/k036.webp", "frames/k040.webp", "frames/k044.webp", "frames/k048.webp", "frames/k052.webp", "frames/k056.webp", "frames/k060.webp", "img/kitchen_build.jpg", "frames/k068.webp", "frames/k072.webp", "frames/k076.webp", "frames/k080.webp", "frames/k084.webp", "frames/k088.webp", "frames/k092.webp", "frames/k096.webp", "frames/k100.webp", "frames/k104.webp", "frames/k108.webp", "frames/k112.webp", "frames/k116.webp", "frames/k120.webp", "frames/k124.webp", "frames/k128.webp", "frames/k132.webp", "frames/k136.webp", "frames/k140.webp", "frames/k144.webp", "frames/k148.webp", "frames/k152.webp", "img/kitchen_full.jpg"];
-    const urls = this.heroPortrait() ? this.framesP() : urlsL;
+    // 121 настоящий кадр (каждый отрисован в 3D, без «додуманных» промежуточных)
+    const urls = this.heroUrls();
     const N = urls.length, imgs = new Array(N).fill(null);
     const STOPS = [0, 8 / 39, 24 / 39, 35 / 39, 1];
     const order = [], seen = {};
@@ -879,7 +877,7 @@ class Component extends DCLogic {
       while (active < 6 && next < order.length) {
         const i = order[next++]; active++;
         const im = new Image(); im.decoding = 'async';
-        im.onload = () => { imgs[i] = im; active--; dirty = true; pump(); };
+        im.onload = () => { const fin = () => { imgs[i] = im; active--; dirty = true; pump(); }; if (im.decode) im.decode().then(fin, fin); else fin(); };
         im.onerror = () => { active--; pump(); };
         im.src = urls[i];
       }
@@ -967,7 +965,8 @@ class Component extends DCLogic {
           if (t >= 1) { p = anim.to; anim = null; }
         }
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const w = Math.round(cv.clientWidth * dpr), h = Math.round(cv.clientHeight * dpr);
+        let w = Math.round(cv.clientWidth * dpr), h = Math.round(cv.clientHeight * dpr);
+        const capW = this.heroSmall() ? 1100 : 2000; if (w > capW) { h = Math.round(h * capW / w); w = capW; }
         if (w && h && (w !== cv.width || h !== cv.height)) { cv.width = w; cv.height = h; dirty = true; }
         const r = hero.getBoundingClientRect(), vh = window.innerHeight || 900;
         const visible = r.bottom > 0 && r.top < vh;

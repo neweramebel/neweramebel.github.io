@@ -573,7 +573,7 @@ class Component extends DCLogic {
       Object.assign(out, {
         bnKind: isBo ? (bannerItem.kind === 'one_click' ? 'Купить в 1 клик: перезвоните' : 'Новый заказ с сайта') : 'Новая заявка на замер',
         bnAgo: this.ago(bannerItem.created_at),
-        bnImg: isBo ? (((bannerItem.items || [])[0] || {}).image || 'img/nova_walnut.webp') : 'img/kitchen_full.jpg',
+        bnImg: isBo ? (((bannerItem.items || [])[0] || {}).image || 'img/nova_walnut.webp') : 'img/kitchen_full.jpg?v=2',
         bnTitle: isBo ? this.orderTitle(bannerItem) : this.measTitle(bannerItem),
         bnSub: isBo ? this.orderSub(bannerItem) : this.measSub(bannerItem),
         bnClient: [bannerItem.name || 'Без имени', N.prettyPhone(bannerItem.phone), bannerItem.address].filter(Boolean).join(' · '),
