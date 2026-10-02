@@ -859,7 +859,7 @@ class Component extends DCLogic {
   // На телефоне (вертикальный экран) — отдельные вертикальные кадры: кухня видна целиком, а не только центр
   // на телефоне и узких экранах — облегчённые кадры 960×540 (быстрее грузятся, меньше памяти)
   heroSmall() { if (this.isS === undefined) this.isS = (window.innerWidth || 1600) <= 900; return this.isS; }
-  heroUrls() { const pre = this.heroSmall() ? 'frames2/m' : 'frames2/d'; const a = []; for (let i = 0; i < 121; i++) a.push(pre + String(i).padStart(3, '0') + '.webp'); return a; }
+  heroUrls() { const pre = this.heroSmall() ? 'frames2/m' : 'frames2/d'; const a = []; for (let i = 0; i < 121; i++) a.push(pre + String(i).padStart(3, '0') + '.webp?v=2'); return a; }
   startHero(cv) {
     // 121 настоящий кадр (каждый отрисован в 3D, без «додуманных» промежуточных)
     const urls = this.heroUrls();
