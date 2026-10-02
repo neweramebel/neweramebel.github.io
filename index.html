@@ -864,7 +864,7 @@ class Component extends DCLogic {
     // 121 настоящий кадр (каждый отрисован в 3D, без «додуманных» промежуточных)
     const urls = this.heroUrls();
     const N = urls.length, imgs = new Array(N).fill(null);
-    const STOPS = [0, 8 / 39, 24 / 39, 35 / 39, 1];
+    const STOPS = [0, 24 / 120, 96 / 120, 110 / 120, 1]; // каждая остановка — законченная картинка
     const order = [], seen = {};
     const push = (i) => { if (i >= 0 && i < N && !seen[i]) { seen[i] = 1; order.push(i); } };
     push(0);
