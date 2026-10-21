@@ -259,7 +259,7 @@
   var UVSETS = {};
   function uvLoad(key, files, zdefs, off, rng) {
     if (UVSETS[key]) return UVSETS[key];
-    var v = '?v=3';
+    var v = '?v=4';
     UVSETS[key] = Promise.all([files.base, files.gloss, files.uv].concat(files.masks).map(function (u) { return loadImg(u + v); })).then(function (ims) {
       var W = ims[0].naturalWidth, H = ims[0].naturalHeight, n = W * H;
       var base = imgData(ims[0]).data, gl = imgData(ims[1], W, H).data, uv = imgData(ims[2], W, H).data;
@@ -303,14 +303,21 @@
   function hexRgb(h) { h = String(h || '#cccccc').replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
   // насколько материал блестит
   var GLOSS = { ldsp: 0.08, mdf: 0.14, akril: 0.55, emal: 0.25, shpon: 0.1, top_ldsp: 0.2, kompakt: 0.18, stone: 0.35, kvarc: 0.45, wood: 0.12, tile: 0.4, glass: 0.65, panel: 0.25 };
-  // 4 кухни × 2 или 3 ряда × с ручками / без ручек — каждая своя 3D-разметка
-  function k3Files(v) { return 'cfg/k3/' + v.shape + '_' + v.tiers + (v.hidden ? '_nh' : ''); }
+  // 4 кухни × 2 или 3 ряда; ручки — отдельный слой с прозрачностью (золото, белые, чёрные) или без ручек
+  function k3Files(v) { return 'cfg/k4/' + v.shape + '_' + v.tiers; }
   function k3Load(v) {
     var f = k3Files(v);
-    return uvLoad('k3:' + f, { base: f + '_base.webp', gloss: f + '_gloss.webp', uv: f + '_uv.webp', masks: [f + '_m1.webp', f + '_m2.webp'] },
-      [['f', 0, 0], ['u', 0, 1], ['t', 0, 2], ['h', 1, 0]], -2.0, 8.0);
+    return uvLoad('k4:' + f, { base: f + '_base.webp', gloss: f + '_gloss.webp', uv: f + '_uv.webp', masks: [f + '_m1.webp'] },
+      [['f', 0, 0], ['u', 0, 1], ['t', 0, 2]], -2.0, 8.0);
   }
-  function kitchenPaint(cv, zones, ok, v) { return uvPaint(cv, v ? k3Load(v) : k2Load(), zones, ok); }
+  function kitchenPaint(cv, zones, ok, v) {
+    if (!v) return uvPaint(cv, k2Load(), zones, ok);
+    var hp = v.handle && v.handle !== 'hidden' ? loadImg(k3Files(v) + '_h_' + v.handle + '.webp?v=4') : Promise.resolve(null);
+    return Promise.all([uvPaint(cv, k3Load(v), zones, ok), hp]).then(function (r) {
+      if (r[0] && r[1] && (!ok || ok())) r[0].getContext('2d').drawImage(r[1], 0, 0, r[0].width, r[0].height);
+      return r[0];
+    });
+  }
   function uvPaint(cv, setP, zones, ok) {
     var list = ['f', 'u', 't', 'b', 'h'].filter(function (z) { return zones[z] && zones[z].d; });
     return Promise.all([setP].concat(list.map(function (z) { return texInfo(zones[z].d); }))).then(function (r) {

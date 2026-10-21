@@ -592,7 +592,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=97abcaf5"></script>
+<script src="nem.js?v=11d609cc"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -666,10 +666,10 @@ class Component extends DCLogic {
     const hName = hD.id === 'hidden' ? 'скрытые (без ручек)' : hD.name.toLowerCase();
     const dec = { f: fD, u: uD, t: tD };
     const tiers = ex.tall ? 3 : 2;
-    const kv = { shape: shape, tiers: tiers, hidden: hD.id === 'hidden' };
+    const kv = { shape: shape, tiers: tiers, handle: hD.id };
     const kkey = hasMat ? [shape, tiers, hD.id, fM.id, fD.id, uM.id, uD.id, tM.id, tD.id].join('|') : '';
     const GL = N.GLOSS;
-    this.kWant = hasMat ? { v: kv, z: { f: { d: fD, gk: GL[fM.id] }, u: { d: uD, gk: GL[uM.id] }, t: { d: tD, gk: GL[tM.id === 'ldsp' ? 'top_ldsp' : tM.id] }, h: kv.hidden ? null : { d: { c: hD.c }, gk: hD.gk } }, key: kkey } : null;
+    this.kWant = hasMat ? { v: kv, z: { f: { d: fD, gk: GL[fM.id] }, u: { d: uD, gk: GL[uM.id] }, t: { d: tD, gk: GL[tM.id === 'ldsp' ? 'top_ldsp' : tM.id] } }, key: kkey } : null;
     const kPainted = hasMat && s.kPainted === kkey;
     const on2 = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: '#FFFFFF', fg: '#1B1F22', bd: 'rgba(27,31,34,0.14)' });
     const zM = zone === 't' ? tM : zone === 'u' ? uM : fM, zD = dec[zone];
@@ -683,7 +683,7 @@ class Component extends DCLogic {
       dims: dims.map((d) => ({ ...d, text: m1(d.value), change: (e) => this.setState({ [d.key]: Number(e.target.value) }) })),
       kcvRef: this.kcvRef, kcvDisp: kPainted ? 'block' : 'none', kcvCls: kPainted ? 'on' : '',
       kpvLabel: kPainted ? 'Предпросмотр цвета' : 'Перекрашиваем…', kpvAlt: 'Кухня: фасады ' + fName + ', столешница ' + tName + ', ручки ' + hName,
-      kBase: N.k3Files(kv) + '_base.webp?v=3',
+      kBase: N.k3Files(kv) + '_base.webp?v=4',
       tierBtns: [2, 3].map((t) => ({ name: t === 2 ? '2 ряда' : '3 ряда до потолка', ...on2(t === tiers), pressed: t === tiers ? 'true' : 'false', pick: () => this.setState({ ex: { ...ex, tall: t === 3 } }) })),
       hdls: HDL.map((x) => ({ name: x.name, sw: x.id === 'hidden' ? 'repeating-linear-gradient(90deg,#D9DCDB 0 6px,#F2F3F1 6px 9px)' : x.c, ...on2(x.id === hD.id), pressed: x.id === hD.id ? 'true' : 'false', pick: () => this.setState({ kh: x.id }) })),
       ztabs: hasMat ? [['f', tiers === 3 ? 'Низ, верх и пеналы' : 'Низ и пеналы'], ['u', tiers === 3 ? 'Центр' : 'Верхние шкафы'], ['t', 'Столешница']].map(([id, name]) => ({ name, sel: id === zone ? 'true' : 'false', bg: id === zone ? '#FFFFFF' : 'transparent', fg: '#1B1F22', sh: id === zone ? '0 6px 16px -10px rgba(27,31,34,.5)' : 'none', sw: N.swatchBg(dec[id]), pick: () => this.setState({ kz: id }) })) : [],
