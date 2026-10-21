@@ -144,7 +144,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 .blk{padding:28px;border-radius:24px;background:#E4E8E7}
 .kpv{position:sticky;top:92px;z-index:3;border-radius:18px;overflow:hidden;background:#D5DBDC;aspect-ratio:16 / 9;box-shadow:0 18px 40px -26px rgba(27,31,34,.55)}
 .kpv img,.kpv canvas{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
-.ztabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:16px 0 0;padding:5px;border-radius:16px;background:rgba(27,31,34,.06)}
+.ztabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:16px 0 0;padding:5px;border-radius:16px;background:rgba(27,31,34,.06)}
 .ztab{min-height:46px;border-radius:12px;border:0;font:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 8px;transition:background .2s,color .2s}
 .ztab i{width:14px;height:14px;border-radius:50%;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(27,31,34,.2)}
 .mchips{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
@@ -234,13 +234,16 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <div class="blk" data-rv="0">
 <div style="font-size: 14px; color: #59626A; font-weight: 600">Шаг 3 из 3</div>
 <h2 style="margin: 6px 0 16px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em">Материалы и цвета</h2>
+<div role="group" aria-label="Сколько рядов шкафов" class="mchips" style="margin: 0 0 12px">
+<sc-for list="{{tierBtns}}" as="item" hint-placeholder-count="2"><button type="button" class="mchip" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border-color: {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}">{{item.name}}</button></sc-for>
+</div>
 <div class="kpv">
-<img src="cfg/k2_base.webp?v=2" alt="" aria-hidden="true">
+<img src="{{kBase}}" alt="" aria-hidden="true">
 <canvas ref="{{kcvRef}}" class="{{kcvCls}}" role="img" aria-label="{{kpvAlt}}" style="display: {{kcvDisp}}"></canvas>
 <span style="position: absolute; left: 12px; bottom: 12px; padding: 6px 11px; border-radius: 999px; background: rgba(242,243,241,0.92); font-size: 12px; font-weight: 600; color: #1B1F22">{{kpvLabel}}</span>
 </div>
 <div role="tablist" aria-label="Что красим" class="ztabs">
-<sc-for list="{{ztabs}}" as="z" hint-placeholder-count="4">
+<sc-for list="{{ztabs}}" as="z" hint-placeholder-count="3">
 <button type="button" role="tab" class="ztab" onClick="{{z.pick}}" aria-selected="{{z.sel}}" style="background: {{z.bg}}; color: {{z.fg}}; box-shadow: {{z.sh}}"><i style="background: {{z.sw}}"></i>{{z.name}}</button>
 </sc-for>
 </div>
@@ -252,7 +255,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </sc-for>
 </div>
 <sc-if value="{{zIsU}}">
-<button type="button" class="opt" onClick="{{zSameToggle}}" aria-pressed="{{zSameP}}" style="width: 100%; margin-top: 12px; border: 1.5px solid {{zSameBd}}; background: {{zSameBg}}; color: #1B1F22"><span>Верх в цвет низа</span><span style="position: relative; width: 40px; height: 24px; border-radius: 999px; background: {{zSameTrack}}; flex-shrink: 0; transition: background .25s"><span style="position: absolute; top: 3px; left: {{zSameKnob}}; width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; transition: left .25s"></span></span></button>
+<button type="button" class="opt" onClick="{{zSameToggle}}" aria-pressed="{{zSameP}}" style="width: 100%; margin-top: 12px; border: 1.5px solid {{zSameBd}}; background: {{zSameBg}}; color: #1B1F22"><span>В цвет низа</span><span style="position: relative; width: 40px; height: 24px; border-radius: 999px; background: {{zSameTrack}}; flex-shrink: 0; transition: background .25s"><span style="position: absolute; top: 3px; left: {{zSameKnob}}; width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; transition: left .25s"></span></span></button>
 </sc-if>
 <div style="font-size: 14px; margin-top: 16px"><span style="font-weight: 600">Цвет:</span> <span style="color: #4E575E">{{zDecorName}}</span></div>
 <sc-for list="{{zGroups}}" as="g" hint-placeholder-count="2">
@@ -264,6 +267,10 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 </sc-for>
 <div style="margin-top: 12px; font-size: 13px; color: #59626A; line-height: 1.5">Цвета на экране примерные — на замер привезём живые образцы.</div>
+</div>
+<h3 style="margin: 24px 0 12px; font-size: 17px; font-weight: 600">Ручки</h3>
+<div role="group" aria-label="Ручки" class="mchips">
+<sc-for list="{{hdls}}" as="item" hint-placeholder-count="4"><button type="button" class="mchip" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="border-color: {{item.bd}}; background: {{item.bg}}; color: {{item.fg}}; display: inline-flex; align-items: center; gap: 8px"><i style="width: 14px; height: 14px; border-radius: 50%; background: {{item.sw}}; box-shadow: inset 0 0 0 1px rgba(27,31,34,.25)"></i>{{item.name}}</button></sc-for>
 </div>
 <h3 style="margin: 24px 0 12px; font-size: 17px; font-weight: 600">Дополнительно</h3>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
@@ -585,7 +592,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=62f83c05"></script>
+<script src="nem.js?v=97abcaf5"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -610,10 +617,12 @@ class Component extends DCLogic {
     const uM0 = N.matById(s.kum || 'mdf') || fM, uD0 = uM0 ? pickIn(uM0, s.ku, 'mdf-white') : null;
     const uM = uSame ? fM : uM0, uD = uSame ? fD : uD0;
     const tM = N.topById(s.ktm || 'ldsp') || N.MAT.tops[0], tD = tM ? pickIn(tM, s.kt, 'top-calacatta') : null;
-    const bM = N.bsById(s.kbm || 'tile') || N.MAT.bs[0], bD = bM ? pickIn(bM, s.kb, 'bs-tile-white') : null;
+    // ручки: золото, белые, чёрные, скрытые (без ручек)
+    const HDL = [{ id: 'gold', name: 'Золотые', c: '#C9A25E', gk: 0.9 }, { id: 'white', name: 'Белые', c: '#F1F0EC', gk: 0.25 }, { id: 'black', name: 'Чёрные', c: '#26272A', gk: 0.35 }, { id: 'hidden', name: 'Скрытые', c: '#26272A', gk: 0 }];
+    const hD = HDL.filter((x) => x.id === s.kh)[0] || HDL[2];
     const zone = s.kz || 'f';
     const hasMat = !!(fM && tM);
-    const extraDefs = [{ id: 'tall', name: 'Верх до потолка', pct: num(ke.tall_pct, 12) / 100, fix: 0 }, { id: 'led', name: 'LED-подсветка', pct: 0, fix: num(ke.led, 25000) }];
+    const extraDefs = [{ id: 'tall', name: '3-й ряд до потолка', pct: num(ke.tall_pct, 12) / 100, fix: 0 }, { id: 'led', name: 'LED-подсветка', pct: 0, fix: num(ke.led, 25000) }];
     const shapeDefs = [
       { id: 'line', name: 'Прямая', icon: 'M6 8h52v10H6z' },
       { id: 'corner', name: 'Угловая', icon: 'M6 8h52v10H16v24H6z' },
@@ -654,26 +663,31 @@ class Component extends DCLogic {
     if (shape === 'island') dims.push({ id: 'di', label: 'Длина острова', value: isl, min: 1.2, max: 3.5, key: 'isl' });
     const fName = hasMat ? fM.name + ' — ' + fD.name.toLowerCase() + (uSame ? '' : ', верх: ' + (uM.id !== fM.id ? uM.name + ' — ' : '') + uD.name.toLowerCase()) : '';
     const tName = hasMat ? tM.name + ' — ' + tD.name.toLowerCase() : '';
-    const bName = hasMat ? bM.name + ' — ' + bD.name.toLowerCase() : '';
-    const dec = { f: fD, u: uD, t: tD, b: bD };
-    const kkey = hasMat ? [fM.id, fD.id, uM.id, uD.id, tM.id, tD.id, bM.id, bD.id].join('|') : '';
+    const hName = hD.id === 'hidden' ? 'скрытые (без ручек)' : hD.name.toLowerCase();
+    const dec = { f: fD, u: uD, t: tD };
+    const tiers = ex.tall ? 3 : 2;
+    const kv = { shape: shape, tiers: tiers, hidden: hD.id === 'hidden' };
+    const kkey = hasMat ? [shape, tiers, hD.id, fM.id, fD.id, uM.id, uD.id, tM.id, tD.id].join('|') : '';
     const GL = N.GLOSS;
-    this.kWant = hasMat ? { z: { f: { d: fD, gk: GL[fM.id] }, u: { d: uD, gk: GL[uM.id] }, t: { d: tD, gk: GL[tM.id === 'ldsp' ? 'top_ldsp' : tM.id] }, b: { d: bD, gk: GL[bM.id] } }, key: kkey } : null;
+    this.kWant = hasMat ? { v: kv, z: { f: { d: fD, gk: GL[fM.id] }, u: { d: uD, gk: GL[uM.id] }, t: { d: tD, gk: GL[tM.id === 'ldsp' ? 'top_ldsp' : tM.id] }, h: kv.hidden ? null : { d: { c: hD.c }, gk: hD.gk } }, key: kkey } : null;
     const kPainted = hasMat && s.kPainted === kkey;
     const on2 = (x) => (x ? { bg: '#1B1F22', fg: '#F2F3F1', bd: '#1B1F22' } : { bg: '#FFFFFF', fg: '#1B1F22', bd: 'rgba(27,31,34,0.14)' });
-    const zM = zone === 'b' ? bM : zone === 't' ? tM : zone === 'u' ? uM : fM, zD = dec[zone];
-    const zSet = (m, d) => { if (zone === 'f') this.setState({ kfm: m, kf: d }); else if (zone === 'u') this.setState({ kum: m, ku: d, kuSame: false }); else if (zone === 'b') this.setState({ kbm: m, kb: d }); else this.setState({ ktm: m, kt: d }); };
-    const zList = zone === 'b' ? N.MAT.bs : zone === 't' ? N.MAT.tops : N.MAT.mats;
-    const zAdd = (m) => { if (zone === 'b') return 'по замеру'; if (zone === 't') { const r = tRate(m.id); return r ? '+' + rate(r) : 'в цене'; } return rate(fRate(m.id)); };
+    const zM = zone === 't' ? tM : zone === 'u' ? uM : fM, zD = dec[zone];
+    const zSet = (m, d) => { if (zone === 'f') this.setState({ kfm: m, kf: d }); else if (zone === 'u') this.setState({ kum: m, ku: d, kuSame: false }); else this.setState({ ktm: m, kt: d }); };
+    const zList = zone === 't' ? N.MAT.tops : N.MAT.mats;
+    const zAdd = (m) => { if (zone === 't') { const r = tRate(m.id); return r ? '+' + rate(r) : 'в цене'; } return rate(fRate(m.id)); };
     const shapeName = shapeDefs.find((x) => x.id === shape).name;
     this.lastVals = {
       curRef: this.curRef,
       shapes: shapeDefs.map((x) => ({ ...x, ...sel(x.id === shape), fill: x.id === shape ? '#D8CDBC' : 'none', pressed: x.id === shape ? 'true' : 'false', pick: () => this.setState({ shape: x.id }) })),
       dims: dims.map((d) => ({ ...d, text: m1(d.value), change: (e) => this.setState({ [d.key]: Number(e.target.value) }) })),
       kcvRef: this.kcvRef, kcvDisp: kPainted ? 'block' : 'none', kcvCls: kPainted ? 'on' : '',
-      kpvLabel: kPainted ? 'Предпросмотр цвета' : 'Перекрашиваем…', kpvAlt: 'Кухня: фасады ' + fName + ', столешница ' + tName + ', фартук ' + bName,
-      ztabs: hasMat ? [['f', 'Низ'], ['u', 'Верх и пеналы'], ['t', 'Столешница'], ['b', 'Фартук']].map(([id, name]) => ({ name, sel: id === zone ? 'true' : 'false', bg: id === zone ? '#FFFFFF' : 'transparent', fg: '#1B1F22', sh: id === zone ? '0 6px 16px -10px rgba(27,31,34,.5)' : 'none', sw: N.swatchBg(dec[id]), pick: () => this.setState({ kz: id }) })) : [],
-      zMatLabel: zone === 'b' ? 'Материал фартука' : zone === 't' ? 'Материал столешницы' : 'Материал фасадов', zMatNote: zM ? zM.note : '',
+      kpvLabel: kPainted ? 'Предпросмотр цвета' : 'Перекрашиваем…', kpvAlt: 'Кухня: фасады ' + fName + ', столешница ' + tName + ', ручки ' + hName,
+      kBase: N.k3Files(kv) + '_base.webp?v=3',
+      tierBtns: [2, 3].map((t) => ({ name: t === 2 ? '2 ряда' : '3 ряда до потолка', ...on2(t === tiers), pressed: t === tiers ? 'true' : 'false', pick: () => this.setState({ ex: { ...ex, tall: t === 3 } }) })),
+      hdls: HDL.map((x) => ({ name: x.name, sw: x.id === 'hidden' ? 'repeating-linear-gradient(90deg,#D9DCDB 0 6px,#F2F3F1 6px 9px)' : x.c, ...on2(x.id === hD.id), pressed: x.id === hD.id ? 'true' : 'false', pick: () => this.setState({ kh: x.id }) })),
+      ztabs: hasMat ? [['f', tiers === 3 ? 'Низ, верх и пеналы' : 'Низ и пеналы'], ['u', tiers === 3 ? 'Центр' : 'Верхние шкафы'], ['t', 'Столешница']].map(([id, name]) => ({ name, sel: id === zone ? 'true' : 'false', bg: id === zone ? '#FFFFFF' : 'transparent', fg: '#1B1F22', sh: id === zone ? '0 6px 16px -10px rgba(27,31,34,.5)' : 'none', sw: N.swatchBg(dec[id]), pick: () => this.setState({ kz: id }) })) : [],
+      zMatLabel: zone === 't' ? 'Материал столешницы' : 'Материал фасадов', zMatNote: zM ? zM.note : '',
       zMats: hasMat ? zList.map((m) => ({ name: m.name, add: zAdd(m), pressed: m.id === zM.id ? 'true' : 'false', ...on2(m.id === zM.id), pick: () => zSet(m.id, null) })) : [],
       zIsU: zone === 'u', zSameP: uSame ? 'true' : 'false', zSameBd: uSame ? '#1B1F22' : 'rgba(27,31,34,0.12)', zSameBg: uSame ? '#FFFFFF' : 'transparent', zSameTrack: uSame ? '#1B1F22' : 'rgba(27,31,34,0.2)', zSameKnob: uSame ? '19px' : '3px',
       zSameToggle: () => this.setState({ kuSame: !uSame }),
@@ -683,11 +697,11 @@ class Component extends DCLogic {
       meters: meters.toFixed(1).replace('.', ','), rects, labels,
       planLabel: 'План кухни: ' + shapeName.toLowerCase() + ', ' + meters.toFixed(1) + ' погонных метров',
       range,
-      summary: shapeName + ' · фасады: ' + fName + ' · столешница: ' + tName + ' · фартук: ' + bName + '. Цена примерная, без техники и мойки; фартук считаем после замера.',
+      summary: shapeName + ', ' + (tiers === 3 ? '3 ряда до потолка' : '2 ряда') + ' · фасады: ' + fName + ' · столешница: ' + tName + ' · ручки: ' + hName + '. Цена примерная, без техники и мойки.',
       sent: !!s.bkId, notSent: !s.bkId, bkId: s.bkId || '',
       bkErr: !!s.bkErr, bkErrText: s.bkErr || '', bkBusy: !!s.bkBusy, bkBtn: s.bkBusy ? 'Отправляем…' : 'Записаться на замер',
       minDate: this.dayStr(1), maxDate: this.dayStr(90), defDate: this.dayStr(1),
-      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.book({ shape: shapeName, a, b, c, isl, facade: fName, top: tName, apron: bName, extras: extraDefs.filter((x) => ex[x.id]).map((x) => x.name), meters: Number(meters.toFixed(1)), range }); },
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.book({ shape: shapeName, a, b, c, isl, facade: fName, top: tName, handles: hName, tiers, extras: extraDefs.filter((x) => ex[x.id]).map((x) => x.name), meters: Number(meters.toFixed(1)), range }); },
       again: () => this.setState({ bkId: 0 })
     };
     const out = this.lastVals;
@@ -711,7 +725,7 @@ class Component extends DCLogic {
     const w = this.kWant, cv = this.kcvRef && this.kcvRef.current;
     if (w && cv && this.kKey !== w.key) {
       const key = w.key; this.kKey = key;
-      window.NEM.kitchenPaint(cv, w.z, () => this.kKey === key)
+      window.NEM.kitchenPaint(cv, w.z, () => this.kKey === key, w.v)
         .then((r) => { if (r && this.kKey === key) this.setState({ kPainted: key }); })
         .catch(() => { if (this.kKey === key) this.kKey = null; });
     }

@@ -303,9 +303,16 @@
   function hexRgb(h) { h = String(h || '#cccccc').replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
   // насколько материал блестит
   var GLOSS = { ldsp: 0.08, mdf: 0.14, akril: 0.55, emal: 0.25, shpon: 0.1, top_ldsp: 0.2, kompakt: 0.18, stone: 0.35, kvarc: 0.45, wood: 0.12, tile: 0.4, glass: 0.65, panel: 0.25 };
-  function kitchenPaint(cv, zones, ok) { return uvPaint(cv, k2Load(), zones, ok); }
+  // 4 кухни × 2 или 3 ряда × с ручками / без ручек — каждая своя 3D-разметка
+  function k3Files(v) { return 'cfg/k3/' + v.shape + '_' + v.tiers + (v.hidden ? '_nh' : ''); }
+  function k3Load(v) {
+    var f = k3Files(v);
+    return uvLoad('k3:' + f, { base: f + '_base.webp', gloss: f + '_gloss.webp', uv: f + '_uv.webp', masks: [f + '_m1.webp', f + '_m2.webp'] },
+      [['f', 0, 0], ['u', 0, 1], ['t', 0, 2], ['h', 1, 0]], -2.0, 8.0);
+  }
+  function kitchenPaint(cv, zones, ok, v) { return uvPaint(cv, v ? k3Load(v) : k2Load(), zones, ok); }
   function uvPaint(cv, setP, zones, ok) {
-    var list = ['f', 'u', 't', 'b'].filter(function (z) { return zones[z] && zones[z].d; });
+    var list = ['f', 'u', 't', 'b', 'h'].filter(function (z) { return zones[z] && zones[z].d; });
     return Promise.all([setP].concat(list.map(function (z) { return texInfo(zones[z].d); }))).then(function (r) {
       if (ok && !ok()) return null;
       var K = r[0], W = K.W, H = K.H;
@@ -564,7 +571,7 @@
   window.NEM = {
     URL: URL, KEY: KEY, SW: SW, CATS: CATS, CAT_SLUG: CAT_SLUG, MIRRORS: MIRRORS, ORDER_FLOW: ORDER_FLOW, MEASURE_FLOW: MEASURE_FLOW,
     state: S, on: on, emit: emit, load: load, product: product, settings: settings, defSize: defSize, unitPrice: unitPrice,
-    MAT: MAT, CFG: CFG, bsById: bsById, GLOSS: GLOSS, cfgBase: cfgBase, k2Load: k2Load, SW_DECOR: SW_DECOR, matById: matById, topById: topById, decor: decor, matDecors: matDecors, matPct: matPct, swatchBg: swatchBg, hasCfg: hasCfg,
+    MAT: MAT, CFG: CFG, bsById: bsById, GLOSS: GLOSS, k3Files: k3Files, cfgBase: cfgBase, k2Load: k2Load, SW_DECOR: SW_DECOR, matById: matById, topById: topById, decor: decor, matDecors: matDecors, matPct: matPct, swatchBg: swatchBg, hasCfg: hasCfg,
     paint: paint, productPaint: productPaint, kitchenPaint: kitchenPaint, thumbOf: thumbOf, loadImg: loadImg,
     designSrc: designSrc, loadDesigns: loadDesigns, designKind: designKind,
     imagesFor: imagesFor, splitName: splitName, minPrice: minPrice, priceFrom: priceFrom, widthText: widthText, leadDays: leadDays, leadText: leadText, loadReviews: loadReviews,
