@@ -259,7 +259,7 @@
   var UVSETS = {};
   function uvLoad(key, files, zdefs, off, rng) {
     if (UVSETS[key]) return UVSETS[key];
-    var v = '?v=4';
+    var v = '?v=5';
     UVSETS[key] = Promise.all([files.base, files.gloss, files.uv].concat(files.masks).map(function (u) { return loadImg(u + v); })).then(function (ims) {
       var W = ims[0].naturalWidth, H = ims[0].naturalHeight, n = W * H;
       var base = imgData(ims[0]).data, gl = imgData(ims[1], W, H).data, uv = imgData(ims[2], W, H).data;
@@ -312,7 +312,7 @@
   }
   function kitchenPaint(cv, zones, ok, v) {
     if (!v) return uvPaint(cv, k2Load(), zones, ok);
-    var hp = v.handle && v.handle !== 'hidden' ? loadImg(k3Files(v) + '_h_' + v.handle + '.webp?v=4') : Promise.resolve(null);
+    var hp = v.handle && v.handle !== 'hidden' ? loadImg(k3Files(v) + '_h_' + v.handle + '.webp?v=5') : Promise.resolve(null);
     return Promise.all([uvPaint(cv, k3Load(v), zones, ok), hp]).then(function (r) {
       if (r[0] && r[1] && (!ok || ok())) r[0].getContext('2d').drawImage(r[1], 0, 0, r[0].width, r[0].height);
       return r[0];
