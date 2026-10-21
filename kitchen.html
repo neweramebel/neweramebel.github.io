@@ -592,7 +592,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
   };
 })();
 </script>
-<script src="nem.js?v=5b27d9e6"></script>
+<script src="nem.js?v=365a2f3c"></script>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
   renderVals() {
@@ -683,7 +683,7 @@ class Component extends DCLogic {
       dims: dims.map((d) => ({ ...d, text: m1(d.value), change: (e) => this.setState({ [d.key]: Number(e.target.value) }) })),
       kcvRef: this.kcvRef, kcvDisp: kPainted ? 'block' : 'none', kcvCls: kPainted ? 'on' : '',
       kpvLabel: kPainted ? 'Предпросмотр цвета' : 'Перекрашиваем…', kpvAlt: 'Кухня: фасады ' + fName + ', столешница ' + tName + ', ручки ' + hName,
-      kBase: N.k3Files(kv) + '_base.webp?v=5',
+      kBase: N.k3Files(kv) + '_base.webp?v=6',
       tierBtns: [2, 3].map((t) => ({ name: t === 2 ? '2 ряда' : '3 ряда до потолка', ...on2(t === tiers), pressed: t === tiers ? 'true' : 'false', pick: () => this.setState({ ex: { ...ex, tall: t === 3 } }) })),
       hdls: HDL.map((x) => ({ name: x.name, sw: x.id === 'hidden' ? 'repeating-linear-gradient(90deg,#D9DCDB 0 6px,#F2F3F1 6px 9px)' : x.c, ...on2(x.id === hD.id), pressed: x.id === hD.id ? 'true' : 'false', pick: () => this.setState({ kh: x.id }) })),
       ztabs: hasMat ? [['f', tiers === 3 ? 'Низ, верх и пеналы' : 'Низ и пеналы'], ['u', tiers === 3 ? 'Центр' : 'Верхние шкафы'], ['t', 'Столешница']].map(([id, name]) => ({ name, sel: id === zone ? 'true' : 'false', bg: id === zone ? '#FFFFFF' : 'transparent', fg: '#1B1F22', sh: id === zone ? '0 6px 16px -10px rgba(27,31,34,.5)' : 'none', sw: N.swatchBg(dec[id]), pick: () => this.setState({ kz: id }) })) : [],
