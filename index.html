@@ -265,7 +265,7 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 </div>
 </a>
 <a class="tall" data-tilt="1" href="kitchen.html" style="height: 460px; background: #C9D0CF">
-<img src="img/kitchen_full.jpg?v=3" alt="Кухня с островом" class="par" data-par="0.1" style="object-position: 55% 50%">
+<img src="img/kitchen_full.jpg?v=4" alt="Кухня с островом" class="par" data-par="0.1" style="object-position: 55% 50%">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,31,34,0) 45%, rgba(27,31,34,0.72) 100%)"></div>
 <div style="position: absolute; top: 18px; left: 18px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; color: #1B1F22; background: rgba(242,243,241,0.85)">На заказ</div>
 <div style="position: absolute; left: 20px; right: 20px; bottom: 20px">
@@ -391,8 +391,8 @@ textarea.in{padding:12px 16px;min-height:88px;resize:vertical;line-height:1.5}
 <section style="padding: 0 0 120px">
 <div class="wrap two">
 <div style="position: relative; border-radius: 26px; overflow: hidden; background: #C9D0CF; aspect-ratio: 16 / 11">
-<img src="img/kitchen_build.jpg?v=3" alt="Кухня в процессе сборки" class="par" data-par="0.08" style="opacity: {{kbOp}}; transition: opacity .8s">
-<img src="img/kitchen_full.jpg?v=3" alt="Готовая кухня" class="par" data-par="0.08" style="opacity: {{kfOp}}; transition: opacity .8s">
+<img src="img/kitchen_build.jpg?v=4" alt="Кухня в процессе сборки" class="par" data-par="0.08" style="opacity: {{kbOp}}; transition: opacity .8s">
+<img src="img/kitchen_full.jpg?v=4" alt="Готовая кухня" class="par" data-par="0.08" style="opacity: {{kfOp}}; transition: opacity .8s">
 <a href="kitchen.html" aria-label="Бесплатный замер" style="position: absolute; top: 18px; right: 18px; width: 128px; height: 128px; border-radius: 50%; background: #1B1F22; color: #F2F3F1; display: flex; align-items: center; justify-content: center; text-decoration: none">
 <svg class="spin" width="128" height="128" viewBox="0 0 128 128" aria-hidden="true" style="position: absolute; inset: 0"><g fill="#F2F3F1" font-family="Onest, sans-serif" font-size="10" font-weight="600" text-anchor="middle"><sc-for list="{{ring}}" as="item" hint-placeholder-count="38"><text x="64" y="20" transform="{{item.tr}}">{{item.ch}}</text></sc-for></g></svg>
 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
@@ -749,7 +749,7 @@ class Component extends DCLogic {
     if (!this.cvRef) { this.cvRef = { current: null }; this.heroRef = { current: null }; this.visRef = { current: null }; this.txtRef = { current: null }; this.curRef = { current: null }; }
     const s = this.state || {};
     const step = s.step || 0;
-    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg?v=2", "shot_column": "img/shot_column.jpg?v=2", "shot_dining": "img/shot_dining.jpg?v=2", "kitchen_full": "img/kitchen_full.jpg?v=3", "kitchen_build": "img/kitchen_build.jpg?v=3"};
+    const A = {"nova_walnut": "img/nova_walnut.webp", "nova_white": "img/nova_white.webp", "nova_graphite": "img/nova_graphite.webp", "nova_side": "img/nova_side.webp", "loft": "img/loft.webp", "classic": "img/classic.webp", "skandi": "img/skandi.webp", "port": "img/port.webp", "liniya": "img/liniya.webp", "grid": "img/grid.webp", "flat": "img/flat.webp", "son": "img/son.webp", "student": "img/student.webp", "mini": "img/mini.webp", "shot_island": "img/shot_island.jpg?v=2", "shot_column": "img/shot_column.jpg?v=2", "shot_dining": "img/shot_dining.jpg?v=2", "kitchen_full": "img/kitchen_full.jpg?v=4", "kitchen_build": "img/kitchen_build.jpg?v=4"};
     const names = ['Пустая комната', 'Замер и проект', 'Производство', 'Сборка', 'Готово', 'До потолка'];
     const icons = ['M4 20h16M6 20V9l6-5 6 5v11', 'M3 17L17 3l4 4L7 21H3zM14 6l4 4M9 11l2 2M6 14l2 2', 'M3 21h18M5 21V10l5 3V10l5 3V7l4 2v12', 'M14.5 6.5l3 3M4 20l7.5-7.5M13 4l7 7-3 3-7-7z', 'M5 12.5l4.5 4.5L19 7.5', 'M12 21V7M7 12l5-5 5 5M4 3h16'];
     const fx = (i) => (i === step ? { o: 1, t: 'translateY(0)' } : { o: 0, t: i < step ? 'translateY(-24px)' : 'translateY(24px)' });
@@ -865,7 +865,7 @@ class Component extends DCLogic {
   // На телефоне (вертикальный экран) — отдельные вертикальные кадры: кухня видна целиком, а не только центр
   // на телефоне и узких экранах — облегчённые кадры 960×540 (быстрее грузятся, меньше памяти)
   heroSmall() { if (this.isS === undefined) this.isS = (window.innerWidth || 1600) <= 900; return this.isS; }
-  heroUrls() { const pre = this.heroSmall() ? 'frames3/m' : 'frames3/d'; const a = []; for (let i = 0; i < 151; i++) a.push(pre + String(i).padStart(3, '0') + '.webp'); return a; }
+  heroUrls() { const pre = this.heroSmall() ? 'frames3/m' : 'frames3/d'; const a = []; for (let i = 0; i < 151; i++) a.push(pre + String(i).padStart(3, '0') + '.webp?v=2'); return a; }
   startHero(cv) {
     // 121 настоящий кадр (каждый отрисован в 3D, без «додуманных» промежуточных)
     const urls = this.heroUrls();
@@ -972,7 +972,7 @@ class Component extends DCLogic {
         }
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         let w = Math.round(cv.clientWidth * dpr), h = Math.round(cv.clientHeight * dpr);
-        const capW = this.heroSmall() ? 1100 : 2000; if (w > capW) { h = Math.round(h * capW / w); w = capW; }
+        const capW = this.heroSmall() ? 1300 : 2200; if (w > capW) { h = Math.round(h * capW / w); w = capW; }
         if (w && h && (w !== cv.width || h !== cv.height)) { cv.width = w; cv.height = h; dirty = true; }
         const r = hero.getBoundingClientRect(), vh = window.innerHeight || 900;
         const visible = r.bottom > 0 && r.top < vh;
